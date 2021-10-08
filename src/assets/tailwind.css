@@ -5,15 +5,15 @@
 @tailwind utilities;
 
 body {
-	@apply font-ubanist bg-black;
+	@apply font-urbanist bg-black;
 }
 
 .inputInfo {
 	@apply text-xs tracking-wide uppercase;
 }
-w-input {
-	@apply shadow appearance-none border rounded w-full text-gray-700 leading-tight focus:outline-none;
-}
+/* w-input {
+	@apply shadow appearance-none border-black rounded w-full text-gray-700 leading-tight focus:outline-none;
+} */
 
 .formsBlock {
 	@apply space-y-2 md:grid md:grid-cols-4 md:space-y-0;

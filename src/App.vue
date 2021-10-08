@@ -1,8 +1,7 @@
 <template>
 	<w-app>
 		<div id="nav">
-			<!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
+    <router-link to="/about">About</router-link>
 			<div class="mx-auto bg-red-300">
 				<w-button bg-color="success">success</w-button>
 				<w-button bg-color="error">error</w-button>
@@ -39,4 +38,5 @@
 		}
 	}
 }
+
 </style>

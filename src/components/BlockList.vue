@@ -1,7 +1,7 @@
 <template>
 	<div class="p-5">
 		<div class="bg-black">
-			<div class="w-full grid grid-cols-5 space-x-4 lg:max-w-full lg:flex">
+			<div class="w-full grid grid-cols-5 space-x-4 md:w-3/6 lg:flex">
 				<img
 					src="../src/assets/TheTomorrowWar.jpg"
 					class="h-48 col-span-2 lg:h-auto lg:w-48 flex-none bg-cover rounded-md lg:rounded-t-none lg:rounded-l text-center overflow-hidden"

@@ -1,11 +1,11 @@
 <template>
 	<w-app>
 		<vueper-slides
-			:breakpoints="breakpoints"
+			ref="myVueperSlides"
 			fade
+			:breakpoints="breakpoints"
 			:touchable="true"
 			:parallax="parallax"
-			ref="myVueperSlides"
 			autoplay
 			@autoplay-pause="internalAutoPlaying = false"
 			@autoplay-resume="internalAutoPlaying = true"
@@ -18,14 +18,19 @@
 				:title="slide.title"
 				:content="slide.content"
 				:style="'text-align:' + 'left'"
-			>
-			</vueper-slide>
+			></vueper-slide>
 		</vueper-slides>
 	</w-app>
 </template>
 <style>
-	#slide{color:white ; text-align: left; font-size: 40px; vertical-align: text-bottom;}
-	/* .vueper-slide{} */
+#slide {
+	color: yellowgreen;
+	font-size: 100px;
+	font-weight: 900;
+	text-align: left;
+	
+}
+/* .vueper-slide{} */
 </style>
 
 <script>
@@ -56,16 +61,14 @@ export default {
 		},
 		slides: [
 			{
-				id: 'slide-1',
-				title: 'Jennie Kim, Korea', 
-				content: 'Photo by Max Rive',
+				title: 'Jennie Kim, Korea',
+				content: 'Member of Black Pink',
 				// You can also provide a URL for the image.
 				image: require('@/assets/AboutTime.jpg')
 			},
 			{
-				id: 'slide-2',
-				title: 'El Teide Volcano, Spain',
-				content: 'Photo by Max Rive',
+				title: 'Black widow',
+				content: 'Marvel studio',
 				// You can also provide a URL for the image.
 				image: require('@/assets/BlackWidow.jpg')
 			},

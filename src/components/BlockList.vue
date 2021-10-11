@@ -10,13 +10,6 @@
 					<p class="text-white font-medium text-base mt-2 mb-4 tracking-wide md:text-center md:mb-2">The Tomorrow War</p>
 					<p class="text-gray-400 text-sm tracking-wider mb-3  md:text-center md:mb-2">July 2, 2021</p>
 					<p class="text-gray-400 text-sm tracking-wider mb-1 md:text-center">Action/Sci-fi ‧ 2h13m</p>
-					<button>
-						<div
-							class="px-6 py-2 border border-gray-300 rounded-md text-center mt-4 text-xs text-gray-300 uppercase focus:bg-deepBlue focus:border-opacity-0 inline-flex space-x-1"
-						>
-							<p class>add to watchlist</p>
-						</div>
-					</button>
 					<!-- import component --"FavButton"-- in this Line -->
 				</div>
 				<hr class="w-80 mx-6 border border-gray-500 mb-3 md:hidden">

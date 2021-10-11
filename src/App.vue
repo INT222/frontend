@@ -22,11 +22,12 @@
 	<w-app>
 		<div class="bg-blackBlue">
 			<div class="md:mb-4">
-				<span class="md:font-medium md:text-6xl text-white">Love, Simon</span>
-			</div>
+					<span class="md:font-medium md:text-6xl text-white">Love, Simon</span>
+				</div>
 			<div
 				class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:w-screen"
 			>
+				
 				<div class="md:inline-flex md:col-span-6 md:space-x-4 md:mx-4">
 					<span class="md:text-white md:text-xl">July 2, 2021</span>
 					<span class="md:text-white md:text-xl">Action/Sci-fi ‧</span>
@@ -40,11 +41,12 @@
 					<w-icon xs color="grey">material-icons bookmark</w-icon>
 				</div>
 			</div>
-			<div class="h-2/5 overflow-hidden md:h-1/12 md:mb-6">
-				<div class="md:h-1/6">
-					<img id="image" class="transform scale-125 md:block" src="../src/assets/LoveSimon.jpg" />
+			<div class="h-2/5 md:mb-6">
+				<div class="md:bg-red-700 overflow-hidden">
+					<img class="transform scale-125 md:block md:object-none" src="../src/assets/TheMazeRunner.jpg" />
+					<!-- <img id="image" class="transform scale-125 md:block md:object-none" src="../src/assets/LoveSimon.jpg" /> -->
 				</div>
-				<!-- <img class="transform scale-125" src="../src/assets/Eternals.jpg" /> -->
+				<!-- <img class="transform scale-125 md:block md:object-none" src="../src/assets/Eternals.jpg" /> -->
 				<!-- <img class="transform scale-125" src="../src/assets/LaLaLand.jpg" /> -->
 				<!-- <img class="transform scale-125" src="../src/assets/TheMazeRunner.jpg" /> -->
 				<!-- <img class="transform scale-125" src="../src/assets/AboutTime.jpg"> -->
@@ -190,29 +192,11 @@ export default {
 
 
 <style lang="scss">
+div img {
+	// margin-top: -650px;
+}
 
-// #image {
-// 	height: 1000px;
-// }
-
-// #app {
-// 	font-family: Avenir, Helvetica, Arial, sans-serif;
-// 	-webkit-font-smoothing: antialiased;
-// 	-moz-osx-font-smoothing: grayscale;
-// 	text-align: center;
-// 	color: #2c3e50;
-// }
-
-// #nav {
-// 	padding: 30px;
-
-// 	a {
-// 		font-weight: bold;
-// 		color: #2c3e50;
-
-// 		&.router-link-exact-active {
-// 			color: #42b983;
-// 		}
-// 	}
-// }
+img {
+	height: 500px;
+}
 </style>

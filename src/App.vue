@@ -1,42 +1,77 @@
 <template>
 	<w-app>
-		<div id="nav">
-			<!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
-			<div class="mx-auto bg-red-300">
-				<w-button bg-color="success">success</w-button>
-				<w-button bg-color="error">error</w-button>
-				<w-button bg-color="warning">warning</w-button>
-				<w-button bg-color="info">info</w-button>
-				<w-button bg-color="primary">primary</w-button>
-				<w-button bg-color="secondary">secondary</w-button>
-				<w-button bg-color="purple-light4">purple-light4</w-button>
-				<w-icon color="primary">material-icons star</w-icon>
-			</div>
-		</div>
-		<router-view />
+		<vueper-slides
+			ref="myVueperSlides"
+			fade
+			:breakpoints="breakpoints"
+			:touchable="true"
+			autoplay
+			@autoplay-pause="internalAutoPlaying = false"
+			@autoplay-resume="internalAutoPlaying = true"
+		>
+			<vueper-slide
+			class="slideText"
+				v-for="(slide,i) in slides"
+				:key="i"
+				:image="slide.image"
+				:title="slide.title"
+				:content="slide.content"
+			></vueper-slide>
+		</vueper-slides>
 	</w-app>
 </template>
-
-<style lang="scss">
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-}
-
-#nav {
-	padding: 30px;
-
-	a {
-		font-weight: bold;
-		color: #2c3e50;
-
-		&.router-link-exact-active {
-			color: #42b983;
-		}
-	}
-}
+<style>
+ .slideText {
+	color: #7FFFD4;
+	font-size: 100px;
+	font-weight: 900;
+} 
+/* .vueper-slide__title {
+	font-size:100px;
+}  */
 </style>
+
+<script>
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
+
+export default {
+	components: { VueperSlides, VueperSlide },
+	data: () => ({
+		breakpoints: {
+			1200: {
+				slideRatio: 3 / 5
+			},
+			900: {
+				slideRatio: 1 / 2
+			},
+			600: {
+				slideRatio: 1 / 2,
+				arrows: false,
+				bulletsOutside: false
+			},
+			1500: {
+				slideRatio: 3 / 5
+			},
+			300: {
+				slideRatio: 1 / 2
+			}
+		},
+		slides: [
+			{
+				title: 'Jennie Kim, Korea',
+				content: 'Member of Black Pink',
+				// You can also provide a URL for the image.
+				image: require('@/assets/AboutTime.jpg')
+			},
+			{
+				title: 'Black widow',
+				content: 'Marvel studio',
+				// You can also provide a URL for the image.
+				image: require('@/assets/BlackWidow.jpg')
+			},
+		],
+		parallax: 1,
+	}),
+}
+</script>

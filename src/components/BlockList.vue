@@ -1,18 +1,27 @@
 <template>
-	<div class="p-5">
-		<div class="bg-black">
-			<div class="w-full grid grid-cols-5 space-x-4 md:w-3/6 lg:flex">
+	<div>
+		<div class="bg-purple-700 md:grid md:grid-cols-6">
+			<div class="w-full grid grid-cols-5 md:grid-cols-1">
 				<img
-					src="../src/assets/TheTomorrowWar.jpg"
-					class="h-48 col-span-2 lg:h-auto lg:w-48 flex-none bg-cover rounded-md lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+					src="../src/assets/BlackWidow.jpg"
+					class="h-48 col-span-2 flex-none bg-cover rounded-md md:rounded-l md:object-center md:h-60 md:mx-auto"
 				/>
-				<div class="col-span-3 mt-3 ml-10">
-					<p class="text-white font-medium text-base mt-2 mb-4">The Tomorrow War</p>
-					<p class="text-gray-400 text-sm tracking-wide mb-3">July 2, 2021</p>
-					<p class="text-gray-400 text-sm tracking-wide mb-1">Action/Sci-fi ‧ 2h13m</p>
-                    <!-- import component --"FavButton"-- in this Line -->
+				<div class="col-span-3 mt-3 mx-auto overflow-hidden mb-10 ">
+					<p class="text-white font-medium text-base mt-2 mb-4 tracking-wide md:text-center md:mb-2">The Tomorrow War</p>
+					<p class="text-gray-400 text-sm tracking-wider mb-3  md:text-center md:mb-2">July 2, 2021</p>
+					<p class="text-gray-400 text-sm tracking-wider mb-1 md:text-center">Action/Sci-fi ‧ 2h13m</p>
+					<button>
+						<div
+							class="px-6 py-2 border border-gray-300 rounded-md text-center mt-4 text-xs text-gray-300 uppercase focus:bg-deepBlue focus:border-opacity-0 inline-flex space-x-1"
+						>
+							<p class>add to watchlist</p>
+						</div>
+					</button>
+					<!-- import component --"FavButton"-- in this Line -->
 				</div>
+				<hr class="w-80 mx-6 border border-gray-500 mb-3 md:hidden">
 			</div>
+			
 		</div>
 	</div>
 </template>

@@ -1,16 +1,12 @@
 <template>
 	<w-app>
-		<div class="inline-flex mx-auto space-x-2">
-			<div class="w-full">
-				<img src="../src/assets/BlackWidow.jpg" class="h-44 rounded-md" />
-				<p class="text-center text-sm font-medium leading-none ">Black Widow with The Adventure</p>
-				<w-rating xs color="amber-light1" />
-			</div>
-			<div class="w-full">
-				<img src="../src/assets/BlackWidow.jpg" class="h-44 rounded-md" />
-			</div>
-			<div class="w-full">
-				<img src="../src/assets/BlackWidow.jpg" class="h-44 rounded-md" />
+		<div class="mx-auto">
+			<div class="w-32 md:w-44">
+				<img src="../src/assets/BlackWidow.jpg" class="h-44 rounded-md mx-auto mb-2 md:h-60" />
+				<p class="text-center text-sm font-medium leading-snug overflow-hidden uppercase mb-2">Black Widow</p>
+				<div class="mx-2 md:mx-9">
+					<w-rating md color="amber-light1"></w-rating>
+				</div>
 			</div>
 		</div>
 	</w-app>

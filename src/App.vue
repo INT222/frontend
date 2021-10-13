@@ -8,18 +8,22 @@
 			@autoplay-pause="internalAutoPlaying = false"
 			@autoplay-resume="internalAutoPlaying = true"
 		>
-			<vueper-slide
-				v-for="(slide, i) in slides"
-				:key="i"
-				:image="slide.image"
-				:title="slide.title"
-				:content="slide.content"
-			></vueper-slide>
+			<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
+				<template #content>
+					<div
+						class="vueperslide__content-wrapper"
+						style="flex-direction: column; color: white; margin-top: 10%; margin-right: 50%; "
+					>
+						<span>{{ slide.title }}</span>
+						<span>{{ slide.content }}</span>
+					</div>
+				</template>
+			</vueper-slide>
 		</vueper-slides>
 	</w-app>
 </template>
 <style>
-.vueperslide__title {
+/* .vueperslide__title {
 	color: white;
 	margin-top: 8em;
 	margin-right: 20em;
@@ -29,7 +33,11 @@
 	margin-right: 50em;
 	font-size: 25px;
 	color: greenyellow;
-}
+} */
+/* .vueperslide__content-wrapper {
+	color: white;
+	font-size: 10px;
+} */
 </style>
 
 <script>

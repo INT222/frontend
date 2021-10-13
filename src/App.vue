@@ -35,8 +35,9 @@
 	color: greenyellow;
 } */
 .slideText {
-	bottom: 2em;
+	bottom: 1em;
 	flex-direction: column;
+	justify-content: flex-start;
 	margin-left: 1rem;
 	/* margin-top: 10rem; */
 	position: absolute;

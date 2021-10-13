@@ -1,0 +1,9 @@
+networks:
+  default:
+    external:
+      name: int222-network
+services:
+  frontend-dev:
+    container_name: frontend-dev
+    build: .
+    image: int222-frontend:dev

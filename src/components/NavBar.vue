@@ -3,9 +3,11 @@
 		<div class="bg-blackBlue h-20">
 			<div class="grid grid-cols-10 my-7 md:my-6 w-screen md:grid md:grid-cols-8">
 				<div class="mx-4 md:hidden -mt-1">
+					<button>
 					<w-icon xs color="white">material-icons menu</w-icon>
+					</button>
 				</div>
-				<div class="ml-6 col-span-8 md:col-span-1 md:flex md:justify-center">
+				<div class="ml-6 col-span-8 md:col-span-1 md:flex md:justify-center tb:-ml-6">
 					<a href="#">
 						<img class="w-20 md:w-30" src="../src/assets/brm_logo.png" />
 					</a>
@@ -47,7 +49,6 @@
 					</div>
 				</div>
 			</div>
-			<router-view></router-view>
 		</div>
 	</w-app>
 </template>

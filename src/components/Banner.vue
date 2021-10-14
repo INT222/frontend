@@ -5,32 +5,44 @@
 			:breakpoints="breakpoints"
 			:touchable="true"
 			autoplay
-			@autoplay-pause="internalAutoPlaying = false"
 			@autoplay-resume="internalAutoPlaying = true"
 		>
-			<vueper-slide
-				v-for="(slide, i) in slides"
-				:key="i"
-				:image="slide.image"
-				:title="slide.title"
-				:content="slide.content"
-			></vueper-slide>
+			<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
+				<template #content>
+					<div class="slideText">
+						<span style="font-size: 4vw; display: block; margin-bottom: 0.1em; padding: 2px;">{{
+							slide.title
+						}}</span>
+						<span style="font-size: 2vw; opacity: 0.8; padding: 2px;">{{ slide.content }}</span>
+					</div>
+				</template>
+			</vueper-slide>
 		</vueper-slides>
 	</w-app>
 </template>
 <style>
-.vueperslide__title {
+/* .vueperslide__title {
 	color: white;
-	margin-top: 25%;
-	margin-left: -50%;
-	font-size: 6vw;
-}
-.vueperslide__content {
-	color:white;
-	opacity: 0.8;
-	margin-top:-1%;
-	margin-left: -50%;
-	font-size: 4vw;
+	margin-top: 8em;
+	margin-right: 20em;
+	font-size: 50px;
+}*/
+
+/* .vueperslide__content {
+	margin-right: 50em;
+	font-size: 25px;
+	color: greenyellow;
+} */
+.slideText {
+	bottom: 1em;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-left: 1rem;
+	/* margin-top: 10rem; */
+	position: absolute;
+	left: 16px;
+	color: white;
+	text-align: left;
 }
 </style>
 
@@ -65,6 +77,7 @@ export default {
 				image: require("@/assets/BlackWidow.jpg"),
 			},
 		],
+		parallax: 1,
 	}),
 };
 </script>

@@ -8,27 +8,42 @@
 			@autoplay-pause="internalAutoPlaying = false"
 			@autoplay-resume="internalAutoPlaying = true"
 		>
-			<vueper-slide
-				v-for="(slide, i) in slides"
-				:key="i"
-				:image="slide.image"
-				:title="slide.title"
-				:content="slide.content"
-			></vueper-slide>
+			<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
+				<template #content>
+					<div class="slideText">
+						<span style="font-size:5vw; background-color: black;display: block; margin-bottom: 0.1em; padding: 2px;">{{
+							slide.title
+						}}</span>
+						<span style="font-size:2vw;  background-color: black;padding: 2px; ">{{ slide.content }}</span>
+					</div>
+				</template>
+			</vueper-slide>
 		</vueper-slides>
 	</w-app>
 </template>
 <style>
-.vueperslide__title {
+/* .vueperslide__title {
 	color: white;
 	margin-top: 8em;
 	margin-right: 20em;
 	font-size: 50px;
-}
-.vueperslide__content {
+}*/
+
+/* .vueperslide__content {
 	margin-right: 50em;
 	font-size: 25px;
 	color: greenyellow;
+} */
+.slideText {
+	bottom: 1em;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-left: 1rem;
+	/* margin-top: 10rem; */
+	position: absolute;
+	left: 16px;
+	color: white;
+	text-align: left;
 }
 </style>
 
@@ -40,22 +55,37 @@ export default {
 	components: { VueperSlides, VueperSlide },
 	data: () => ({
 		breakpoints: {
+			// 1200: {
+			// 	slideRatio: 3 / 5,
+			// },
+			// 900: {
+			// 	slideRatio: 1 / 2,
+			// },
+			// 600: {
+			// 	slideRatio: 1 / 2,
+			// 	arrows: false,
+			// 	bulletsOutside: false,
+			// },
+			// 1500: {
+			// 	slideRatio: 3 / 5,
+			// },
+			// 300: {
+			// 	slideRatio: 1 / 2,
+			// },
 			1200: {
-				slideRatio: 3 / 5,
+				slideRatio: 1 / 5,
 			},
 			900: {
-				slideRatio: 1 / 2,
+				slideRatio: 1 / 3,
 			},
 			600: {
 				slideRatio: 1 / 2,
 				arrows: false,
-				bulletsOutside: false,
+				bulletsOutside: true,
 			},
-			1500: {
-				slideRatio: 3 / 5,
-			},
-			300: {
-				slideRatio: 1 / 2,
+			// The order you list breakpoints does not matter, Vueper Slides will sort them for you.
+			1100: {
+				slideRatio: 1 / 4,
 			},
 		},
 		slides: [

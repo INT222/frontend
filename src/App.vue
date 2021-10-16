@@ -1,42 +1,21 @@
 <template>
-	<w-app>
-		<div id="nav">
-			<!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
-			<div class="mx-auto bg-red-300">
-				<w-button bg-color="success">success</w-button>
-				<w-button bg-color="error">error</w-button>
-				<w-button bg-color="warning">warning</w-button>
-				<w-button bg-color="info">info</w-button>
-				<w-button bg-color="primary">primary</w-button>
-				<w-button bg-color="secondary">secondary</w-button>
-				<w-button bg-color="purple-light4">purple-light4</w-button>
-				<w-icon color="primary">material-icons star</w-icon>
+	<div>
+		<div class="">
+			<div class="w-full grid grid-cols-5 tb:grid-cols-1 md:grid-cols-1 my-3">
+				<img
+					src="../src/assets/BlackWidow.jpg"
+					class="h-48 col-span-2 flex-none bg-cover rounded-md tb:h-52 tb:rounded-md tb:mx-auto md:rounded-lg md:h-60 md:mx-auto"
+				/>
+				<div class="col-span-3 mt-3 mx-4 ">
+					<p class="text-white font-medium text-base mt-2 mb-4 tracking-wide tb:text-center tb:mb-2 md:text-center md:mb-2">The Tomorrow War</p>
+					<p class="text-gray-400 text-sm tracking-wider mb-3 tb:text-center tb:mb-2 md:text-center md:mb-2">July 2, 2021</p>
+					<p class="text-gray-400 text-sm tracking-wider mb-1 tb:text-center md:text-center">Action/Sci-fi ‧ 2h13m</p>
+					<!-- import component --"FavButton"-- in this Line -->
+					<!-- <FavButton></FavButton> -->
+				</div>
+				<hr class="w-80 mx-6 border border-gray-500 mb-3 mt-3 tb:hidden md:hidden">
 			</div>
+			
 		</div>
-		<router-view />
-	</w-app>
+	</div>
 </template>
-
-<style lang="scss">
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-}
-
-#nav {
-	padding: 30px;
-
-	a {
-		font-weight: bold;
-		color: #2c3e50;
-
-		&.router-link-exact-active {
-			color: #42b983;
-		}
-	}
-}
-</style>

@@ -1,42 +1,16 @@
 <template>
 	<w-app>
-		<div id="nav">
-			<!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
-			<div class="mx-auto bg-red-300">
-				<w-button bg-color="success">success</w-button>
-				<w-button bg-color="error">error</w-button>
-				<w-button bg-color="warning">warning</w-button>
-				<w-button bg-color="info">info</w-button>
-				<w-button bg-color="primary">primary</w-button>
-				<w-button bg-color="secondary">secondary</w-button>
-				<w-button bg-color="purple-light4">purple-light4</w-button>
-				<w-icon color="primary">material-icons star</w-icon>
+		<div class="bg-black">
+			<div class="inline-flex space-x-3 mb-1">
+				<p class="text-base mt-1 text-white font-medium md:text-lg">Rate this :</p>
+				<w-rating md color="amber-light1"></w-rating>
+			</div>
+			<div class="">
+				<textarea rows="6" class="mt-1 w-full bg-deepBrownGray rounded-md p-4 text-white mb-1 md:focus:ring-2 md:focus:ring-gray-400" placeholder="Write your comment here..."></textarea>
+				<div class="flex justify-end">
+					<input type="submit" class="bg-white text-gray-700 text-sm font-medium py-1 px-4 rounded tracking-wider uppercase mb-1 md:px-10 md:py-2 md:hover:bg-gray-500 md:hover:text-white " value="post">
+				</div>
 			</div>
 		</div>
-		<router-view />
 	</w-app>
 </template>
-
-<style lang="scss">
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-}
-
-#nav {
-	padding: 30px;
-
-	a {
-		font-weight: bold;
-		color: #2c3e50;
-
-		&.router-link-exact-active {
-			color: #42b983;
-		}
-	}
-}
-</style>

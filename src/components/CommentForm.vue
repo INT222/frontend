@@ -2,8 +2,8 @@
 	<w-app>
 		<div class="bg-black">
 			<div class="inline-flex space-x-3 mb-1">
-				<p class="text-base mt-1 text-white md:text-lg font-medium">Rate this :</p>
-				<w-rating color="amber-light1" xs></w-rating>
+				<p class="text-base mt-1 text-white font-medium md:text-lg">Rate this :</p>
+				<w-rating md color="amber-light1"></w-rating>
 			</div>
 			<div class="">
 				<textarea rows="6" class="mt-1 w-full bg-deepBrownGray rounded-md p-4 text-white mb-1 md:focus:ring-2 md:focus:ring-gray-400" placeholder="Write your comment here..."></textarea>

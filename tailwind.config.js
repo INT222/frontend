@@ -14,6 +14,10 @@ module.exports = {
 				urbanist: ["Urbanist", "sans-serif"],
 			},
 		},
+		screens: {
+			tb: '768px',
+			md: '1280px',
+		},
 	},
 	variants: {
 		extend: {},

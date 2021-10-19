@@ -40,7 +40,7 @@ export default {
 			showDrawer: false
 		}
 	},
-	computed: {
+	methods: {
 		position() {
 			return this.showDrawer || 'right'
 		}

@@ -15,9 +15,12 @@
 			</div>
 		</div>-->
 		<!-- <router-view /> -->
-		<div>
-			<w-button class="ma1" @click="showDrawer = 'left'" outline color="primary">Show left drawer</w-button>
-			<w-drawer :value="!!showDrawer" :[position]="true" @close="showDrawer = false">
+		<div class="block mx-auto my-auto">
+			<w-button @click="showDrawer = true" outline color="primary">
+				Click to pull div left side
+			</w-button>
+
+			<w-drawer v-model="showDrawer" left class="text-red-600 ">
 				<w-button
 					class="button--close"
 					@click="showDrawer = false"
@@ -27,7 +30,14 @@
 					absolute
 					color="primary"
 					icon="wi-cross"
-				></w-button>
+				>
+				</w-button>
+				<span class="bg-yellow-400 w-2/4">
+					Test inside drawer
+				</span>
+				<span class="bg-green-300 w-2/4">
+					Test inside drawer
+				</span>
 			</w-drawer>
 		</div>
 	</w-app>
@@ -37,17 +47,8 @@
 export default {
 	data() {
 		return {
-			showDrawer: false
-		}
+			showDrawer: false,
+		};
 	},
-	methods: {
-		position() {
-			return this.showDrawer || 'right'
-		}
-	}
-}
-
+};
 </script>
-
-<style lang="scss">
-</style>

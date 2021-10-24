@@ -5,16 +5,15 @@
 			:breakpoints="breakpoints"
 			:touchable="true"
 			autoplay
-			@autoplay-pause="internalAutoPlaying = false"
 			@autoplay-resume="internalAutoPlaying = true"
 		>
 			<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
 				<template #content>
 					<div class="slideText">
-						<span style="font-size:5vw; background-color: black;display: block; margin-bottom: 0.1em; padding: 2px;">{{
+						<span style="font-size: 4vw; display: block; margin-bottom: 0.1em; padding: 2px;">{{
 							slide.title
 						}}</span>
-						<span style="font-size:2vw;  background-color: black;padding: 2px; ">{{ slide.content }}</span>
+						<span style="font-size: 2vw; opacity: 0.8; padding: 2px;">{{ slide.content }}</span>
 					</div>
 				</template>
 			</vueper-slide>
@@ -55,37 +54,15 @@ export default {
 	components: { VueperSlides, VueperSlide },
 	data: () => ({
 		breakpoints: {
-			// 1200: {
-			// 	slideRatio: 3 / 5,
-			// },
-			// 900: {
-			// 	slideRatio: 1 / 2,
-			// },
-			// 600: {
-			// 	slideRatio: 1 / 2,
-			// 	arrows: false,
-			// 	bulletsOutside: false,
-			// },
-			// 1500: {
-			// 	slideRatio: 3 / 5,
-			// },
-			// 300: {
-			// 	slideRatio: 1 / 2,
-			// },
-			1200: {
-				slideRatio: 1 / 5,
-			},
-			900: {
-				slideRatio: 1 / 3,
-			},
 			600: {
 				slideRatio: 1 / 2,
 				arrows: false,
-				bulletsOutside: true,
 			},
-			// The order you list breakpoints does not matter, Vueper Slides will sort them for you.
-			1100: {
-				slideRatio: 1 / 4,
+			1400:{
+				slideRatio: 2 / 5,
+			},
+			1500: {
+				slideRatio: 3 / 5,
 			},
 		},
 		slides: [

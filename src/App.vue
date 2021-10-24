@@ -1,106 +1,26 @@
 <template>
-	<w-app>
-		<vueper-slides
-			fade
-			:breakpoints="breakpoints"
-			:touchable="true"
-			autoplay
-			@autoplay-pause="internalAutoPlaying = false"
-			@autoplay-resume="internalAutoPlaying = true"
-		>
-			<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
-				<template #content>
-					<div class="slideText">
-						<span style="font-size:5vw; background-color: black;display: block; margin-bottom: 0.1em; padding: 2px;">{{
-							slide.title
-						}}</span>
-						<span style="font-size:2vw;  background-color: black;padding: 2px; ">{{ slide.content }}</span>
-					</div>
-				</template>
-			</vueper-slide>
-		</vueper-slides>
-	</w-app>
+	<div>
+		<div class="">
+			<div class="w-full grid grid-cols-5 tb:grid-cols-1 md:grid-cols-1 my-3">
+				<img
+					src="../src/assets/BlackWidow.jpg"
+					class="h-48 col-span-2 flex-none bg-cover rounded-md tb:h-52 tb:rounded-md tb:mx-auto md:rounded-lg md:h-60 md:mx-auto"
+				/>
+				<div class="col-span-3 mt-3 mx-4 ">
+					<p
+						class="text-white font-medium text-base mt-2 mb-4 tracking-wide tb:text-center tb:mb-2 md:text-center md:mb-2"
+					>
+						The Tomorrow War
+					</p>
+					<p class="text-gray-400 text-sm tracking-wider mb-3 tb:text-center tb:mb-2 md:text-center md:mb-2">
+						July 2, 2021
+					</p>
+					<p class="text-gray-400 text-sm tracking-wider mb-1 tb:text-center md:text-center">Action/Sci-fi ‧ 2h13m</p>
+					<!-- import component --"FavButton"-- in this Line -->
+					<!-- <FavButton></FavButton> -->
+				</div>
+				<hr class="w-80 mx-6 border border-gray-500 mb-3 mt-3 tb:hidden md:hidden" />
+			</div>
+		</div>
+	</div>
 </template>
-<style>
-/* .vueperslide__title {
-	color: white;
-	margin-top: 8em;
-	margin-right: 20em;
-	font-size: 50px;
-}*/
-
-/* .vueperslide__content {
-	margin-right: 50em;
-	font-size: 25px;
-	color: greenyellow;
-} */
-.slideText {
-	bottom: 1em;
-	flex-direction: column;
-	justify-content: flex-start;
-	margin-left: 1rem;
-	/* margin-top: 10rem; */
-	position: absolute;
-	left: 16px;
-	color: white;
-	text-align: left;
-}
-</style>
-
-<script>
-import { VueperSlides, VueperSlide } from "vueperslides";
-import "vueperslides/dist/vueperslides.css";
-
-export default {
-	components: { VueperSlides, VueperSlide },
-	data: () => ({
-		breakpoints: {
-			// 1200: {
-			// 	slideRatio: 3 / 5,
-			// },
-			// 900: {
-			// 	slideRatio: 1 / 2,
-			// },
-			// 600: {
-			// 	slideRatio: 1 / 2,
-			// 	arrows: false,
-			// 	bulletsOutside: false,
-			// },
-			// 1500: {
-			// 	slideRatio: 3 / 5,
-			// },
-			// 300: {
-			// 	slideRatio: 1 / 2,
-			// },
-			1200: {
-				slideRatio: 1 / 5,
-			},
-			900: {
-				slideRatio: 1 / 3,
-			},
-			600: {
-				slideRatio: 1 / 2,
-				arrows: false,
-				bulletsOutside: true,
-			},
-			// The order you list breakpoints does not matter, Vueper Slides will sort them for you.
-			1100: {
-				slideRatio: 1 / 4,
-			},
-		},
-		slides: [
-			{
-				title: "Jennie Kim, Korea",
-				content: "Member of Black Pink",
-				image: require("@/assets/Dune.jpg"),
-			},
-			{
-				title: "Black widow",
-				content: "Marvel studio",
-				image: require("@/assets/BlackWidow.jpg"),
-			},
-		],
-		parallax: 1,
-	}),
-};
-</script>

@@ -16,6 +16,9 @@ module.exports = {
 			tb: "768px",
 			md: "1280px",
 		},
+		fontFamily: {
+			urbanist: ["Urbanist", "sans-serif"],
+		},
 	},
 	variants: {
 		extend: {},

@@ -7,7 +7,10 @@
 body {
 	@apply font-urbanist bg-black;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/components
 }
 
 .inputInfo {
@@ -28,5 +31,9 @@ body {
 }
 .formsInput2 {
 	@apply w-full px-3 py-3 text-xs leading-tight text-white border border-gray-400 rounded-lg bg-white bg-opacity-10 focus:ring-2 focus:ring-deepBlue md:col-span-2;
+<<<<<<< HEAD
 >>>>>>> origin/NavBar
 }
+=======
+}
+>>>>>>> origin/components

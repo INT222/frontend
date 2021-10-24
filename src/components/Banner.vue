@@ -1,24 +1,20 @@
 <template>
-	<w-app>
-		<vueper-slides
-			fade
-			:breakpoints="breakpoints"
-			:touchable="true"
-			autoplay
-			@autoplay-resume="internalAutoPlaying = true"
-		>
-			<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
-				<template #content>
-					<div class="slideText">
-						<span style="font-size: 4vw; display: block; margin-bottom: 0.1em; padding: 2px;">{{
-							slide.title
-						}}</span>
-						<span style="font-size: 2vw; opacity: 0.8; padding: 2px;">{{ slide.content }}</span>
-					</div>
-				</template>
-			</vueper-slide>
-		</vueper-slides>
-	</w-app>
+	<vueper-slides
+		fade
+		:breakpoints="breakpoints"
+		:touchable="true"
+		autoplay
+		@autoplay-resume="internalAutoPlaying = true"
+	>
+		<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
+			<template #content>
+				<div class="slideText">
+					<span style="font-size: 4vw; display: block; margin-bottom: 0.1em; padding: 2px;">{{ slide.title }}</span>
+					<span style="font-size: 2vw; opacity: 0.8; padding: 2px;">{{ slide.content }}</span>
+				</div>
+			</template>
+		</vueper-slide>
+	</vueper-slides>
 </template>
 <style>
 /* .vueperslide__title {
@@ -58,7 +54,7 @@ export default {
 				slideRatio: 1 / 2,
 				arrows: false,
 			},
-			1400:{
+			1400: {
 				slideRatio: 2 / 5,
 			},
 			1500: {

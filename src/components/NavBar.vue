@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-blackBlue h-16">
+	<div class="bg-blackBlue h-14">
 		<div class="grid grid-cols-10 my-7 md:my-6 w-screen md:grid md:grid-cols-8">
 			<div class="mx-4 md:hidden -mt-1">
 				<button>
@@ -11,7 +11,7 @@
 					<img class="w-20 md:w-30" src="../assets/brm_logo.png" />
 				</router-link>
 			</div>
-			<div class="hidden md:grid md:grid-cols-3 md:col-span-2">
+			<div class="hidden md:grid md:grid-cols-3 md:col-span-3">
 				<div class="md:flex md:justify-start">
 					<router-link to="/watchlist"><button class="uppercase text-xs text-white">watch list</button></router-link>
 				</div>
@@ -24,7 +24,7 @@
 					<router-link to="/managemovie"><button class="uppercase text-xs text-white">manage movie</button></router-link>
 				</div>
 			</div>
-			<div class="mx-4 md:col-span-3 flex justify-self-end -mt-1 md:mt-0">
+			<div class="mx-4 md:col-span-2 flex justify-self-end -mt-1 md:mt-0">
 				<w-icon xl color="white">material-icons search</w-icon>
 			</div>
 			<div class="hidden md:col-span-2 md:mx-auto md:inline-flex md:space-x-6">

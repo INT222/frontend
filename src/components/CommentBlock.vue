@@ -1,5 +1,5 @@
 <template>
-    <div class="text-white md:grid md:grid-col-4 mx-9">
+    <div class="text-white md:grid md:grid-col-4 md:px-7">
         <div class="mb-6">
             <p class="text-base mt-1 text-white font-medium md:text-lg uppercase">rates and comments</p>
         </div>
@@ -13,7 +13,7 @@
                             <p class="text-gray-500 mx-4 text-sm md:my-2 tracking-widest">07/03/2021</p>
                         </div>
                         <div>
-                            <w-rating class="-mt-1" sm bg-color="light-green" color="yellow"></w-rating>
+                            <w-rating class="-mt-1" sm color="yellow" readonly></w-rating>
                         </div>
                     </div>
                 </div>

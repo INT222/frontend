@@ -1,5 +1,5 @@
 <template>
-	<div class="mx-9">
+	<div class="md:px-7">
 		<div class="inline-flex space-x-3 mb-1">
 			<p class="text-base mt-1 text-white font-medium md:text-lg">Rate this :</p>
 			<w-rating md color="amber-light1"></w-rating>

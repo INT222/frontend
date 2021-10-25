@@ -1,5 +1,5 @@
 <template>
-	<div class="w-1/2 relative inline-block md:-mx-4">
+	<div class="w-1/2 absolute inline-block md:-mx-4">
 		<w-button
 			bg-color="transparent"
 			class="px-5 py-2 space-x-2 md:space-x-0 uppercase"
@@ -16,18 +16,18 @@
 				<w-icon md color="white" v-if="showDropDown">material-icons expand_less</w-icon>
 			</div>
 		</w-button>
-		<div class="absolute mt-2 md:w-1/5" v-if="showDropDown">
-			<div class="text-white text-sm uppercase font-medium bg-blackBlue">
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">action</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">adventure</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">comedy</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">drama</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">fantacy</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">horror</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">mystery</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">romance</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">sci-fi</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-12">thriller</a>
+		<div class="absolute mt-2 md:w-28" v-if="showDropDown">
+			<div class="text-white text-xs uppercase font-medium bg-blackBlue">
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">action</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">adventure</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">comedy</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">drama</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">fantacy</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">horror</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">mystery</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">romance</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">sci-fi</a>
+				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">thriller</a>
 			</div>
 		</div>
 

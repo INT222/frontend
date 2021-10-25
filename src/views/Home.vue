@@ -1,20 +1,21 @@
 <template>
-  <div class="space-y-4">
+  <div class="md:space-y-11 space-y-6">
     <banner />
-    <div class="mx-4">
+    <div class="md:mx-4 md:space-y-11 space-y-6">
     <div>
-      <p style="font-size: 5vw;" class="text-white uppercase ">popular in this month</p>
-    </div>
-    <router-link to="/content"><slide-list-block class="mt-4" /></router-link>
-    <div>
-      <p style="font-size: 5vw;" class="text-white uppercase">coming soon movie</p>
-    </div>
-    <block-list />
-    <div>
-      <p style="font-size: 5vw;" class="text-white uppercase">explore more</p>
+      <p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">popular in this month</p>
+      <router-link to="/content"><slide-list-block class="md:mt-6 mt-3" /></router-link>
     </div>
     <div>
-    <explore-list-block />
+      <p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">coming soon movie</p>
+       <block-list class="md:mt-6 mt-3" />
+    </div>
+    <div>
+      <p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">explore more</p>
+      <explore-list-block class="md:mt-6 mt-3" />
+    </div>
+    <div>
+    
     </div>
     </div>
   </div>

@@ -1,33 +1,33 @@
 <template>
 	<w-app>
-		<div class="bg-blackBlue w-screen space-y-10">
+		<div class="bg-blackBlue w-screen space-y-10 md:px-7">
 			<div class="md:mx-9">
 				<div class="md:mb-4">
 					<span class="hidden md:block md:font-medium md:text-6xl text-white">Love, Simon</span>
 				</div>
-				<div class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8">
-					<div class="md:inline-flex md:col-span-5 md:space-x-4 md:mx-4">
+				<div class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:px-6">
+					<div class="md:inline-flex md:col-span-5 md:space-x-4">
 						<span class="md:text-white md:text-xl">July 2, 2021</span>
 						<span class="md:text-white md:text-xl">Action/Sci-fi ‧</span>
 						<span class="md:text-white md:text-xl">2.20 hours</span>
 					</div>
-					<div class="md:inline-flex md:justify-end md:space-x-3">
+					<div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-2">
 						<w-icon lg color="yellow">material-icons star</w-icon>
 						<span class="md:text-white md:text-xl md:font-bold">4.3</span>
 					</div>
-					<div class="md:flex md:justify-end md:mt-2 md:-mx-8">
+					<div class="md:flex md:justify-start md:mt-2 md:mx-5">
 						<bookmark-button></bookmark-button>
 					</div>
 				</div>
 				<div class="md:mb-6">
-					<div class="overflow-hidden md:inline-flex md:space-x-12">
+					<div class="overflow-hidden tb:inline-flex md:inline-flex md:space-x-12 tb:space-x-20">
 						<img
 							id="poster"
 							class="transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
 							src="../assets/Eternals.jpg"
 						/>
 						<iframe
-							class="hidden md:block"
+							class="hidden md:block tb:block"
 							width="950"
 							height="521"
 							src="https://www.youtube.com/embed/tgbNymZ7vqY/"
@@ -52,7 +52,7 @@
 					<button
 						v-for="item in items"
 						:key="item.message"
-						class="px-4 py-2 m-2 text-white flex justify-center"
+						class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center "
 						:class="{
 							'text-deepBlue border-t-2 border-deepBlue': item.message === reason,
 						}"

@@ -2,7 +2,7 @@
 	<div>
 		<!--Box 1-->
 		<div class="rounded-md overflow-hidden shadow-lg">
-			<img class="w-full h-48 border-2 border-b-0 border-gray-400 object-cover" src="../src/assets/BlackWidow.jpg" />
+			<img class="w-full h-48 border-2 border-b-0 border-gray-400 object-cover" src="../assets/Eternals.jpg">
 			<div class="px-6 py-4 bg-gray-700">
 				<div class="font-bold text-xl mb-2 text-white">Lorem</div>
 				<p class="h-24 text-white text-base overflow-hidden">

@@ -3,11 +3,9 @@
 			<div
 				class="bg-white border h-auto py-4 pb-10 rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10"
 			>
-				<!-- <div class="mx-6 mt-4"> -->
-				<!-- <button class="inline-flex"> -->
-				<div class="inline-flex ">
+				<div class="inline-flex">
 				<BackButton></BackButton>
-				<p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p>
+				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
 				</div>	
 				<!-- <p class="ml-4 text-xs leading-loose uppercase mt-1">back to home</p> -->
 				<!-- </button> -->
@@ -56,7 +54,9 @@
 					</w-form>
 				</div>
 				<div class="flex justify-end mx-6 mt-5">
+					<router-link to="/signin">
 					<button class="underline font-semibold text-xs tracking-wide">Already have an account?</button>
+					</router-link>
 				</div>
 				<div class="flex justify-center mt-10 mx-6">
 					<button
@@ -72,7 +72,7 @@
 
 <script>
 import BackButton from "@/components/BackButton.vue";
-import UserDataService from "./services/UserDataService";
+// import UserDataService from "./services/UserDataService";
 
 export default {
 	components: {
@@ -94,25 +94,25 @@ export default {
 		};
 	},
 	methods: {
-		submitForm() {
-			if (!this.checkIfValid()) {
-				var data = {
-					username: this.user.username,
-					password: this.user.password,
-					firstname: this.user.firstname,
-					lastname: this.user.lastname,
-				};
-				UserDataService.create(data)
-					.then((response) => {
-						// this.user.id = response.data.id;
-						console.log(response.data);
-						this.submitted = true;
-					})
-					.catch((error) => {
-						console.error(error.response.data);
-					});
-			}
-		},
+		// submitForm() {
+			// if (!this.checkIfValid()) {
+			// 	var data = {
+			// 		username: this.user.username,
+			// 		password: this.user.password,
+			// 		firstname: this.user.firstname,
+			// 		lastname: this.user.lastname,
+			// 	};
+				// UserDataService.create(data)
+				// 	.then((response) => {
+				// 		// this.user.id = response.data.id;
+				// 		console.log(response.data);
+				// 		this.submitted = true;
+				// 	})
+				// 	.catch((error) => {
+				// 		console.error(error.response.data);
+				// 	});
+		// 	}
+		// },
 		newUser() {
 			this.submitted = false;
 			this.user = {};

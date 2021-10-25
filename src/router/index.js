@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-// import Signup from "../views/Signup.vue";
+import Content from "../views/Content.vue";
+import Signin from "../views//Signin.vue";
+import Signup from "../views/Signup.vue";
+import WatchList from "../views/WatchList.vue";
+import Genre from "../views/Genre.vue";
+import ManageMovie from "../views/ManageMovie.vue";
 
 const routes = [
 	{
@@ -16,11 +21,36 @@ const routes = [
 		// which is lazy-loaded when the route is visited.
 		component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
 	},
-	// {
-	// 	path: "/signup",
-	// 	name: "Signup",
-	// 	component: Signup,
-	// },
+	{
+		path: "/content",
+		name: "Content",
+		component: Content,
+	},
+	{
+		path: "/signin",
+		name: "Signin",
+		component: Signin,
+	},
+	{
+		path: "/signup",
+		name: "Signup",
+		component: Signup,
+	},
+	{
+		path: "/watchlist",
+		name: "WatchList",
+		component: WatchList
+	},
+	{
+		path: "/genre",
+		name: "Genre",
+		component: Genre
+	},
+	{
+		path: "/managemovie",
+		name: "ManageMovie",
+		component: ManageMovie
+	}
 ];
 
 const router = createRouter({

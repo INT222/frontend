@@ -5,12 +5,13 @@
 		:touchable="true"
 		autoplay
 		@autoplay-resume="internalAutoPlaying = true"
+		:bullets="false"
 	>
 		<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
 			<template #content>
 				<div class="slideText">
-					<span style="font-size: 4vw; display: block; margin-bottom: 0.1em; padding: 2px;">{{ slide.title }}</span>
-					<span style="font-size: 2vw; opacity: 0.8; padding: 2px;">{{ slide.content }}</span>
+					<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px;">{{ slide.title }}</span>
+					<span style="font-size: 4vw; opacity: 0.8; padding: 2px;">{{ slide.content }}</span>
 				</div>
 			</template>
 		</vueper-slide>
@@ -47,6 +48,7 @@ import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 
 export default {
+	name: "Banner",
 	components: { VueperSlides, VueperSlide },
 	data: () => ({
 		breakpoints: {
@@ -65,12 +67,21 @@ export default {
 			{
 				title: "Jennie Kim, Korea",
 				content: "Member of Black Pink",
-				image: require("@/assets/Dune.jpg"),
+				image: require("@/assets/Eternals.jpg"),
 			},
 			{
 				title: "Black widow",
 				content: "Marvel studio",
 				image: require("@/assets/BlackWidow.jpg"),
+			},
+			{
+				title: "Black widow",
+				content: "Marvel studio",
+				image: require("@/assets/LoveSimon.jpg"),
+			},{
+				title: "Black widow",
+				content: "Marvel studio",
+				image: require("@/assets/LaLaLand.jpg"),
 			},
 		],
 		parallax: 1,

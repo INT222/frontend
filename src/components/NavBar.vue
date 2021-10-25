@@ -16,8 +16,9 @@
 					<router-link to="/watchlist"><button class="uppercase text-xs text-white">watch list</button></router-link>
 				</div>
 				<div class="md:flex md:justify-start">
-					<router-link to="/genre"><button class="uppercase text-xs text-white">genres</button></router-link>
-					<w-icon size="16" color="white" class="ml-2">material-icons expand_more</w-icon>
+					<!-- <router-link to="/genre"><button class="uppercase text-xs text-white">genres</button></router-link> -->
+					<!-- <w-icon size="16" color="white" class="ml-2">material-icons expand_more</w-icon> -->
+					<genre-list-block />
 				</div>
 				<div class="md:flex md:justify-start">
 					<router-link to="/managemovie"><button class="uppercase text-xs text-white">manage movie</button></router-link>
@@ -54,6 +55,15 @@
 		</div>
 	</div>
 </template>
+
+<script>
+import GenreListBlock from './GenreListBlock.vue'
+export default {
+	components: {
+		'genre-list-block': GenreListBlock
+	}
+}
+</script>
 
 <style lang="scss">
 #signup {

@@ -1,8 +1,8 @@
 <template>
-	<div class="w-1/2 relative inline-block">
+	<div class="w-1/2 relative inline-block md:-mx-4">
 		<w-button
-			bg-color="#20232a"
-			class="px-5 py-2 space-x-2 uppercase"
+			bg-color="transparent"
+			class="px-5 py-2 space-x-2 md:space-x-0 uppercase"
 			@click="showDropDown = !showDropDown"
 			color="white"
 		>
@@ -10,10 +10,10 @@
 				<w-icon color="white" :size="30">material-icons theaters</w-icon>
 			</div>
 
-			<p class="text-sm font-medium px-2">genres</p>
-			<div class="pl-5 md:pl-4">
-				<w-icon color="white" v-if="showDropDown == false">material-icons expand_more</w-icon>
-				<w-icon color="white" v-if="showDropDown">material-icons expand_less</w-icon>
+			<p class="text-xs font-medium px-2">genres</p>
+			<div class="pl-5 md:pl-0">
+				<w-icon md color="white" v-if="showDropDown == false">material-icons expand_more</w-icon>
+				<w-icon md color="white" v-if="showDropDown">material-icons expand_less</w-icon>
 			</div>
 		</w-button>
 		<div class="absolute mt-2 md:w-1/5" v-if="showDropDown">

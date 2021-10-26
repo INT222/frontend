@@ -4,7 +4,7 @@
 			<p class="text-base mt-1 text-white font-medium md:text-lg">Rate this :</p>
 			<w-rating md color="amber-light1"></w-rating>
 		</div>
-		<div class="">
+		<div class="my-2 md:my-4">
 			<textarea
 				rows="6"
 				class="mt-1 w-full bg-deepBrownGray rounded-md p-4 text-white mb-1 md:focus:ring-2 md:focus:ring-gray-400"

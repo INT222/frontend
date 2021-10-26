@@ -1,6 +1,9 @@
 <template>
-    <div class="">
+    <div class>
         <genre-list-block></genre-list-block>
+        <div>
+            <input class="px-1o">
+        </div>
     </div>
 </template>
 

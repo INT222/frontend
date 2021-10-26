@@ -17,17 +17,17 @@
 			</div>
 		</w-button>
 		<div class="absolute mt-2 md:w-28" v-if="showDropDown">
-			<div class="text-white text-xs uppercase font-medium bg-blackBlue">
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">action</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">adventure</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">comedy</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">drama</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">fantacy</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">horror</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">mystery</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">romance</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">sci-fi</a>
-				<a href="#" class="block hover:bg-gray-600 pl-20 pr-4 py-2 md:pl-6">thriller</a>
+			<div class="text-white text-xs uppercase font-medium">
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pl-20 pr-4 py-2 md:pl-6">action</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">adventure</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">comedy</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">drama</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">fantacy</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">horror</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">mystery</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">romance</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">sci-fi</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pl-20 pr-4 py-2 md:pl-6">thriller</a>
 			</div>
 		</div>
 

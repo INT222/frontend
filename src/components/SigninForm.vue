@@ -1,6 +1,6 @@
 <template>
 	<div id="nav" class="bg-blackBlue w-screen">
-		<div class="bg-white border h-96 rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:h-96 md:mt-10">
+		<div class="bg-white border h-96 rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto">
 			<div class="inline-flex">
 				<BackButton></BackButton>
 				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
@@ -33,7 +33,7 @@
 				<button class="underline font-semibold text-xs">Create an account</button>
 				</router-link>
 			</div>
-			<div class="flex justify-center mt-10 mx-6">
+			<div class="flex justify-center mt-10 mx-6 mb-10">
 				<button class="rounded-full bg-blackBlue text-white w-screen h-12 text-sm uppercase">log in</button>
 			</div>
 		</div>
@@ -51,6 +51,8 @@ input[type="text"] {
 
 <script>
 import BackButton from "@/components/BackButton.vue";
+// import UserDataService from "@/services/UserDataService";
+
 export default {
 	components: {
 		BackButton,
@@ -63,14 +65,14 @@ export default {
 		};
 	},
 
-	// methods: {
-	// 	onSuccess() {
-	// 		setTimeout(() => (this.form.sent = true), 2000)
-	// 	},
-	// 	onValidate() {
-	// 		this.form.sent = false
-	// 		this.form.submitted = this.form.errorsCount === 0
-	// 	}
-	// }
+	methods: {
+		onSuccess() {
+			setTimeout(() => (this.form.sent = true), 2000)
+		},
+		onValidate() {
+			this.form.sent = false
+			this.form.submitted = this.form.errorsCount === 0
+		}
+	}
 };
 </script>

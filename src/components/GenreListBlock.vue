@@ -7,10 +7,10 @@
 			color="white"
 		>
 			<div class=" md:hidden">
-				<w-icon color="white" :size="30">material-icons theaters</w-icon>
+				<w-icon color="grey" :size="30">material-icons theaters</w-icon>
 			</div>
 
-			<p class="text-xs font-medium px-2">genres</p>
+			<p class="text-sm font-medium px-2">genres</p>
 			<div class="pl-5 md:pl-0">
 				<w-icon md color="white" v-if="showDropDown == false">material-icons expand_more</w-icon>
 				<w-icon md color="white" v-if="showDropDown">material-icons expand_less</w-icon>
@@ -18,7 +18,7 @@
 		</w-button>
 		<div class="absolute mt-2 md:w-28" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
-				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pl-20 pr-4 py-2 md:pl-6">action</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">action</a>
 				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">adventure</a>
 				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">comedy</a>
 				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">drama</a>
@@ -27,7 +27,7 @@
 				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">mystery</a>
 				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">romance</a>
 				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">sci-fi</a>
-				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pl-20 pr-4 py-2 md:pl-6">thriller</a>
+				<a href="#" class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">thriller</a>
 			</div>
 		</div>
 

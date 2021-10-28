@@ -52,7 +52,7 @@
 					<button
 						v-for="item in items"
 						:key="item.message"
-						class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center "
+						class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center"
 						:class="{
 							'text-deepBlue border-t-2 border-deepBlue': item.message === reason,
 						}"

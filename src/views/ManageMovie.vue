@@ -1,17 +1,13 @@
 <template>
-    <div class>
-        <genre-list-block></genre-list-block>
-        <div>
-            <input class="px-1o">
-        </div>
-    </div>
+    <drawer></drawer>
 </template>
 
 <script>
-import GenreListBlock from '../components/GenreListBlock.vue'
+import Drawer from '../components/Drawer.vue'
+
 export default {
     components: {
-        'genre-list-block': GenreListBlock
+        'drawer': Drawer
     }
 }
 </script>

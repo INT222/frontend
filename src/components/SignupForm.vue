@@ -72,7 +72,7 @@
 
 <script>
 import BackButton from "@/components/BackButton.vue";
-// import UserDataService from "./services/UserDataService";
+import UserDataService from "@/services/UserDataService.js";
 
 export default {
 	components: {
@@ -94,25 +94,25 @@ export default {
 		};
 	},
 	methods: {
-		// submitForm() {
-			// if (!this.checkIfValid()) {
-			// 	var data = {
-			// 		username: this.user.username,
-			// 		password: this.user.password,
-			// 		firstname: this.user.firstname,
-			// 		lastname: this.user.lastname,
-			// 	};
-				// UserDataService.create(data)
-				// 	.then((response) => {
-				// 		// this.user.id = response.data.id;
-				// 		console.log(response.data);
-				// 		this.submitted = true;
-				// 	})
-				// 	.catch((error) => {
-				// 		console.error(error.response.data);
-				// 	});
-		// 	}
-		// },
+		submitForm() {
+			if (!this.checkIfValid()) {
+				var data = {
+					username: this.user.username,
+					password: this.user.password,
+					firstname: this.user.firstname,
+					lastname: this.user.lastname,
+				};
+				UserDataService.create(data)
+					.then((response) => {
+						// this.user.id = response.data.id;
+						console.log(response.data);
+						this.submitted = true;
+					})
+					.catch((error) => {
+						console.error(error.response.data);
+					});
+			}
+		},
 		newUser() {
 			this.submitted = false;
 			this.user = {};

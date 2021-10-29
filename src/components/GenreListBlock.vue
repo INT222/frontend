@@ -1,5 +1,5 @@
 <template>
-	<div class="w-1/2 absolute inline-block md:-mx-4">
+	<div class="-ml-2 w-1/2 absolute inline-block md:-mx-4">
 		<w-button
 			bg-color="transparent"
 			class="px-5 py-2 uppercase"

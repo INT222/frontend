@@ -26,22 +26,22 @@
                     <div>
                         <button class="text-sm text-white uppercase">sign up</button>
                     </div>
-                    <w-divider color="grey" />
-                    <div class="space-x-3">
+                    <w-divider class="w-32" color="grey" />
+                    <div class="-ml-1">
                         <router-link to="/watchlist">
-                        <w-icon class="-mt-1" :size="30" color="grey">material-icons bookmark</w-icon>
+                        <w-icon :size="30" color="grey">material-icons bookmark</w-icon>
                         <button class="text-sm text-white uppercase">watch list</button>
                         </router-link>
                     </div>
-                    <div class="-ml-3">
+                    <div class="-ml-1">
                         <genre-list-block></genre-list-block>
                         <!-- <button class="text-white uppercase">sign in</button> -->
                     </div>
-                    <div class="absolute top-3/4">
+                    <div class="absolute top-3/4 w-32">
                         <w-divider class="mt-14" width="50" color="grey" />
                         <div class="mt-6 -ml-2 space-x-2">
                             <router-link to="/managemovie">
-                            <w-icon :size="30" color="grey">material-icons bookmark</w-icon>
+                            <w-icon class="-mt-2" :size="30" color="grey">material-icons create</w-icon>
                             <button class="text-sm text-white uppercase">manage movie</button>
                             </router-link>
                         </div>

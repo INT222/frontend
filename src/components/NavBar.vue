@@ -1,10 +1,8 @@
 <template>
 	<div class="bg-blackBlue h-14">
-		<div class="grid grid-cols-10 my-7 md:my-6 w-screen md:grid md:grid-cols-8">
-			<div class="mx-4 md:hidden -mt-1">
-				<button>
-					<w-icon xl color="white">material-icons menu</w-icon>
-				</button>
+		<div class="mx-4 grid grid-cols-10 my-7 md:my-6 w-screen md:grid md:grid-cols-8">
+			<div class="md:hidden">
+			<drawer />
 			</div>
 			<div class="ml-6 col-span-8 md:col-span-1 md:flex md:justify-center tb:-ml-6">
 				<router-link to="/">
@@ -13,7 +11,9 @@
 			</div>
 			<div class="hidden md:grid md:grid-cols-3 md:col-span-3">
 				<div class="md:flex md:justify-start">
-					<router-link to="/watchlist"><button class="uppercase text-xs text-white">watch list</button></router-link>
+					<router-link to="/watchlist">
+						<button class="uppercase text-xs text-white">watch list</button>
+					</router-link>
 				</div>
 				<div class="md:flex md:justify-start">
 					<!-- <router-link to="/genre"><button class="uppercase text-xs text-white">genres</button></router-link> -->
@@ -21,7 +21,9 @@
 					<genre-list-block />
 				</div>
 				<div class="md:flex md:justify-start">
-					<router-link to="/managemovie"><button class="uppercase text-xs text-white">manage movie</button></router-link>
+					<router-link to="/managemovie">
+						<button class="uppercase text-xs text-white">manage movie</button>
+					</router-link>
 				</div>
 			</div>
 			<div class="mx-4 md:col-span-2 flex justify-self-end -mt-1 md:mt-0">
@@ -57,10 +59,12 @@
 </template>
 
 <script>
+import Drawer from './Drawer.vue'
 import GenreListBlock from './GenreListBlock.vue'
 export default {
 	components: {
-		'genre-list-block': GenreListBlock
+		'genre-list-block': GenreListBlock,
+		'drawer': Drawer
 	}
 }
 </script>

@@ -1,8 +1,12 @@
 <template
     >
     <w-app>
+        <div>
+            <w-button @click="showDrawer = true" bg-color="transparent">
+                <w-icon xl color="white">material-icons menu</w-icon>
+            </w-button>
+        </div>
         <div class="block mx-auto my-auto">
-            <w-button @click="showDrawer = true" outline color="primary">Click to pull div left side</w-button>
             <w-drawer v-model="showDrawer" left class="text-white" bg-color="black" width="187">
                 <w-button
                     class="button--close"
@@ -24,27 +28,25 @@
                     </div>
                     <w-divider color="grey" />
                     <div class="space-x-3">
+                        <router-link to="/watchlist">
                         <w-icon class="-mt-1" :size="30" color="grey">material-icons bookmark</w-icon>
                         <button class="text-sm text-white uppercase">watch list</button>
+                        </router-link>
                     </div>
                     <div class="-ml-3">
                         <genre-list-block></genre-list-block>
                         <!-- <button class="text-white uppercase">sign in</button> -->
                     </div>
                     <div class="absolute top-3/4">
-                        <w-divider width="50" color="grey" />
+                        <w-divider class="mt-14" width="50" color="grey" />
                         <div class="mt-6 -ml-2 space-x-2">
-                        <w-icon :size="30" color="grey">material-icons bookmark</w-icon>
-                        <button class="text-sm text-white uppercase">manage movie</button>
+                            <router-link to="/managemovie">
+                            <w-icon :size="30" color="grey">material-icons bookmark</w-icon>
+                            <button class="text-sm text-white uppercase">manage movie</button>
+                            </router-link>
                         </div>
                     </div>
                 </div>
-                <!-- <span class="bg-yellow-400 w-2/4">
-                Test inside drawer
-            </span>
-            <span class="bg-green-300 w-2/4">
-                Test inside drawer
-                </span>-->
             </w-drawer>
         </div>
     </w-app>

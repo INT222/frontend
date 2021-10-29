@@ -1,11 +1,16 @@
 <template>
 	<w-app>
 		<div class="bg-blackBlue w-screen space-y-10 md:px-7">
+			<div class="relative">
+				<bookmark-button></bookmark-button>
+			</div>
 			<div class="md:mx-9">
 				<div class="md:mb-4">
 					<span class="hidden md:block md:font-medium md:text-6xl text-white">Love, Simon</span>
 				</div>
-				<div class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:px-6">
+				<div
+					class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:px-6"
+				>
 					<div class="md:inline-flex md:col-span-5 md:space-x-4">
 						<span class="md:text-white md:text-xl">July 2, 2021</span>
 						<span class="md:text-white md:text-xl">Action/Sci-fi ‧</span>
@@ -20,10 +25,10 @@
 					</div>
 				</div>
 				<div class="md:mb-6">
-					<div class="overflow-hidden tb:inline-flex md:inline-flex md:space-x-12 tb:space-x-20">
+					<div class="flex overflow-hidden tb:inline-flex md:inline-flex md:space-x-12 tb:space-x-20">
 						<img
 							id="poster"
-							class="transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
+							class="justify-items-stretch transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
 							src="../assets/Eternals.jpg"
 						/>
 						<iframe
@@ -32,8 +37,6 @@
 							height="521"
 							src="https://www.youtube.com/embed/tgbNymZ7vqY/"
 						/>
-						<!-- <iframe class="" src="https://www.youtube.com/embed/tgbNymZ7vqY" /> -->
-						<!-- <img id="image" class="transform scale-125 md:block md:object-none" src="../src/assets/LoveSimon.jpg" /> -->
 					</div>
 					<!-- <img class="transform scale-125 md:block md:object-none" src="../src/assets/Eternals.jpg" /> -->
 					<!-- <img class="transform scale-125" src="../src/assets/LaLaLand.jpg" /> -->
@@ -79,12 +82,14 @@
 <script>import CommentBlock from "./CommentBlock.vue";
 import BookMarkButton from './BookMarkButton.vue';
 import CommentForm from "./CommentForm.vue";
+// import BackButton from './BackButton.vue';
 
 export default {
 	components: {
 		'comment-form': CommentForm,
 		'comment-block': CommentBlock,
-		'bookmark-button': BookMarkButton
+		'bookmark-button': BookMarkButton,
+		// 'back-button': BackButton
 	},
 	data() {
 		return {

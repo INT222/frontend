@@ -1,6 +1,6 @@
 <template>
 	<div class="bg-blackBlue h-14">
-		<div class="mx-4 grid grid-cols-10 my-7 md:my-6 w-screen md:grid md:grid-cols-8">
+		<div class="mx-4 grid grid-cols-10 my-7 md:mx-4 md:my-6 w-screen md:grid md:grid-cols-8">
 			<div class="md:hidden">
 			<drawer />
 			</div>

@@ -1,8 +1,9 @@
 <template>
-	<div class="bg-blackBlue h-14">
-		<div class="mx-4 grid grid-cols-10 my-7 md:mx-4 md:my-6 w-screen md:grid md:grid-cols-8">
+	<!-- responsive  -->
+	<div class="bg-pink-500 h-14">
+		<div class=" mx-4 grid grid-cols-10  md:mx-4 md:my-6 w-screen md:grid md:grid-cols-8 bg-deepBlue">
 			<div class="md:hidden">
-			<drawer />
+				<drawer />
 			</div>
 			<div class="ml-6 col-span-8 md:col-span-1 md:flex md:justify-center tb:-ml-6">
 				<router-link to="/">
@@ -20,9 +21,9 @@
 					<!-- <w-icon size="16" color="white" class="ml-2">material-icons expand_more</w-icon> -->
 					<genre-list-block />
 				</div>
-				<div class="md:flex md:justify-start">
+				<div class="md:flex md:justify-start ">
 					<router-link to="/managemovie">
-						<button class="uppercase text-xs text-white">manage movie</button>
+						<button class="uppercase text-xs text-white bg-blue-500 ">manage movie</button>
 					</router-link>
 				</div>
 			</div>
@@ -37,7 +38,8 @@
 						outline
 						color="white"
 						bg-color="transparent"
-					>sign in</w-button>
+						>sign in</w-button
+					>
 				</router-link>
 				<div class>
 					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
@@ -50,7 +52,8 @@
 							outline
 							color="black"
 							bg-color="white"
-						>sign up</w-button>
+							>sign up</w-button
+						>
 					</router-link>
 				</div>
 			</div>
@@ -59,14 +62,14 @@
 </template>
 
 <script>
-import Drawer from './Drawer.vue'
-import GenreListBlock from './GenreListBlock.vue'
+import Drawer from "./Drawer.vue";
+import GenreListBlock from "./GenreListBlock.vue";
 export default {
 	components: {
-		'genre-list-block': GenreListBlock,
-		'drawer': Drawer
-	}
-}
+		"genre-list-block": GenreListBlock,
+		drawer: Drawer,
+	},
+};
 </script>
 
 <style lang="scss">

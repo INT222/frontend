@@ -1,83 +1,63 @@
 <template>
-	<!-- responsive  -->
-	<div class="bg-pink-500 h-14">
-		<div class=" mx-4 grid grid-cols-10  md:mx-4 md:my-6 w-screen md:grid md:grid-cols-8 bg-deepBlue">
-			<div class="md:hidden">
-				<drawer />
-			</div>
-			<div class="ml-6 col-span-8 md:col-span-1 md:flex md:justify-center tb:-ml-6">
-				<router-link to="/">
-					<img class="w-20 md:w-30" src="../assets/brm_logo.png" />
-				</router-link>
-			</div>
-			<div class="hidden md:grid md:grid-cols-3 md:col-span-3">
-				<div class="md:flex md:justify-start">
-					<router-link to="/watchlist">
-						<button class="uppercase text-xs text-white">watch list</button>
-					</router-link>
+	<nav class="bg-gray-800">
+		<div class="w-screen mx-auto px-2 md:px-8">
+			<div class="relative inline-flex items-center justify-between h-16">
+				<div name="drawer" class="absolute inset-y-0 left-0 flex items-center">
+					<div class="md:hidden">
+						<drawer />
+					</div>
 				</div>
-				<div class="md:flex md:justify-start">
-					<!-- <router-link to="/genre"><button class="uppercase text-xs text-white">genres</button></router-link> -->
-					<!-- <w-icon size="16" color="white" class="ml-2">material-icons expand_more</w-icon> -->
-					<genre-list-block />
+				<div name="logo" class="flex-1 flex px-12">
+					<div class="flex-shrink-0 flex items-start">
+						<router-link to="/">
+							<img class="w-20 md:w-30" src="../assets/brm_logo.png" />
+						</router-link>
+					</div>
 				</div>
-				<div class="md:flex md:justify-start ">
-					<router-link to="/managemovie">
-						<button class="uppercase text-xs text-white bg-blue-500 ">manage movie</button>
-					</router-link>
+				<div class="hidden tb:block md:block tb:-ml-5">
+					<div class="ml-3 flex items-center space-x-10 tb:space-x-5">
+						<button
+							class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 uppercase"
+						>watch list</button>
+						<genre-list-block />
+						<button
+							class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 uppercase"
+						>manage movie</button>
+					</div>
 				</div>
-			</div>
-			<div class="mx-4 md:col-span-2 flex justify-self-end -mt-1 md:mt-0">
-				<w-icon xl color="white">material-icons search</w-icon>
-			</div>
-			<div class="hidden md:col-span-2 md:mx-auto md:inline-flex md:space-x-6">
-				<router-link to="/signin">
-					<w-button
-						id="signin"
-						class="uppercase text-xs w-20 tracking-wider"
-						outline
-						color="white"
-						bg-color="transparent"
-						>sign in</w-button
-					>
-				</router-link>
-				<div class>
-					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
-				</div>
-				<div class>
-					<router-link to="/signup">
-						<w-button
-							id="signup"
-							class="uppercase text-xs w-20 tracking-wider flex justify-item-center"
-							outline
-							color="black"
-							bg-color="white"
-							>sign up</w-button
-						>
-					</router-link>
+				
+				<div name="search" class="inset-y-0 right-0 flex items-center justify-end pr-2">
+					<div class="ml-3 relative">
+						<div>
+							<w-icon xl color="white">material-icons search</w-icon>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</nav>
 </template>
 
 <script>
 import Drawer from "./Drawer.vue";
-import GenreListBlock from "./GenreListBlock.vue";
+import GenreListBlock from './GenreListBlock.vue';
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
 		drawer: Drawer,
+GenreListBlock,
 	},
 };
 </script>
 
-<style lang="scss">
+<!-- <style lang="scss">
 #signup {
-	height: 30px;
+    height: 30px;
 }
 
 #signin {
-	height: 30px;
+    height: 30px;
 }
-</style>
+</style> -->
+
+

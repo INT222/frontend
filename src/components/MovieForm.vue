@@ -130,9 +130,13 @@ const constraints = {
 export default {
     name: "MovieForm",
     props: {
-            // movieName: String,
-            // genre_Id: Object,
-            // releasedate: Date,
+        "movieName": String,
+        "filmGenre": Array,
+        "runTime": Number,
+        "releaseDate": Date,
+        "poster": String,
+        "posterFile": File,
+        "plot": String
 
     },
     

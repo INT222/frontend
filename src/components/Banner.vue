@@ -50,6 +50,7 @@ import "vueperslides/dist/vueperslides.css";
 export default {
 	name: "Banner",
 	components: { VueperSlides, VueperSlide },
+	// props: [image,],
 	data: () => ({
 		breakpoints: {
 			600: {

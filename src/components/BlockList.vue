@@ -1,5 +1,5 @@
 <template>
-	<div class="">
+	<div class>
 		<div class="w-full grid grid-cols-5 my-3 tb:w-44 tb:grid-cols-1 md:grid-cols-1">
 			<img
 				src="../assets/BlackWidow.jpg"
@@ -8,13 +8,13 @@
 			<div class="col-span-3 mt-3 mx-4 tb:mx-auto md:mx-auto">
 				<p
 					class="text-white font-medium text-base mt-2 mb-4 tracking-wide tb:text-center tb:mb-2 md:text-center md:mb-2"
-				>The Tomorrow War</p>
+				>{{ title }}</p>
 				<p
 					class="text-gray-400 text-sm tracking-wider mb-3 tb:text-center tb:mb-2 md:text-center md:mb-2"
-				>July 2, 2021</p>
+				>{{ releaseDate }}</p>
 				<p
 					class="text-gray-400 text-sm tracking-wider mb-1 tb:text-center md:text-center"
-				>Action/Sci-fi ‧ 2h13m</p>
+				>{{ genre }} ‧ {{ runtime }}</p>
 				<fav-button />
 			</div>
 
@@ -28,6 +28,14 @@
 export default {
 	components: {
 		'fav-button': FavButton
-	}
+	},
+	props: [
+		"title",
+		"releaseDate",
+		"genre",
+		"runtime",
+		"poster"
+	],
+	
 }
 </script>

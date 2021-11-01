@@ -1,56 +1,69 @@
 <template>
-	<nav class="bg-gray-800">
-		<div class="w-screen mx-auto px-2 md:px-8">
-			<div class="relative inline-flex items-center justify-between h-16">
-				<div name="drawer" class="absolute inset-y-0 left-0 flex items-center">
-					<div class="md:hidden">
-						<drawer />
-					</div>
+	<div class="font-sans antialiased bg-blackBlue">
+		<nav class="flex items-center justify-between flex-wrap py-6 px-5 md:space-x-10">
+			<div class="flex items-center text-white space-x-2 tb:space-x-9">
+				<div class="md:hidden">
+					<drawer />
 				</div>
-				<div name="logo" class="flex-1 flex px-12">
-					<div class="flex-shrink-0 flex items-start">
-						<router-link to="/">
-							<img class="w-20 md:w-30" src="../assets/brm_logo.png" />
-						</router-link>
-					</div>
-				</div>
-				<div class="hidden tb:block md:block tb:-ml-5">
-					<div class="ml-3 flex items-center space-x-10 tb:space-x-5">
-						<button
-							class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 uppercase"
-						>watch list</button>
-						<genre-list-block />
-						<button
-							class="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 uppercase"
-						>manage movie</button>
-					</div>
-				</div>
-				
-				<div name="search" class="inset-y-0 right-0 flex items-center justify-end pr-2">
-					<div class="ml-3 relative">
-						<div>
-							<w-icon xl color="white">material-icons search</w-icon>
-						</div>
-					</div>
+				<router-link to="/">
+					<img class="w-20 md:w-30" src="../assets/brm_logo.png" />
+				</router-link>
+			</div>
+			<div class="hidden md:block md:flex-grow">
+				<div class="text-sm text-white inline-flex space-x-5">
+					<w-button bg-color="transparent"
+						class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
+					>watchlist</w-button>
+					<genre-list-block />
+					<w-button bg-color="transparent"
+						class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
+					>manage movie</w-button>
 				</div>
 			</div>
-		</div>
-	</nav>
+			<div>
+				<w-icon xl color="white">material-icons search</w-icon>
+			</div>
+			<div class="hidden md:inline-flex md:space-x-5">
+				<router-link to="/signin">
+					<w-button
+						id="signin"
+						class="uppercase text-xs w-20 tracking-wider"
+						outline
+						color="white"
+						bg-color="transparent"
+					>sign in</w-button>
+				</router-link>
+				<div class>
+					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
+				</div>
+				<router-link to="/signup">
+					<w-button
+						id="signup"
+						class="uppercase text-xs w-20 tracking-wider flex justify-item-center"
+						outline
+						color="black"
+						bg-color="white"
+					>sign up</w-button>
+				</router-link>
+			</div>
+		</nav>
+	</div>
 </template>
 
 <script>
 import Drawer from "./Drawer.vue";
-import GenreListBlock from './GenreListBlock.vue';
+import GenreListBlock from "./GenreListBlock.vue";
+
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
 		drawer: Drawer,
-GenreListBlock,
+
 	},
 };
 </script>
 
-<!-- <style lang="scss">
+<style lang="scss">
 #signup {
     height: 30px;
 }
@@ -58,6 +71,6 @@ GenreListBlock,
 #signin {
     height: 30px;
 }
-</style> -->
+</style>
 
 

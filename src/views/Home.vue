@@ -1,7 +1,7 @@
 <template>
-	<div class="md:space-y-11 space-y-6 bg-indigo-800 ">
+	<div class="md:space-y-11 space-y-6">
 		<banner />
-		<div class="md:mx-4 md:space-y-11 space-y-6 bg-yellow-400">
+		<div class="tb:mx-4 md:mx-4 md:space-y-11 space-y-6">
 			<div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">popular in this month</p>
 				<router-link to="/content"><slide-list-block class="md:mt-6 mt-3"/></router-link>

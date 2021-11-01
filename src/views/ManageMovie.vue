@@ -1,40 +1,70 @@
 <template>
     <w-app>
-        <div>
-            <BackButton></BackButton>
-            <w-icon xl color="white">material-icons search</w-icon>
-            <w-icon color="white" size="30">material-icons add</w-icon>
+        <div class="mt-4">
+            <div class="flex items-center tb:ml-4 md:hidden">
+                <BackButton></BackButton>       
+            </div>
+            <p class="text-3xl text-white mx-auto text-center mb-5">Manage movie</p>
+            <div class>
+                <div class="flex items-center justify-center">
+                    <div class="col-span-1 md:col-span-12">
+                        <div class="md:overflow-hidden">
+                            <table class="table text-gray-400 border-separate space-y-6 text-sm">
+                                <thead class="text-gray-500">
+                                    <tr class="uppercase">
+                                        <th class="bg-white p-3">no</th>
+                                        <th class="bg-white p-1 md:p-3">movie id</th>
+                                        <th class="bg-white p-3">movie name</th>
+                                        <th
+                                            class="bg-white hidden p-3 tb:table-cell md:table-cell"
+                                        >runtime</th>
+                                        <th
+                                            class="bg-white hidden p-3 tb:table-cell md:table-cell"
+                                        >genre</th>
+                                        <th
+                                            class="bg-white hidden p-3 tb:table-cell md:table-cell"
+                                        >release date</th>
+                                        <th>
+                                            <w-button height="44" bg-color="info-light1" class="ml-3">
+                                                <w-icon color="black">material-icons add</w-icon>
+                                                <p class="px-1 uppercase text-black">add</p>
+                                            </w-button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-white">
+                                        <td class="bg-gray-600 p-3 text-center">
+                                            <p class="text-center">100</p>
+                                        </td>
+                                        <td class="bg-gray-600 p-3 text-center">100</td>
+                                        <td class="bg-gray-600 p-3">
+                                            <p id="mname">Shang-Chi and the Legend of the Ten Rings</p>
+                                        </td>
+                                        <td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3 md:text-center">100</td>
+                                        <td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3">
+                                            <p id="genre">Adventure Sci-fi Thriller</p>
+                                        </td>
+                                        <td class="bg-gray-600 hidden tb:table-cell md:table-cell md:text-center">
+                                            <p>Oct 3, 2021</p>
+                                        </td>
+                                        <td>
+                                            <w-button height="44" width="44" bg-color="red-dark1" class="ml-7">
+                                                <w-icon color="white">material-icons delete</w-icon>
+                                            </w-button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- <div class="inline-flex mt-10 justify-center space-x-5">
-            <div class="relative flex w-1/4 flex-wrap items-stretch ">
-                <input
-                    type="text"
-                    placeholder="Search"
-                    class="px-3 py-3 placeholder-gray-400 text-gray-500 relative bg-white rounded-lg text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"
-                />
-                <span
-                    class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 bg-transparent rounded text-base items-end justify-end w-8 pl-3 py-3"
-                >
-                    <w-icon>material-icons search</w-icon>
-                </span>
-            </div>
-            <div class="my-auto">
-                <button
-                    type="button"
-                    class="w-full h-10 border bg-white font-medium text-xs rounded-xl uppercase md:w-24 md:rounded-lg md:h-8"
-                >Add movie</button>
-            </div>
-        </div>-->
-
-        <!-- <div class="md:mt-10 md:flex md:justify-center">
-            <input type="search" class="md:w-1/4 md:h-10 md:px-4 md:rounded-md md:text-lg"/>
-            <w-icon>material-icons close</w-icon>
-        </div>-->
     </w-app>
 </template>
 
-// <script>
+<script>
 // import GenreListBlock from '../components/GenreListBlock.vue'
 import BackButton from '../components/BackButton.vue'
 export default {
@@ -44,3 +74,54 @@ export default {
 }
 </script>
 
+<style>
+@media screen and (max-width: 768px) {
+    #mname {
+        width: 125px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    tr td:nth-child(n + 3),
+    tr th:nth-child(n + 3) {
+        border-radius: 0 0.625rem 0.625rem 0;
+    }
+}
+@media screen and (max-width: 1280px) {
+    #mname {
+        width: 125px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #genre {
+        width: 125px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    tr td:nth-child(1),
+    tr th:nth-child(1) {
+        border-radius: 0.625rem 0 0 0.625rem;
+    }
+}
+
+.table {
+    border-spacing: 0 15px;
+}
+
+.table tr {
+    border-radius: 20px;
+}
+
+tr td:nth-child(n + 6),
+tr th:nth-child(n + 6) {
+    border-radius: 0 0.625rem 0.625rem 0;
+}
+
+tr td:nth-child(1),
+tr th:nth-child(1) {
+    border-radius: 0.625rem 0 0 0.625rem;
+}
+</style>

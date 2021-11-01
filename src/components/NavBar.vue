@@ -1,5 +1,5 @@
 <template>
-	<div class="font-sans antialiased bg-blackBlue">
+	<div>
 		<nav class="flex items-center justify-between flex-wrap py-6 px-5 md:space-x-10">
 			<div class="flex items-center text-white space-x-2 tb:space-x-9">
 				<div class="md:hidden">
@@ -11,13 +11,17 @@
 			</div>
 			<div class="hidden md:block md:flex-grow">
 				<div class="text-sm text-white inline-flex space-x-5">
-					<w-button bg-color="transparent"
-						class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
-					>watchlist</w-button>
+					<router-link to="/watchlist">
+						<w-button bg-color="transparent" :height="40" class="uppercase block px-3 py-2">watch list</w-button>
+					</router-link>
 					<genre-list-block />
-					<w-button bg-color="transparent"
-						class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
-					>manage movie</w-button>
+					<router-link to="/managemovie">
+						<w-button
+							bg-color="transparent"
+							:height="40"
+							class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
+						>manage movie</w-button>
+					</router-link>
 				</div>
 			</div>
 			<div>
@@ -65,12 +69,15 @@ export default {
 
 <style lang="scss">
 #signup {
-    height: 30px;
+	height: 30px;
 }
 
 #signin {
-    height: 30px;
+	height: 30px;
 }
 </style>
+
+
+
 
 

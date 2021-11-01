@@ -10,13 +10,20 @@
 				class="mt-1 w-full bg-deepBrownGray rounded-md p-4 text-white mb-1 md:focus:ring-2 md:focus:ring-gray-400"
 				placeholder="Write your comment here..."
 			></textarea>
+			
 			<div class="flex justify-end">
-				<input
+				<!-- <w-button type="submit" class="uppercase text-white"></w-button> -->
+				<w-button
+				height="32"
+				width="100"
+				bg-color="white"
+				color="black"
 					type="submit"
-					class="bg-white text-gray-700 text-sm font-medium py-1 px-4 rounded tracking-wider uppercase mb-1 md:px-10 md:py-2 md:hover:bg-gray-500 md:hover:text-white "
-					value="post"
-				/>
+					class="text-sm font-medium text-center py-1 px-4 rounded tracking-wider uppercase mb-1 md:px-10 md:py-2 md:hover:bg-gray-500 md:hover:text-white">
+					post
+				</w-button>
 			</div>
+			
 		</div>
 	</div>
 </template>

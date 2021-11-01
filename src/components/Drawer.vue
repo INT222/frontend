@@ -1,7 +1,7 @@
 <template>
     <div>
         <w-button @click="showDrawer = true" bg-color="transparent">
-            <w-icon xl color="white">material-icons menu</w-icon>
+            <w-icon lg color="white">material-icons menu</w-icon>
         </w-button>
     </div>
     <div class="block mx-auto my-auto">
@@ -14,8 +14,8 @@
                 round
                 absolute
                 color="white"
-                icon="wi-cross"
-            ></w-button>
+                icon="wi-cross">
+            </w-button>
             <div class="space-y-6 mx-5 mt-10 w-96">
                 <!-- <p class="text-white uppercase w-36 h-auto">sign in</p> -->
                 <div>
@@ -24,7 +24,7 @@
                 <div>
                     <button class="text-sm text-white uppercase">sign up</button>
                 </div>
-                <w-divider class="w-36 " color="grey" />
+                <w-divider class="w-36" color="grey" />
                 <div class="mt-6 -ml-2">
                     <router-link to="/managemovie">
                         <w-button :height="40" bg-color="transparent">

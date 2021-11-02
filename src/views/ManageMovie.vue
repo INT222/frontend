@@ -1,9 +1,6 @@
 <template>
     <w-app>
         <div class="mt-4">
-            <div class="flex items-center tb:ml-4 md:hidden">
-                <BackButton></BackButton>
-            </div>
             <p class="text-3xl text-white mx-auto text-center mb-5">Manage movie</p>
             <div class>
                 <div class="flex items-center justify-center">
@@ -83,14 +80,6 @@
 
 <script>
 // import GenreListBlock from '../components/GenreListBlock.vue'
-import BackButton from '../components/BackButton.vue';
-
-export default {
-    components: {
-        BackButton,
-
-    }
-}
 </script>
 
 <style>

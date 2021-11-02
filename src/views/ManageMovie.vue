@@ -2,7 +2,7 @@
     <w-app>
         <div class="mt-4">
             <div class="flex items-center tb:ml-4 md:hidden">
-                <BackButton></BackButton>       
+                <BackButton></BackButton>
             </div>
             <p class="text-3xl text-white mx-auto text-center mb-5">Manage movie</p>
             <div class>
@@ -25,10 +25,16 @@
                                             class="bg-white hidden p-3 tb:table-cell md:table-cell"
                                         >release date</th>
                                         <th>
-                                            <w-button height="44" bg-color="info-light1" class="ml-3">
-                                                <w-icon color="black">material-icons add</w-icon>
-                                                <p class="px-1 uppercase text-black">add</p>
-                                            </w-button>
+                                            <router-link to="/movieform">
+                                                <w-button
+                                                    height="44"
+                                                    bg-color="info-light1"
+                                                    class="ml-3"
+                                                >
+                                                    <w-icon color="black">material-icons add</w-icon>
+                                                    <p class="px-1 uppercase text-black">add</p>
+                                                </w-button>
+                                            </router-link>
                                         </th>
                                     </tr>
                                 </thead>
@@ -41,15 +47,26 @@
                                         <td class="bg-gray-600 p-3">
                                             <p id="mname">Shang-Chi and the Legend of the Ten Rings</p>
                                         </td>
-                                        <td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3 md:text-center">100</td>
-                                        <td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3">
+                                        <td
+                                            class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3 md:text-center"
+                                        >100</td>
+                                        <td
+                                            class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3"
+                                        >
                                             <p id="genre">Adventure Sci-fi Thriller</p>
                                         </td>
-                                        <td class="bg-gray-600 hidden tb:table-cell md:table-cell md:text-center">
+                                        <td
+                                            class="bg-gray-600 hidden tb:table-cell md:table-cell md:text-center"
+                                        >
                                             <p>Oct 3, 2021</p>
                                         </td>
                                         <td>
-                                            <w-button height="44" width="44" bg-color="red-dark1" class="ml-7">
+                                            <w-button
+                                                height="44"
+                                                width="44"
+                                                bg-color="red-dark1"
+                                                class="ml-7"
+                                            >
                                                 <w-icon color="white">material-icons delete</w-icon>
                                             </w-button>
                                         </td>
@@ -66,10 +83,12 @@
 
 <script>
 // import GenreListBlock from '../components/GenreListBlock.vue'
-import BackButton from '../components/BackButton.vue'
+import BackButton from '../components/BackButton.vue';
+
 export default {
     components: {
-        BackButton
+        BackButton,
+
     }
 }
 </script>

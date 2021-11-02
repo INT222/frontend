@@ -6,6 +6,7 @@ import Signup from "../views/Signup.vue";
 import WatchList from "../views/WatchList.vue";
 import Genre from "../views/Genre.vue";
 import ManageMovie from "../views/ManageMovie.vue";
+import MovieForm from "../views/MovieForm.vue";
 
 const routes = [
 	{
@@ -50,7 +51,12 @@ const routes = [
 		path: "/managemovie",
 		name: "ManageMovie",
 		component: ManageMovie
-	}
+	},
+	{
+		path: "/movieform",
+		name: "MovieForm",
+		component: MovieForm
+	},
 ];
 
 const router = createRouter({

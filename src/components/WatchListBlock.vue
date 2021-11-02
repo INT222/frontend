@@ -24,7 +24,7 @@
                 <span class="text-white text-md font-medium my-auto">{{ rating }}</span>
             </div>
             <div class="mx-auto">
-                <w-button>
+                <w-button bg-color="transparent" height="40">
                     <div
                         class="inline-flex space-x-3 border px-6 py-1 border-gray-300 mt-5 rounded-md text-center text-sm text-gray-300 space-x-1"
                     >

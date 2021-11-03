@@ -4,7 +4,7 @@
 			class="bg-white border h-auto py-4 pb-10 rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10"
 		>
 			<div class="mt-4 mx-3">
-				<back-button iconcolor="deep-purple" typeTest="Hello world"></back-button>
+				<back-button></back-button>
 				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
 			</div>
 			<!-- <p class="ml-4 text-xs leading-loose uppercase mt-1">back to home</p> -->

@@ -2,8 +2,8 @@
 	<w-app>
 		<div class="bg-blackBlue w-screen space-y-10 md:px-7">
 			<div class="md:mx-9">
-				<div class="md:hidden block absolute -ml-2">
-					<back-button :color="white"></back-button>
+				<div class="md:hidden block absolute ml-4 mt-4">
+					<back-button iconcolor="white"></back-button>
 				</div>
 				<div class="md:hidden block absolute ml-60 mt-6">
 					<bookmark-button></bookmark-button>

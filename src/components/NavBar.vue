@@ -24,8 +24,20 @@
 					</router-link>
 				</div>
 			</div>
-			<div>
-				<w-icon xl color="white">material-icons search</w-icon>
+			<div class="inline-flex">
+				<div id="slide-fade" v-if="searchButton">
+					<w-input
+						blur="searchButton = false"
+						v-model="search"
+						color="white"
+						type="search"
+						placeholder="Search"
+						class="border border-white px-2"
+					></w-input>
+				</div>
+				<w-button @click="searchButton = !searchButton" bg-color="transparent">
+					<w-icon xl color="white">material-icons search</w-icon>
+				</w-button>
 			</div>
 			<div class="hidden md:inline-flex md:space-x-5">
 				<router-link to="/signin">
@@ -62,8 +74,13 @@ export default {
 	components: {
 		"genre-list-block": GenreListBlock,
 		drawer: Drawer,
-
 	},
+	data() {
+		return {
+			searchButton: false,
+			seaerch: ""
+		}
+	}
 };
 </script>
 

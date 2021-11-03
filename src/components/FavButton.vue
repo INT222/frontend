@@ -1,7 +1,10 @@
 <template>
-	<div>
-		<button
-			class="px-6 py-2 border border-gray-300 rounded-md text-center mt-4 text-xs text-gray-300 uppercase focus:bg-blue-500 inline-flex md:px-3 md:mx-auto"
-		>add to watchlist</button>
+	<div class="mt-4 border border-gray-300 rounded-md">
+		<w-button height="34" bg-color="transparent">
+			<div class="inline-flex px-3 space-x-3 tb:px-1 tb:space-x-2 md:space-x-1 md:px-1">
+				<w-icon :size="20" color="white">material-icons add</w-icon>
+				<p class="my-auto text-xs text-center uppercase text-white">add to watchlist</p>
+			</div>
+		</w-button>
 	</div>
 </template>

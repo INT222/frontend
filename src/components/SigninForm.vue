@@ -28,6 +28,8 @@
 						placeholder="*******"
 						v-model="user.password"
 					/>
+					<w-input type="text" placeholder="ex. Iron Man" class="border-black border px-1" color="black" loading="true">
+					</w-input>
 				</w-form>
 			</div>
 			<div class="flex justify-end mx-6 mt-5">

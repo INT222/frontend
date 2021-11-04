@@ -25,17 +25,19 @@
 				</div>
 			</div>
 			<div class="inline-flex">
-				<div id="slide-fade" v-if="searchButton">
+				<div v-if="searchButton">
 					<w-input
-						blur="searchButton = false"
 						v-model="search"
 						color="white"
-						type="search"
+						type="text"
 						placeholder="Search"
-						class="border border-white px-2"
+						class="border border-white px-1 w-56"
+						loading="true"
+						inner-icon-left="material-icons close"
+						@click:inner-icon-left="searchButton = false"
 					></w-input>
 				</div>
-				<w-button @click="searchButton = !searchButton" bg-color="transparent">
+				<w-button @click="searchButton = true" bg-color="transparent">
 					<w-icon xl color="white">material-icons search</w-icon>
 				</w-button>
 			</div>
@@ -78,9 +80,12 @@ export default {
 	data() {
 		return {
 			searchButton: false,
-			seaerch: ""
+			search: "",
+			list: {
+				type: Array
+			}
 		}
-	}
+	},
 };
 </script>
 

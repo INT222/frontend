@@ -19,10 +19,14 @@
             <div class="space-y-6 mx-5 mt-10 w-96">
                 <!-- <p class="text-white uppercase w-36 h-auto">sign in</p> -->
                 <div>
-                    <button class="text-sm text-white uppercase">sign in</button>
+                    <router-link to="/signin">
+                    <w-button bg-color="transparent" class="text-sm text-white uppercase">sign in</w-button>
+                    </router-link>
                 </div>
                 <div>
-                    <button class="text-sm text-white uppercase">sign up</button>
+                    <router-link to="/signup">
+                    <w-button bg-color="transparent" class="text-sm text-white uppercase">sign up</w-button>
+                    </router-link>
                 </div>
                 <w-divider class="w-36" color="grey" />
                 <div class="mt-6 -ml-2">

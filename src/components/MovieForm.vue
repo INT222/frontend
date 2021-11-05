@@ -1,187 +1,108 @@
 <template>
-	<div class="w-full h-full bg-blackBlue">
+	<div>
 		<h1
-			class="mt-14 text-lg font-medium text-center text-white uppercase tracking-wide md:mt-14 md:text-xl md:font-medium"
-		>
-			add movie
-		</h1>
-		<w-form>
-			<div class="w-full md:mx-auto md:w-8/12 p-5 md:bg-lightGray md:my-10 md:rounded-xl">
-				<div class="md:mx-10">
-					<div class="container mt-2 pt-6 pb-8 bg-blackBlue md:bg-lightGray md:mt-0">
-						<div name="formsdetails">
-							<div name="moviename" class="flex mb-5">
-								<label class="formsLable md:px-10 md:text-right md:py-3">movie name</label>
-
-								<w-input
-									type="text"
-									placeholder="ex. Iron Man"
-									class="border-white border px-1"
-									color="white"
-									loading="true"
-								>
-									<div class="md:px-5 md:py-0 md:text-lg"></div>
-								</w-input>
-
-								<span class="text-xl text-red-600"></span>
-							</div>
-							<div class="grid grid-cols-2 gap-4 mb-5 md:grid md:grid-cols-2 md:gap-0">
-								<div name="filmgenre" class="formsBlock">
-									<label class="formsLable md:px-10 md:text-right md:col-span-2 md:py-2 md:mt-2">film genre</label>
-									<select class="formsInput2">
-										<option></option>
-										<!-- <option value="1">Action</option>
-                                        <option value="2">Adventure</option>
-                                        <option value="3">Comedy</option>
-                                        <option value="4">Drama</option>
-                                        <option value="5">Fantasy</option>
-                                        <option value="6">Horror</option>
-                                        <option value="7">Mystery</option>
-                                        <option value="8">Romance</option>
-                                        <option value="9">Sci-fi</option>
-                                        <option value="10">Thriller</option>-->
-									</select>
-									<span class="text-xl text-red-600"></span>
-								</div>
-								<div name="runtime" class="formsBlock">
-									<label class="formsLable md:px-10 md:text-center md:col-span-2 md:py-2 md:mt-2">running time</label>
-									<input type="text" placeholder="hour(s)" class="formsInput md:col-span-2" />
-									<span class="text-xl text-red-600"></span>
-								</div>
-							</div>
-							<div class="mb-5 md:grid md:grid-cols-2 md:gap-0">
-								<div name="releaseddate" class="formsBlock">
-									<label class="formsLable md:px-10 md:text-right md:col-span-2 md:py-3 md:mt-1 md:text-xs"
-										>relased date</label
-									>
-									<input type="date" v-model="inputDate" placeholder="YYYY-MM-DD" class="formsInput2" />
-									<span class="text-xl text-red-600"></span>
-								</div>
-								<div name="poster" class="formsBlock grid grid-flow-row mt-6 md:mt-0">
-									<label class="formsLable md:px-12 md:text-right md:col-span-2 md:py-3">poster</label>
-									<input type="file" class="text-sm text-white md:col-span-2 md:pt-1" />
-									<span class="text-xl text-red-600"></span>
-								</div>
-							</div>
-							<div name="plot" class="mb-5 formsBlock">
-								<label class="formsLable md:px-10 md:text-right md:py-3">plot</label>
-								<textarea rows="10" cols="39" class="formsInput md:col-span-3 md:py-0 md:text-lg" />
-								<span class="text-xl text-red-600"></span>
-							</div>
+			class="mt-2 text-xl font-bold text-center text-white uppercase tracking-wide md:mt-6 md:text-xl md:font-medium"
+		>add movie</h1>
+		<div class="mt-5 mx-2 md:mx-16 md:grid md:grid-cols-5">
+			<div class="hidden md:block md:col-span-2">
+				<img src="../assets/BlackWidow.jpg" class="rounded-l-3xl w-full h-5/6" />
+			</div>
+			<div
+				class="bg-white rounded-xl md:h-5/6 md:rounded-none md:mt-0 md:rounded-r-3xl md:col-span-3 md:overflow-auto"
+			>
+				<w-form class="py-7 px-7 space-y-8 md:px-12 md:py-12">
+					<div name="moviename" class="space-y-4">
+						<label class="block tracking-wide text-gray-600 text-md font-semibold">Movie name</label>
+						<w-input type="text" placeholder="ex. Captain America" class="font-normal"></w-input>
+					</div>
+					<div name="genre" class="space-y-4">
+						<label class="block tracking-wide text-gray-600 text-md font-semibold">Genre</label>
+						<w-select :items="genres" multiple placeholder="Can have more than 1"></w-select>
+					</div>
+					<div class="grid grid-cols-2 gap-4">
+						<div name="runningtime" class="space-y-4">
+							<label class="block tracking-wide text-gray-600 text-md font-semibold">Running time</label>
+							<w-input type="text" placeholder="ex. 2.45 H(s)" class="font-normal"></w-input>
 						</div>
-						<div class="space-y-5 md:space-x-4 md:space-y-0 md:flex md:justify-end">
-							<button
-								type="submit"
-								class="w-full h-10 border bg-white font-medium text-xs rounded-xl uppercase md:w-24 md:rounded-lg md:h-8"
-							>
-								save
-							</button>
-							<button
-								type="reset"
-								class="w-full h-10 border bg-blackBlue text-white font-medium text-xs rounded-xl uppercase md:w-24 md:text-white md:rounded-lg md:bg-gray-700 md:h-8"
-							>
-								cancel
-							</button>
+						<div name="studio" class="space-y-4">
+							<label class="block tracking-wide text-gray-600 text-md font-semibold">Studio</label>
+							<w-select :items="studios" placeholder="Can have only 1"></w-select>
 						</div>
 					</div>
-				</div>
+					<div name="releaseddate" class="space-y-4">
+						<label class="block tracking-wide text-gray-600 text-md font-semibold">Released date</label>
+						<w-input type="date" class="font-normal"></w-input>
+					</div>
+					<div name="status" class="space-y-4">
+						<label class="block tracking-wide text-gray-600 text-md font-semibold">Movie status</label>
+						<w-select :items="status" placeholder="Can have only 1"></w-select>
+					</div>
+					<div name="poster" class="space-y-2">
+						<div class>
+							<label class="block tracking-wide text-gray-600 text-md font-semibold">Poster</label>
+							<p class="text-gray-400 text-xs">Click on a line below to upload file</p>
+						</div>
+						<w-input type="file" accept=".jpg, .jpeg, .png" placeholder="Click here to upload file"></w-input>
+					</div>
+					<div name="link" class="space-y-4">
+						<label class="block tracking-wide text-gray-600 text-md font-semibold">Video link</label>
+						<w-input type="url" placeholder="ex. https//youtu.be/xxxx" class="font-normal"></w-input>
+					</div>
+					<div name="plot" class>
+						<label class="block tracking-wide text-gray-600 text-md font-semibold">Plot</label>
+						<w-textarea placeholder="Write movie plot here !" class="font-normal"></w-textarea>
+					</div>
+					<div class="space-x-10">
+						<w-button bg-color="black" height="35" class="text-sm">
+							<p class="uppercase px-2 text-white">cancel</p>
+						</w-button>
+						<w-button bg-color="info-light1" height="35" class="text-sm">
+							<p class="uppercase px-5 text-white">save</p>
+						</w-button>
+					</div>
+				</w-form>
 			</div>
-		</w-form>
+		</div>
 	</div>
 </template>
 <script>
-// import axios from "axios";
-// const constraints = {
-//     inputName: {
-//         presence: {
-//             message: "is required",
-//         },
-
-//     },
-//     filmGenre: {
-//         presence: {
-//             message: "is required",
-//         },
-
-//     },
-//     inputTime: {
-//         presence: {
-//             message: "is required",
-//         },
-//         numericlity:{
-//             lessThan: 10,
-//             greaterThan: 0,
-//         }
-
-//     },
-//     inputDate: {
-//         presence: {
-//             message: "is required",
-//         },
-
-//     },
-//     inputPoster: {
-//         presence: {
-//             message: "is required",
-//         },
-//     },
-//     inputPlot: {
-//         presence: {
-//             message: "is required",
-//         },
-//         length: {
-//             maximum: 1000,
-//             minimum: 10,
-//             message: "must contain at least 10 character",
-//         }
-//     },
-
-// };
-
-// export default {
-//     name: "MovieForm",
-//     props: {
-//         "movieName": String,
-//         "filmGenre": Array,
-//         "runTime": Number,
-//         "releaseDate": Date,
-//         "poster": String,
-//         "posterFile": File,
-//         "plot": String
-
-//     },
-
-//     emits: ["save-movie", "close"],
-
-//     data(){
-//         return {
-
-//         }
-//     },
-
-//     methods: {
-//         handleFileUpload(e) {
-//             this.selectedFile = e.target.files[0];
-//             this.inputPoster = this.selectedFile.name;
-//         },
-//         closeCurrentForm(){
-//             this.$emit("close", true)
-//         },
-//         checkForm(){
-//             var validate = require(validate.js);
-//             this.errors = validate(
-//                 {
-//                     inputName: this.inputName,
-//                     filmGenre: this.filmGenre,
-//                     inputTime: this.inputTime,
-//                     inputDate: this.inputDate,
-//                     inputPoster: this.inputPoster,
-//                     inputPlot: this.inputPlot
-//                 },
-//                 constraints
-//             );
-//         }
-
-//     }
-// }
+export default {
+	data: () => ({
+		genres: [
+			{ label: 'Action' },
+			{ label: 'Avdenture' },
+			{ label: 'Comedy' },
+			{ label: 'Drama' },
+			{ label: 'Fantasy' },
+			{ label: 'Horror' },
+			{ label: 'Mystery' },
+			{ label: 'Romance' },
+			{ label: 'Sci-fi' },
+			{ label: 'Thriller' },
+		],
+		studios: [
+			{ label: '20th Century Fox' },
+			{ label: 'A24'},
+			{ label: 'Amazon Studios'},
+			{ label: 'Aniplex'},
+			{ label: 'Lionsgate'},
+			{ label: 'Marvel Studios'},
+			{ label: 'New Line Cinema'},
+			{ label: 'Next Entertainment World'},
+			{ label: 'Paramount Pictures'},
+			{ label: 'Skydance Media'},
+			{ label: 'Sony Pictures Releasing'},
+			{ label: 'Summit Entertainment'},
+			{ label: 'The Weinstein Company'},
+			{ label: 'Universal Pictures'},
+			{ label: 'Walt Disney Pictures'},
+			{ label: 'Warner Bros.Pictures'},
+		],
+		status: [
+			{ label: 'General' },
+			{ label: 'On showing' },
+			{ label: 'Up coming' },
+		]
+	})
+}
 </script>

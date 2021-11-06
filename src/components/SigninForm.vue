@@ -2,7 +2,7 @@
 	<div id="nav" class="bg-blackBlue w-screen">
 		<div class="bg-white border h-auto rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto">
 			<div class="mt-4 mx-3">
-				<BackButton color="#fa3317"></BackButton>
+				<back-button color="#fa3317"></back-button>
 				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
 			</div>
 			<div class="mx-6 mt-4">
@@ -28,8 +28,6 @@
 						placeholder="*******"
 						v-model="user.password"
 					/>
-					<w-input type="text" placeholder="ex. Iron Man" class="border-black border px-1" color="black" loading="true">
-					</w-input>
 				</w-form>
 			</div>
 			<div class="flex justify-end mx-6 mt-5">
@@ -61,7 +59,7 @@ import BackButton from "@/components/BackButton.vue";
 
 export default {
 	components: {
-		BackButton,
+		"back-button": BackButton,
 	},
 	data() {
 		return {

@@ -54,6 +54,16 @@
 							placeholder="*******"
 						/>
 					</div>
+					<div class="mt-4">
+						<label class="inputInfo">confirm password</label>
+						<w-input
+							color="black"
+							:validators="[validators.required]"
+							v-model="user.confirmpassword"
+							type="password"
+							placeholder="*******"
+						/>
+					</div>
 				</w-form>
 			</div>
 			<div class="flex justify-end mx-6 mt-5">
@@ -90,6 +100,7 @@ export default {
 				lastname: "",
 				username: "",
 				password: "",
+				confirmpassword: ""
 			},
 			submitted: false,
 			valid: null,

@@ -1,15 +1,16 @@
 <template>
 	<div>
 		<h1
-			class="mt-2 text-xl font-bold text-center text-white uppercase tracking-wide md:mt-6 md:text-xl md:font-medium"
+			class="mt-2 text-xl font-bold text-center text-white uppercase tracking-wide md:hidden"
 		>add movie</h1>
-		<div class="mt-5 mx-2 md:mx-16 md:grid md:grid-cols-5">
+		<div class="mt-5 mx-2 md:mt-10 md:mx-16 md:grid md:grid-cols-5">
 			<div class="hidden md:block md:col-span-2">
 				<img src="../assets/BlackWidow.jpg" class="rounded-l-3xl w-full h-5/6" />
 			</div>
 			<div
 				class="bg-white rounded-xl md:h-5/6 md:rounded-none md:mt-0 md:rounded-r-3xl md:col-span-3 md:overflow-auto"
 			>
+				<h1 class="hidden md:block md:text-xl md:px-12 md:font-bold md:mt-12 md:uppercase">add movie</h1>
 				<w-form class="py-7 px-7 space-y-8 md:px-12 md:py-12">
 					<div name="moviename" class="space-y-4">
 						<label class="block tracking-wide text-gray-600 text-md font-semibold">Movie name</label>
@@ -52,11 +53,11 @@
 						<label class="block tracking-wide text-gray-600 text-md font-semibold">Plot</label>
 						<w-textarea placeholder="Write movie plot here !" class="font-normal"></w-textarea>
 					</div>
-					<div class="space-x-10">
-						<w-button bg-color="black" height="35" class="text-sm">
+					<div class="pt-5 flex justify-center space-x-32 md:justify-end md:space-x-12">
+						<w-button bg-color="black" height="35" class="text-sm md:text-md">
 							<p class="uppercase px-2 text-white">cancel</p>
 						</w-button>
-						<w-button bg-color="info-light1" height="35" class="text-sm">
+						<w-button bg-color="info-light1" height="35" class="text-sm md:text-md">
 							<p class="uppercase px-5 text-white">save</p>
 						</w-button>
 					</div>
@@ -82,21 +83,21 @@ export default {
 		],
 		studios: [
 			{ label: '20th Century Fox' },
-			{ label: 'A24'},
-			{ label: 'Amazon Studios'},
-			{ label: 'Aniplex'},
-			{ label: 'Lionsgate'},
-			{ label: 'Marvel Studios'},
-			{ label: 'New Line Cinema'},
-			{ label: 'Next Entertainment World'},
-			{ label: 'Paramount Pictures'},
-			{ label: 'Skydance Media'},
-			{ label: 'Sony Pictures Releasing'},
-			{ label: 'Summit Entertainment'},
-			{ label: 'The Weinstein Company'},
-			{ label: 'Universal Pictures'},
-			{ label: 'Walt Disney Pictures'},
-			{ label: 'Warner Bros.Pictures'},
+			{ label: 'A24' },
+			{ label: 'Amazon Studios' },
+			{ label: 'Aniplex' },
+			{ label: 'Lionsgate' },
+			{ label: 'Marvel Studios' },
+			{ label: 'New Line Cinema' },
+			{ label: 'Next Entertainment World' },
+			{ label: 'Paramount Pictures' },
+			{ label: 'Skydance Media' },
+			{ label: 'Sony Pictures Releasing' },
+			{ label: 'Summit Entertainment' },
+			{ label: 'The Weinstein Company' },
+			{ label: 'Universal Pictures' },
+			{ label: 'Walt Disney Pictures' },
+			{ label: 'Warner Bros.Pictures' },
 		],
 		status: [
 			{ label: 'General' },

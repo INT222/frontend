@@ -3,7 +3,7 @@ networks:
     external:
       name: int222-network
 services:
-  frontend-dev:
-    container_name: frontend-dev
+  frontend:
+    container_name: frontend_dev
     build: .
     image: ghcr.io/int222/frontend:dev

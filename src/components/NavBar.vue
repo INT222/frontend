@@ -77,7 +77,7 @@ import GenreListBlock from "./GenreListBlock.vue";
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
-		drawer: Drawer,
+		"drawer": Drawer,
 	},
 	data() {
 		return {

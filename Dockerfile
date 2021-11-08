@@ -1,10 +1,8 @@
-FROM node:14 as build-stage
+FROM node:lts-alpine as build-stage
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json /app/package.json
-RUN npm install --silent
-RUN npm install @vue/cli@3.7.0 -g
-COPY . /app
+COPY package*.json ./
+RUN npm install
+COPY ./ .
 RUN npm run build
 
 FROM nginx:1.19.10-alpine as deploy-stage

@@ -6,4 +6,4 @@ services:
   frontend-dev:
     container_name: frontend-dev
     build: .
-    image: int222-frontend:dev
+    image: ghcr.io/int222/frontend:dev

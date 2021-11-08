@@ -1,7 +1,7 @@
 FROM node:14.18-alpine3.12 as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN sudo rm -rf node_modules package-lock.json 
+RUN npm update
 RUN npm install
 COPY . .
 RUN npm run build

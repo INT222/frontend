@@ -20,7 +20,8 @@
 							bg-color="transparent"
 							:height="40"
 							class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
-						>manage movie</w-button>
+							>manage movie</w-button
+						>
 					</router-link>
 				</div>
 			</div>
@@ -49,7 +50,8 @@
 						outline
 						color="white"
 						bg-color="transparent"
-					>sign in</w-button>
+						>sign in</w-button
+					>
 				</router-link>
 				<div class>
 					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
@@ -61,7 +63,8 @@
 						outline
 						color="black"
 						bg-color="white"
-					>sign up</w-button>
+						>sign up</w-button
+					>
 				</router-link>
 			</div>
 		</nav>
@@ -71,7 +74,6 @@
 <script>
 import Drawer from "./Drawer.vue";
 import GenreListBlock from "./GenreListBlock.vue";
-
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
@@ -82,9 +84,9 @@ export default {
 			searchButton: false,
 			search: "",
 			list: {
-				type: Array
-			}
-		}
+				type: Array,
+			},
+		};
 	},
 };
 </script>
@@ -93,13 +95,7 @@ export default {
 #signup {
 	height: 30px;
 }
-
 #signin {
 	height: 30px;
 }
 </style>
-
-
-
-
-

@@ -1,9 +1,9 @@
 FROM node:14.18.0-alpine3.11 as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN yarn
+RUN npm install
 COPY ./ .
-RUN yarn build
+RUN npm run build
 
 
 FROM nginx:1.19.10-alpine as deploy-stage

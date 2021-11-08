@@ -1,9 +1,12 @@
-FROM node:14.16.1-alpine3.10 as build-stage
+FROM node:14.16.0-alpine3.13 as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY ./ .
+RUN npm i -f
+COPY . .
 RUN npm run build
+
+
 
 FROM nginx:1.19.10-alpine as deploy-stage
 RUN mkdir /app

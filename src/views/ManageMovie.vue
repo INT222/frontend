@@ -79,7 +79,16 @@
 </template>
 
 <script>
-// import GenreListBlock from '../components/GenreListBlock.vue'
+export default {
+    props: {
+        title,
+        movieid,
+        movieno,
+        runtime,
+        genre,
+        releasedate,
+    }
+}
 </script>
 
 <style>

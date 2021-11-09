@@ -58,16 +58,7 @@
 </template>
 
 <script>
-export default {
-	// props: {
-	//     title,
-	//     movieid,
-	//     movieno,
-	//     runtime,
-	//     genre,
-	//     releasedate,
-	// }
-};
+export default {};
 </script>
 
 <style>

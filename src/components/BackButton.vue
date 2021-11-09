@@ -11,7 +11,7 @@ export default {
 	props: {
 		iconcolor: {
 			type: String,
-			default: "black",
+			default: "yellow",
 		},
 		typeTest: {
 			type: String,

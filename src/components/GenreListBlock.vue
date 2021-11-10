@@ -14,8 +14,8 @@
 			</div>
 			<p class="text-white my-auto md:my-2 text-sm uppercase">genre</p>
 			<div class="pl-2 pr-5 md:pr-1 md:pl-0 my-auto">
-				<w-icon md color="white" v-if="showDropDown == false">material-icons expand_more</w-icon>
-				<w-icon md color="white" v-if="showDropDown">material-icons expand_less</w-icon>
+				<w-icon md color="white" v-if="showDropDown == false">mdi mdi-chevron-down</w-icon>
+				<w-icon md color="white" v-if="showDropDown">mdi mdi-chevron-up</w-icon>
 			</div>
 		</div>
 		</w-button>

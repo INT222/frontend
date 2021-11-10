@@ -2,7 +2,7 @@
 	<div id="nav" class="bg-blackBlue w-screen">
 		<div class="bg-white border h-auto rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto">
 			<div class="mt-4 mx-3">
-				<back-button color="#fa3317"></back-button>
+				<back-button iconcolor="#fa3317"></back-button>
 				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
 			</div>
 			<div class="mx-6 mt-4">

@@ -1,7 +1,7 @@
 <template>
     <div>
         <w-button @click="showDrawer = true" bg-color="transparent">
-            <w-icon lg color="white">material-icons menu</w-icon>
+            <w-icon lg color="white" class="-ml-1">mdi mdi-menu</w-icon>
         </w-button>
     </div>
     <div class="block mx-auto my-auto">
@@ -40,7 +40,7 @@
                 <div class="-ml-2">
                     <router-link to="/watchlist">
                         <w-button :height="40" bg-color="transparent">
-                            <w-icon class="-ml-1" :size="30" color="grey">material-icons bookmark</w-icon>
+                            <w-icon class="-ml-1 -mt-1" :size="25" color="grey">mdi mdi-bookmark</w-icon>
                             <p class="text-sm ml-3 text-white uppercase pr-6">watch list</p>
                         </w-button>
                     </router-link>

@@ -34,12 +34,12 @@
 						placeholder="Search"
 						class="border border-white px-1 w-56"
 						loading="true"
-						inner-icon-left="material-icons close"
+						inner-icon-left="mdi mdi-close"
 						@click:inner-icon-left="searchButton = false"
 					></w-input>
 				</div>
 				<w-button @click="searchButton = true" bg-color="transparent">
-					<w-icon xl color="white">material-icons search</w-icon>
+					<w-icon xl color="white">mdi mdi-magnify</w-icon>
 				</w-button>
 			</div>
 			<div class="hidden md:inline-flex md:space-x-5">

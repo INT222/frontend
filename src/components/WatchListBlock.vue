@@ -11,7 +11,7 @@
             <div class="hidden tb:space-x-2 tb:inline-flex tb:space-x-2 md:inline-flex">
                 <p class="text-gray-400 text-xs tracking-wider mb-3 tb:mb-2 md:mb-2">{{ releaseDate }}</p>
                 <div class="-mt-1">
-                    <w-icon lg color="amber-light1">material-icons star</w-icon>
+                    <w-icon lg color="amber-light1">mdi mdi-star</w-icon>
                     <span class="text-white text-md font-medium">{{ rating }}</span>
                 </div>
             </div>
@@ -20,7 +20,7 @@
                 class="text-gray-400 text-xs tracking-wider mb-3 tb:overflow-hidden md:overflow-hidden"
             >{{ genre }} ‧ {{ runtime }}</p>
             <div class="inline-flex space-x-2 tb:hidden md:hidden">
-                <w-icon lg color="amber-light1">material-icons star</w-icon>
+                <w-icon lg color="amber-light1">mdi mdi-star</w-icon>
                 <span class="text-white text-md font-medium my-auto">{{ rating }}</span>
             </div>
             <div class="mx-auto">
@@ -28,7 +28,7 @@
                     <div
                         class="inline-flex space-x-3 border px-6 py-1 border-gray-300 mt-5 rounded-md text-center text-sm text-gray-300 space-x-1"
                     >
-                        <w-icon lg>material-icons remove</w-icon>
+                        <w-icon lg>mdi mdi-minus</w-icon>
                         <p class="my-auto">Remove</p>
                     </div>
                 </w-button>

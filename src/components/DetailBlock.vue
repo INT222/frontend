@@ -20,7 +20,8 @@
 						<span class="md:text-white md:text-xl">{{ runtime }} hours</span>
 					</div>
 					<div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-2">
-						<w-icon lg color="yellow">material-icons star</w-icon>
+						<w-icon class="mt-0" xl color="yellow">mdi mdi-star</w-icon>
+						<!-- <w-icon lg color="yellow">material-icons star</w-icon> -->
 						<span class="md:text-white md:text-xl md:font-bold">{{ rating }}</span>
 					</div>
 					<div class="md:flex md:justify-start md:mt-2 md:mx-5">

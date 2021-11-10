@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<w-button bg-color="transparent" class="inline-flex">
-			<w-icon :color="iconcolor" xl>material-icons arrow_back</w-icon>
+			<w-icon :color="iconcolor" xl>mdi mdi-arrow-left</w-icon>
 			{{ typeTest }}
 		</w-button>
 	</div>

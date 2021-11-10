@@ -10,7 +10,7 @@
 
 		<div class="inline-flex space-x-3 -ml-1 md:px-1 md:my-0 ">
 			<div class="md:hidden">
-				<w-icon color="grey" :size="30">material-icons theaters</w-icon>
+				<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
 			</div>
 			<p class="text-white my-auto md:my-2 text-sm uppercase">genre</p>
 			<div class="pl-2 pr-5 md:pr-1 md:pl-0 my-auto">

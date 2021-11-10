@@ -41,7 +41,7 @@
                     <router-link to="/watchlist">
                         <w-button :height="40" bg-color="transparent">
                             <w-icon class="-ml-1 -mt-1" :size="25" color="grey">mdi mdi-bookmark</w-icon>
-                            <p class="text-sm ml-3 text-white uppercase pr-6">watch list</p>
+                            <p class="text-sm ml-3 text-white uppercase pr-6 bg-red-400">watch list</p>
                         </w-button>
                     </router-link>
                 </div>

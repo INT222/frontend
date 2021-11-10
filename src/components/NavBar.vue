@@ -26,7 +26,7 @@
 			</div>
 			<div class="inline-flex">
 				<div :class="{
-						'bg-blackBlue z-10 ml-2 -mt-7 w-80 mx-auto md:-mt-1': searchButton === true,
+						'bg-blackBlue z-10 ml-2 -mt-7 w-80 mx-auto md:-mt-1 ': searchButton === true,
 					}"
 				>
 					<div v-if="searchButton"
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="z-10">
-				<w-button @click="searchButton = true" bg-color="transparent" class="-ml-8 md:top-0" :class="{'float-right -top-6': searchButton === true}">
+				<w-button @click="searchButton = true" bg-color="transparent" class="-ml-8 md:top-0 tb:top-0" :class="{'float-right -top-6': searchButton === true}">
 					<w-icon xl color="white">mdi mdi-magnify</w-icon>
 				</w-button>
 				</div>

@@ -8,7 +8,7 @@
 			:height="40"
         >
 
-		<div class="inline-flex space-x-3 -ml-5 md:px-1 md:my-0 ">
+		<div class="inline-flex space-x-3 -ml-4 md:px-1 md:my-0 ">
 			<div class="md:hidden">
 				<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
 			</div>

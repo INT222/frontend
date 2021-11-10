@@ -18,7 +18,7 @@
 										<th>
 											<router-link to="/movieform">
 												<w-button height="44" bg-color="info-light1" class="ml-3">
-													<w-icon color="black">material-icons add</w-icon>
+													<w-icon color="black" md>mdi mdi-plus</w-icon>
 													<p class="px-1 uppercase text-black">add</p>
 												</w-button>
 											</router-link>
@@ -43,7 +43,7 @@
 										</td>
 										<td>
 											<w-button height="44" width="44" bg-color="red-dark1" class="ml-7">
-												<w-icon color="white">material-icons delete</w-icon>
+												<w-icon color="white" lg>mdi mdi-trash-can-outline</w-icon>
 											</w-button>
 										</td>
 									</tr>

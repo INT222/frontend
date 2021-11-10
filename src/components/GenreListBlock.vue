@@ -12,7 +12,7 @@
 			<div class="md:hidden">
 				<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
 			</div>
-			<p class="text-white my-auto md:my-2 text-sm uppercase bg-red-400">genre</p>
+			<p class="text-white my-auto md:my-2 text-sm uppercase">genre</p>
 			<div class="pl-2 pr-5 md:pr-1 md:pl-0 my-auto">
 				<w-icon md color="white" v-if="showDropDown == false">mdi mdi-chevron-down</w-icon>
 				<w-icon md color="white" v-if="showDropDown">mdi mdi-chevron-up</w-icon>

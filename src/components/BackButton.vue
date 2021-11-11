@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<w-button bg-color="transparent" class="inline-flex">
+		<w-button bg-color="transparent" class="inline-flex" @click="$router.go(-1)">
 			<w-icon :color="iconcolor" xl>mdi mdi-arrow-left</w-icon>
 			{{ typeTest }}
 		</w-button>
@@ -17,5 +17,6 @@ export default {
 			type: String,
 		},
 	},
+
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<nav class="flex items-center justify-between flex-wrap py-6 px-5 md:space-x-10">
+		<nav class="flex items-center justify-between py-6 px-5 md:space-x-10 ">
 			<div class="flex items-center text-white space-x-2 tb:space-x-9">
 				<div class="md:hidden">
 					<drawer />
@@ -26,7 +26,7 @@
 			</div>
 			<div class="flex">
 				<div :class="{
-						'bg-red-400 h-8 z-10 ml-2 -mt-7 w-80 mx-auto md:-mt-1 ': searchButton === true,
+						'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
 					}"
 				>
 					<div v-if="searchButton"
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="z-10">
-				<w-button @click="searchButton = true" bg-color="transparent" class="-ml-10 md:top-0 tb:top-0" :class="{'float-right -top-6': searchButton === true}">
+				<w-button @click="searchButton = true" bg-color="transparent" class="-ml-10 md:top-0 tb:top-0" :class="{'float-right left-2': searchButton === true}">
 					<w-icon xl color="white">mdi mdi-magnify</w-icon>
 				</w-button>
 				</div>

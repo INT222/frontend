@@ -69,6 +69,7 @@ export default {
 			},
 			validators: {
 				required: (value) => !!value || "This field is required",
+				// checkUsername: (value) => value == user.username || "This username already exist"
 			},
 		};
 	},

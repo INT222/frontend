@@ -1,5 +1,5 @@
 <template>
-	<div class="fixed z-10 bg-blackBlue w-full">
+	<div>
 		<nav class="flex items-center justify-between flex-wrap py-6 px-5 md:space-x-10">
 			<div class="flex items-center text-white space-x-2 tb:space-x-9">
 				<div class="md:hidden">
@@ -24,9 +24,9 @@
 					</router-link>
 				</div>
 			</div>
-			<div class="inline-flex">
+			<div class="flex">
 				<div :class="{
-						'bg-blackBlue h-12 z-10 ml-2 -mt-7 w-80 mx-auto md:-mt-1 ': searchButton === true,
+						'bg-red-400 h-8 z-10 ml-2 -mt-7 w-80 mx-auto md:-mt-1 ': searchButton === true,
 					}"
 				>
 					<div v-if="searchButton"

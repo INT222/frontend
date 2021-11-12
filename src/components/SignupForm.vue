@@ -38,7 +38,7 @@
 						<label class="inputInfo">username</label>
 						<w-input
 							color="black"
-							:validators="[validators.required]"
+							:validators="[validators.required, validators.username]"
 							v-model="user.username"
 							type="text"
 							placeholder="XXXXXXX"
@@ -48,7 +48,7 @@
 						<label class="inputInfo">password</label>
 						<w-input
 							color="black"
-							:validators="[validators.required && validators.minLength]"
+							:validators="[validators.required, validators.minLength]"
 							v-model="user.password"
 							type="password"
 							placeholder="*******"
@@ -58,7 +58,7 @@
 						<label class="inputInfo">confirm password</label>
 						<w-input
 							color="black"
-							:validators="[validators.required && validators.confirmPassword]"
+							:validators="[validators.required, validators.confirmPassword]"
 							v-model="user.confirmpassword"
 							type="password"
 							placeholder="*******"
@@ -77,9 +77,7 @@
 					type="submit"
 					:disabled="checkIfValid()"
 					@click="submitForm"
-				>
-					SIGN UP
-				</button>
+				>SIGN UP</button>
 			</div>
 		</div>
 	</div>
@@ -107,9 +105,21 @@ export default {
 			validators: {
 				required: (value) => !!value || "This field is required",
 				minLength: (value) => value.length >= 9 || "Your password must be minimum 9 characters",
-				// checkUsername: (value) =>  || "Username is not correct"
-				confirmPassword: (value) => value == this.password || "Your password did not match"
+				confirmPassword: value => {
+					var confirmpassword = value
+					var password = this.password
+					if(confirmpassword != password) {
+						return 'Your password is not match'
+					}
 				},
+				username: async value => {
+					// Simulate a server call: wait for 800ms.
+					await new Promise(r => setTimeout(r, 800))
+					// If value is not 'waveui' return true (valid field).
+					// Otherwise (||) return the error message.
+					return value !== 'waveui' || 'This username is already in use'
+				}
+			},
 		};
 	},
 	methods: {

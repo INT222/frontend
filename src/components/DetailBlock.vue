@@ -21,7 +21,6 @@
 					</div>
 					<div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-2">
 						<w-icon class="mt-0" xl color="yellow">mdi mdi-star</w-icon>
-						<!-- <w-icon lg color="yellow">material-icons star</w-icon> -->
 						<span class="md:text-white md:text-xl md:font-bold">{{ rating }}</span>
 					</div>
 					<div class="md:flex md:justify-start md:mt-2 md:mx-5">
@@ -42,14 +41,6 @@
 							src="https://www.youtube.com/embed/tgbNymZ7vqY/"
 						/>
 					</div>
-					<!-- <img class="transform scale-125 md:block md:object-none" src="../src/assets/Eternals.jpg" /> -->
-					<!-- <img class="transform scale-125" src="../src/assets/LaLaLand.jpg" /> -->
-					<!-- <img class="transform scale-125" src="../src/assets/TheMazeRunner.jpg" /> -->
-					<!-- <img class="transform scale-125" src="../src/assets/AboutTime.jpg"> -->
-					<!-- <img class="transform scale-125" src="../src/assets/BlackWidow.jpg"> -->
-					<!-- <div class="top-6 absolute left-60">
-							<bookmark-button></bookmark-button>
-					</div>-->
 					<div class="space-y-2">
 						<span class="md:hidden absolute top-96 left-4 text-4xl font-semibold text-white">{{ title }}</span>
 						<span

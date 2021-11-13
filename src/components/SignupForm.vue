@@ -108,16 +108,17 @@ export default {
 				confirmPassword: value => {
 					var confirmpassword = value
 					var password = this.password
-					if(confirmpassword != password) {
+					if (confirmpassword != password) {
 						return 'Your password is not match'
 					}
 				},
-				username: async value => {
-					// Simulate a server call: wait for 800ms.
-					await new Promise(r => setTimeout(r, 800))
-					// If value is not 'waveui' return true (valid field).
-					// Otherwise (||) return the error message.
-					return value !== 'waveui' || 'This username is already in use'
+				username: value => {
+					var usernames = ['Fah', 'Qwan', 'Chu', "Admin"]
+					for (let i = 0; i < usernames.length; i++) {
+						if (usernames[i] === value) {
+							return 'This username is already in use'
+						}
+					}
 				}
 			},
 		};

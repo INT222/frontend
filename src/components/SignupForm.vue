@@ -104,11 +104,11 @@ export default {
 			valid: null,
 			validators: {
 				required: (value) => !!value || "This field is required",
-				minLength: (value) => value.length >= 9 || "Your password must be minimum 9 characters",
+				minLength: (value) => value.length >= 8 || "Your password must be minimum 9 characters",
 				confirmPassword: value => {
 					var confirmpassword = value
 					var password = this.password
-					if (confirmpassword != password) {
+					if (confirmpassword !== password) {
 						return 'Your password is not match'
 					}
 				},

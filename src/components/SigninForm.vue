@@ -8,11 +8,11 @@
 			<div class="mx-6 mt-4">
 				<p class="font-bold text-xl">Welcome back!</p>
 				<p class="text-gray-400 text-xs">Enter your information</p>
-				<w-form @submit.prevent="submitForm" class="my-4 grid grid-flow-row">
+				<!-- @submit.prevent="checkIfValid" -->
+				<w-form class="my-4 grid grid-flow-row" v-model="valid">
 					<label class="inputInfo text-lg">username</label>
 					<w-input
 						type="text"
-						name="username"
 						:validators="[validators.required]"
 						color="black"
 						placeholder="XXXXXXX"
@@ -22,7 +22,6 @@
 					<label class="inputInfo">password</label>
 					<w-input
 						type="password"
-						name="password"
 						:validators="[validators.required]"
 						color="black"
 						placeholder="*******"
@@ -36,7 +35,12 @@
 				</router-link>
 			</div>
 			<div class="flex justify-center mt-10 mx-6 mb-10">
-				<button :disabled="checkIfValid" class="rounded-full bg-blackBlue text-white w-screen h-12 text-sm uppercase">
+				<button
+					class="rounded-full bg-blackBlue text-white w-screen h-12 text-sm uppercase"
+					@click="checkIfValid"
+					type="submit"
+					disabled
+				>
 					log in
 				</button>
 			</div>
@@ -55,6 +59,7 @@ input[type="text"] {
 
 <script>
 import BackButton from "@/components/BackButton.vue";
+import authService from "../services/auth-service";
 
 export default {
 	components: {
@@ -62,49 +67,37 @@ export default {
 	},
 	data() {
 		return {
-			loading: false,
-			message: "",
-			authRequest: {
+			submitted: false,
+			valid: false,
+			user: {
 				username: "",
 				password: "",
 			},
 			validators: {
 				required: (value) => !!value || "This field is required",
-				// checkUsername: (value) => value == user.username || "This username already exist"
 			},
 		};
 	},
 	methods: {
-		submitForm(user) {
-			this.loading = true;
-			this.$store.dispatch("auth/login", user).then(
-				() => {
-					this.$router.push("/");
-				},
-				(error) => {
-					this.loading = false;
-					this.message =
-						(error.response && error.response.data && error.response.data.message) || error.message || error.toString();
-				}
-			);
+		submitForm() {
+			// var data = { username: this.user.username, password: this.user.password };
+			console.log(this.user);
+			authService.login(this.user).catch((error) => {
+				console.error(error.response.data);
+			});
+			this.$store.dispatch("auth/login", this.user).then(() => {
+				this.$router.push("/");
+			});
+		},
+		checkIfValid() {
+			if ((this.user.username, this.user.password == "")) {
+				console.log(this.valid);
+				this.valid = false;
+			}
+			this.valid = true;
+			this.submitForm();
 		},
 	},
-	// onSuccess() {
-	// 	setTimeout(() => (this.form.sent = true), 2000);
-	// },
-	// onValidate() {
-	// 	this.form.sent = false;
-	// 	this.form.submitted = this.form.errorsCount === 0;
-	// },
-	checkIfValid() {
-		for (const key in this.user) {
-			if (this.user[key] == "") {
-				return true;
-			}
-			return false;
-		}
-	},
-
 	computed: {
 		loggedIn() {
 			return this.$store.state.auth.status.loggedIn;

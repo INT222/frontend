@@ -147,13 +147,13 @@ export default {
 				authService
 					.register(data)
 					.then((response) => {
-						// this.user.id = response.data.id;
 						console.log(response.data);
 						this.submitted = true;
 					})
 					.catch((error) => {
 						console.error(error.response.data);
 					});
+				this.$router.push("/signin");
 			}
 		},
 		newUser() {

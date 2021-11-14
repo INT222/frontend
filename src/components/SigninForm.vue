@@ -8,7 +8,7 @@
 			<div class="mx-6 mt-4">
 				<p class="font-bold text-xl">Welcome back!</p>
 				<p class="text-gray-400 text-xs">Enter your information</p>
-				<w-form class="my-4 grid grid-flow-row">
+				<w-form @submit.prevent="submitForm" class="my-4 grid grid-flow-row">
 					<label class="inputInfo text-lg">username</label>
 					<w-input
 						type="text"
@@ -55,7 +55,6 @@ input[type="text"] {
 
 <script>
 import BackButton from "@/components/BackButton.vue";
-// import UserDataService from "@/services/UserDataService";
 
 export default {
 	components: {
@@ -63,7 +62,9 @@ export default {
 	},
 	data() {
 		return {
-			user: {
+			loading: false,
+			message: "",
+			authRequest: {
 				username: "",
 				password: "",
 			},
@@ -74,21 +75,45 @@ export default {
 		};
 	},
 	methods: {
-		onSuccess() {
-			setTimeout(() => (this.form.sent = true), 2000);
-		},
-		onValidate() {
-			this.form.sent = false;
-			this.form.submitted = this.form.errorsCount === 0;
-		},
-		checkIfValid() {
-			for (const key in this.user) {
-				if (this.user[key] == "") {
-					return true;
+		submitForm(user) {
+			this.loading = true;
+			this.$store.dispatch("auth/login", user).then(
+				() => {
+					this.$router.push("/");
+				},
+				(error) => {
+					this.loading = false;
+					this.message =
+						(error.response && error.response.data && error.response.data.message) || error.message || error.toString();
 				}
-				return false;
-			}
+			);
 		},
+	},
+	// onSuccess() {
+	// 	setTimeout(() => (this.form.sent = true), 2000);
+	// },
+	// onValidate() {
+	// 	this.form.sent = false;
+	// 	this.form.submitted = this.form.errorsCount === 0;
+	// },
+	checkIfValid() {
+		for (const key in this.user) {
+			if (this.user[key] == "") {
+				return true;
+			}
+			return false;
+		}
+	},
+
+	computed: {
+		loggedIn() {
+			return this.$store.state.auth.status.loggedIn;
+		},
+	},
+	created() {
+		if (this.loggedIn) {
+			this.$router.push("/");
+		}
 	},
 };
 </script>

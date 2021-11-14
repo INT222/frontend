@@ -1,7 +1,15 @@
 <template>
 	<div>
 		<div
-			class="bg-white border h-auto py-4 pb-10 rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10"
+			class="
+				bg-white
+				border
+				h-auto
+				py-4
+				pb-10
+				rounded-t-lg
+				md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10
+			"
 		>
 			<div class="mt-4 mx-3">
 				<back-button iconcolor="#fa3317"></back-button>
@@ -54,7 +62,7 @@
 							placeholder="*******"
 						/>
 					</div>
-					<div class="mt-4">
+					<!-- <div class="mt-4">
 						<label class="inputInfo">confirm password</label>
 						<w-input
 							color="black"
@@ -63,7 +71,7 @@
 							type="password"
 							placeholder="*******"
 						/>
-					</div>
+					</div> -->
 				</w-form>
 			</div>
 			<div class="flex justify-end mx-6 mt-5">
@@ -77,7 +85,9 @@
 					type="submit"
 					:disabled="checkIfValid()"
 					@click="submitForm"
-				>SIGN UP</button>
+				>
+					SIGN UP
+				</button>
 			</div>
 		</div>
 	</div>
@@ -85,7 +95,8 @@
 
 <script>
 import BackButton from "@/components/BackButton.vue";
-import UserDataService from "@/services/UserDataService.js";
+// import userDataService from "@/services/UserDataService.js";
+import authService from "../services/auth-service";
 
 export default {
 	components: {
@@ -98,28 +109,28 @@ export default {
 				lastname: "",
 				username: "",
 				password: "",
-				confirmpassword: ""
+				// confirmpassword: ""
 			},
 			submitted: false,
 			valid: null,
 			validators: {
 				required: (value) => !!value || "This field is required",
 				minLength: (value) => value.length >= 8 || "Your password must be minimum 9 characters",
-				confirmPassword: value => {
-					var confirmpassword = value
-					var password = this.password
+				confirmPassword: (value) => {
+					var confirmpassword = value;
+					var password = this.password;
 					if (confirmpassword !== password) {
-						return 'Your password is not match'
+						return "Your password is not match";
 					}
 				},
-				username: value => {
-					var usernames = ['Fah', 'Qwan', 'Chu', "Admin"]
+				username: (value) => {
+					var usernames = ["Fah", "Qwan", "Chu", "Admin"];
 					for (let i = 0; i < usernames.length; i++) {
 						if (usernames[i] === value) {
-							return 'This username is already in use'
+							return "This username is already in use";
 						}
 					}
-				}
+				},
 			},
 		};
 	},
@@ -132,7 +143,8 @@ export default {
 					firstname: this.user.firstname,
 					lastname: this.user.lastname,
 				};
-				UserDataService.create(data)
+				authService
+					.register(data)
 					.then((response) => {
 						// this.user.id = response.data.id;
 						console.log(response.data);

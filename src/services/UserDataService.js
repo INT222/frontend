@@ -1,5 +1,6 @@
 import http from "../http-common";
 
+http.defaults.headers["Content-type"] = "application/json";
 class UserDataService {
 	getAll() {
 		return http.get("/users");
@@ -10,23 +11,11 @@ class UserDataService {
 	}
 
 	create(data) {
-		return http.post("/signup", data);
+		return http.post("/auth/signup", data);
 	}
 
 	update(id, data) {
 		return http.put(`/users/${id}`, data);
-	}
-
-	delete(id) {
-		return http.delete(`/users/${id}`);
-	}
-
-	deleteAll() {
-		return http.delete(`/users`);
-	}
-
-	findByTitle(title) {
-		return http.get(`/tutorials?title=${title}`);
 	}
 }
 

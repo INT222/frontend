@@ -32,7 +32,7 @@
                 <div class="mt-6 -ml-2">
                     <router-link to="/managemovie">
                         <w-button :height="40" bg-color="transparent">
-                            <w-icon class="-mt-1" :size="30" color="grey">material-icons create</w-icon>
+                            <w-icon class="-mt-1" :size="25" color="grey">mdi mdi-movie-open-edit</w-icon>
                             <p class="text-sm ml-2 text-white uppercase">manage movie</p>
                         </w-button>
                     </router-link>

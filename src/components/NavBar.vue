@@ -15,6 +15,7 @@
 						<w-button bg-color="transparent" :height="40" class="uppercase block px-3 py-2">watch list</w-button>
 					</router-link>
 					<genre-list-block />
+					<div>
 					<router-link to="/managemovie">
 						<w-button
 							bg-color="transparent"
@@ -22,6 +23,7 @@
 							class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
 						>manage movie</w-button>
 					</router-link>
+					</div>
 				</div>
 			</div>
 			<div class="flex">

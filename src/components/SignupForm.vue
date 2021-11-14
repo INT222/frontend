@@ -104,18 +104,19 @@ export default {
 			valid: null,
 			validators: {
 				required: (value) => !!value || "This field is required",
-				minLength: (value) => value.length >= 8 || "Your password must be minimum 9 characters",
+				minLength: (value) => value.length >= 8 || "Your password must be minimum 8 characters",
 				confirmPassword: value => {
-					var confirmpassword = value
-					var password = this.password
-					if (confirmpassword !== password) {
+					// console.log("Password:" + this.user.password);
+					// console.log("Confirm Password:" + value);
+					// console.log("Condition: " + value !== this.user.password);
+					if (value !== this.user.password) {
 						return 'Your password is not match'
 					}
 				},
 				username: value => {
-					var usernames = ['Fah', 'Qwan', 'Chu', "Admin"]
+					var usernames = ['Fah', 'Qwan', 'Chu', 'Admin']
 					for (let i = 0; i < usernames.length; i++) {
-						if (usernames[i] === value) {
+						if (usernames[i].toLowerCase() === value.toLowerCase()) {
 							return 'This username is already in use'
 						}
 					}

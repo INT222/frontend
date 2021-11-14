@@ -38,7 +38,7 @@
 						<label class="inputInfo">username</label>
 						<w-input
 							color="black"
-							:validators="[validators.required]"
+							:validators="[validators.required, validators.username]"
 							v-model="user.username"
 							type="text"
 							placeholder="XXXXXXX"
@@ -48,7 +48,7 @@
 						<label class="inputInfo">password</label>
 						<w-input
 							color="black"
-							:validators="[validators.required && validators.minLength]"
+							:validators="[validators.required, validators.minLength]"
 							v-model="user.password"
 							type="password"
 							placeholder="*******"
@@ -58,7 +58,7 @@
 						<label class="inputInfo">confirm password</label>
 						<w-input
 							color="black"
-							:validators="[validators.required && validators.confirmPassword]"
+							:validators="[validators.required, validators.confirmPassword]"
 							v-model="user.confirmpassword"
 							type="password"
 							placeholder="*******"
@@ -77,9 +77,7 @@
 					type="submit"
 					:disabled="checkIfValid()"
 					@click="submitForm"
-				>
-					SIGN UP
-				</button>
+				>SIGN UP</button>
 			</div>
 		</div>
 	</div>
@@ -106,10 +104,24 @@ export default {
 			valid: null,
 			validators: {
 				required: (value) => !!value || "This field is required",
-				minLength: (value) => value.length >= 9 || "Your password must be minimum 9 characters",
-				// checkUsername: (value) =>  || "Username is not correct"
-				confirmPassword: (value) => value == this.password || "Your password did not match"
+				minLength: (value) => value.length >= 8 || "Your password must be minimum 8 characters",
+				confirmPassword: value => {
+					// console.log("Password:" + this.user.password);
+					// console.log("Confirm Password:" + value);
+					// console.log("Condition: " + value !== this.user.password);
+					if (value !== this.user.password) {
+						return 'Your password is not match'
+					}
 				},
+				username: value => {
+					var usernames = ['Fah', 'Qwan', 'Chu', 'Admin']
+					for (let i = 0; i < usernames.length; i++) {
+						if (usernames[i].toLowerCase() === value.toLowerCase()) {
+							return 'This username is already in use'
+						}
+					}
+				}
+			},
 		};
 	},
 	methods: {

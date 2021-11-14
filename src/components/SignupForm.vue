@@ -13,7 +13,7 @@
 			<div class="mx-6 mt-4">
 				<p class="font-bold text-xl">Welcome back!</p>
 				<p class="text-gray-400 text-xs">Enter your information</p>
-				<w-form @submit.prevent="submitForm" class="my-4 grid grid-flow-row">
+				<w-form @submit.prevent="submitForm" class="my-4 grid grid-flow-row" v-model="valid">
 					<div>
 						<label class="inputInfo">firstname</label>
 						<w-input
@@ -71,13 +71,14 @@
 					<button class="underline font-semibold text-xs tracking-wide">Already have an account?</button>
 				</router-link>
 			</div>
-			<div class="flex justify-center mt-10 mx-6">
-				<button
-					class="rounded-full bg-blackBlue text-white w-screen h-12 text-sm tracking-wide"
+			<div class="flex justify-center mt-10 mx-6 bg-blackBlue rounded-full h-12">
+				<w-button
+					color="white"
+					class="text-sm tracking-wide "
 					type="submit"
-					:disabled="checkIfValid()"
+					:disabled="valid === false"
 					@click="submitForm"
-				>SIGN UP</button>
+				>SIGN UP</w-button>
 			</div>
 		</div>
 	</div>

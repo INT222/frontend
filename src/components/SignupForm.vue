@@ -73,6 +73,7 @@
 			</div>
 			<div class="flex justify-center mt-10 mx-6 bg-blackBlue rounded-full h-12">
 				<w-button
+					bg-color="transparent"
 					color="white"
 					class="text-sm tracking-wide "
 					type="submit"

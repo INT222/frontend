@@ -17,8 +17,7 @@
 				>{{ genre }} ‧ {{ runtime }}</p>
 				<fav-button />
 			</div>
-
-			<hr class="w-80 mx-6 border border-gray-500 mb-3 mt-3 tb:hidden md:hidden" />
+			<hr class="w-80 mx-3 border border-gray-500 mb-3 mt-3 tb:hidden md:hidden" />
 		</div>
 	</div>
 </template>

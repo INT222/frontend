@@ -8,7 +8,6 @@
 			<div class="mx-6 mt-4">
 				<p class="font-bold text-xl">Welcome back!</p>
 				<p class="text-gray-400 text-xs">Enter your information</p>
-				<!-- @submit.prevent="checkIfValid" -->
 				<w-form class="my-4 grid grid-flow-row" v-model="valid">
 					<label class="inputInfo text-lg">username</label>
 					<w-input
@@ -34,15 +33,10 @@
 					<button class="underline font-semibold text-xs">Create an account</button>
 				</router-link>
 			</div>
-			<div class="flex justify-center mt-10 mx-6 mb-10">
-				<button
-					class="rounded-full bg-blackBlue text-white w-screen h-12 text-sm uppercase"
-					@click="checkIfValid"
-					type="submit"
-					disabled
+			<div class="flex justify-center mt-10 mx-6 mb-10 rounded-full bg-blackBlue h-12">
+				<w-button color="white" bg-color="transparent" :disabled="valid === false" class="text-white text-sm uppercase"
+					>log in</w-button
 				>
-					log in
-				</button>
 			</div>
 		</div>
 	</div>
@@ -67,8 +61,7 @@ export default {
 	},
 	data() {
 		return {
-			submitted: false,
-			valid: false,
+			valid: null,
 			user: {
 				username: "",
 				password: "",

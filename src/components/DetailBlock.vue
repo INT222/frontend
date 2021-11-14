@@ -51,24 +51,32 @@
 				</div>
 				<div class="md:hidden grid grid-cols-2 text-white px-24 sticky top-0 bg-blackBlue">
 					<button
-						v-for="item in items"
-						:key="item.message"
 						class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center"
 						:class="{
-							'text-deepBlue border-t-2 border-deepBlue': item.message === menu,
+							'text-deepBlue border-t-2 border-deepBlue': toggle === false,
 						}"
-						@click="say(item.message)"
+						@click="toggle = false"
 					>
-						<span class="text-sm uppercase">{{ item.message }}</span>
+						<span class="text-sm uppercase">details</span>
+					</button>
+					<button
+						class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center"
+						:class="{
+							'text-deepBlue border-t-2 border-deepBlue': toggle === true,
+						}"
+						@click="toggle = true"
+					>
+						<span class="text-sm uppercase">reviews</span>
 					</button>
 				</div>
-
-				<div>
-					<span class="text-white text-sm md:text-xl">{{ plot }}</span>
-				</div>
+					<span
+						v-if="toggle === false"
+						class="text-white text-sm md:text-xl">{{ plot }}</span>
 			</div>
+			<div v-if="toggle === true">
 			<comment-form />
 			<comment-block />
+			</div>
 		</div>
 	</w-app>
 </template>
@@ -95,6 +103,7 @@ export default {
 	],
 	data() {
 		return {
+			toggle: false,
 			menu: "",
 			items: [{ message: "details" }, { message: "reviews" }],
 			color: this.color

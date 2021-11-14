@@ -1,6 +1,8 @@
 <template>
 	<div id="nav" class="bg-blackBlue w-screen">
-		<div class="bg-white border h-auto rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto">
+		<div
+			class="bg-white border h-auto rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto"
+		>
 			<div class="mt-4 mx-3">
 				<back-button iconcolor="#fa3317"></back-button>
 				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
@@ -8,7 +10,7 @@
 			<div class="mx-6 mt-4">
 				<p class="font-bold text-xl">Welcome back!</p>
 				<p class="text-gray-400 text-xs">Enter your information</p>
-				<w-form class="my-4 grid grid-flow-row">
+				<w-form class="my-4 grid grid-flow-row" v-model="valid">
 					<label class="inputInfo text-lg">username</label>
 					<w-input
 						type="text"
@@ -35,10 +37,13 @@
 					<button class="underline font-semibold text-xs">Create an account</button>
 				</router-link>
 			</div>
-			<div class="flex justify-center mt-10 mx-6 mb-10">
-				<button :disabled="checkIfValid" class="rounded-full bg-blackBlue text-white w-screen h-12 text-sm uppercase">
-					log in
-				</button>
+			<div class="flex justify-center mt-10 mx-6 mb-10 rounded-full bg-blackBlue h-12">
+				<w-button
+					color="white"
+					bg-color="transparent"
+					:disabled="valid === false"
+					class="text-white text-sm uppercase"
+				>log in</w-button>
 			</div>
 		</div>
 	</div>
@@ -63,6 +68,7 @@ export default {
 	},
 	data() {
 		return {
+			valid: null,
 			user: {
 				username: "",
 				password: "",

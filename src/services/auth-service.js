@@ -2,18 +2,9 @@ import http from "../http-common";
 http.defaults.headers["Content-type"] = "application/json";
 class AuthService {
 	login(user) {
-		return http
-			.post("login", {
-				username: user.username,
-				password: user.password,
-			})
-			.then((response) => {
-				if (response.data.accessToken) {
-					localStorage.setItem("user", JSON.stringify(response.data));
-				}
-
-				return response.data;
-			});
+		return http.post("/auth/login", user).then((response) => {
+			localStorage.setItem("user", JSON.stringify(response.data));
+		});
 	}
 
 	logout() {

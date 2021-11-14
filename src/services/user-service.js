@@ -1,11 +1,9 @@
-import axios from "axios";
+import http from "../http-common";
 import authHeader from "./auth-header";
 
-const API_URL = "http://104.215.144.82/backend/api/test";
-
 class UserService {
-	getPublicContent() {
-		return axios.get(API_URL + "all");
+	getWatchlist() {
+		return http.get("/all");
 	}
 
 	getUserBoard() {

@@ -7,6 +7,7 @@ import WatchList from "../views/WatchList.vue";
 import Genre from "../views/Genre.vue";
 import ManageMovie from "../views/ManageMovie.vue";
 import MovieForm from "../views/MovieForm.vue";
+import User from "../components/User.vue";
 
 const routes = [
 	{
@@ -56,6 +57,11 @@ const routes = [
 		path: "/movieform",
 		name: "MovieForm",
 		component: MovieForm
+	},
+	{
+		path:"/user",
+		name:"User",
+		component:User
 	},
 ];
 

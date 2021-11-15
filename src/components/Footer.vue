@@ -25,6 +25,7 @@
                         <h3>About us</h3>
                     </router-link>
                     <h3>Terms of Use</h3>
+                    <user />
                 </div>
                 <div
                     class="space-y-5 tb:flex tracking-wider tb:-mt-6 tb:space-y-0 tb:space-x-12 md:mt-2 md:space-y-0 md:space-x-24"
@@ -73,3 +74,13 @@
         <div class="py-6 text-sm text-center md:text-lg">© 2020 BRM Movies Co. All rights reserved.</div>
     </footer>
 </template>
+
+<script>import User from "./User.vue";
+
+
+export default {
+   component:{
+       "user": User,
+   }
+}
+</script>

@@ -16,12 +16,14 @@
                 </a>
             </div>
             <div
-                class="flex text-sm space-x-20 grid-cols-2 mx-auto tb:text-base tb:ml-8  tb:space-x-12 tb:grid-cols-1 md:text-base md:w-2/3 md:space-x-32 md:grid-cols-1"
+                class="flex text-sm space-x-20 grid-cols-2 mx-auto tb:text-base tb:ml-8 tb:space-x-12 tb:grid-cols-1 md:text-base md:w-2/3 md:space-x-32 md:grid-cols-1"
             >
                 <div
                     class="space-y-5 tracking-wider tb:flex tb:-mt-6 tb:space-y-0 tb:space-x-12 md:flex md:mt-2 md:space-y-0 md:space-x-20"
                 >
-                    <h3>About us</h3>
+                    <router-link to="/about">
+                        <h3>About us</h3>
+                    </router-link>
                     <h3>Terms of Use</h3>
                 </div>
                 <div

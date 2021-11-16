@@ -38,7 +38,7 @@
 							color="white"
 							type="text"
 							placeholder="Search"
-							class="border border-white px-1 md:w-72 w-64"
+							class="border border-white px-1 md:w-64 w-64"
 							loading="true"
 							inner-icon-left="mdi mdi-close"
 							@click:inner-icon-left="searchButton = false"

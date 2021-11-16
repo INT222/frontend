@@ -11,7 +11,7 @@
 				md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10
 			"
 		>
-			<div class="mt-4 mx-3"></div>
+			<div class="mt-4 mx-3">
 			<back-button iconcolor="#fa3317"></back-button>
 			<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
 		</div>
@@ -90,6 +90,7 @@
 				>SIGN UP</w-button
 			>
 		</div>
+	</div>
 	</div>
 </template>
 

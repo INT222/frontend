@@ -6,7 +6,7 @@
             :persistent="dialog.persistent"
             :persistent-no-animation="dialog.persistentNoAnimation"
             title-class="primary-light1--bg white"
-            :width="dialog.width"
+            width="300"
         >
             <div class="space-y-4">
                 <div class="justify-center divide-x">
@@ -38,7 +38,6 @@ export default {
                 show: false,
                 persistent: false,
                 persistentNoAnimation: false,
-                width: 300
             }
         }
 

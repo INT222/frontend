@@ -34,7 +34,13 @@
 				</router-link>
 			</div>
 			<div class="flex justify-center mt-10 mx-6 mb-10 rounded-full bg-blackBlue h-12">
-				<w-button color="white" bg-color="transparent" :disabled="valid === false" class="text-white text-sm uppercase"
+				<w-button
+					color="white"
+					bg-color="transparent"
+					:disabled="valid === false"
+					class="text-white text-sm uppercase"
+					type="submit"
+					@click="submitForm"
 					>log in</w-button
 				>
 			</div>

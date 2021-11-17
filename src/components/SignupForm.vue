@@ -12,57 +12,57 @@
 			"
 		>
 			<div class="mt-4 mx-3">
-			<back-button iconcolor="#fa3317"></back-button>
-			<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
-		</div>
-		<!-- <p class="ml-4 text-xs leading-loose uppercase mt-1">back to home</p> -->
-		<!-- </button> -->
-		<!-- </div> -->
-		<div class="mx-6 mt-4">
-			<p class="font-bold text-xl">Welcome back!</p>
-			<p class="text-gray-400 text-xs">Enter your information</p>
-			<w-form @submit.prevent="submitForm" class="my-4 grid grid-flow-row" v-model="valid">
-				<div>
-					<label class="inputInfo">firstname</label>
-					<w-input
-						color="black"
-						:validators="[validators.required]"
-						v-model="user.firstname"
-						type="text"
-						placeholder="XXXXXXX"
-					/>
-				</div>
-				<div class="mt-4">
-					<label class="inputInfo">lastname</label>
-					<w-input
-						color="black"
-						:validators="[validators.required]"
-						v-model="user.lastname"
-						type="text"
-						placeholder="XXXXXXX"
-					/>
-				</div>
-				<div class="mt-4">
-					<label class="inputInfo">username</label>
-					<w-input
-						color="black"
-						:validators="[validators.required, validators.username]"
-						v-model="user.username"
-						type="text"
-						placeholder="XXXXXXX"
-					/>
-				</div>
-				<div class="mt-4">
-					<label class="inputInfo">password</label>
-					<w-input
-						color="black"
-						:validators="[validators.required, validators.minLength]"
-						v-model="user.password"
-						type="password"
-						placeholder="*******"
-					/>
-				</div>
-				<!-- <div class="mt-4">
+				<back-button iconcolor="#fa3317"></back-button>
+				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
+			</div>
+			<!-- <p class="ml-4 text-xs leading-loose uppercase mt-1">back to home</p> -->
+			<!-- </button> -->
+			<!-- </div> -->
+			<div class="mx-6 mt-4">
+				<p class="font-bold text-xl">Welcome back!</p>
+				<p class="text-gray-400 text-xs">Enter your information</p>
+				<w-form class="my-4 grid grid-flow-row" v-model="valid">
+					<div>
+						<label class="inputInfo">firstname</label>
+						<w-input
+							color="black"
+							:validators="[validators.required]"
+							v-model="user.firstname"
+							type="text"
+							placeholder="XXXXXXX"
+						/>
+					</div>
+					<div class="mt-4">
+						<label class="inputInfo">lastname</label>
+						<w-input
+							color="black"
+							:validators="[validators.required]"
+							v-model="user.lastname"
+							type="text"
+							placeholder="XXXXXXX"
+						/>
+					</div>
+					<div class="mt-4">
+						<label class="inputInfo">username</label>
+						<w-input
+							color="black"
+							:validators="[validators.required, validators.username]"
+							v-model="user.username"
+							type="text"
+							placeholder="XXXXXXX"
+						/>
+					</div>
+					<div class="mt-4">
+						<label class="inputInfo">password</label>
+						<w-input
+							color="black"
+							:validators="[validators.required, validators.minLength]"
+							v-model="user.password"
+							type="password"
+							placeholder="*******"
+						/>
+					</div>
+					<!-- <div class="mt-4">
 						<label class="inputInfo">confirm password</label>
 						<w-input
 							color="black"
@@ -72,25 +72,25 @@
 							placeholder="*******"
 						/>
 					</div> -->
-			</w-form>
+				</w-form>
+			</div>
+			<div class="flex justify-end mx-6 mt-5">
+				<router-link to="/signin">
+					<button class="underline font-semibold text-xs tracking-wide">Already have an account?</button>
+				</router-link>
+			</div>
+			<div class="flex justify-center mt-10 mx-6 bg-blackBlue rounded-full h-12">
+				<w-button
+					bg-color="transparent"
+					color="white"
+					class="text-sm tracking-wide"
+					type="submit"
+					:disabled="valid === false"
+					@click="submitForm"
+					>SIGN UP</w-button
+				>
+			</div>
 		</div>
-		<div class="flex justify-end mx-6 mt-5">
-			<router-link to="/signin">
-				<button class="underline font-semibold text-xs tracking-wide">Already have an account?</button>
-			</router-link>
-		</div>
-		<div class="flex justify-center mt-10 mx-6 bg-blackBlue rounded-full h-12">
-			<w-button
-				bg-color="transparent"
-				color="white"
-				class="text-sm tracking-wide"
-				type="submit"
-				:disabled="valid === false"
-				@click="submitForm"
-				>SIGN UP</w-button
-			>
-		</div>
-	</div>
 	</div>
 </template>
 

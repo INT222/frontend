@@ -6,13 +6,15 @@
             :persistent="dialog.persistent"
             :persistent-no-animation="dialog.persistentNoAnimation"
             title-class="primary-light1--bg white"
-            width="300"
+            :width="dialog.width"
         >
             <div class="space-y-4">
                 <div class="justify-center divide-x">
                     <w-divider class color="grey-dark5">
                         <div class="bg-yellow-200 w-20 h-20 object-cover rounded-full p-1 mx-auto">
-                            <img class="w-16 mx-auto" src="../assets/avatar.png">
+                            <p v-if="selectedImage">
+                                <img class="w-16 mx-auto" :src="selectedImage" />
+                            </p>
                         </div>
                     </w-divider>
                 </div>
@@ -34,13 +36,27 @@
 export default {
     data() {
         return {
+            images: [
+                '../assets/avatar1.png',
+                '../assets/avatar2.png',
+            ],
+            selectedImage: "",
             dialog: {
                 show: false,
                 persistent: false,
                 persistentNoAnimation: false,
+                width: 300
             }
         }
-
+    },
+    methods: {
+        randomItem(items) {
+            return items[Math.floor(Math.random() * items.length)];
+        }
+    },
+    created() {
+        this.selectedImage = this.randomItem(this.images);
+        console.log(this.selectedImage);
     }
 }
 </script>

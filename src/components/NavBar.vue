@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<nav class="flex items-center justify-between py-6 px-5 md:space-x-10 ">
+		<nav class="flex items-center justify-between py-6 px-5 md:space-x-10">
 			<div class="flex items-center text-white space-x-2 tb:space-x-9">
 				<div class="md:hidden">
 					<drawer />
@@ -16,39 +16,55 @@
 					</router-link>
 					<genre-list-block />
 					<div>
-					<router-link to="/managemovie">
-						<w-button
-							bg-color="transparent"
-							:height="40"
-							class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
-						>manage movie</w-button>
-					</router-link>
+						<router-link to="/managemovie">
+							<w-button
+								bg-color="transparent"
+								:height="40"
+								class="
+									uppercase
+									block
+									mt-4
+									px-3
+									py-2
+									hover:bg-gray-700
+									rounded-md
+									md:inline-block md:mt-0
+									hover:text-white
+								"
+								>manage movie</w-button
+							>
+						</router-link>
 					</div>
 				</div>
 			</div>
 			<div class="flex">
-				<div :class="{
+				<div
+					:class="{
 						'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
 					}"
 				>
-					<div v-if="searchButton"
-					>
+					<div v-if="searchButton">
 						<w-input
 							v-model="search"
 							color="white"
 							type="text"
 							placeholder="Search"
-							class="border border-white px-1 md:w-64 w-64"
-							loading="true"
+							class="px-1 md:w-64 w-64"
+							outline
 							inner-icon-left="mdi mdi-close"
 							@click:inner-icon-left="searchButton = false"
 						></w-input>
 					</div>
 				</div>
 				<div class="z-10">
-				<w-button @click="searchButton = true" bg-color="transparent" class="-ml-10 md:top-0 tb:top-0" :class="{'float-right left-2': searchButton === true}">
-					<w-icon xl color="white">mdi mdi-magnify</w-icon>
-				</w-button>
+					<w-button
+						@click="searchButton = true"
+						bg-color="transparent"
+						class="-ml-10 md:top-0 tb:top-0"
+						:class="{ 'float-right left-2': searchButton === true }"
+					>
+						<w-icon xl color="white">mdi mdi-magnify</w-icon>
+					</w-button>
 				</div>
 			</div>
 			<div class="hidden md:inline-flex md:space-x-5">
@@ -59,7 +75,8 @@
 						outline
 						color="white"
 						bg-color="transparent"
-					>sign in</w-button>
+						>sign in</w-button
+					>
 				</router-link>
 				<div class>
 					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
@@ -71,7 +88,8 @@
 						outline
 						color="black"
 						bg-color="white"
-					>sign up</w-button>
+						>sign up</w-button
+					>
 				</router-link>
 			</div>
 		</nav>
@@ -84,7 +102,7 @@ import GenreListBlock from "./GenreListBlock.vue";
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
-		"drawer": Drawer,
+		drawer: Drawer,
 	},
 	data() {
 		return {

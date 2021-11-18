@@ -49,9 +49,9 @@
 							color="white"
 							type="text"
 							placeholder="Search"
-							class="px-1 md:w-64 w-64"
-							outline
+							class="px-1 md:w-64 w-64 border border-white"
 							inner-icon-left="mdi mdi-close"
+							loading
 							@click:inner-icon-left="searchButton = false"
 						></w-input>
 					</div>

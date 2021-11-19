@@ -20,29 +20,16 @@
 							<w-button
 								bg-color="transparent"
 								:height="40"
-								class="
-									uppercase
-									block
-									mt-4
-									px-3
-									py-2
-									hover:bg-gray-700
-									rounded-md
-									md:inline-block md:mt-0
-									hover:text-white
-								"
-								>manage movie</w-button
-							>
+								class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
+							>manage movie</w-button>
 						</router-link>
 					</div>
 				</div>
 			</div>
 			<div class="flex">
-				<div
-					:class="{
-						'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
-					}"
-				>
+				<div :class="{
+					'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
+				}">
 					<div v-if="searchButton">
 						<w-input
 							v-model="search"
@@ -67,7 +54,7 @@
 					</w-button>
 				</div>
 			</div>
-			<div class="hidden md:inline-flex md:space-x-5">
+			<div v-if="this.loggedin === false" class="hidden md:inline-flex md:space-x-5">
 				<router-link to="/signin">
 					<w-button
 						id="signin"
@@ -75,10 +62,9 @@
 						outline
 						color="white"
 						bg-color="transparent"
-						>sign in</w-button
-					>
+					>sign in</w-button>
 				</router-link>
-				<div class>
+				<div>
 					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
 				</div>
 				<router-link to="/signup">
@@ -88,9 +74,11 @@
 						outline
 						color="black"
 						bg-color="white"
-						>sign up</w-button
-					>
+					>sign up</w-button>
 				</router-link>
+			</div>
+			<div v-if="this.loggedin === true" >
+				<user-list></user-list>
 			</div>
 		</nav>
 	</div>
@@ -99,13 +87,17 @@
 <script>
 import Drawer from "./Drawer.vue";
 import GenreListBlock from "./GenreListBlock.vue";
+import { auth } from '../services/auth-module.js';
+import UserList from './UserList.vue';
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
-		drawer: Drawer,
+		'drawer': Drawer,
+		'user-list': UserList
 	},
 	data() {
 		return {
+			loggedin: auth.state.status.loggedIn,
 			searchButton: false,
 			search: "",
 			list: {
@@ -113,6 +105,13 @@ export default {
 			},
 		};
 	},
+	methods: {
+		checkLoggedIn() {
+			if(this.loggedin) {
+				return 
+			}
+		}
+	}
 };
 </script>
 

@@ -75,6 +75,7 @@ export default {
 			validators: {
 				required: (value) => !!value || "This field is required",
 			},
+			errorText: "",
 		};
 	},
 	methods: {
@@ -82,7 +83,12 @@ export default {
 			// var data = { username: this.user.username, password: this.user.password };
 			console.log(this.user);
 			authService.login(this.user).catch((error) => {
-				console.error(error.response.data);
+				console.log(error.response.data);
+				this.errorText = JSON.stringify(error.response.data);
+				// console.log(this.errorText.data);
+				console.log(this.errorText.message);
+				console.log(this.errorText);
+				this.$waveui.notify(this.errorText, "error", 0);
 			});
 			this.$store.dispatch("auth/login", this.user).then(() => {
 				this.$router.push("/");

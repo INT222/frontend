@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-green-300">
-        <w-button @click="dialog.show = true" bg-color="transparent" color="black">Open dialog</w-button>
+    <div class="bg-blackBlue -ml-6">
+        <w-button @click="dialog.show = true" bg-color="transparent" color="white">View profile</w-button>
         <w-dialog
             v-model="dialog.show"
             :persistent="dialog.persistent"

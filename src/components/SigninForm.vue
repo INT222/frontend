@@ -92,6 +92,7 @@ export default {
 			});
 			this.$store.dispatch("auth/login", this.user).then(() => {
 				this.$router.push("/");
+				location.reload();
 			});
 		},
 		checkIfValid() {

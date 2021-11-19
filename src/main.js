@@ -12,5 +12,10 @@ const app = createApp(App);
 app.use(store);
 app.use(router);
 app.use(VueAxios, axios);
-new WaveUI(app, {});
+new WaveUI(app, {
+	colors: {
+		primary: "#9ac332",
+		secondary: "#5d9a26",
+	},
+});
 app.mount("#app");

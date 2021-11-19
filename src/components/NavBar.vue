@@ -105,13 +105,7 @@ export default {
 			},
 		};
 	},
-	methods: {
-		checkLoggedIn() {
-			if(this.loggedin) {
-				return 
-			}
-		}
-	}
+	
 };
 </script>
 

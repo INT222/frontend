@@ -18,7 +18,7 @@
         <div class="absolute mt-2 md:w-20 md:ml-0 md:mt-0 z-10 md:bg-blackBlue" v-if="showDropDown">
             <div class="text-white text-sm uppercase font-medium">
                 <user></user>
-                <w-button bg-color="transparent" class="md:w-20 block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">
+                <w-button @click="clickToLogOut" bg-color="transparent" class="md:w-20 block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">
                 Log out</w-button>
             </div>
         </div>
@@ -27,6 +27,7 @@
 
 <script>
 import User from "./User.vue";
+import authService from '../services/auth-service';
 
 export default {
     components: {
@@ -38,6 +39,13 @@ export default {
             items: [{ label: "Item 1" }, { label: "Item 2" }, { label: "Item 3" }, { label: "Item 4" }],
             showDropDown: false,
         }
-    }
+    },
+    methods: {
+		clickToLogOut() {
+			authService.logout();
+            console.log("Log out successful");
+            location.reload();
+		}
+	}
 };
 </script>

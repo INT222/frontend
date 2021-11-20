@@ -41,7 +41,7 @@
 					class="text-white text-sm uppercase"
 					type="submit"
 					@click="submitForm"
-					>log in</w-button
+					>Sign in</w-button
 				>
 			</div>
 		</div>
@@ -90,6 +90,7 @@ export default {
 				console.log(this.errorText);
 				this.$waveui.notify(this.errorText, "error", 0);
 			});
+			console.log(process.env.VUE_APP_BACKEND_URL);
 			this.$store.dispatch("auth/login", this.user).then(() => {
 				this.$router.push("/");
 				location.reload();

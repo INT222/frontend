@@ -1,6 +1,6 @@
 <template>
     <div class="bg-blackBlue">
-        <w-button @click="dialog.show = true" bg-color="transparent" color="white">View profile</w-button>
+        <w-button @click="dialog.show = true"  bg-color="transparent" color="white">View profile</w-button>
         <w-dialog
             v-model="dialog.show"
             :persistent="dialog.persistent"
@@ -22,7 +22,7 @@
                 <p class="text-center">{{ firstname }} {{ lastname }}</p>
                 <div class="flex justify-center pt-4">
                     <router-link to="/editprofile">
-                        <w-button bg-color="purple-light1" color="white">Edit Profile</w-button>
+                        <w-button bg-color="purple-light1" @click="dialog.show = false" color="white">Edit Profile</w-button>
                     </router-link>
                 </div>
             </div>
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-
 export default {
     props: [
         "username",

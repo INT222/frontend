@@ -1,15 +1,7 @@
 <template>
 	<div>
 		<div
-			class="
-				bg-white
-				border
-				h-auto
-				py-4
-				pb-10
-				rounded-t-lg
-				md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10
-			"
+			class="bg-white border h-auto py-4 pb-10 rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10"
 		>
 			<div class="mt-4 mx-3">
 				<back-button iconcolor="#fa3317"></back-button>
@@ -21,7 +13,7 @@
 			<div class="mx-6 mt-4">
 				<p class="font-bold text-xl">Welcome back!</p>
 				<p class="text-gray-400 text-xs">Enter your information</p>
-				<w-form class="my-4 grid grid-flow-row" v-model="valid">
+				<w-form @submit.prevent="submitForm" class="my-4 grid grid-flow-row" v-model="valid">
 					<div>
 						<label class="inputInfo">firstname</label>
 						<w-input
@@ -71,7 +63,7 @@
 							type="password"
 							placeholder="*******"
 						/>
-					</div> -->
+					</div>-->
 				</w-form>
 			</div>
 			<div class="flex justify-end mx-6 mt-5">
@@ -83,12 +75,11 @@
 				<w-button
 					bg-color="transparent"
 					color="white"
-					class="text-sm tracking-wide"
+					class="text-sm tracking-wide uppercase"
 					type="submit"
 					:disabled="valid === false"
 					@click="submitForm"
-					>SIGN UP</w-button
-				>
+				>{{ buttontext }}</w-button>
 			</div>
 		</div>
 	</div>
@@ -100,6 +91,12 @@ import BackButton from "@/components/BackButton.vue";
 import authService from "../services/auth-service";
 
 export default {
+	props: {
+		buttontext: {
+			type: String,
+			default: "Sign up"
+		}
+	},
 	components: {
 		"back-button": BackButton,
 	},

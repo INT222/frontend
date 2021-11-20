@@ -1,12 +1,64 @@
 <template>
-	<div class="md:space-y-11 space-y-6 ">
-		<banner />
-		<div class="tb:mx-8 md:mx-8 md:space-y-11 space-y-6 mx-4">
+	<div class="md:space-y-11 space-y-6">
+		<div name="Slidebanner">
+			<vueper-slides
+				fade
+				:breakpoints="breakpoints"
+				:touchable="true"
+				autoplay
+				@autoplay-resume="internalAutoPlaying = true"
+				:bullets="false"
+			>
+				<!-- <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image"></vueper-slide> -->
+				<vueper-slide v-for="m in slides" :key="m.movie_id" :image="getImage(m.poster)">
+					<template #content>
+						<div class="slideText">
+							<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px">{{ m.moviename }}</span>
+							<span style="font-size: 4vw; opacity: 0.8; padding: 2px">{{ m.studio.studioname }}</span>
+						</div>
+					</template>
+				</vueper-slide>
+			</vueper-slides>
+			<div class="text-white" v-for="(m, i) in movies" :key="m.movie_id">
+				<span class="mb-2 ml-12">
+					{{ i }} |
+
+					<span class="ml-4"
+						>{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }},
+						{{ m.status.statusname }},{{ m.avg_rating }}</span
+					></span
+				>
+			</div>
+			<div class="bg-yellow-200" v-for="(m, i) in slides" :key="m.movie_id">
+				<span class="mb-2 ml-12">
+					{{ i }} |
+
+					<span class="ml-4"
+						>{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }}</span
+					></span
+				>
+			</div>
+		</div>
+		<div class="tb:mx-8 md:mx-8 md:space-y-11 space-y-6 mx-4 bg-red-100">
 			<div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">popular in this month</p>
-				<router-link to="/content"><slide-list-block class="md:mt-6 mt-3"/></router-link>
+				<!-- <div v-for="s in slides" :key="s.movie_id" class="bg-yellow-100"></div> -->
+				<div class="bg-indigo-200">
+					<slide-list-block
+						class="md:mt-6 mt-3"
+						:moviename="slides[0].moviename"
+						:img="getImage(slides[0].poster)"
+						:avg_rating="slides[0].avg_rating"
+					/>
+					<slide-list-block
+						class="md:mt-6 mt-3"
+						:moviename="slides[0].moviename"
+						:img="getImage(slides[0].poster)"
+						:avg_rating="slides[0].avg_rating"
+					/>
+				</div>
 			</div>
-			<div>
+			<!-- <div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">coming soon movie</p>
 				<block-list class="md:mt-6 mt-3" />
 			</div>
@@ -14,23 +66,85 @@
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">explore more</p>
 				<explore-list-block class="md:mt-6 mt-3" />
 			</div>
-			<div></div>
+			<div></div> -->
 		</div>
 	</div>
 </template>
-
 <script>
-import Banner from "@/components/Banner.vue";
-import BlockList from "../components/BlockList.vue";
-import ExploreListBlock from "../components/ExploreListBlock.vue";
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
+import movieService from "../services/MovieService";
+// import BlockList from "../components/BlockList.vue";
+// import ExploreListBlock from "../components/ExploreListBlock.vue";
 import SlideListBlock from "../components/SlideListBlock.vue";
 export default {
 	name: "Home",
 	components: {
-		banner: Banner,
 		"slide-list-block": SlideListBlock,
-		"block-list": BlockList,
-		"explore-list-block": ExploreListBlock,
+		// "block-list": BlockList,
+		// "explore-list-block": ExploreListBlock,
+		VueperSlides,
+		VueperSlide,
+	},
+	// props: [image,],
+	data: () => ({
+		breakpoints: {
+			600: {
+				slideRatio: 1 / 2,
+				arrows: false,
+			},
+			1400: {
+				slideRatio: 2 / 5,
+			},
+			1500: {
+				slideRatio: 3 / 5,
+			},
+		},
+		slides: [],
+		parallax: 1,
+		movies: [],
+	}),
+	methods: {
+		async fecthData() {
+			const banner = await movieService.getAllMovies();
+			// console.log(`This is banner :${banner.data}`);
+			this.movies = banner.data;
+			for (let step = 0; step < 5; step++) {
+				let randNum = Math.floor(Math.random() * this.movies.length);
+				this.slides.push(this.movies[randNum]);
+			}
+		},
+		getImage(imgName) {
+			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
+		},
+	},
+	created() {
+		this.fecthData();
 	},
 };
 </script>
+<style>
+/* .vueperslide__title {
+	color: white;
+	margin-top: 8em;
+	margin-right: 20em;
+	font-size: 50px;
+}*/
+
+/* .vueperslide__content {
+	margin-right: 50em;
+	font-size: 25px;
+	color: greenyellow;
+} */
+.slideText {
+	bottom: 1em;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-left: 1rem;
+	/* margin-top: 10rem; */
+	position: absolute;
+	left: 16px;
+	color: white;
+	text-align: left;
+}
+</style>

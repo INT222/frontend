@@ -8,7 +8,10 @@
 			:height="40"
 		>
 			<div class="inline-flex space-x-3 -ml-4 md:px-1 md:my-0">
-				<p class="text-white my-auto md:my-2 text-sm uppercase">Fah{{ username }}</p>
+				<div class="md:hidden">
+					<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
+				</div>
+				<p class="text-white my-auto md:my-2 text-sm uppercase">manage</p>
 				<div class="pl-2 pr-5 md:pr-1 md:pl-0 my-auto">
 					<w-icon md color="white" v-if="showDropDown == false">mdi mdi-chevron-down</w-icon>
 					<w-icon md color="white" v-if="showDropDown">mdi mdi-chevron-up</w-icon>
@@ -17,37 +20,28 @@
 		</w-button>
 		<div class="absolute mt-2 ml-14 md:w-28 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
-				<user></user>
-				<w-button
-                    @click="clickToLogOut"
-                    bg-color="transparent"
-                    class="md:mx-4 md:my-2 block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-                >Log out</w-button>	
+				<router-link @click.prevent="showDropDown = false"
+					to="/manageuser"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+				>user</router-link>
+				<router-link @click.prevent="showDropDown = false"
+					to="/managemovie"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+				>movie</router-link>
+				
 			</div>
 		</div>
+		<!-- <span class="m-3">{{ showDropDown }}</span> -->
 	</div>
 </template>
 
 <script>
-import User from "./User.vue";
-import authService from '../services/auth-service';
-
 export default {
-    components: {
-        'user': User
-    },
-    data() {
-        return {
-            props: ['username'],
-            showDropDown: false,
-        }
-    },
-    methods: {
-        clickToLogOut() {
-            authService.logout();
-            console.log("Log out successful");
-            location.reload();
-        },
+	data: () => ({
+		items: [{ label: "Item 1" }, { label: "Item 2" }, { label: "Item 3" }, { label: "Item 4" }],
+		showDropDown: false,
+	}),
+	methods: {
 		documentClick(event) {
 			if (!this.$el.contains(event.target)) {
 				this.showDropDown = false;

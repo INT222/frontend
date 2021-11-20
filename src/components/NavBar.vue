@@ -16,13 +16,7 @@
 					</router-link>
 					<genre-list-block />
 					<div>
-						<router-link to="/managemovie">
-							<w-button
-								bg-color="transparent"
-								:height="40"
-								class="uppercase block mt-4 px-3 py-2 hover:bg-gray-700 rounded-md md:inline-block md:mt-0 hover:text-white"
-							>manage movie</w-button>
-						</router-link>
+						<manage-list></manage-list>
 					</div>
 				</div>
 			</div>
@@ -77,7 +71,7 @@
 					>sign up</w-button>
 				</router-link>
 			</div>
-			<div v-if="this.loggedin === true" >
+			<div v-if="this.loggedin === true">
 				<user-list></user-list>
 			</div>
 		</nav>
@@ -89,14 +83,17 @@ import Drawer from "./Drawer.vue";
 import GenreListBlock from "./GenreListBlock.vue";
 import { auth } from '../services/auth-module.js';
 import UserList from './UserList.vue';
+import ManageList from './ManageList.vue';
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
 		'drawer': Drawer,
-		'user-list': UserList
+		'user-list': UserList,
+		'manage-list': ManageList
 	},
 	data() {
 		return {
+			showDropDown: false,
 			loggedin: auth.state.status.loggedIn,
 			searchButton: false,
 			search: "",
@@ -105,7 +102,20 @@ export default {
 			},
 		};
 	},
-	
+	methods: {
+		documentClick(event) {
+			if (!this.$el.contains(event.target)) {
+				this.showDropDown = false;
+			}
+		},
+	},
+	created() {
+		document.addEventListener('click', this.documentClick)
+	},
+	unmounted() {
+		document.removeEventListener('click', this.documentClick)
+	}
+
 };
 </script>
 

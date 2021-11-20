@@ -14,19 +14,33 @@
                 round
                 absolute
                 color="white"
-                icon="wi-cross">
-            </w-button>
+                icon="wi-cross"
+            ></w-button>
             <div class="space-y-6 mx-5 mt-10 w-96">
-                <!-- <p class="text-white uppercase w-36 h-auto">sign in</p> -->
-                <div>
+                <div v-if="this.loggedin === false">
                     <router-link to="/signin">
-                    <w-button bg-color="transparent" class="text-sm text-white uppercase">sign in</w-button>
+                        <w-button
+                            bg-color="transparent"
+                            class="text-sm text-white uppercase"
+                        >sign in</w-button>
                     </router-link>
                 </div>
-                <div>
+                <div v-if="this.loggedin === false">
                     <router-link to="/signup">
-                    <w-button bg-color="transparent" class="text-sm text-white uppercase">sign up</w-button>
+                        <w-button
+                            bg-color="transparent"
+                            class="text-sm text-white uppercase"
+                        >sign up</w-button>
                     </router-link>
+                </div>
+                <div class="space-y-4" v-if="this.loggedin === true">
+                    <user>Fah</user>
+                    <w-button
+                        @click="clickToLogOut"
+                        bg-color="white"
+                        color="black"
+                        class="block hover:bg-gray-500 hover:bg-opacity-40 py-2 w-auto"
+                    >Log out</w-button>
                 </div>
                 <w-divider class="w-36" color="grey" />
                 <div class="mt-6 -ml-2">
@@ -66,15 +80,27 @@
 
 <script>
 import GenreListBlock from './GenreListBlock.vue';
+import { auth } from '../services/auth-module';
+import User from './User.vue';
+import authService from '../services/auth-service';
 export default {
     components: {
-        'genre-list-block': GenreListBlock
+        'genre-list-block': GenreListBlock,
+        'user': User
     },
     data() {
         return {
             showDrawer: false,
+            loggedin: auth.state.status.loggedIn
         };
     },
+    methods: {
+         clickToLogOut() {
+            authService.logout();
+            console.log("Log out successful");
+            location.reload();
+        },
+    }
 };
 
 </script>

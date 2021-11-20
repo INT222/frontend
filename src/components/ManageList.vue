@@ -11,7 +11,7 @@
 				<div class="md:hidden">
 					<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
 				</div>
-				<p class="text-white my-auto md:my-2 text-sm uppercase">genre</p>
+				<p class="text-white my-auto md:my-2 text-sm uppercase">manage</p>
 				<div class="pl-2 pr-5 md:pr-1 md:pl-0 my-auto">
 					<w-icon md color="white" v-if="showDropDown == false">mdi mdi-chevron-down</w-icon>
 					<w-icon md color="white" v-if="showDropDown">mdi mdi-chevron-up</w-icon>
@@ -21,45 +21,14 @@
 		<div class="absolute mt-2 ml-14 md:w-28 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
 				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
+					to="/manageuser"
 					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>action</router-link>
+				>user</router-link>
 				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
+					to="/managemovie"
 					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>adventure</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>comedy</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>drama</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>fantasy</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>horror</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>mystery</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>romance</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>sci-fi</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>thriller</router-link>
+				>movie</router-link>
+				
 			</div>
 		</div>
 		<!-- <span class="m-3">{{ showDropDown }}</span> -->

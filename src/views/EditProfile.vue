@@ -1,5 +1,5 @@
 <template>
-    <signup-form />
+    <signup-form :buttontext="'edit profile'" />
 </template>
 
 <script>

@@ -86,7 +86,6 @@ export default {
 		VueperSlides,
 		VueperSlide,
 	},
-	// props: [image,],
 	data: () => ({
 		breakpoints: {
 			600: {

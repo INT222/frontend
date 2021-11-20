@@ -15,10 +15,10 @@
                 </div>
             </div>
         </w-button>
-        <div class="absolute mt-2 md:w-20 md:ml-0 md:mt-0 z-10 md:bg-blackBlue" v-if="showDropDown">
-            <div class="text-white text-sm uppercase font-medium">
+        <div class="absolute mt-2 md:w-28 md:-ml-5 md:px-2 z-10 md:bg-blackBlue" v-if="showDropDown">
+            <div class="text-white text-sm uppercase font-medium ">
                 <user></user>
-                <w-button @click="clickToLogOut" bg-color="transparent" class="md:w-20 block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">
+                <w-button @click="clickToLogOut" bg-color="transparent" class="md:mx-4 md:my-2 block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6">
                 Log out</w-button>
             </div>
         </div>

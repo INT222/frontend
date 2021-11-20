@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-blackBlue -ml-6">
+    <div class="bg-blackBlue">
         <w-button @click="dialog.show = true" bg-color="transparent" color="white">View profile</w-button>
         <w-dialog
             v-model="dialog.show"

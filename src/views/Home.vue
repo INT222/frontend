@@ -43,37 +43,19 @@
 			<div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">popular in this month</p>
 				<!-- <div v-for="s in slides" :key="s.movie_id" class="bg-yellow-100"></div> -->
-				<div class="bg-purple-500 inline-flex md:space-x-28 tb:space-x-10">
-					<slide-list-block
-						class="md:mt-6 mt-3"
-						:moviename="slides[0].moviename"
-						:img="getImage(slides[0].poster)"
-						:avg_rating="slides[0].avg_rating"
-					/>
-					<slide-list-block
-						class="md:mt-6 mt-3"
-						:moviename="slides[0].moviename"
-						:img="getImage(slides[0].poster)"
-						:avg_rating="slides[0].avg_rating"
-					/>
-					<slide-list-block
-						class="md:mt-6 mt-3"
-						:moviename="slides[0].moviename"
-						:img="getImage(slides[0].poster)"
-						:avg_rating="slides[0].avg_rating"
-					/>
-					<slide-list-block
-						class="md:mt-6 mt-3"
-						:moviename="slides[0].moviename"
-						:img="getImage(slides[0].poster)"
-						:avg_rating="slides[0].avg_rating"
-					/>
-					<slide-list-block
-						class="md:mt-6 mt-3"
-						:moviename="slides[0].moviename"
-						:img="getImage(slides[0].poster)"
-						:avg_rating="slides[0].avg_rating"
-					/>
+				<div class="bg-purple-500 inline-flex md:space-x-28 tb:space-x-10 w-full mb-3">
+					<div v-for="m in slides" :key="m.movie_id">
+						<!-- <router-link :to="{name:'movie',params:{id:}}" ></router-link> -->
+						<!-- <router-link :to="{ name: 'movie', params: { id: item.id } }">{{ item.title }}</router-link> -->
+						<button class="bg-yellow-200" @click="goRoute(m.movie_id)">
+							<slide-list-block
+								class="md:mt-6"
+								:moviename="m.moviename"
+								:img="getImage(m.poster)"
+								:avg_rating="m.avg_rating"
+							/>
+						</button>
+					</div>
 				</div>
 			</div>
 			<!-- <div>
@@ -124,7 +106,6 @@ export default {
 	methods: {
 		async fecthData() {
 			const banner = await movieService.getAllMovies();
-			// console.log(`This is banner :${banner.data}`);
 			this.movies = banner.data;
 			for (let step = 0; step < 5; step++) {
 				let randNum = Math.floor(Math.random() * this.movies.length);
@@ -133,6 +114,9 @@ export default {
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
+		},
+		goRoute(movieId) {
+			this.$router.push(`/movie/${movieId}`);
 		},
 	},
 	created() {

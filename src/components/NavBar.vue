@@ -21,9 +21,11 @@
 				</div>
 			</div>
 			<div class="flex">
-				<div :class="{
-					'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
-				}">
+				<div
+					:class="{
+						'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
+					}"
+				>
 					<div v-if="searchButton">
 						<w-input
 							v-model="search"
@@ -56,7 +58,8 @@
 						outline
 						color="white"
 						bg-color="transparent"
-					>sign in</w-button>
+						>sign in</w-button
+					>
 				</router-link>
 				<div>
 					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
@@ -68,7 +71,8 @@
 						outline
 						color="black"
 						bg-color="white"
-					>sign up</w-button>
+						>sign up</w-button
+					>
 				</router-link>
 			</div>
 			<div v-if="this.loggedin === true">
@@ -81,15 +85,15 @@
 <script>
 import Drawer from "./Drawer.vue";
 import GenreListBlock from "./GenreListBlock.vue";
-import { auth } from '../services/auth-module.js';
-import UserList from './UserList.vue';
-import ManageList from './ManageList.vue';
+import { auth } from "../services/auth-module.js";
+import UserList from "./UserList.vue";
+import ManageList from "./ManageList.vue";
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
-		'drawer': Drawer,
-		'user-list': UserList,
-		'manage-list': ManageList
+		drawer: Drawer,
+		"user-list": UserList,
+		"manage-list": ManageList,
 	},
 	data() {
 		return {
@@ -108,14 +112,14 @@ export default {
 				this.showDropDown = false;
 			}
 		},
+		// hideDrawer() {},
 	},
 	created() {
-		document.addEventListener('click', this.documentClick)
+		document.addEventListener("click", this.documentClick);
 	},
 	unmounted() {
-		document.removeEventListener('click', this.documentClick)
-	}
-
+		document.removeEventListener("click", this.documentClick);
+	},
 };
 </script>
 

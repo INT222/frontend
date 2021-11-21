@@ -18,15 +18,15 @@
 				</div>
 			</div>
 		</w-button>
-		<div class="absolute mt-2 ml-14 md:w-28 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
+		<div class="absolute mt-2 ml-14 md:w-24 md:ml-3 z-10 md:bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
 				<router-link @click.prevent="showDropDown = false"
 					to="/manageuser"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 ml-2 py-2 md:pl-6"
 				>user</router-link>
 				<router-link @click.prevent="showDropDown = false"
 					to="/managemovie"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 ml-2 py-2 md:pl-6"
 				>movie</router-link>
 				
 			</div>

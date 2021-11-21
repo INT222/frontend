@@ -39,11 +39,29 @@
 				>
 			</div>
 		</div>
-		<div class="tb:mx-8 md:mx-8 md:space-y-11 space-y-6 mx-4 bg-red-100">
+		<div class="tb:mx-8 md:mx-12 md:space-y-11 space-y-6 mx-4 bg-pink-800">
 			<div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">popular in this month</p>
 				<!-- <div v-for="s in slides" :key="s.movie_id" class="bg-yellow-100"></div> -->
-				<div class="bg-indigo-200">
+				<div class="bg-purple-500 inline-flex md:space-x-28 tb:space-x-10">
+					<slide-list-block
+						class="md:mt-6 mt-3"
+						:moviename="slides[0].moviename"
+						:img="getImage(slides[0].poster)"
+						:avg_rating="slides[0].avg_rating"
+					/>
+					<slide-list-block
+						class="md:mt-6 mt-3"
+						:moviename="slides[0].moviename"
+						:img="getImage(slides[0].poster)"
+						:avg_rating="slides[0].avg_rating"
+					/>
+					<slide-list-block
+						class="md:mt-6 mt-3"
+						:moviename="slides[0].moviename"
+						:img="getImage(slides[0].poster)"
+						:avg_rating="slides[0].avg_rating"
+					/>
 					<slide-list-block
 						class="md:mt-6 mt-3"
 						:moviename="slides[0].moviename"

@@ -6,6 +6,9 @@ class MovieService {
 		return http.get("/movies");
 	}
 
+	getMovieById(id) {
+		return http.get(`/movie/${id}`);
+	}
 	// addMovie(movie) {
 	// 	return http.post("/admin/movie/add", movie, { headers: authHeader() });
 	// }

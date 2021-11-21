@@ -7,7 +7,7 @@
 			</div>
 			<div class="bg-white rounded-xl md:h-5/6 md:rounded-none md:mt-0 md:rounded-r-3xl md:col-span-3 md:overflow-auto">
 				<h1 class="hidden md:block md:text-xl md:px-12 md:font-bold md:mt-12 md:uppercase">add movie</h1>
-				<w-form class="py-7 px-7 space-y-8 md:px-12 md:py-12">
+				<w-form id="movieform" class="py-7 px-7 space-y-8 md:px-12 md:py-12">
 					<div name="moviename" class="space-y-4">
 						<label class="block tracking-wide text-gray-600 text-md font-semibold">Movie name</label>
 						<w-input type="text" placeholder="ex. Captain America" class="font-normal" color="black"></w-input>
@@ -61,9 +61,11 @@
 						<w-textarea placeholder="Write movie plot here !" class="font-normal" color="black"></w-textarea>
 					</div>
 					<div class="pt-5 flex justify-center space-x-32 md:justify-end md:space-x-12">
-						<w-button bg-color="black" height="35" class="text-sm md:text-md">
-							<p class="uppercase px-2 text-white">cancel</p>
-						</w-button>
+						<router-link to="/managemovie">
+							<w-button @click="clearForm" bg-color="black" height="35" class="text-sm md:text-md">
+								<p class="uppercase px-2 text-white">cancel</p>
+							</w-button>
+						</router-link>
 						<w-button bg-color="info-light1" height="35" class="text-sm md:text-md">
 							<p class="uppercase px-5 text-white">save</p>
 						</w-button>
@@ -108,5 +110,10 @@ export default {
 		],
 		status: [{ label: "General" }, { label: "On showing" }, { label: "Up coming" }],
 	}),
+	methods:{
+        clearForm(){
+            document.getElementById("movieform").reset();
+        },
+    }
 };
 </script>

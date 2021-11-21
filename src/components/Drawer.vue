@@ -39,8 +39,8 @@
                         @click="clickToLogOut"
                         bg-color="white"
                         color="black"
-                        class="block hover:bg-gray-500 hover:bg-opacity-40 py-2 w-auto"
-                    >Log out</w-button>
+                        class="block uppercase text-xs hover:bg-gray-500 hover:bg-opacity-40  w-auto"
+                    >log out</w-button>
                 </div>
                 <w-divider class="w-36" color="grey" />
                 <div class="mt-6 -ml-2">

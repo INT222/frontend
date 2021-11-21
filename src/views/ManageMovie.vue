@@ -42,7 +42,7 @@
 											<p>Oct 3, 2021</p>
 										</td>
 										<td>
-											<w-button height="44" width="44" bg-color="red-dark1" class="ml-7">
+											<w-button @click="$waveui.notify('Delete successfully', 'success')" height="44" width="44" bg-color="red-dark1" class="ml-7">
 												<w-icon color="white" lg>mdi mdi-trash-can-outline</w-icon>
 											</w-button>
 										</td>

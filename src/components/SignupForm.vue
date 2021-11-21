@@ -151,6 +151,7 @@ export default {
 					.catch((error) => {
 						console.error(error.response.data);
 					});
+				this.$waveui.notify(this.errorText, "success", 0);
 				this.$router.push("/signin");
 			}
 		},

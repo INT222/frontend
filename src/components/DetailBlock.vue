@@ -27,23 +27,18 @@
 				</div>
 				<div class="md:mb-6">
 					<div class="flex overflow-hidden tb:inline-flex md:inline-flex md:space-x-12 tb:space-x-20">
-						<img
+						<!-- <img
 							id="poster"
 							class="justify-items-stretch transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
 							src="../assets/Eternals.jpg"
-						/>
-						<iframe
-							class="hidden md:block tb:block"
-							width="950"
-							src="https://www.youtube.com/embed/uTRCxOE7Xzc"
-						/>
+						/> -->
+						<iframe class="hidden md:block tb:block" width="950" src="https://www.youtube.com/embed/uTRCxOE7Xzc" />
 					</div>
 					<div class="space-y-2">
 						<span class="md:hidden absolute top-96 left-4 text-4xl font-semibold text-white">{{ title }}</span>
-						<span
-							id="movie-detail"
-							class="md:hidden absolute left-4 text-sm font-semibold text-white"
-						>{{ releaseDate }} {{ genre }} ‧ {{ runtime }} hours</span>
+						<span id="movie-detail" class="md:hidden absolute left-4 text-sm font-semibold text-white"
+							>{{ releaseDate }} {{ genre }} ‧ {{ runtime }} hours</span
+						>
 					</div>
 				</div>
 				<div class="md:hidden grid grid-cols-2 text-white px-24 sticky top-0 bg-blackBlue">
@@ -67,7 +62,6 @@
 					</button>
 				</div>
 				<span v-if="toggle === false" class="text-white text-sm md:text-xl">{{ plot }}</span>
-					
 			</div>
 			<div v-if="toggle === true">
 				<comment-form />
@@ -85,29 +79,23 @@
 import CommentBlock from "./CommentBlock.vue";
 import BookMarkButton from "./BookMarkButton.vue";
 import CommentForm from "./CommentForm.vue";
-import BackButton from './BackButton.vue';
+import BackButton from "./BackButton.vue";
 
 export default {
 	components: {
 		"comment-form": CommentForm,
 		"comment-block": CommentBlock,
 		"bookmark-button": BookMarkButton,
-		'back-button': BackButton
+		"back-button": BackButton,
 	},
-	props: [
-		"title",
-		"releaseDate",
-		"genre",
-		"runtime",
-		"plot",
-	],
+	props: ["title", "releaseDate", "genre", "runtime", "plot"],
 	data() {
 		return {
 			showcomment: false,
 			toggle: false,
 			menu: "",
 			items: [{ message: "details" }, { message: "reviews" }],
-			color: this.color
+			color: this.color,
 		};
 	},
 	methods: {

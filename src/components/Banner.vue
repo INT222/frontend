@@ -1,21 +1,38 @@
 <template>
-	<vueper-slides
-		fade
-		:breakpoints="breakpoints"
-		:touchable="true"
-		autoplay
-		@autoplay-resume="internalAutoPlaying = true"
-		:bullets="false"
-	>
-		<vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
-			<template #content>
-				<div class="slideText">
-					<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px;">{{ slide.title }}</span>
-					<span style="font-size: 4vw; opacity: 0.8; padding: 2px;">{{ slide.content }}</span>
-				</div>
-			</template>
-		</vueper-slide>
-	</vueper-slides>
+	<div>
+		<vueper-slides
+			fade
+			:breakpoints="breakpoints"
+			:touchable="true"
+			autoplay
+			@autoplay-resume="internalAutoPlaying = true"
+			:bullets="false"
+		>
+			<!-- <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image"></vueper-slide> -->
+			<vueper-slide v-for="m in slides" :key="m.movie_id" :image="getImage(m.poster)">
+				<template #content>
+					<div class="slideText">
+						<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px">{{ m.moviename }}</span>
+						<span style="font-size: 4vw; opacity: 0.8; padding: 2px">{{ m.studio.studioname }}</span>
+					</div>
+				</template>
+			</vueper-slide>
+		</vueper-slides>
+		<div class="text-white" v-for="(m, i) in slides" :key="m.movie_id">
+			<span class="mb-2 ml-12">
+				{{ i }} |
+
+				<span class="ml-4">{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }}</span></span
+			>
+		</div>
+		<div class="bg-yellow-200" v-for="(m, i) in slides" :key="m.movie_id">
+			<span class="mb-2 ml-12">
+				{{ i }} |
+
+				<span class="ml-4">{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }}</span></span
+			>
+		</div>
+	</div>
 </template>
 <style>
 /* .vueperslide__title {
@@ -46,9 +63,9 @@
 <script>
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-
+import movieService from "../services/MovieService";
 export default {
-	name: "Banner",
+	// name: "Banner",
 	components: { VueperSlides, VueperSlide },
 	// props: [image,],
 	data: () => ({
@@ -64,28 +81,26 @@ export default {
 				slideRatio: 3 / 5,
 			},
 		},
-		slides: [
-			{
-				title: "Jennie Kim, Korea",
-				content: "Member of Black Pink",
-				image: require("@/assets/Eternals.jpg"),
-			},
-			{
-				title: "Black widow",
-				content: "Marvel studio",
-				image: require("@/assets/BlackWidow.jpg"),
-			},
-			{
-				title: "Black widow",
-				content: "Marvel studio",
-				image: require("@/assets/LoveSimon.jpg"),
-			},{
-				title: "Black widow",
-				content: "Marvel studio",
-				image: require("@/assets/LaLaLand.jpg"),
-			},
-		],
+		slides: [],
 		parallax: 1,
+		movies: [],
 	}),
+	methods: {
+		async fecthData() {
+			const banner = await movieService.getAllMovies();
+			// console.log(`This is banner :${banner.data}`);
+			this.movies = banner.data;
+			for (let step = 0; step < 5; step++) {
+				let randNum = Math.floor(Math.random() * this.movies.length);
+				this.slides.push(this.movies[randNum]);
+			}
+		},
+		getImage(imgName) {
+			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
+		},
+	},
+	created() {
+		this.fecthData();
+	},
 };
 </script>

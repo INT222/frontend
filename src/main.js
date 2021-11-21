@@ -9,6 +9,7 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 // createApp(App).use(store).use(router).mount('#app')
 const app = createApp(App);
+require("dotenv").config();
 app.use(store);
 app.use(router);
 app.use(VueAxios, axios);

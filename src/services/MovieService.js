@@ -13,7 +13,7 @@ class MovieService {
 	// 	return http.post("/admin/movie/add", movie, { headers: authHeader() });
 	// }
 
-	getMovieByGenre(id) {
+	getMovieByGenre(genreId) {
 		return http.get(`/view/genre/${genreId}`);
 	}
 }

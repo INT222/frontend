@@ -158,19 +158,13 @@ export default {
 			valid: null,
 			validators: {
 				required: (value) => !!value || "This field is required",
-				requiredImg: (value) => value === document.getElementById('img').value || "Choose at least one",
-				minLength: (value) => value.length >= 8 || "Your password must be minimum 8 characters",
+				// requiredImg: (value) => value === document.getElementById('img').value || "Choose at least one",
 				moviename: (value) => {
 					var usernames = ["About Time", "Eternals", "Dune", "Free Guy"];
 					for (let i = 0; i < usernames.length; i++) {
 						if (usernames[i].toLowerCase() === value.toLowerCase()) {
 							return "This moive already exist";
 						}
-					}
-				},
-				validateNumber: (value) => {
-					if(/\D/.test(value)) {
-						"Must be number"
 					}
 				},
 			},

@@ -75,7 +75,7 @@
 					>
 				</router-link>
 			</div>
-			<div v-if="this.loggedin === true">
+			<div v-if="this.loggedin === true" class="hidden md:block">
 				<user-list></user-list>
 			</div>
 		</nav>

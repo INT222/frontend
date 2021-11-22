@@ -24,11 +24,11 @@
 										</td>
 										<td class="bg-gray-600 p-3 text-center">100</td>
 										<td class="bg-gray-600 p-3">
-											<p id="mname">test</p>
+											<p id="mname" class="text-center overflow-hidden truncate w-24">test</p>
 										</td>
 										<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3 md:text-center">firstname</td>
 										<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3">
-											<p id="genre">lastname</p>
+											<p id="genre" class="text-center overflow-hidden truncate w-24">lastname</p>
 										</td>
 										<!-- <td class="bg-gray-600 hidden tb:table-cell md:table-cell md:text-center">
 											<p>Oct 3, 2021</p>
@@ -53,7 +53,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 @media screen and (max-width: 768px) {
 	#mname {
 		width: 125px;

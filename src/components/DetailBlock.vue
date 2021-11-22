@@ -1,7 +1,7 @@
 <template>
-	<div>
-		<div class="bg-blackBlue w-screen space-y-10 md:px-7">
-			<div class="md:mx-9">
+	<div class="md:w-5/6 md:mx-9">
+		<div class="bg-blackBlue space-y-10 md:px-7">
+			<div>
 				<div class="md:hidden block absolute ml-4 mt-4">
 					<back-button iconcolor="white"></back-button>
 				</div>
@@ -12,16 +12,19 @@
 					<span class="hidden md:block md:font-medium md:text-6xl text-white">{{ name }}</span>
 				</div>
 				<div id="block" class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8">
+				<!-- <div id="block" class="hidden md:inline-flex md:bg-lightGray md:rounded-md md:mb-6 md:py-4"> -->
 					<div class="md:inline-flex md:col-span-5 md:space-x-4 md:px-5">
-						<span class="md:text-white md:text-xl">{{ releaseDate }}</span>
-						<span class="md:text-white md:text-xl">{{ genre }} ‧</span>
-						<span class="md:text-white md:text-xl">{{ runtime }} hours</span>
+					<!-- <div class="md:px-5 md:space-x-4"> -->
+						<span class="md:text-white md:text-xl">July 21, 2021</span>
+						<span class="md:text-white md:text-xl">Action/Thriller ‧</span>
+						<span class="md:text-white md:text-xl">1.45 hours</span>
 					</div>
 					<div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-2">
+					<!-- <div class="md:inline-flex md:space-x-3 md:mx-72 md:mr-7"> -->
 						<w-icon class="mt-0" xl color="yellow">mdi mdi-star</w-icon>
 						<span class="md:text-white md:text-xl md:font-bold">{{ rating }}</span>
 					</div>
-					<div class="md:flex md:justify-start md:mt-2">
+					<div class="md:flex md:justify-items-end md:mt-2">
 						<bookmark-button></bookmark-button>
 					</div>
 				</div>
@@ -32,15 +35,16 @@
 							class="justify-items-stretch transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
 							:src="imgPoster"
 						/>
-						<iframe class="hidden md:block tb:block" width="950" :src="trailer" />
+						<iframe class="hidden md:block tb:block" width="1190" :src="trailer" />
 					</div>
-					<div class="space-y-2 bg-red-300">
-						<!-- <span class="md:hidden absolute top-96 left-4 text-4xl font-semibold text-white">{{ name }}</span> -->
-						<span>{{ id }}</span>
-						<span id="movie-detail" class="md:hidden absolute left-4 text-sm font-semibold text-white">
-							| {{ releaseDate }} {{ genre }} ‧ {{ runtime }} hours
-						</span>
-					</div>
+				</div>
+				<div class="space-y-2 bg-red-300">
+					<!-- <span class="md:hidden absolute top-96 left-4 text-4xl font-semibold text-white">{{ name }}</span> -->
+					<span>{{ id }}</span>
+					<span
+						id="movie-detail"
+						class="md:hidden absolute left-4 text-sm font-semibold text-white"
+					>| {{ releaseDate }} {{ genre }} ‧ {{ runtime }} hours</span>
 				</div>
 				<div class="md:hidden grid grid-cols-2 text-white px-24 sticky top-0 bg-blackBlue">
 					<button
@@ -62,7 +66,7 @@
 						<span class="text-sm uppercase">reviews</span>
 					</button>
 				</div>
-				<span v-if="toggle === false" class="text-white text-sm md:text-xl">{{ plot }}</span>
+				<p v-if="toggle === false" class="text-white text-sm md:text-xl md:text-justify">{{ plot }}</p>
 			</div>
 			<!-- <div v-if="toggle === true">
 				<comment-form />
@@ -71,7 +75,7 @@
 			<div class="tb:hidden hidden md:block">
 				<comment-form />
 				<comment-block />
-			</div> -->
+			</div>-->
 		</div>
 	</div>
 </template>

@@ -11,7 +11,7 @@
 				class="bg-white rounded-xl md:h-5/6 md:rounded-none md:mt-0 md:rounded-r-3xl md:col-span-3 md:overflow-auto"
 			>
 				<h1 class="hidden md:block md:text-xl md:px-12 md:font-bold md:mt-12 md:uppercase">add movie</h1>
-				<w-form id="movieform" v-model="valid" class="py-7 px-7 space-y-8 md:px-12 md:py-12">
+				<w-form id="movieform" name="movieform" v-model="valid" class="py-7 px-7 space-y-8 md:px-12 md:py-12">
 					<div name="moviename" class="space-y-4">
 						<label class="block tracking-wide text-gray-600 text-md font-semibold">Movie name</label>
 						<w-input
@@ -37,8 +37,9 @@
 						<div name="runningtime" class="space-y-4">
 							<label class="block tracking-wide text-gray-600 text-md font-semibold">Running time</label>
 							<w-input
+								name="time"
 								:validators="[validators.required]"
-								type="text"
+								type="number"
 								placeholder="ex. 2.45 H(s)"
 								class="font-normal"
 								color="black"
@@ -73,6 +74,7 @@
 							<p class="text-gray-400 text-xs">Click on a line below to upload file</p>
 						</div>
 						<w-input
+							id="img"
 							type="file"
 							accept=".jpg, .jpeg, .png"
 							placeholder="Click here to upload file"
@@ -104,7 +106,12 @@
 								<p class="uppercase px-2 text-white">cancel</p>
 							</w-button>
 						</router-link>
-						<w-button :disabled="valid === false" bg-color="info-light1" height="35" class="text-sm md:text-md">
+						<w-button
+							:disabled="valid === false"
+							bg-color="info-light1"
+							height="35"
+							class="text-sm md:text-md"
+						>
 							<p class="uppercase px-5 text-white">save</p>
 						</w-button>
 					</div>
@@ -151,7 +158,7 @@ export default {
 			valid: null,
 			validators: {
 				required: (value) => !!value || "This field is required",
-				// requiredSelect: (value) => value === true || "Choose at least one",
+				requiredImg: (value) => value === document.getElementById('img').value || "Choose at least one",
 				minLength: (value) => value.length >= 8 || "Your password must be minimum 8 characters",
 				moviename: (value) => {
 					var usernames = ["About Time", "Eternals", "Dune", "Free Guy"];
@@ -159,6 +166,11 @@ export default {
 						if (usernames[i].toLowerCase() === value.toLowerCase()) {
 							return "This moive already exist";
 						}
+					}
+				},
+				validateNumber: (value) => {
+					if(/\D/.test(value)) {
+						"Must be number"
 					}
 				},
 			},

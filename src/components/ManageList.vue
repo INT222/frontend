@@ -22,11 +22,11 @@
 			<div class="text-white text-xs uppercase font-medium">
 				<router-link @click.prevent="showDropDown = false"
 					to="/manageuser"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 py-2 md:pl-8"
+					class="block hover:text-deepBlue py-2 md:pl-8"
 				>user</router-link>
 				<router-link @click.prevent="showDropDown = false"
 					to="/managemovie"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 py-2 md:pl-8"
+					class="block hover:text-deepBlue py-2 md:pl-8"
 				>movie</router-link>
 				
 			</div>

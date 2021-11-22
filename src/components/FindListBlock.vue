@@ -8,6 +8,6 @@
 </template>
 <script>
 export default {
-	props: { genre: String, imgPoster: String },
+	props: { genre: Array, imgPoster: String },
 };
 </script>

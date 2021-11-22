@@ -54,8 +54,6 @@
 						</w-button>
 					</router-link>
 				</div>
-				>>>>>>> 90e0b70dbe69d739df3df45c64788b98a1bd9c0d
-
 				<div class="-ml-1">
 					<genre-list-block></genre-list-block>
 					<!-- <button class="text-white uppercase">sign in</button> -->

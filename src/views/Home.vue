@@ -58,15 +58,15 @@
 					</div>
 				</div>
 			</div>
-			<!-- <div>
+			<div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">coming soon movie</p>
 				<block-list class="md:mt-6 mt-3" />
 			</div>
-			<div>
+			<!-- <div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">explore more</p>
 				<explore-list-block class="md:mt-6 mt-3" />
-			</div>
-			<div></div> -->
+			</div> -->
+			<div></div>
 		</div>
 	</div>
 </template>

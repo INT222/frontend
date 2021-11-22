@@ -20,46 +20,69 @@
 		</w-button>
 		<div class="absolute mt-2 ml-14 md:w-28 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>action</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>adventure</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>comedy</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>drama</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>fantasy</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>horror</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>mystery</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>romance</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>sci-fi</router-link>
-				<router-link @click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-				>thriller</router-link>
+				<!-- add v-for in genre array ref:Home , Add @click="goRoute" -->
+				<div v-for>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>action</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>adventure</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>comedy</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>drama</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>fantasy</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>horror</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>mystery</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>romance</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>sci-fi</router-link
+					>
+					<router-link
+						@click.prevent="showDropDown = false"
+						to="/genre"
+						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+						>thriller</router-link
+					>
+				</div>
 			</div>
 		</div>
 		<!-- <span class="m-3">{{ showDropDown }}</span> -->
@@ -69,7 +92,48 @@
 <script>
 export default {
 	data: () => ({
-		items: [{ label: "Item 1" }, { label: "Item 2" }, { label: "Item 3" }, { label: "Item 4" }],
+		genre: [
+			{
+				genre_id: 1,
+				genre: "Action",
+			},
+			{
+				genre_id: 2,
+				genre: "Adventure",
+			},
+			{
+				genre_id: 3,
+				genre: "Comedy",
+			},
+			{
+				genre_id: 4,
+				genre: "Drama",
+			},
+			{
+				genre_id: 5,
+				genre: "Fantacy",
+			},
+			{
+				genre_id: 6,
+				genre: "Horror",
+			},
+			{
+				genre_id: 7,
+				genre: "Mystery",
+			},
+			{
+				genre_id: 8,
+				genre: "Romantic",
+			},
+			{
+				genre_id: 9,
+				genre: "Sci-fi",
+			},
+			{
+				genre_id: 10,
+				genre: "Thriller",
+			},
+		],
 		showDropDown: false,
 	}),
 	methods: {
@@ -78,13 +142,16 @@ export default {
 				this.showDropDown = false;
 			}
 		},
+		goRoute(genreId) {
+			this.$router.push(`/genre/${genreId}`);
+		},
 	},
 	created() {
-		document.addEventListener('click', this.documentClick)
+		document.addEventListener("click", this.documentClick);
 	},
 	unmounted() {
-		document.removeEventListener('click', this.documentClick)
-	}
+		document.removeEventListener("click", this.documentClick);
+	},
 };
 </script>
 

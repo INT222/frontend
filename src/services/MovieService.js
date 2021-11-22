@@ -12,6 +12,10 @@ class MovieService {
 	// addMovie(movie) {
 	// 	return http.post("/admin/movie/add", movie, { headers: authHeader() });
 	// }
+
+	getMovieByGenre(id) {
+		return http.get(`/view/genre/${genreId}`);
+	}
 }
 
 export default new MovieService();

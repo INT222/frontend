@@ -46,7 +46,7 @@ const routes = [
 		component: WatchList,
 	},
 	{
-		path: "/genre",
+		path: "/genre/:id",
 		name: "Genre",
 		component: Genre,
 	},

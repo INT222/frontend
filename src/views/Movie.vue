@@ -1,5 +1,5 @@
 <template>
-	<div class="space-y-4">
+	<div class="space-y-4 mx-auto">
 		<detail-block
 			:id="currentMovie.movie_id"
 			:name="currentMovie.moviename"
@@ -10,16 +10,22 @@
 			:imgPoster="getImage(currentMovie.poster)"
 			:trailer="currentMovie.trailer"
 		></detail-block>
+		<!-- <comment-block :username="currentMovie.comment."></comment-block> -->
+		<div class="text-white">
+			{{ currentMovie.comments }}
+		</div>
 	</div>
 </template>
 
 <script>
 import DetailBlock from "../components/DetailBlock.vue";
 import movieService from "../services/MovieService";
+// import CommentBlock from "../components/CommentBlock.vue";
 
 export default {
 	components: {
 		"detail-block": DetailBlock,
+		// "comment-block":CommentBlock
 	},
 	data() {
 		return {

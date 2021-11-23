@@ -1,47 +1,55 @@
 <template>
-	<div class="md:grid md:grid-rows-3 md:w-9/12 md;h-auto">
-		<detail-block
-			:id="currentMovie.movie_id"
-			:name="currentMovie.moviename"
-			:releaseDate="currentMovie.releasedate"
-			:runtime="currentMovie.runtime"
-			:plot="currentMovie.plot"
-			:rating="currentMovie.avg_rating"
-			:imgPoster="getImage(currentMovie.poster)"
-			:trailer="currentMovie.trailer"
-		></detail-block>
+	<div class="md:space-y-16 md:w-10/12">
+		<div class="md:grid md:grid-flow-row md:w-9/12">
+			<detail-block
+				:id="currentMovie.movie_id"
+				:name="currentMovie.moviename"
+				:releaseDate="currentMovie.releasedate"
+				:runtime="currentMovie.runtime"
+				:plot="currentMovie.plot"
+				:rating="currentMovie.avg_rating"
+				:imgPoster="getImage(currentMovie.poster)"
+				:trailer="currentMovie.trailer"
+			></detail-block>
+		</div>
+		<comment-block
+			:username="currentMovie.comments[0].username"
+			:commentDate="currentMovie.comments[0].create_date"
+			:commentText="currentMovie.comments[0].commenttext"
+			:rating="currentMovie.comments[0].rating"
+		></comment-block>
 	</div>
-		<!-- <div class="bg-red-500">  -->
-			<!-- <comment-block
+	<!-- <div class="bg-red-500">  -->
+	<!-- <comment-block
 				:username="currentMovie.comments[0].username"
 				:commentDate="currentMovie.comments[0].create_date"
 				:commentText="currentMovie.comments[0].commenttext"
 				:rating="currentMovie.comments[0].rating"
-			></comment-block> -->
-		<!-- </div> -->
-		<!-- <div class="bg-red-500"> -->
-			<!-- <comment-block
+	></comment-block>-->
+	<!-- </div> -->
+	<!-- <div class="bg-red-500"> -->
+	<!-- <comment-block
 				:username="currentMovie.comments[0].username"
 				:commentDate="currentMovie.comments[0].create_date"
 				:commentText="currentMovie.comments[0].commenttext"
 				:rating="currentMovie.comments[0].rating"
-			></comment-block> -->
-		<!-- </div> -->
-		<!-- <div class="text-white">
+	></comment-block>-->
+	<!-- </div> -->
+	<!-- <div class="text-white">
 			{{ currentMovie.comments }}
-		</div> -->
+	</div>-->
 	<!-- </div> -->
 </template>
 
 <script>
 import DetailBlock from "../components/DetailBlock.vue";
 import movieService from "../services/MovieService";
-// import CommentBlock from "../components/CommentBlock.vue";
+import CommentBlock from "../components/CommentBlock.vue";
 
 export default {
 	components: {
 		"detail-block": DetailBlock,
-		// "comment-block": CommentBlock,
+		"comment-block": CommentBlock,
 	},
 	data() {
 		return {

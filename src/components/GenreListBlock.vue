@@ -18,69 +18,20 @@
 				</div>
 			</div>
 		</w-button>
-		<div class="absolute mt-2 ml-14 md:w-28 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
+		<div class="absolute mt-2 ml-14 md:w-24 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
 				<!-- add v-for in genre array ref:Home , Add @click="goRoute" -->
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>action</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>adventure</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>comedy</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>drama</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>fantasy</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>horror</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>mystery</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>romance</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>sci-fi</router-link
-				>
-				<router-link
-					@click.prevent="showDropDown = false"
-					to="/genre"
-					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-					>thriller</router-link
-				>
+				<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
+					<w-button
+						@click.prevent="
+							goRoute(g.genre_id);
+							showDropDown = false;
+						"
+						class="block hover:text-deepBlue pr-4 py-2"
+						bg-color="transparent"
+						>{{ g.genre }}</w-button
+					>
+				</div>
 			</div>
 		</div>
 	</div>

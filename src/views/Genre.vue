@@ -1,6 +1,6 @@
 <template>
-	<div class="">
-		<find-list-block :imgPoster="g.poster" />
+	<div v-for="g in movieMatchGenre" :key="g.genre_id" class="inline-flex p-4 ml-6">
+		<find-list-block :imgPoster="getImage(g.poster)" :genre="g.genre" />
 	</div>
 </template>
 
@@ -24,6 +24,12 @@ export default {
 			this.movieMatchGenre = movie.data;
 			console.log(this.movieMatchGenre);
 		},
+		getImage(imgName) {
+			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
+		},
+	},
+	created() {
+		this.fecthData();
 	},
 };
 </script>

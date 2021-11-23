@@ -1,5 +1,5 @@
 <template>
-	<div class="md:w-5/6 md:mx-9">
+	<div class=" md:mx-12">
 		<div class="bg-blackBlue space-y-10 md:px-7">
 			<div>
 				<div class="md:hidden block absolute ml-4 mt-4">
@@ -35,7 +35,7 @@
 							class="justify-items-stretch transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
 							:src="imgPoster"
 						/>
-						<iframe class="hidden md:block tb:block" width="1190" :src="trailer" />
+						<iframe class="hidden md:block tb:block" width="950" :src="trailer" />
 					</div>
 				</div>
 				<div class="space-y-2 bg-red-300">

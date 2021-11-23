@@ -60,13 +60,15 @@
 			</div>
 			<div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">coming soon movie</p>
-				<block-list class="md:mt-6 mt-3" />
+				<!-- <block-list class="md:mt-6 mt-3" /> -->
 			</div>
 			<!-- <div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">explore more</p>
 				<explore-list-block class="md:mt-6 mt-3" />
 			</div> -->
-			<div></div>
+			<div>
+				{{ getUser() }}
+			</div>
 		</div>
 	</div>
 </template>
@@ -117,6 +119,9 @@ export default {
 		},
 		goRoute(movieId) {
 			this.$router.push(`/movie/${movieId}`);
+		},
+		getUser() {
+			return localStorage.getItem("user");
 		},
 	},
 	created() {

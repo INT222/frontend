@@ -23,70 +23,19 @@
 				<!-- add v-for in genre array ref:Home , Add @click="goRoute" -->
 				<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
 					<w-button
-						@click.prevent="goRoute(g.genre_id);showDropDown = false; "
+						@click.prevent="
+							goRoute(g.genre_id);
+							showDropDown = false;
+						"
 						class="block hover:text-deepBlue pr-4 py-2"
-						bg-color ="transparent"
+						bg-color="transparent"
 						>{{ g.genre }}</w-button
 					>
-					<!-- <button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>adventure</button
-					>
-					<button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>comedy</button
-					>
-					<button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>drama</button
-					>
-					<button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>fantasy</button
-					>
-					<button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>horror</button
-					>
-					<button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>mystery</button
-					>
-					<button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>romance</button
-					>
-					<button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>sci-fi</button
-					>
-					<button
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>thriller</button
-					> -->
 				</div>
 			</div>
 		</div>
-		<!-- <span class="m-3">{{ showDropDown }}</span> -->
 	</div>
+	<!-- <span class="m-3">{{ showDropDown }}</span> -->
 </template>
 
 <script>

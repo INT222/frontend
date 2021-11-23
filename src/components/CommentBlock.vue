@@ -1,9 +1,9 @@
 <template>
-	<div class="text-white md:grid md:grid-col-4 md:px-7">
+	<div class="text-white md:grid md:grid-col-4 md:px-7 bg-blue-300">
 		<div class="mb-6">
 			<p class="text-base mt-1 text-white font-medium md:text-lg uppercase">rates and comments</p>
 		</div>
-		<div class="md:inline-flex md:mr-72 md:space-x-10">
+		<div class="md:inline-flex md:mr-72 md:space-x-10 bg-red-600">
 			<div class="md:w-4/5 md:text-center">
 				<div>
 					<p class="font-medium mx-4 tracking-widest">{{ username }}</p>
@@ -30,7 +30,7 @@
 export default {
 	props: {
 		username: String,
-		commentDate: Date,
+		commentDate: String,
 		commentText: String,
 		rating: Number,
 	},

@@ -43,5 +43,5 @@ export default {
     created() {
         this.fecthData();
     },
-};
+}
 </script>

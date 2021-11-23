@@ -1,13 +1,12 @@
 <template>
-	<div>
-		<h1>{{ genre }}</h1>
-		<div class="rounded-md md:rounded-lg overflow-hidden">
-		<img :src="imgPoster" class="h-48 tb:h-52 md:h-60" />
+	<div class="bg-green-500">
+		<div>
+			<img :src="imgPoster" class="h-48 tb:h-52 md:h-60 rounded-md md:rounded-lg overflow-hidden" />
 		</div>
 	</div>
 </template>
 <script>
 export default {
-	props: { genre: Array, imgPoster: String },
+	props: { imgPoster: String },
 };
 </script>

@@ -1,5 +1,17 @@
 <template>
-	<div class="space-y-4 mx-auto">
+	<div class="md:grid md:grid-rows-3 md:mx-auto md:w-9/12 md;h-auto">
+		<detail-block
+			:id="currentMovie.movie_id"
+			:name="currentMovie.moviename"
+			:releaseDate="currentMovie.releasedate"
+			:runtime="currentMovie.runtime"
+			:plot="currentMovie.plot"
+			:rating="currentMovie.avg_rating"
+			:imgPoster="getImage(currentMovie.poster)"
+			:trailer="currentMovie.trailer"
+		></detail-block>
+	</div>
+	<div class="space-y-4 mx-auto md:grid md:grid-rows-3 md:mx-auto md:w-auto md:h-auto">
 		<detail-block
 			:id="currentMovie.movie_id"
 			:name="currentMovie.moviename"

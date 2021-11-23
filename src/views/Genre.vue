@@ -1,6 +1,15 @@
 <template>
-    <div v-for="g in movieMatchGenre" :key="g.genre_id" class="inline-flex p-4 ml-6">
-        <find-list-block :imgPoster="getImage(g.poster)" :genre="g.genre" />
+    <div>
+        <!-- <h1>{{ movieGenre[0].genre }}</h1> -->
+        <div
+            v-for="g in movieMatchGenre"
+            :key="g.genre_id"
+            class="inline-flex p-4 ml-6 bg-green-600"
+        >
+            <button @click="goRoute(g.movie_id)">
+                <find-list-block :imgPoster="getImage(g.poster)" />
+            </button>
+        </div>
     </div>
 </template>
 
@@ -26,6 +35,9 @@ export default {
         },
         getImage(imgName) {
             return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
+        },
+        goRoute(movieId) {
+            this.$router.push(`/movie/${movieId}`);
         },
     },
     created() {

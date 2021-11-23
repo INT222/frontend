@@ -1,5 +1,5 @@
 <template>
-	<div class=" md:mx-12">
+	<div class="md:w-11/12 md:mx-12">
 		<div class="bg-blackBlue space-y-10 md:px-7">
 			<div>
 				<div class="md:hidden block absolute ml-4 mt-4">
@@ -11,7 +11,7 @@
 				<div class="md:mb-4">
 					<span class="hidden md:block md:font-medium md:text-6xl text-white">{{ name }}</span>
 				</div>
-				<div id="block" class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8">
+				<div id="block" class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:border-transparent md:w-11/12">
 				<!-- <div id="block" class="hidden md:inline-flex md:bg-lightGray md:rounded-md md:mb-6 md:py-4"> -->
 					<div class="md:inline-flex md:col-span-5 md:space-x-4 md:px-5">
 					<!-- <div class="md:px-5 md:space-x-4"> -->

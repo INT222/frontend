@@ -21,72 +21,70 @@
 		<div class="absolute mt-2 ml-14 md:w-28 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
 				<!-- add v-for in genre array ref:Home , Add @click="goRoute" -->
-				<div v-for>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>action</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>adventure</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>comedy</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>drama</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>fantasy</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>horror</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>mystery</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>romance</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>sci-fi</router-link
-					>
-					<router-link
-						@click.prevent="showDropDown = false"
-						to="/genre"
-						class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
-						>thriller</router-link
-					>
-				</div>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>action</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>adventure</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>comedy</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>drama</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>fantasy</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>horror</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>mystery</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>romance</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>sci-fi</router-link
+				>
+				<router-link
+					@click.prevent="showDropDown = false"
+					to="/genre"
+					class="block hover:bg-gray-500 hover:bg-opacity-40 pr-4 py-2 md:pl-6"
+					>thriller</router-link
+				>
 			</div>
 		</div>
-		<!-- <span class="m-3">{{ showDropDown }}</span> -->
 	</div>
+	<!-- <span class="m-3">{{ showDropDown }}</span> -->
 </template>
 
 <script>

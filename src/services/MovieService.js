@@ -14,7 +14,7 @@ class MovieService {
 	// }
 
 	getMovieByGenre(id) {
-		return http.get(`/view/genre/${genreId}`);
+		return http.get(`/view/genre/${id}`);
 	}
 }
 

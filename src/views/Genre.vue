@@ -1,5 +1,5 @@
 <template>
-	<div class="" v-for="g in movieMatchGenre">
+	<div class="">
 		<find-list-block :imgPoster="g.poster" />
 	</div>
 </template>

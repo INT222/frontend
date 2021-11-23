@@ -23,7 +23,7 @@
 				<!-- add v-for in genre array ref:Home , Add @click="goRoute" -->
 				<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
 					<w-button
-						@click.prevent="
+						@click="
 							goRoute(g.genre_id);
 							showDropDown = false;
 						"

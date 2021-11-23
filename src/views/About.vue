@@ -30,6 +30,15 @@
         </div>
       </div>
     </div>
+    <comment-form></comment-form>
     <!-- <div class="w-full h-60 bg-deepBlue z-10 rotate-3 transform rounded-lg"></div> -->
   </div>
 </template>
+<script>import CommentForm from "../components/CommentForm.vue";
+
+export default {
+  components: {
+    'comment-form': CommentForm
+  }
+}
+</script>

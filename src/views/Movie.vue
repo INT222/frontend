@@ -1,5 +1,5 @@
 <template>
-	<div class="md:space-y-16 md:w-10/12">
+	<div class="space-y-10 tb:space-y-12 md:space-y-16">
 		<div class="md:grid md:grid-flow-row md:w-9/12">
 			<detail-block
 				:id="currentMovie.movie_id"

@@ -1,5 +1,5 @@
 <template>
-	<div class="text-white md:grid md:grid-col-4 md:px-7 md:mx-12">
+	<div class="text-white md:grid md:grid-col-4 md:px-7 md:mx-12 tb:mx-6">
 		<div class="mb-6">
 			<p class="text-base mt-1 text-white font-medium md:text-lg uppercase">rates and comments</p>
 		</div>

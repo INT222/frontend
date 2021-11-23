@@ -1,6 +1,6 @@
 <template>
 	<div class="md:w-11/12 md:mx-12">
-		<div class="bg-blackBlue space-y-10 md:px-7">
+		<div class="bg-blackBlue space-y-10 md:px-3">
 			<div>
 				<div class="md:hidden block absolute ml-4 mt-4">
 					<back-button iconcolor="white"></back-button>
@@ -32,7 +32,7 @@
 				</div>
 				
 				<div class="md:mb-6">
-					<div class="flex overflow-hidden tb:inline-flex md:inline-flex md:space-x-12 tb:space-x-20">
+					<div class="flex overflow-hidden md:space-x-12 tb:space-x-20">
 						<img
 							id="poster"
 							class="justify-items-stretch transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
@@ -69,7 +69,7 @@
 						<span class="text-sm uppercase">reviews</span>
 					</button>
 				</div>
-				<p v-if="toggle === false" class="text-white text-sm md:text-xl md:text-justify">{{ plot }}</p>
+				<p v-if="toggle === false" class="text-white text-sm tb:px-6 md:px-0 md:text-xl md:text-justify">{{ plot }}</p>
 			</div>
 			<!-- <div v-if="toggle === true">
 				<comment-form />

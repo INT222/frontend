@@ -12,33 +12,27 @@
 				:trailer="currentMovie.trailer"
 			></detail-block>
 		</div>
-		<comment-block
-			:username="currentMovie.comments[0].username"
-			:commentDate="currentMovie.comments[0].create_date"
-			:commentText="currentMovie.comments[0].commenttext"
-			:rating="currentMovie.comments[0].rating"
-		></comment-block>
-	</div>
-	<!-- <div class="bg-red-500">  -->
-	<!-- <comment-block
+		<!-- <div class="bg-red-500">  -->
+		<!-- <comment-block
 				:username="currentMovie.comments[0].username"
 				:commentDate="currentMovie.comments[0].create_date"
 				:commentText="currentMovie.comments[0].commenttext"
 				:rating="currentMovie.comments[0].rating"
-	></comment-block>-->
-	<!-- </div> -->
-	<!-- <div class="bg-red-500"> -->
-	<!-- <comment-block
+		></comment-block>-->
+		<!-- </div> -->
+		<!-- <div class="bg-red-500"> -->
+		<!-- <comment-block
 				:username="currentMovie.comments[0].username"
 				:commentDate="currentMovie.comments[0].create_date"
 				:commentText="currentMovie.comments[0].commenttext"
 				:rating="currentMovie.comments[0].rating"
-	></comment-block>-->
-	<!-- </div> -->
-	<!-- <div class="text-white">
+		></comment-block>-->
+		<!-- </div> -->
+		<!-- <div class="text-white">
 			{{ currentMovie.comments }}
-	</div>-->
-	<!-- </div> -->
+		</div>-->
+		<!-- </div> -->
+	</div>
 </template>
 
 <script>

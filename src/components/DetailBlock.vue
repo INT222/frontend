@@ -16,9 +16,9 @@
 				<!-- <div id="block" class="hidden md:inline-flex md:bg-lightGray md:rounded-md md:mb-6 md:py-4"> -->
 					<div class="md:inline-flex md:col-span-5 md:space-x-4 md:px-5">
 					<!-- <div class="md:px-5 md:space-x-4"> -->
-						<span class="md:text-white md:text-xl">July 21, 2021</span>
-						<span class="md:text-white md:text-xl">Action/Thriller ‧</span>
-						<span class="md:text-white md:text-xl">1.45 hours</span>
+						<span class="md:text-white md:text-xl">{{ releaseDate }}</span>
+						<span class="md:text-white md:text-xl">{{ genre }} ‧</span>
+						<span class="md:text-white md:text-xl">{{ runtime }} hours</span>
 					</div>
 					<div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-2">
 					<!-- <div class="md:inline-flex md:space-x-3 md:mx-72 md:mr-7"> -->

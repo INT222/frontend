@@ -22,12 +22,9 @@
 			<div class="text-white text-xs uppercase font-medium">
 				<!-- add v-for in genre array ref:Home , Add @click="goRoute" -->
 				<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
-					<w-button
-						@click="(showDropDown = false), goRoute(g.genre_id)"
-						class="block hover:text-deepBlue pr-4 py-2"
-						bg-color="transparent"
-						>{{ g.genre }}</w-button
-					>
+					<w-button class="block hover:text-deepBlue pr-4 py-2" bg-color="transparent" @click="goRoute(g.genre_id)">{{
+						g.genre
+					}}</w-button>
 				</div>
 			</div>
 		</div>
@@ -83,21 +80,21 @@ export default {
 		showDropDown: false,
 	}),
 	methods: {
-		documentClick(event) {
-			if (!this.$el.contains(event.target)) {
-				this.showDropDown = false;
-			}
-		},
+		// documentClick(event) {
+		// 	if (!this.$el.contains(event.target)) {
+		// 		this.showDropDown = false;
+		// 	}
+		// },
 		goRoute(genreId) {
 			this.$router.push(`/genre/${genreId}`);
 		},
 	},
-	created() {
-		document.addEventListener("click", this.documentClick);
-	},
-	unmounted() {
-		document.removeEventListener("click", this.documentClick);
-	},
+	// created() {
+	// 	document.addEventListener("click", this.documentClick);
+	// },
+	// unmounted() {
+	// 	document.removeEventListener("click", this.documentClick);
+	// },
 };
 </script>
 

@@ -48,18 +48,18 @@ export default {
             console.log("Log out successful");
             location.reload();
         },
-		documentClick(event) {
-			if (!this.$el.contains(event.target)) {
-				this.showDropDown = false;
-			}
-		},
+		// documentClick(event) {
+		// 	if (!this.$el.contains(event.target)) {
+		// 		this.showDropDown = false;
+		// 	}
+		// },
 	},
-	created() {
-		document.addEventListener('click', this.documentClick)
-	},
-	unmounted() {
-		document.removeEventListener('click', this.documentClick)
-	}
+	// created() {
+	// 	document.addEventListener('click', this.documentClick)
+	// },
+	// unmounted() {
+	// 	document.removeEventListener('click', this.documentClick)
+	// }
 };
 </script>
 

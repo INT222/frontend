@@ -9,7 +9,6 @@
 			<w-textarea
 				v-model="comment"
 				color="white"
-				:validators="[validators.required]"
 				rows="6"
 				class="mt-1 w-full bg-deepBrownGray rounded-md p-4 text-white mb-1 md:focus:ring-2 md:focus:ring-gray-400"
 				placeholder="Write your comment here..."
@@ -43,16 +42,13 @@ export default {
 			// 	}
 			// },
 			validators: {
-				required: (value) => !!value || "This field is required",
-				moviename: (value) => {
-					var usernames = ["About Time", "Eternals", "Dune", "Free Guy"];
-					for (let i = 0; i < usernames.length; i++) {
-						if (usernames[i].toLowerCase() === value.toLowerCase()) {
-							return "This moive already exist";
-						}
-					}
-				},
+				required: (value) => !!value && value > 0 || "This field is required",
 			},
+		}
+	},
+	methods: {
+		submitForm() {
+			
 		}
 	}
 }

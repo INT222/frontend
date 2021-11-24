@@ -12,6 +12,13 @@
 				:trailer="currentMovie.trailer"
 			></detail-block>
 		</div>
+		<comment-block
+			:username="currentMovie.comments[0].username"
+			:commentDate="currentMovie.comments[0].create_date"
+			:commentText="currentMovie.comments[0].commenttext"
+			:rating="currentMovie.comments[0].rating"
+		></comment-block>
+		<comment-form></comment-form>
 		<!-- <div class="bg-red-500">  -->
 		<!-- <comment-block
 				:username="currentMovie.comments[0].username"
@@ -39,11 +46,13 @@
 import DetailBlock from "../components/DetailBlock.vue";
 import movieService from "../services/MovieService";
 import CommentBlock from "../components/CommentBlock.vue";
+import CommentForm from '../components/CommentForm.vue';
 
 export default {
 	components: {
 		"detail-block": DetailBlock,
 		"comment-block": CommentBlock,
+		"comment-form": CommentForm
 	},
 	data() {
 		return {

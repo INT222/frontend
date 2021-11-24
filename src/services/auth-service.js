@@ -3,8 +3,8 @@ http.defaults.headers["Content-type"] = "application/json";
 class AuthService {
 	login(user) {
 		return http.post("/auth/login", user).then((response) => {
-			http.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
-			localStorage.setItem("user", JSON.stringify(response.data.user));
+			// http.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+			localStorage.setItem("user", JSON.stringify(response.data));
 		});
 	}
 

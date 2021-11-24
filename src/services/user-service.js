@@ -17,7 +17,7 @@ class UserService {
 	// getAdminBoard() {
 	// 	return axios.get(API_URL + "admin", { headers: authHeader() });
 	// }
-	postComment() {
+	postComment(data) {
 		return http.post("/api/comment/add", data, { headers: authHeader() });
 	}
 }

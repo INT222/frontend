@@ -30,14 +30,7 @@
 				:rating="currentMovie.comments[0].rating"
 			></comment-block> -->
 		</div>
-		<div class="bg-red-500">
-			<!-- <comment-block
-				:username="currentMovie.comments[0].username"
-				:commentDate="currentMovie.comments[0].create_date"
-				:commentText="currentMovie.comments[0].commenttext"
-				:rating="currentMovie.comments[0].rating"
-			></comment-block> -->
-		</div>
+		<div class="bg-red-500"></div>
 		<!-- <div class="text-white">
 			{{ currentMovie.comments }}
 		</div> -->
@@ -48,11 +41,14 @@
 import DetailBlock from "../components/DetailBlock.vue";
 import movieService from "../services/MovieService";
 // import CommentBlock from "../components/CommentBlock.vue";
+import userService from "../services/user-service";
+import CommentForm from "../components/CommentForm.vue";
 
 export default {
 	components: {
 		"detail-block": DetailBlock,
 		// "comment-block": CommentBlock,
+		"comment-form": CommentForm,
 	},
 	data() {
 		return {

@@ -22,9 +22,12 @@
 			<div class="text-white text-xs uppercase font-medium">
 				<!-- add v-for in genre array ref:Home , Add @click="goRoute" -->
 				<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
-					<w-button @click="showDropDown = false" class="block hover:text-deepBlue pr-4 py-2" bg-color="transparent">{{
-						g.genre
-					}}</w-button>
+					<w-button
+						@click="(showDropDown = false), goRoute(g.genre_id)"
+						class="block hover:text-deepBlue pr-4 py-2"
+						bg-color="transparent"
+						>{{ g.genre }}</w-button
+					>
 				</div>
 			</div>
 		</div>

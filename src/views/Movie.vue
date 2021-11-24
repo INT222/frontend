@@ -47,7 +47,7 @@
 <script>
 import DetailBlock from "../components/DetailBlock.vue";
 import movieService from "../services/MovieService";
-import userService from "../services/user-service";
+// import userService from "../services/user-service";
 import CommentForm from "../components/CommentForm.vue";
 import CommentBlock from "../components/CommentBlock.vue";
 

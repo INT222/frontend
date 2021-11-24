@@ -1,6 +1,6 @@
 <template>
 	<div class="md:w-11/12 md:mx-12">
-		<div class="bg-blackBlue space-y-10 md:px-7">
+		<div class="bg-blackBlue space-y-10 md:px-3">
 			<div>
 				<div class="md:hidden block absolute ml-4 mt-4">
 					<back-button iconcolor="white"></back-button>
@@ -11,7 +11,8 @@
 				<div class="md:mb-4">
 					<span class="hidden md:block md:font-medium md:text-6xl text-white">{{ name }}</span>
 				</div>
-				<div id="block" class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:border-transparent md:w-11/12">
+				<div class="md:pr-7">
+					<div id="block" class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:border-transparent md:w-11/12">
 				<!-- <div id="block" class="hidden md:inline-flex md:bg-lightGray md:rounded-md md:mb-6 md:py-4"> -->
 					<div class="md:inline-flex md:col-span-5 md:space-x-4 md:px-5">
 					<!-- <div class="md:px-5 md:space-x-4"> -->
@@ -28,8 +29,10 @@
 						<bookmark-button></bookmark-button>
 					</div>
 				</div>
+				</div>
+				
 				<div class="md:mb-6">
-					<div class="flex overflow-hidden tb:inline-flex md:inline-flex md:space-x-12 tb:space-x-20">
+					<div class="flex overflow-hidden md:space-x-12 tb:space-x-20">
 						<img
 							id="poster"
 							class="justify-items-stretch transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
@@ -66,7 +69,7 @@
 						<span class="text-sm uppercase">reviews</span>
 					</button>
 				</div>
-				<p v-if="toggle === false" class="text-white text-sm md:text-xl md:text-justify">{{ plot }}</p>
+				<p v-if="toggle === false" class="text-white text-sm tb:px-6 md:px-0 md:text-xl md:text-justify">{{ plot }}</p>
 			</div>
 			<!-- <div v-if="toggle === true">
 				<comment-form />

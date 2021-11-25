@@ -57,7 +57,7 @@
 	</div>
 </template>
 <script>
-import { VueperSlides, VueperSlide } from "vueperslides";
+// import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 import movieService from "../services/MovieService";
 import Banner from "../components/Banner.vue";

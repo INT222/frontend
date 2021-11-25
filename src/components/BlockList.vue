@@ -1,9 +1,9 @@
 <template>
-	<div class="md:inline-flex md:space-x-14 space-y-11 bg-yellow-900">
+	<div class="md:inline-flex md:space-x-14 space-y-11">
 		<div
 			v-for="m in lists"
 			:key="m.movie_id"
-			class="bg-red-500 w-full grid grid-cols-5 my-3 tb:w-44 tb:grid-cols-1 md:grid-cols-1 md:grid-flow-row md:w-1/5 md:h-1/2"
+			class="w-full grid grid-cols-5 my-3 tb:w-44 tb:grid-cols-1 md:grid-cols-1 md:grid-flow-row md:w-1/5 md:h-1/2"
 		>
 			<div>
 				<button @click="goRoute(m.movie_id)">

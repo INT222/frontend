@@ -1,16 +1,6 @@
 <template>
 	<div class="md:space-y-11 space-y-6">
-		<!-- <banner /> -->
-		<vueper-slides autoplay fade :breakpoints="breakpoints" :bullets="false">
-			<vueper-slide v-for="s in slides" :key="s.movie_id" :image="getImage(s.poster)">
-				<template #content>
-					<div class="slideText">
-						<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px">{{ s.moviename }}</span>
-						<span style="font-size: 4vw; opacity: 0.8; padding: 2px">{{ s.studio.studioname }}</span>
-					</div>
-				</template>
-			</vueper-slide>
-		</vueper-slides>
+		<banner />
 		<div>
 			<!-- <div class="text-white" v-for="(m, i) in movies" :key="m.movie_id">
 				<span class="mb-2 ml-12">
@@ -70,7 +60,7 @@
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 import movieService from "../services/MovieService";
-// import Banner from "../components/Banner.vue";
+import Banner from "../components/Banner.vue";
 // import BlockList from "../components/BlockList.vue";
 // import ExploreListBlock from "../components/ExploreListBlock.vue";
 // import SlideListBlock from "../components/SlideListBlock.vue";
@@ -78,11 +68,9 @@ export default {
 	name: "Home",
 	components: {
 		// "slide-list-block": SlideListBlock,
-		// banner: Banner,
+		banner: Banner,
 		// "block-list": BlockList,
 		// "explore-list-block": ExploreListBlock,
-		VueperSlides,
-		VueperSlide,
 	},
 	data: () => ({
 		breakpoints: {

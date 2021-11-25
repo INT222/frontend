@@ -19,6 +19,9 @@ class MovieService {
 	getImage(imgName) {
 		return http.get(`/view/img/${imgName}`);
 	}
+	getUpcommingMovie() {
+		return http.get(`/view/status/22`);
+	}
 }
 
 export default new MovieService();

@@ -50,7 +50,7 @@
 					</w-button>
 				</div>
 			</div>
-			<div v-if="this.loggedin === false" class="hidden md:inline-flex md:space-x-5">
+			<div class="hidden md:inline-flex md:space-x-5">
 				<router-link to="/signin">
 					<w-button
 						id="signin"
@@ -75,9 +75,10 @@
 					>
 				</router-link>
 			</div>
-			<div v-if="this.loggedin === true" class="hidden md:block">
+			<!-- <div v-if="this.loggedin === true" class="hidden md:block"></div> -->
+			<!-- <div v-if="this.loggedin === true" class="hidden md:block">
 				<user-list></user-list>
-			</div>
+			</div> -->
 		</nav>
 	</div>
 </template>
@@ -85,20 +86,20 @@
 <script>
 import Drawer from "./Drawer.vue";
 import GenreListBlock from "./GenreListBlock.vue";
-import { auth } from "../services/auth-module.js";
-import UserList from "./UserList.vue";
+// import { auth } from "../services/auth-module.js";
+// import UserList from "./UserList.vue";
 import ManageList from "./ManageList.vue";
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
 		drawer: Drawer,
-		"user-list": UserList,
+		// "user-list": UserList,
 		"manage-list": ManageList,
 	},
 	data() {
 		return {
 			showDropDown: false,
-			loggedin: auth.state.status.loggedIn,
+			// loggedin: auth.state.status.loggedIn,
 			searchButton: false,
 			search: "",
 			list: {
@@ -107,19 +108,19 @@ export default {
 		};
 	},
 	methods: {
-		documentClick(event) {
-			if (!this.$el.contains(event.target)) {
-				this.showDropDown = false;
-			}
-		},
+		// documentClick(event) {
+		// 	if (!this.$el.contains(event.target)) {
+		// 		this.showDropDown = false;
+		// 	}
+		// },
 		// hideDrawer() {},
 	},
-	created() {
-		document.addEventListener("click", this.documentClick);
-	},
-	unmounted() {
-		document.removeEventListener("click", this.documentClick);
-	},
+	// created() {
+	// 	document.addEventListener("click", this.documentClick);
+	// },
+	// unmounted() {
+	// 	document.removeEventListener("click", this.documentClick);
+	// },
 };
 </script>
 

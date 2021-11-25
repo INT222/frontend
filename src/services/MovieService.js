@@ -16,6 +16,9 @@ class MovieService {
 	getMovieByGenre(genreId) {
 		return http.get(`/view/genre/${genreId}`);
 	}
+	getImage(imgName) {
+		return http.get(`/view/img/${imgName}`);
+	}
 }
 
 export default new MovieService();

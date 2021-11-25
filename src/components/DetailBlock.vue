@@ -12,25 +12,31 @@
 					<span class="hidden md:block md:font-medium md:text-6xl text-white">{{ name }}</span>
 				</div>
 				<div class="md:pr-7">
-					<div id="block" class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:border-transparent md:w-11/12">
-				<!-- <div id="block" class="hidden md:inline-flex md:bg-lightGray md:rounded-md md:mb-6 md:py-4"> -->
-					<div class="md:inline-flex md:col-span-5 md:space-x-4 md:px-5">
-					<!-- <div class="md:px-5 md:space-x-4"> -->
-						<span class="md:text-white md:text-xl">{{ releaseDate }}</span>
-						<span class="md:text-white md:text-xl">{{ genre }} ‧</span>
-						<span class="md:text-white md:text-xl">{{ runtime }} hours</span>
-					</div>
-					<div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-2">
-					<!-- <div class="md:inline-flex md:space-x-3 md:mx-72 md:mr-7"> -->
-						<w-icon class="mt-0" xl color="yellow">mdi mdi-star</w-icon>
-						<span class="md:text-white md:text-xl md:font-bold">{{ rating }}</span>
-					</div>
-					<div class="md:flex md:justify-items-end md:mt-2">
-						<bookmark-button></bookmark-button>
+					<div
+						id="block"
+						class="
+							hidden
+							md:bg-lightGray md:rounded-md md:mb-6 md:py-4 md:grid md:grid-cols-8 md:border-transparent md:w-11/12
+						"
+					>
+						<!-- <div id="block" class="hidden md:inline-flex md:bg-lightGray md:rounded-md md:mb-6 md:py-4"> -->
+						<div class="md:inline-flex md:col-span-5 md:space-x-4 md:px-5">
+							<!-- <div class="md:px-5 md:space-x-4"> -->
+							<span class="md:text-white md:text-xl">{{ releaseDate }}</span>
+							<span class="md:text-white md:text-xl">{{ genre }} ‧</span>
+							<span class="md:text-white md:text-xl">{{ runtime }} hours</span>
+						</div>
+						<div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-2">
+							<!-- <div class="md:inline-flex md:space-x-3 md:mx-72 md:mr-7"> -->
+							<w-icon class="mt-0" xl color="yellow">mdi mdi-star</w-icon>
+							<span class="md:text-white md:text-xl md:font-bold">{{ rating }}</span>
+						</div>
+						<div class="md:flex md:justify-items-end md:mt-2">
+							<bookmark-button></bookmark-button>
+						</div>
 					</div>
 				</div>
-				</div>
-				
+
 				<div class="md:mb-6">
 					<div class="flex overflow-hidden md:space-x-12 tb:space-x-20">
 						<img
@@ -41,13 +47,10 @@
 						<iframe class="hidden md:block tb:block" width="950" :src="trailer" />
 					</div>
 				</div>
-				<div class="space-y-2 bg-red-300">
-					<!-- <span class="md:hidden absolute top-96 left-4 text-4xl font-semibold text-white">{{ name }}</span> -->
-					<span>{{ id }}</span>
-					<span
-						id="movie-detail"
-						class="md:hidden absolute left-4 text-sm font-semibold text-white"
-					>| {{ releaseDate }} {{ genre }} ‧ {{ runtime }} hours</span>
+				<div class="space-y-2">
+					<span id="movie-detail" class="md:hidden absolute left-4 text-sm font-semibold text-white"
+						>| {{ releaseDate }} {{ genre }} ‧ {{ runtime }} hours</span
+					>
 				</div>
 				<div class="md:hidden grid grid-cols-2 text-white px-24 sticky top-0 bg-blackBlue">
 					<button
@@ -71,34 +74,20 @@
 				</div>
 				<p v-if="toggle === false" class="text-white text-sm tb:px-6 md:px-0 md:text-xl md:text-justify">{{ plot }}</p>
 			</div>
-			<!-- <div v-if="toggle === true">
-				<comment-form />
-				<comment-block />
-			</div>
-			<div class="tb:hidden hidden md:block">
-				<comment-form />
-				<comment-block />
-			</div>-->
 		</div>
 	</div>
 </template>
 
 <script>
-// import CommentBlock from "./CommentBlock.vue";
-// import CommentForm from "./CommentForm.vue";
 import BookMarkButton from "./BookMarkButton.vue";
 import BackButton from "./BackButton.vue";
 
 export default {
 	components: {
-		// "comment-form": CommentForm,
-		// "comment-block": CommentBlock,
 		"bookmark-button": BookMarkButton,
 		"back-button": BackButton,
 	},
-	// props: ["name", "releaseDate", "genre", "runtime", "plot"],
 	props: {
-		id: Number,
 		name: String,
 		releaseDate: String,
 		genre: Array,
@@ -116,11 +105,6 @@ export default {
 			items: [{ message: "details" }, { message: "reviews" }],
 			color: this.color,
 		};
-	},
-	methods: {
-		say(message) {
-			this.menu = message;
-		},
 	},
 };
 </script>

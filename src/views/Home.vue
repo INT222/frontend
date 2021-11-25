@@ -1,25 +1,18 @@
 <template>
 	<div class="md:space-y-11 space-y-6">
-		<div name="Slidebanner">
-			<vueper-slides
-				fade
-				:breakpoints="breakpoints"
-				:touchable="true"
-				autoplay
-				@autoplay-resume="internalAutoPlaying = true"
-				:bullets="false"
-			>
-				<!-- <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image"></vueper-slide> -->
-				<vueper-slide v-for="m in slides" :key="m.movie_id" :image="getImage(m.poster)">
-					<template #content>
-						<div class="slideText">
-							<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px">{{ m.moviename }}</span>
-							<span style="font-size: 4vw; opacity: 0.8; padding: 2px">{{ m.studio.studioname }}</span>
-						</div>
-					</template>
-				</vueper-slide>
-			</vueper-slides>
-			<div class="text-white" v-for="(m, i) in movies" :key="m.movie_id">
+		<!-- <banner /> -->
+		<vueper-slides autoplay fade :breakpoints="breakpoints" :bullets="false">
+			<vueper-slide v-for="s in slides" :key="s.movie_id" :image="getImage(s.poster)">
+				<template #content>
+					<div class="slideText">
+						<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px">{{ s.moviename }}</span>
+						<span style="font-size: 4vw; opacity: 0.8; padding: 2px">{{ s.studio.studioname }}</span>
+					</div>
+				</template>
+			</vueper-slide>
+		</vueper-slides>
+		<div>
+			<!-- <div class="text-white" v-for="(m, i) in movies" :key="m.movie_id">
 				<span class="mb-2 ml-12">
 					{{ i }} |
 
@@ -37,16 +30,17 @@
 						>{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }}</span
 					></span
 				>
-			</div>
+			</div> -->
 		</div>
+
 		<div class="tb:mx-8 md:mx-12 md:space-y-11 space-y-6 mx-4 bg-pink-800">
-			<div>
+			<!-- <div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">popular in this month</p>
-				<!-- <div v-for="s in slides" :key="s.movie_id" class="bg-yellow-100"></div> -->
+				<div v-for="s in slides" :key="s.movie_id" class="bg-yellow-100"></div>
 				<div class="bg-purple-500 inline-flex md:space-x-28 tb:space-x-10 w-full mb-3">
 					<div v-for="m in slides" :key="m.movie_id">
-						<!-- <router-link :to="{name:'movie',params:{id:}}" ></router-link> -->
-						<!-- <router-link :to="{ name: 'movie', params: { id: item.id } }">{{ item.title }}</router-link> -->
+						<router-link :to="{name:'movie',params:{id:}}" ></router-link>
+						<router-link :to="{ name: 'movie', params: { id: item.id } }">{{ item.title }}</router-link>
 						<button class="bg-yellow-200" @click="goRoute(m.movie_id)">
 							<slide-list-block
 								class="md:mt-6"
@@ -57,7 +51,7 @@
 						</button>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">coming soon movie</p>
 				<!-- <block-list class="md:mt-6 mt-3" /> -->
@@ -76,13 +70,15 @@
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 import movieService from "../services/MovieService";
+// import Banner from "../components/Banner.vue";
 // import BlockList from "../components/BlockList.vue";
 // import ExploreListBlock from "../components/ExploreListBlock.vue";
-import SlideListBlock from "../components/SlideListBlock.vue";
+// import SlideListBlock from "../components/SlideListBlock.vue";
 export default {
 	name: "Home",
 	components: {
-		"slide-list-block": SlideListBlock,
+		// "slide-list-block": SlideListBlock,
+		// banner: Banner,
 		// "block-list": BlockList,
 		// "explore-list-block": ExploreListBlock,
 		VueperSlides,
@@ -94,15 +90,17 @@ export default {
 				slideRatio: 1 / 2,
 				arrows: false,
 			},
-			1400: {
-				slideRatio: 2 / 5,
+			1300: {
+				slideRatio: 3 / 4,
 			},
-			1500: {
-				slideRatio: 3 / 5,
+			1200: {
+				slideRatio: 2 / 3,
 			},
+			// 1500: {
+			// 	slideRatio: 3 / 5,
+			// },
 		},
 		slides: [],
-		parallax: 1,
 		movies: [],
 	}),
 	methods: {
@@ -115,7 +113,7 @@ export default {
 			}
 		},
 		getImage(imgName) {
-			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
+			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;
 		},
 		goRoute(movieId) {
 			this.$router.push(`/movie/${movieId}`);

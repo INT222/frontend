@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-green-500">
+	<div class="">
 		<div>
 			<img :src="imgPoster" class="h-48 tb:h-52 md:h-60 rounded-md md:rounded-lg overflow-hidden" />
 		</div>

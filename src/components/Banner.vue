@@ -1,23 +1,16 @@
 <template>
 	<div>
-		<vueper-slides
-			fade
-			:breakpoints="breakpoints"
-			:touchable="true"
-			autoplay
-			@autoplay-resume="internalAutoPlaying = true"
-			:bullets="false"
-		>
-			<!-- <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image"></vueper-slide> -->
-			<vueper-slide v-for="m in slides" :key="m.movie_id" :image="getImage(m.poster)">
+		<vueper-slides :breakpoints="breakpoints" :bullets="false">
+			<vueper-slide v-for="s in slides" :key="s.movie_id" :image="getImage(s.poster)">
 				<template #content>
 					<div class="slideText">
-						<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px">{{ m.moviename }}</span>
-						<span style="font-size: 4vw; opacity: 0.8; padding: 2px">{{ m.studio.studioname }}</span>
+						<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px">{{ s.moviename }}</span>
+						<span style="font-size: 4vw; opacity: 0.8; padding: 2px">{{ s.studio.studioname }}</span>
 					</div>
 				</template>
 			</vueper-slide>
 		</vueper-slides>
+
 		<div class="text-white" v-for="(m, i) in slides" :key="m.movie_id">
 			<span class="mb-2 ml-12">
 				{{ i }} |

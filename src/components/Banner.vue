@@ -11,7 +11,7 @@
 			</vueper-slide>
 		</vueper-slides>
 
-		<div class="text-white" v-for="(m, i) in slides" :key="m.movie_id">
+		<!-- <div class="text-white" v-for="(m, i) in slides" :key="m.movie_id">
 			<span class="mb-2 ml-12">
 				{{ i }} |
 
@@ -24,7 +24,7 @@
 
 				<span class="ml-4">{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }}</span></span
 			>
-		</div>
+		</div> -->
 	</div>
 </template>
 <style>

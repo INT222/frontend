@@ -1,6 +1,24 @@
 <template>
 	<div class="md:space-y-11 space-y-6">
 		<banner />
+		<p
+			class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium md:mx-6 tb:mx-4 mx-2"
+		>popular in this month</p>
+		<div class="inline-flex md:space-x-28 tb:space-x-10 w-full mb-3">
+			<slide-list-block></slide-list-block>
+		</div>
+		<p
+			class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium md:mx-6 tb:mx-4 mx-2"
+		>coming soon movie</p>
+		<div class="mx-11">
+			<block-list class="mt-3" />
+		</div>
+		<p
+			class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium md:mx-6 tb:mx-4 mx-2"
+		>Explore more</p>
+		<div>
+			<explore-list-block></explore-list-block>
+		</div>
 		<div>
 			<!-- <div class="text-white" v-for="(m, i) in movies" :key="m.movie_id">
 				<span class="mb-2 ml-12">
@@ -20,7 +38,7 @@
 						>{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }}</span
 					></span
 				>
-			</div> -->
+			</div>-->
 		</div>
 
 		<div class="tb:mx-8 md:mx-12 md:space-y-11 space-y-6 mx-4 bg-pink-800">
@@ -41,36 +59,31 @@
 						</button>
 					</div>
 				</div>
-			</div> -->
-			<div>
-				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">coming soon movie</p>
-				<!-- <block-list class="md:mt-6 mt-3" /> -->
-			</div>
+			</div>-->
+
 			<!-- <div>
 				<p class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium">explore more</p>
 				<explore-list-block class="md:mt-6 mt-3" />
-			</div> -->
-			<div>
-				{{ getUser() }}
-			</div>
+			</div>-->
+			<!-- <div>{{ getUser() }}</div> -->
 		</div>
 	</div>
 </template>
 <script>
 // import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-import movieService from "../services/MovieService";
+// import movieService from "../services/MovieService";
 import Banner from "../components/Banner.vue";
-// import BlockList from "../components/BlockList.vue";
-// import ExploreListBlock from "../components/ExploreListBlock.vue";
-// import SlideListBlock from "../components/SlideListBlock.vue";
+import BlockList from "../components/BlockList.vue";
+import ExploreListBlock from "../components/ExploreListBlock.vue";
+import SlideListBlock from "../components/SlideListBlock.vue";
 export default {
 	name: "Home",
 	components: {
-		// "slide-list-block": SlideListBlock,
+		"slide-list-block": SlideListBlock,
 		banner: Banner,
-		// "block-list": BlockList,
-		// "explore-list-block": ExploreListBlock,
+		"block-list": BlockList,
+		"explore-list-block": ExploreListBlock,
 	},
 	data: () => ({
 		breakpoints: {
@@ -91,28 +104,28 @@ export default {
 		slides: [],
 		movies: [],
 	}),
-	methods: {
-		async fecthData() {
-			const banner = await movieService.getAllMovies();
-			this.movies = banner.data;
-			for (let step = 0; step < 5; step++) {
-				let randNum = Math.floor(Math.random() * this.movies.length);
-				this.slides.push(this.movies[randNum]);
-			}
-		},
-		getImage(imgName) {
-			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;
-		},
-		goRoute(movieId) {
-			this.$router.push(`/movie/${movieId}`);
-		},
-		getUser() {
-			return localStorage.getItem("user");
-		},
-	},
-	created() {
-		this.fecthData();
-	},
+	// methods: {
+	// 	async fecthData() {
+	// 		const banner = await movieService.getAllMovies();
+	// 		this.slides = banner.data.slice(4);
+	// 		// for (let step = 0; step < 5; step++) {
+	// 		// 	this.slides.push(this.movies[step]);
+	// 		// }
+	// 		console.log(this.slides);
+	// 	},
+	// 	getImage(imgName) {
+	// 		return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;
+	// 	},
+	// 	goRoute(movieId) {
+	// 		this.$router.push(`/movie/${movieId}`);
+	// 	},
+	// 	getUser() {
+	// 		return localStorage.getItem("user");
+	// 	},
+	// },
+	// created() {
+	// 	this.fecthData();
+	// },
 };
 </script>
 <style>

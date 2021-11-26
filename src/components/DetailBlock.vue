@@ -10,10 +10,10 @@
 			<div class="md:mb-4">
 				<span class="hidden md:block md:font-medium md:text-6xl text-white">{{ movie.moviename }}</span>
 			</div>
-			<div class="md:pr-7">
+			<div class="pr-6">
 				<div
 					id="block"
-					class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:grid md:grid-cols-8 md:border-transparent md:w-9/12 md:h-16"
+					class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:grid md:grid-cols-8 md:border-transparent md:h-16"
 				>
 					<div id="block" class="hidden md:inline-block md:rounded-md md:mb-6 md:py-4">
 						<div class="md:inline-flex md:col-span-5 md:space-x-4 md:px-5">
@@ -36,49 +36,49 @@
 						</div>
 					</div>
 				</div>
-				<div class="md:mb-6">
-								<div class="flex overflow-hidden md:space-x-12 tb:space-x-20">
-									<img
-										id="poster"
-										class="justify-items-stretch transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
-										:src="getImage(movie.poster)"
-									/>
-									<iframe class="hidden md:block tb:block" width="950" :src="movie.trailer" />
-								</div>
-				</div>
-				<div class="space-y-2 md:inline-flex">
-					<span
-						id="movie-detail"
-						class="md:hidden absolute left-4 text-sm font-semibold text-white"
-					>| {{ stringDate }}</span>
-					<span v-for="m in movie.movieGenre" :key="m.genre_id">{{ m.genre }}</span>‧
-					<span>{{ this.movie.runtime }} hours</span>
-				</div>
-				<div class="md:hidden grid grid-cols-2 text-white px-24 sticky top-0 bg-blackBlue">
-					<button
-						class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center"
-						:class="{
-							'text-deepBlue border-t-2 border-deepBlue': toggle === false,
-						}"
-						@click="toggle = false"
-					>
-						<span class="text-sm uppercase">details</span>
-					</button>
-					<button
-						class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center"
-						:class="{
-							'text-deepBlue border-t-2 border-deepBlue': toggle === true,
-						}"
-						@click="toggle = true"
-					>
-						<span class="text-sm uppercase">reviews</span>
-					</button>
-				</div>
-				<p
-					v-if="toggle === false"
-					class="text-white text-sm tb:px-6 md:px-0 md:text-xl md:text-justify"
-				>{{ movie.plot }}</p>
 			</div>
+			<div class="md:mb-6">
+				<div class="flex overflow-hidden md:space-x-12 tb:space-x-20">
+					<img
+						id="poster"
+						class="justify-items-stretch transform scale-125 md:w-1/4 md:mx-9 md:shadow md:rounded md:border-none"
+						:src="getImage(movie.poster)"
+					/>
+					<iframe class="hidden md:block tb:block" width="950" :src="movie.trailer" />
+				</div>
+			</div>
+			<div class="space-y-2 md:inline-flex">
+				<span
+					id="movie-detail"
+					class="md:hidden absolute left-4 text-sm font-semibold text-white"
+				>| {{ stringDate }}</span>
+				<span v-for="m in movie.movieGenre" :key="m.genre_id">{{ m.genre }}</span>‧
+				<span>{{ this.movie.runtime }} hours</span>
+			</div>
+			<div class="md:hidden grid grid-cols-2 text-white px-24 sticky top-0 bg-blackBlue">
+				<button
+					class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center"
+					:class="{
+						'text-deepBlue border-t-2 border-deepBlue': toggle === false,
+					}"
+					@click="toggle = false"
+				>
+					<span class="text-sm uppercase">details</span>
+				</button>
+				<button
+					class="px-4 py-2 m-2 tb:w-1/2 tb:mx-auto text-white flex justify-center"
+					:class="{
+						'text-deepBlue border-t-2 border-deepBlue': toggle === true,
+					}"
+					@click="toggle = true"
+				>
+					<span class="text-sm uppercase">reviews</span>
+				</button>
+			</div>
+			<p
+				v-if="toggle === false"
+				class="text-white text-sm tb:px-6 md:px-0 md:text-xl md:text-justify"
+			>{{ movie.plot }}</p>
 		</div>
 	</div>
 </template>

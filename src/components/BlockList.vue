@@ -14,22 +14,19 @@
 					>{{ m.moviename }}</p>
 				</div>
 
-				<div class="tb:w-44 tb:truncate md:text-center md:truncate md:w-48">
+				<div class="tb:w-44 text-gray-400 tb:truncate md:text-center md:truncate md:w-48">
 					<div
 						v-for="g in m.movieGenre"
 						:key="g.genre_id"
-						class="inline-flex text-gray-400 text-sm tracking-wider mb-1 tb:text-center md:space-x-1"
+						class="inline-flex text-sm tracking-wider mb-1 tb:text-center md:space-x-1"
 					>
 						<p>{{ g.genre }}/</p>
 					</div>
 				</div>
-				<!-- <p
-						class="text-gray-400 text-sm tracking-wider mb-3 tb:text-center tb:mb-2 md:text-center md:mb-2"
-				>{{ m.releasedate }}</p>-->
-				<div class="flex space-x-5 tb:space-x-4">
+				<div class="tb:flex md:flex space-x-5 md:space-x-2 tb:space-x-4">
 					<p
 						class="text-gray-400 text-sm tracking-wider mb-3 tb:text-center tb:mb-2 md:text-center md:mb-2"
-					>July 21, 2021</p>
+					>{{ stringDate }}</p>
 					<p
 						class="text-gray-400 text-sm tracking-wider mb-1 tb:text-center md:text-center"
 					>{{ m.runtime }} hours</p>
@@ -45,6 +42,7 @@
 <script>
 import FavButton from "./FavButton.vue";
 import movieService from "../services/MovieService";
+import dateFormat from "dateformat";
 
 export default {
 	components: {
@@ -54,7 +52,8 @@ export default {
 	data() {
 		return {
 			movies: [],
-			lists: []
+			lists: [],
+			stringDate: ""
 		}
 	},
 	methods: {
@@ -62,6 +61,8 @@ export default {
 			const movies = await movieService.getUpcommingMovie();
 			this.lists = movies.data;
 			console.log(this.lists);
+			this.stringDate = dateFormat(this.lists.releasedate, "mmm dS, yyyy");
+
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;

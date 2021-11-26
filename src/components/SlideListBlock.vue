@@ -3,7 +3,7 @@
 		<div class="w-32 tb:w-40 md:w-44" v-for="s in slides" :key="s.movie_id">
 			<button @click="goRoute(s.movie_id)">
 			<img :src="getImage(s.poster)" class="h-44 rounded-md mx-auto mb-2 tb:h-52 md:h-60" />
-			<p class="text-white text-center text-base font-bold leading-snug overflow-hidden uppercase mb-2 mt-2">
+			<p class="text-white text-center text-base font-bold leading-snug overflow-hidden truncate w-28 md:w-44 tb:w-44 uppercase mb-2 mt-2">
 				{{ s.moviename }}
 			</p>
 			<div class="mx-2 tb:mx-7 md:mx-9">
@@ -30,9 +30,8 @@ export default {
 	},
 	methods: {
 		async fecthData() {
-			const banner = await movieService.getAllMovies();
-			this.movies = banner.data;
-			this.slides = this.movies.slice(0, 5);
+			const banner = await movieService.getTop5Movie();
+			this.slides = banner.data;
 			console.log(this.slides);
 		},
 		getImage(imgName) {

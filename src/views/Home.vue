@@ -10,7 +10,7 @@
 		<p
 			class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium md:mx-6 tb:mx-4 mx-2"
 		>coming soon movie</p>
-		<div class="md:mx-11">
+		<div class="mx-5 tb:ml-7 md:mx-11">
 			<block-list />
 		</div>
 		<p

@@ -22,6 +22,12 @@ class MovieService {
 	getUpcommingMovie() {
 		return http.get(`/view/status/22`);
 	}
+	getTop5Movie() {
+		return http.get(`/movies/top5`);
+	}
+	getCommentByMovieId(movieId) {
+		return http.get(`/view/comment/${movieId}`);
+	}
 }
 
 export default new MovieService();

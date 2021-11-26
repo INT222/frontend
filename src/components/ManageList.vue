@@ -20,11 +20,11 @@
 		</w-button>
 		<div class="absolute mt-2 ml-14 md:w-24 md:ml-3 z-10 md:bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
-				<router-link
+				<router-link @click="showDropDown = false"
 					to="/manageuser"
 					class="block hover:text-deepBlue py-2 md:pl-8"
 				>user</router-link>
-				<router-link
+				<router-link @click="showDropDown = false"
 					to="/managemovie"
 					class="block hover:text-deepBlue py-2 md:pl-8"
 				>movie</router-link>
@@ -41,19 +41,19 @@ export default {
 		items: [{ label: "Item 1" }, { label: "Item 2" }, { label: "Item 3" }, { label: "Item 4" }],
 		showDropDown: false,
 	}),
-	// methods: {
-	// 	documentClick(event) {
-	// 		if (!this.$el.contains(event.target)) {
-	// 			this.showDropDown = false;
-	// 		}
-	// 	},
-	// },
-	// created() {
-	// 	document.addEventListener('click', this.documentClick)
-	// },
-	// unmounted() {
-	// 	document.removeEventListener('click', this.documentClick)
-	// }
+	methods: {
+		documentClick(event) {
+			if (!this.$el.contains(event.target)) {
+				this.showDropDown = false;
+			}
+		},
+	},
+	created() {
+		document.addEventListener('click', this.documentClick)
+	},
+	unmounted() {
+		document.removeEventListener('click', this.documentClick)
+	}
 };
 </script>
 

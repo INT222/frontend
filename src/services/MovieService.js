@@ -16,9 +16,6 @@ class MovieService {
 	getMovieByGenre(genreId) {
 		return http.get(`/view/genre/${genreId}`);
 	}
-	getImage(imgName) {
-		return http.get(`/view/img/${imgName}`);
-	}
 	getUpcommingMovie() {
 		return http.get(`/view/status/22`);
 	}

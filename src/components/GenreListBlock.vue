@@ -80,21 +80,25 @@ export default {
 		showDropDown: false,
 	}),
 	methods: {
-		// documentClick(event) {
-		// 	if (!this.$el.contains(event.target)) {
-		// 		this.showDropDown = false;
-		// 	}
-		// },
+		documentClick(event) {
+			if (!this.$el.contains(event.target)) {
+				this.showDropDown = false;
+			}
+		},
 		goRoute(genreId) {
 			this.$router.push(`/genre/${genreId}`);
 		},
+		checkShowDropDown() {
+			if(this.showDropDown === true)
+			console.log("Success ja")
+		}
 	},
-	// created() {
-	// 	document.addEventListener("click", this.documentClick);
-	// },
-	// unmounted() {
-	// 	document.removeEventListener("click", this.documentClick);
-	// },
+	created() {
+		document.addEventListener("click", this.documentClick);
+	},
+	unmounted() {
+		document.removeEventListener("click", this.documentClick);
+	},
 };
 </script>
 

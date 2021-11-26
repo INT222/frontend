@@ -1,15 +1,15 @@
 <template>
-	<div class="mx-5 space-y-5 md:inline-flex md:space-y-0 md:space-x-9 md:mx-2 tb:mx-4">
+	<div class="space-y-5 md:flex tb:grid tb:grid-cols-3 tb:space-y-0 tb:space-x-4 md:gird md:grid-cols-3 md:grid-rows-2 md:space-y-0 md:space-x-9">
 		<!--Box 1-->
 		<div
 			v-for="s in slides"
 			:key="s.movie_id"
-			class="rounded-md overflow-hidden shadow-lg md:grid-cols-3 md:grid-rows-2"
+			class=" rounded-md overflow-hidden shadow-lg"
 		>
 
 			<img
 				:src="getImage(s.poster)"
-				class="w-full h-48  object-cover"
+				class="w-full h-48 object-cover"
 			/>
 			<div class="px-6 py-4 bg-gray-700">
 				<div class="font-bold text-xl mb-2 text-white">{{ s.title }}</div>

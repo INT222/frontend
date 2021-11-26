@@ -94,16 +94,6 @@ export default {
 		"bookmark-button": BookMarkButton,
 		"back-button": BackButton,
 	},
-	// props: {
-	// 	name: String,
-	// 	releaseDate: String,
-	// 	genre: Array,
-	// 	runtime: Number,
-	// 	plot: String,
-	// 	rating: Number,
-	// 	imgPoster: String,
-	// 	trailer: String,
-	// },
 	data() {
 		return {
 			showcomment: false,
@@ -116,7 +106,6 @@ export default {
 		async fecthData() {
 			const response = await movieService.getMovieById(this.$route.params.id);
 			this.movie = response.data;
-			console.log(typeof (response.data), response.data);
 			this.stringDate = dateFormat(this.movie.releasedate,"mmmm dS, yyyy");
 		},
 		getImage(imgName) {

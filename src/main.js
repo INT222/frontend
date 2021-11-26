@@ -18,5 +18,8 @@ new WaveUI(app, {
 		primary: "#9ac332",
 		secondary: "#5d9a26",
 	},
+	notificationManager: {
+		size: "xl"
+	}
 });
 app.mount("#app");

@@ -32,7 +32,6 @@ export default {
 		async fecthData() {
 			const banner = await movieService.getTop5Movie();
 			this.slides = banner.data;
-			console.log(this.slides);
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;

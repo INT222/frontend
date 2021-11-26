@@ -1,5 +1,5 @@
 import http from "../http-common";
-import authHeader from "./auth-header";
+// import authHeader from "./auth-header";
 
 class UserService {
 	getWatchlist() {
@@ -17,8 +17,11 @@ class UserService {
 	// getAdminBoard() {
 	// 	return axios.get(API_URL + "admin", { headers: authHeader() });
 	// }
-	postComment(data) {
-		return http.post("/api/comment/add", data, { headers: authHeader() });
+	// postComment(data) {
+	// 	return http.post("/api/comment/add", data, { headers: authHeader() });
+	// }
+	getUsernameList() {
+		return http.get("/view/userlist");
 	}
 }
 

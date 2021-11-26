@@ -1,9 +1,5 @@
 <template>
 	<div class="w-full grid grid-cols-5 my-5 tb:grid-cols-1 md:grid-cols-1">
-		<!-- <img
-            src="../assets/BlackWidow.jpg"
-            class="h-48 col-span-2 flex-none bg-cover rounded-md tb:rounded-lg tb:object-center tb:h-52 tb:mx-auto md:rounded-lg md:object-center md:h-60 md:mx-auto"
-        /> -->
 		<div class="col-span-3 mt-3 mx-4 tb:text-center md:text-center">
 			<p class="text-white font-medium text-base mt-2 mb-3 tracking-wide tb:mb-2 md:mb-2">{{ title }}</p>
 			<div class="hidden tb:space-x-2 tb:inline-flex tb:space-x-2 md:inline-flex">

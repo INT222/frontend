@@ -18,7 +18,7 @@
 			></w-button>
 			<div class="space-y-6 mx-5 mt-10 w-96">
 				<div class="space-y-1" v-if="this.loggedin === true">
-					<div class="flex text-sm space-x-2 font-medium ">
+					<div class="flex text-sm space-x-2 font-medium">
 						<p>Qwanjai</p>
 						<p>Deelertpradit</p>
 					</div>
@@ -53,12 +53,9 @@
 				</div>
 				<w-divider class="w-36" color="grey" />
 				<div class="mt-6 -ml-2">
-					<router-link to="/managemovie">
-						<w-button :height="40" bg-color="transparent">
-							<w-icon class="-mt-1" :size="25" color="grey">mdi mdi-movie-open-edit</w-icon>
-							<p class="text-sm ml-2 text-white uppercase">manage movie</p>
-						</w-button>
-					</router-link>
+					<!-- <w-icon class="-mt-1" :size="25" color="grey">mdi mdi-movie-open-edit</w-icon> -->
+					<!-- <p class="text-sm ml-2 text-white uppercase">manage movie</p> -->
+					<manage-list></manage-list>
 				</div>
 				<div class="-ml-2">
 					<router-link to="/watchlist">
@@ -91,9 +88,11 @@ import GenreListBlock from "./GenreListBlock.vue";
 import { auth } from "../services/auth-module";
 // import User from "./User.vue";
 import authService from "../services/auth-service";
+import ManageList from './ManageList.vue';
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
+		"manage-list": ManageList
 		// user: User,
 	},
 	data() {
@@ -105,7 +104,6 @@ export default {
 	methods: {
 		clickToLogOut() {
 			authService.logout();
-			console.log("Log out successful");
 			location.reload();
 		},
 		// showProfile() {

@@ -5,7 +5,6 @@
 		>add movie</h1>
 		<div class="mt-5 mx-2 md:mt-10 md:mx-16 md:grid md:grid-cols-5">
 			<div class="hidden md:block md:col-span-2">
-				<!-- <img src="../assets/BlackWidow.jpg" class="rounded-l-3xl w-full h-5/6" /> -->
 			</div>
 			<div
 				class="bg-white rounded-xl md:h-5/6 md:rounded-none md:mt-0 md:rounded-r-3xl md:col-span-3 md:overflow-auto"

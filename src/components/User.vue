@@ -1,7 +1,6 @@
 <template>
     <div class="hidden md:block">
         <w-button @click="dialog.show = true"  bg-color="transparent" color="white" class="uppercase font-medium tracking-wider hover:text-deepBlue py-5">View profile</w-button>
-        <!-- <w-button @click="dialog.show = true"  bg-color="transparent" color="white" class="uppercase font-medium md:tracking-wider md:py-5">Fah</w-button> -->
         <w-dialog
             v-model="dialog.show"
             :persistent="dialog.persistent"

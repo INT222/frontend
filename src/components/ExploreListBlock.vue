@@ -44,7 +44,6 @@ export default {
 				let randNum = Math.floor(Math.random() * this.movies.length);
 				this.slides.push(this.movies[randNum]);
 			}
-			console.log(this.slides);
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;

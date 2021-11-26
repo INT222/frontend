@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<vueper-slides :breakpoints="breakpoints" :bullets="false">
-			<vueper-slide v-for="s in slides" :key="s.movie_id" :image="getImage(s.poster)">
+			<vueper-slide @click="goRoute(s.movie_id)" v-for="s in slides" :key="s.movie_id" :image="getImage(s.poster)">
 				<template #content>
 					<div class="slideText">
 						<span style="font-size: 5vw; display: block; margin-bottom: 0.1em; padding: 2px">{{ s.moviename }}</span>
@@ -10,36 +10,9 @@
 				</template>
 			</vueper-slide>
 		</vueper-slides>
-
-		<!-- <div class="text-white" v-for="(m, i) in slides" :key="m.movie_id">
-			<span class="mb-2 ml-12">
-				{{ i }} |
-
-				<span class="ml-4">{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }}</span></span
-			>
-		</div>
-		<div class="bg-yellow-200" v-for="(m, i) in slides" :key="m.movie_id">
-			<span class="mb-2 ml-12">
-				{{ i }} |
-
-				<span class="ml-4">{{ m.movie_id }} , {{ m.moviename }}, {{ m.studio.studioname }} , {{ m.poster }}</span></span
-			>
-		</div> -->
 	</div>
 </template>
 <style>
-/* .vueperslide__title {
-	color: white;
-	margin-top: 8em;
-	margin-right: 20em;
-	font-size: 50px;
-}*/
-
-/* .vueperslide__content {
-	margin-right: 50em;
-	font-size: 25px;
-	color: greenyellow;
-} */
 .slideText {
 	bottom: 1em;
 	flex-direction: column;
@@ -81,7 +54,6 @@ export default {
 	methods: {
 		async fecthData() {
 			const banner = await movieService.getAllMovies();
-			// console.log(`This is banner :${banner.data}`);
 			this.movies = banner.data;
 			for (let step = 0; step < 5; step++) {
 				let randNum = Math.floor(Math.random() * this.movies.length);
@@ -90,6 +62,9 @@ export default {
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
+		},
+		goRoute(movieId) {
+			this.$router.push(`/movie/${movieId}`);
 		},
 	},
 	created() {

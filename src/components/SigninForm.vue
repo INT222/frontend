@@ -1,9 +1,10 @@
 <template>
 	<div id="nav" class="bg-blackBlue w-screen">
-		<div class="bg-white border h-auto rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto">
+		<div
+			class="bg-white border h-auto rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto"
+		>
 			<div class="mt-4 mx-3">
 				<back-button iconcolor="#fa3317"></back-button>
-				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
 			</div>
 			<div class="mx-6 mt-4">
 				<p class="font-bold text-xl">Welcome back!</p>
@@ -41,8 +42,7 @@
 					class="text-white text-sm uppercase"
 					type="submit"
 					@click="submitForm"
-					>Sign in</w-button
-				>
+				>Sign in</w-button>
 			</div>
 		</div>
 	</div>
@@ -60,6 +60,7 @@ input[type="text"] {
 <script>
 import BackButton from "@/components/BackButton.vue";
 import authService from "../services/auth-service";
+import userService from "../services/user-service";
 
 export default {
 	components: {
@@ -67,6 +68,7 @@ export default {
 	},
 	data() {
 		return {
+			userlists: [],
 			valid: null,
 			user: {
 				username: "",
@@ -74,23 +76,30 @@ export default {
 			},
 			validators: {
 				required: (value) => !!value || "This field is required",
+				// username: (value) => {
+				// 	for (let i = 0; i < this.userlists.length; i++) {
+				// 		let result= this.userlists[i].localCompare(value);
+				// 		if (!result==0) {
+				// 			return "This username was not found";
+				// 		}
+				// 	}
+				// },
 			},
 			errorText: "",
 		};
 	},
 	methods: {
+		async fetchData() {
+			const response = await userService.getUsernameList();
+			this.userlists = response.data;
+		},
 		submitForm() {
 			// var data = { username: this.user.username, password: this.user.password };
 			console.log(this.user);
 			authService.login(this.user).catch((error) => {
-				console.log(error.response.data);
-				this.errorText = JSON.stringify(error.response.data);
-				// console.log(this.errorText.data);
-				console.log(this.errorText.message);
-				console.log(this.errorText);
-				this.$waveui.notify(this.errorText, "error", 0);
+				this.errorText = JSON.stringify(error.response.data.message);
+				this.$waveui.notify({message:this.errorText, color:"error", timeout:0});
 			});
-			console.log(process.env.VUE_APP_BACKEND_URL);
 			this.$store.dispatch("auth/login", this.user).then(() => {
 				this.$router.push("/");
 				location.reload();
@@ -98,22 +107,22 @@ export default {
 		},
 		checkIfValid() {
 			if ((this.user.username, this.user.password == "")) {
-				console.log(this.valid);
 				this.valid = false;
 			}
 			this.valid = true;
 			this.submitForm();
 		},
 	},
-	computed: {
-		loggedIn() {
-			return this.$store.state.auth.status.loggedIn;
-		},
-	},
+	// computed: {
+	// 	loggedIn() {
+	// 		return this.$store.state.auth.status.loggedIn;
+	// 	},
+	// },
 	created() {
-		if (this.loggedIn) {
-			this.$router.push("/");
-		}
+		// if (this.loggedIn) {
+		// 	this.$router.push("/");
+		// }
+		this.fetchData()
 	},
 };
 </script>

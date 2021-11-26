@@ -1,8 +1,5 @@
 <template>
 	<div class="text-white md:grid md:grid-col-4 md:px-7 md:mx-12 tb:mx-6">
-		<!-- <div class="mb-6">
-			<p class="text-base mt-1 text-white font-medium md:text-lg uppercase">rates and comments</p>
-		</div> -->
 		<div v-for="c in comments" :key="c.commentid" class="md:grid md:grid-flow-col md:justify-self-start md:space-x-10">
 			<div class="md:text-center md:grid md:grid-row-2 fle md:justify-start">
 				<div>
@@ -44,7 +41,6 @@ export default {
 		async fecthData() {
 			const response = await movieService.getCommentByMovieId(this.$route.params.id);
 			this.comments = response.data;
-			console.log(this.comments);
 		},
 	},
 	created() {

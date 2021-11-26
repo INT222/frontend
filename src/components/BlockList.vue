@@ -48,7 +48,6 @@ export default {
 	components: {
 		"fav-button": FavButton,
 	},
-	// props: { name: String, releaseDate: String, genre: Object, runtime: Number, imgPoster: String },
 	data() {
 		return {
 			movies: [],
@@ -60,7 +59,6 @@ export default {
 		async fetchData() {
 			const movies = await movieService.getUpcommingMovie();
 			this.lists = movies.data;
-			console.log(this.lists);
 			this.stringDate = dateFormat(this.lists.releasedate, "mmm dS, yyyy");
 
 		},

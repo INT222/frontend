@@ -1,21 +1,14 @@
 <template>
     <div>
-        <!-- <h1>{{ movieGenre[0].genre }}</h1> -->
-        <div
-            v-for="g in movieMatchGenre"
-            :key="g.genre_id"
-            class="inline-flex p-4 ml-6 bg-green-600"
-        >
-            <button @click="goRoute(g.movie_id)">
-                <find-list-block :imgPoster="getImage(g.poster)" />
-            </button>
+        <h1 class="text-white text-3xl mx-10">{{ genrename }}</h1>
+        <div>
+            <find-list-block />
         </div>
     </div>
 </template>
 
 <script>
 import FindListBlock from "../components/FindListBlock.vue";
-import movieService from "../services/MovieService";
 
 export default {
     components: {
@@ -23,25 +16,66 @@ export default {
     },
     data() {
         return {
-            movieMatchGenre: [],
+            genrename: "",
+            genre: [
+			{
+				genre_id: 1,
+				name: "Action",
+			},
+			{
+				genre_id: 2,
+				name: "Adventure",
+			},
+			{
+				genre_id: 3,
+				name: "Comedy",
+			},
+			{
+				genre_id: 4,
+				name: "Drama",
+			},
+			{
+				genre_id: 5,
+				name: "Fantacy",
+			},
+			{
+				genre_id: 6,
+				name: "Horror",
+			},
+			{
+				genre_id: 7,
+				name: "Mystery",
+			},
+			{
+				genre_id: 8,
+				name: "Romantic",
+			},
+			{
+				genre_id: 9,
+				name: "Sci-fi",
+			},
+			{
+				genre_id: 10,
+				name: "Thriller",
+			},
+		],
         };
     },
     methods: {
-        async fecthData() {
-            const movie = await movieService.getMovieByGenre(this.$route.params.id);
-            // console.log(`This is banner :${banner.data}`);
-            this.movieMatchGenre = movie.data;
-            console.log(this.movieMatchGenre);
-        },
-        getImage(imgName) {
-            return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
-        },
-        goRoute(movieId) {
-            this.$router.push(`/movie/${movieId}`);
-        },
+      matchGenreNameByGenreId() {
+            for(let i = 0; i < this.genre.length; i++) {
+                if(this.genre[i].genre_id === parseInt(this.$route.params.id)) {
+                    //  console.log(this.genre[i].name)
+                    this.genrename = this.genre[i].name
+                }
+               
+            }
+            // console.log(typeof(this.$route.params.id));
+            return this.genrename
+        }
     },
     created() {
-        this.fecthData();
-    },
+        this.matchGenreNameByGenreId() 
+    }
 }
 </script>

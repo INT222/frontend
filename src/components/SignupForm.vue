@@ -5,11 +5,7 @@
 		>
 			<div class="mt-4 mx-3">
 				<back-button iconcolor="#fa3317"></back-button>
-				<!-- <p class="mt-5 -ml-2 text-xs tracking-wider leading-loose uppercase">back to home</p> -->
 			</div>
-			<!-- <p class="ml-4 text-xs leading-loose uppercase mt-1">back to home</p> -->
-			<!-- </button> -->
-			<!-- </div> -->
 			<div class="mx-6 mt-4">
 				<p class="font-bold text-xl">Welcome back!</p>
 				<p class="text-gray-400 text-xs">Enter your information</p>
@@ -89,6 +85,7 @@
 import BackButton from "@/components/BackButton.vue";
 // import userDataService from "@/services/UserDataService.js";
 import authService from "../services/auth-service";
+import userService from "../services/user-service";
 
 export default {
 	props: {
@@ -102,6 +99,7 @@ export default {
 	},
 	data() {
 		return {
+			userlists: [],
 			user: {
 				firstname: "",
 				lastname: "",
@@ -123,9 +121,8 @@ export default {
 					}
 				},
 				username: (value) => {
-					var usernames = ["Fah", "Qwan", "Chu", "Admin"];
-					for (let i = 0; i < usernames.length; i++) {
-						if (usernames[i].toLowerCase() === value.toLowerCase()) {
+					for (let i = 0; i < this.userlists.length; i++) {
+						if (this.userlists[i].toLowerCase() === value.toLowerCase()) {
 							return "This username is already in use";
 						}
 					}
@@ -134,6 +131,10 @@ export default {
 		};
 	},
 	methods: {
+		async fetchData() {
+			const response = await userService.getUsernameList();
+			this.userlists = response.data;
+		},
 		submitForm() {
 			if (!this.checkIfValid()) {
 				var data = {
@@ -168,6 +169,9 @@ export default {
 			}
 		},
 	},
+	created() {
+		this.fetchData();
+	}
 };
 </script>
 

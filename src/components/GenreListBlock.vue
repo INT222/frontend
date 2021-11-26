@@ -18,27 +18,19 @@
 				</div>
 			</div>
 		</w-button>
-		<!-- <div class="absolute mt-2 ml-14 md:w-24 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
+		<div class="absolute mt-2 ml-14 md:w-24 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs uppercase font-medium">
-				add v-for in genre array ref:Home , Add @click="goRoute" 
 				<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
-					<w-button class="block hover:text-deepBlue pr-4 py-2" bg-color="transparent" @click="goRoute(g.genre_id)">{{
-						g.genre
-					}}</w-button>
+					<w-button
+						class="block hover:text-deepBlue pr-4 py-2"
+						bg-color="transparent"
+						@click="goRoute(g.genre_id), showDropDown = false"
+					>
+						{{
+							g.genre
+						}}
+					</w-button>
 				</div>
-			</div>
-		</div> -->
-		<div class="absolute mt-2 ml-14 md:w-24 md:ml-3 z-10 md:bg-blackBlue" v-if="showDropDown">
-			<div class="text-white text-xs uppercase font-medium">
-				<router-link @click="showDropDown = false"
-					to="/manageuser"
-					class="block hover:text-deepBlue py-2 md:pl-8"
-				>user</router-link>
-				<router-link @click="showDropDown = false"
-					to="/managemovie"
-					class="block hover:text-deepBlue py-2 md:pl-8"
-				>movie</router-link>
-				
 			</div>
 		</div>
 	</div>
@@ -101,8 +93,8 @@ export default {
 			this.$router.push(`/genre/${genreId}`);
 		},
 		checkShowDropDown() {
-			if(this.showDropDown === true)
-			console.log("Success ja")
+			if (this.showDropDown === true)
+				console.log("Success ja")
 		}
 	},
 	created() {

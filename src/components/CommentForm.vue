@@ -7,7 +7,6 @@
 			</div>
 			<div class="my-2 md:my-4">
 				<w-textarea
-					v-model="comment"
 					color="white"
 					rows="6"
 					class="mt-1 w-full bg-deepBrownGray rounded-md p-4 text-white mb-1 md:focus:ring-2 md:focus:ring-gray-400"
@@ -40,10 +39,10 @@ export default {
 			},
 		}
 	},
-	methods: {
+	// methods: {
 		// saveData(payload) {
 		// 	// this.$emit()
 		// }
-	}
+	// }
 }
 </script>

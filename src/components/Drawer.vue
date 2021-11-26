@@ -92,8 +92,8 @@ import ManageList from './ManageList.vue';
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
-		"manage-list": ManageList
-		// user: User,
+		"manage-list": ManageList,
+		// 'user': User,
 	},
 	data() {
 		return {

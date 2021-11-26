@@ -21,11 +21,9 @@
 				</div>
 			</div>
 			<div class="flex">
-				<div
-					:class="{
-						'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
-					}"
-				>
+				<div :class="{
+					'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
+				}">
 					<div v-if="searchButton">
 						<w-input
 							v-model="search"
@@ -58,8 +56,7 @@
 						outline
 						color="white"
 						bg-color="transparent"
-						>sign in</w-button
-					>
+					>sign in</w-button>
 				</router-link>
 				<div>
 					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
@@ -71,14 +68,13 @@
 						outline
 						color="black"
 						bg-color="white"
-						>sign up</w-button
-					>
+					>sign up</w-button>
 				</router-link>
 			</div>
-			<!-- <div v-if="this.loggedin === true" class="hidden md:block"></div> -->
-			<!-- <div v-if="this.loggedin === true" class="hidden md:block">
+			<div v-if="this.loggedin === true" class="hidden md:block"></div>
+			<div v-if="this.loggedin === true" class="hidden md:block">
 				<user-list></user-list>
-			</div> -->
+			</div>
 		</nav>
 	</div>
 </template>
@@ -86,7 +82,7 @@
 <script>
 import Drawer from "./Drawer.vue";
 import GenreListBlock from "./GenreListBlock.vue";
-// import { auth } from "../services/auth-module.js";
+import { auth } from "../services/auth-module.js";
 // import UserList from "./UserList.vue";
 import ManageList from "./ManageList.vue";
 export default {
@@ -99,7 +95,7 @@ export default {
 	data() {
 		return {
 			showDropDown: false,
-			// loggedin: auth.state.status.loggedIn,
+			loggedin: auth.state.status.loggedIn,
 			searchButton: false,
 			search: "",
 			list: {

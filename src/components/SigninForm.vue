@@ -95,33 +95,24 @@ export default {
 		},
 		submitForm() {
 			// var data = { username: this.user.username, password: this.user.password };
-			console.log(this.user);
 			authService.login(this.user).catch((error) => {
 				this.errorText = JSON.stringify(error.response.data.message);
-				this.$waveui.notify({message:this.errorText, color:"error", timeout:0});
+				this.$waveui.notify({ message: this.errorText, color: "error", timeout: 0 });
 			});
 			this.$store.dispatch("auth/login", this.user).then(() => {
 				this.$router.push("/");
-				location.reload();
 			});
 		},
-		checkIfValid() {
-			if ((this.user.username, this.user.password == "")) {
-				this.valid = false;
-			}
-			this.valid = true;
-			this.submitForm();
+	},
+	computed: {
+		loggedIn() {
+			return this.$store.state.auth.status.loggedIn;
 		},
 	},
-	// computed: {
-	// 	loggedIn() {
-	// 		return this.$store.state.auth.status.loggedIn;
-	// 	},
-	// },
 	created() {
-		// if (this.loggedIn) {
-		// 	this.$router.push("/");
-		// }
+		if (this.loggedIn) {
+			this.$router.push("/");
+		}
 		this.fetchData()
 	},
 };

@@ -1,6 +1,6 @@
 <template>
 	<div class="md:inline-flex md:space-x-14 tb:grid tb:grid-cols-3">
-		<div v-for="m in lists" :key="m.movie_id" class="grid grid-cols-5 my-3 tb:grid-cols-1 tb:inline-flex md:grid-cols-1">
+		<div v-for="m in lists" :key="m.movie_id" class="grid grid-cols-5 my-3 md:grid-cols-1">
 			<button @click="goRoute(m.movie_id)" class="col-span-2 tb:mx-auto md:mx-auto">
 				<img
 					:src="getImage(m.poster)"

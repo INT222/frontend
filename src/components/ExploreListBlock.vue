@@ -1,5 +1,5 @@
 <template>
-	<div class="md:inline-flex space-x-9 md:mx-6 tb:mx-4">
+	<div class="mx-5 space-y-5 md:inline-flex md:space-y-0 md:space-x-9 md:mx-2 tb:mx-4">
 		<!--Box 1-->
 		<div
 			v-for="s in slides"
@@ -9,11 +9,11 @@
 
 			<img
 				:src="getImage(s.poster)"
-				class="w-full h-48 border-2 border-b-0 border-gray-400 object-cover"
+				class="w-full h-48  object-cover"
 			/>
 			<div class="px-6 py-4 bg-gray-700">
 				<div class="font-bold text-xl mb-2 text-white">{{ s.title }}</div>
-				<p id="plot" class="text-white text-base w-96">{{ s.plot }}</p>
+				<p id="plot" class="text-white text-base md:w-96">{{ s.plot }}</p>
 				<div>
 					<button @click="goRoute(s.movie_id)">
 					<span

@@ -44,11 +44,11 @@
 						class="-ml-10 md:top-0 tb:top-0"
 						:class="{ 'float-right left-2': searchButton === true }"
 					>
-						<w-icon lg color="white">mdi mdi-magnify</w-icon>
+						<w-icon md color="white">mdi mdi-magnify</w-icon>
 					</w-button>
 				</div>
 			</div>
-			<div class="hidden md:inline-flex md:space-x-5">
+			<div v-if="this.loggedin === false" class="hidden md:inline-flex md:space-x-5">
 				<router-link to="/signin">
 					<w-button
 						id="signin"
@@ -71,7 +71,7 @@
 					>sign up</w-button>
 				</router-link>
 			</div>
-			<div v-if="this.loggedin === true" class="hidden md:block"></div>
+			<!-- <div v-if="this.loggedin === true" class="hidden md:block"> -->
 			<div v-if="this.loggedin === true" class="hidden md:block">
 				<user-list></user-list>
 			</div>
@@ -83,13 +83,13 @@
 import Drawer from "./Drawer.vue";
 import GenreListBlock from "./GenreListBlock.vue";
 import { auth } from "../services/auth-module.js";
-// import UserList from "./UserList.vue";
+import UserList from "./UserList.vue";
 import ManageList from "./ManageList.vue";
 export default {
 	components: {
 		"genre-list-block": GenreListBlock,
 		drawer: Drawer,
-		// "user-list": UserList,
+		"user-list": UserList,
 		"manage-list": ManageList,
 	},
 	data() {

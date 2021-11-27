@@ -24,6 +24,7 @@
 							<div class="inline-flex" v-for="m in movie.movieGenre" :key="m.genre_id">
 								<p class="md:text-white md:text-xl">{{ m.genre }}/</p>
 							</div>
+
 							<span class="md:text-white md:text-xl md:ml-4">{{ movie.runtime }} hours</span>
 						</div>
 						<div class="flex justify-end space-x-3">
@@ -32,6 +33,7 @@
 						</div>
 						<div class="flex justify-end ">
 							<bookmark-button></bookmark-button>
+
 						</div>
 					</div>
 				</div>

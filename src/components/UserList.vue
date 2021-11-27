@@ -15,7 +15,7 @@
 				</div>
 			</div>
 		</w-button>
-		<div class="absolute mt-2 ml-14 md:-ml-12 z-10 " v-if="showDropDown">
+		<div class="absolute mt-2 ml-14 md:-ml-12 z-10 bg-blackBlue" v-if="showDropDown">
 			<div class="text-white text-xs font-medium">
 				<user></user>
 				<w-button

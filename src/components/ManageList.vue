@@ -1,5 +1,5 @@
 <template>
-	<div class="-ml-1 mt-1 md:mt-0">
+	<div class="ml-1 mt-1 md:mt-0">
 		<w-button
 			bg-color="transparent"
 			class="px-5 py-2 uppercase"
@@ -8,7 +8,7 @@
 			:height="40"
 		>
 			<div class="inline-flex space-x-3 -ml-4 md:px-1 md:my-0">
-				<div class="md:hidden">
+				<div class="md:hidden -mt-1">
 					<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
 				</div>
 				<p class="text-white my-auto md:my-2 text-sm uppercase">manage</p>

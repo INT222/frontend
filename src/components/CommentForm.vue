@@ -1,5 +1,5 @@
 <template>
-	<div class="md:px-7">
+	<div class="md:px-7 mx-5 tb:mx-8 md:mx-0">
 		<w-form v-model="valid">
 			<div class="inline-flex space-x-3 mb-1">
 				<p class="text-base text-white font-medium md:text-lg">Rate this :</p>

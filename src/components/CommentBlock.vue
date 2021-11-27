@@ -1,5 +1,5 @@
 <template>
-	<div class="text-white md:grid md:grid-col-4 md:px-7 md:mx-12 tb:mx-6">
+	<div class="mx-5 tb:mx-8 text-white md:grid md:grid-col-4 md:px-7 md:mx-12 space-y-5">
 		<div v-for="c in comments" :key="c.commentid" class="md:grid md:grid-flow-col md:justify-self-start md:space-x-10">
 			<div class="md:text-center md:grid md:grid-row-2 fle md:justify-start">
 				<div>
@@ -10,12 +10,12 @@
 						<p class="text-gray-500 mx-4 text-sm md:my-2 tracking-widest">{{ c.create_date }}</p>
 					</div>
 					<div>
-						<w-rating class="-mt-1" sm color="yellow" :modelValue="c.rating" readonly></w-rating>
+						<w-rating xs color="yellow" :modelValue="c.rating" readonly></w-rating>
 					</div>
 				</div>
 			</div>
 			<div>
-				<p class="my-2 md:my-0">
+				<p class="my-2 text-sm md:my-0 tracking-wide">
 					{{ c.commenttext }}
 				</p>
 			</div>

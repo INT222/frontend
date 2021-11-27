@@ -52,10 +52,8 @@
 					>sign out</w-button>
 				</div>
 				<w-divider class="w-36" color="grey" />
-				<div class="mt-6 -ml-2">
-					<!-- <w-icon class="-mt-1" :size="25" color="grey">mdi mdi-movie-open-edit</w-icon> -->
-					<!-- <p class="text-sm ml-2 text-white uppercase">manage movie</p> -->
-					<manage-list></manage-list>
+				<div class="mt-6 ">
+					<manage-list ></manage-list>
 				</div>
 				<div class="-ml-2">
 					<router-link to="/watchlist">
@@ -67,17 +65,7 @@
 				</div>
 				<div class="-ml-1">
 					<genre-list-block></genre-list-block>
-					<!-- <button class="text-white uppercase">sign in</button> -->
 				</div>
-				<!-- <div class="absolute top-3/4 w-32">
-                    <w-divider class="mt-14" width="50" color="grey" />
-                    <div class="mt-6 -ml-2">
-                        <router-link to="/managemovie">
-                            <w-icon class="-mt-2" :size="30" color="grey">material-icons create</w-icon>
-                            <button class="text-sm text-white uppercase">manage movie</button>
-                        </router-link>
-                    </div>
-				</div>-->
 			</div>
 		</w-drawer>
 	</div>

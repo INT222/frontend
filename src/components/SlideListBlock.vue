@@ -7,7 +7,7 @@
 						<button @click="goRoute(s.movie_id)">
 							<img
 								:src="getImage(s.poster)"
-								class="max-w-xs overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out h-44 rounded-md mb-2 tb:h-52 md:h-60"
+								class="max-w-xs overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 ease-in-out h-44 rounded-md mb-2 tb:h-52 md:h-60"
 							/>
 							<p
 								class="text-white text-center text-base font-medium leading-snug overflow-hidden truncate tb:truncate tb:overflow-hidden w-32 md:w-40 tb:w-36 uppercase mb-2 mt-2"

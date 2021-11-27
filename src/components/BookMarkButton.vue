@@ -2,7 +2,7 @@
 	<div class="relative">
 		<!-- <img class="block h-44 md:h-60 tb:h-52" src="../src/assets/LoveSimon.jpg"> -->
 		<div v-if="seen == false">
-			<w-button bg-color="transparent" class="grey-light2 " @click="toggleSeen">
+			<w-button bg-color="transparent" class="white " @click="toggleSeen">
 				<w-icon xl>mdi mdi-bookmark-outline</w-icon>
 			</w-button>
 		</div>

@@ -1,39 +1,34 @@
 <template>
 	<div class="md:w-11/12 md:mx-12">
-		<div class="bg-blackBlue space-y-10 md:px-3">
-			<div class="md:hidden block absolute ml-4 mt-4">
-				<back-button iconcolor="white"></back-button>
-			</div>
-			<div class="md:hidden block absolute ml-60 mt-6">
-				<bookmark-button></bookmark-button>
+		<div class="space-y-10 md:px-3">
+			<div class="abosolute">
+				<div class="tb:hidden md:hidden block absolute ml-4 mt-4">
+					<back-button iconcolor="white"></back-button>
+				</div>
+				<div class="tb:hidden md:hidden block absolute ml-80 mt-4">
+					<bookmark-button></bookmark-button>
+				</div>
 			</div>
 			<div class="md:mb-4">
 				<span class="hidden md:block md:font-medium md:text-6xl text-white">{{ movie.moviename }}</span>
 			</div>
-			<!-- <div class="hidden md:block md:h-16 md:border md:bg-yellow-400 md:rounded-lg md:px-10">
-				<p>fdshgudfhguhuhdfuih</p>
-			</div>-->
-			<div class="pr-6">
-				<div
-					id="block"
-					class="hidden tb:block md:block md:bg-lightGray md:rounded-md md:border-transparent md:h-16"
-				>
-					<div class="hidden md:rounded-md md:py-4 md:grid md:grid-cols-10 md:px-5">
-						<div class="col-span-8">
+			<div class="hidden tb:block">
+				<div class="h-16 rounded-lg shadow-md bg-lightGray transition-shadow duration-300 ease-in-out">
+					<div class="rounded-md py-4 grid grid-cols-10 tb:grid-cols-6 px-5">
+						<div class="col-span-8 tb:col-span-4">
 							<span class="text-white text-xl mr-4">{{ stringDate }}</span>
 							<div class="inline-flex" v-for="m in movie.movieGenre" :key="m.genre_id">
-								<p class="md:text-white md:text-xl">{{ m.genre }}/</p>
+								<p class="text-white text-xl">{{ m.genre }}/</p>
 							</div>
 
-							<span class="md:text-white md:text-xl md:ml-4">{{ movie.runtime }} hours</span>
+							<span class="text-white mtext-xl ml-4">{{ movie.runtime }} hours</span>
 						</div>
 						<div class="flex justify-end space-x-3">
-							<w-icon class="-mt-1" lg color="yellow">mdi mdi-star</w-icon>
+							<w-icon class="" lg color="yellow">mdi mdi-star</w-icon>
 							<span class="text-white text-xl font-bold">{{ movie.avg_rating }}</span>
 						</div>
-						<div class="flex justify-end ">
+						<div class="flex justify-end">
 							<bookmark-button></bookmark-button>
-
 						</div>
 					</div>
 				</div>
@@ -48,13 +43,18 @@
 					<iframe class="hidden md:block tb:block" width="950" :src="movie.trailer" />
 				</div>
 			</div>
-			<div class="space-y-2 md:inline-flex">
-				<span
-					id="movie-detail"
-					class="md:hidden block absolute left-4 text-sm font-semibold text-white"
-				>| {{ stringDate }}</span>
-				<span v-for="m in movie.movieGenre" :key="m.genre_id">{{ m.genre }}</span>‧
-				<span>{{ this.movie.runtime }} hours</span>
+
+			<div class="ml-5 text-white tb:hidden md:hidden">
+				<p class="text-4xl font-medium">{{ movie.moviename }}</p>
+
+				<div class="flex space-x-2 text-gray-400 mt-4">
+					<p>{{ stringDate }}</p>
+					<p>‧</p>
+					<p>{{ this.movie.runtime }} hours</p>
+				</div>
+				<div class="flex space-x-2 text-gray-400">
+					<p v-for="m in movie.movieGenre" :key="m.genre_id">{{ m.genre }}</p>
+				</div>
 			</div>
 			<div class="md:hidden grid grid-cols-2 text-white px-24 sticky top-0 bg-blackBlue">
 				<button
@@ -78,7 +78,7 @@
 			</div>
 			<p
 				v-if="toggle === false"
-				class="text-white text-sm tb:px-6 md:px-0 md:text-xl md:text-justify"
+				class="text-white text-sm mx-5 tb:mx-8 tb:text-justify md:px-0 md:text-xl md:mx-0 md:text-justify"
 			>{{ movie.plot }}</p>
 		</div>
 	</div>
@@ -123,9 +123,7 @@ export default {
 #poster {
 	height: 500px;
 }
-#movie-detail {
-	top: 420px;
-}
+
 #block {
 	width: 1312px;
 }

@@ -10,30 +10,28 @@
 			<div class="md:mb-4">
 				<span class="hidden md:block md:font-medium md:text-6xl text-white">{{ movie.moviename }}</span>
 			</div>
+			<!-- <div class="hidden md:block md:h-16 md:border md:bg-yellow-400 md:rounded-lg md:px-10">
+				<p>fdshgudfhguhuhdfuih</p>
+			</div>-->
 			<div class="pr-6">
 				<div
 					id="block"
-					class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:grid md:grid-cols-8 md:border-transparent md:h-16"
+					class="hidden tb:block md:block md:bg-lightGray md:rounded-md md:border-transparent md:h-16"
 				>
-					<div id="block" class="hidden md:inline-block md:rounded-md md:mb-6 md:py-4">
-						<div class="md:inline-flex md:col-span-7 md:space-x-4 md:px-5">
-							<div class="md:px-5">
-								<span class="md:text-white md:text-xl md:mr-4">{{ stringDate }}</span>
-								<div class="md:inline-flex" v-for="m in movie.movieGenre" :key="m.genre_id">
-									<p class="md:text-white md:text-xl">{{ m.genre }}/</p>
-								</div>
-								<span class="md:text-white md:text-xl md:ml-4">{{ movie.runtime }} hours</span>
+					<div class="hidden md:rounded-md md:py-4 md:grid md:grid-cols-10 md:px-5">
+						<div class="col-span-8">
+							<span class="text-white text-xl mr-4">{{ stringDate }}</span>
+							<div class="inline-flex" v-for="m in movie.movieGenre" :key="m.genre_id">
+								<p class="md:text-white md:text-xl">{{ m.genre }}/</p>
 							</div>
-							<div class="md:inline-flex md:space-x-3 md:mx-72 md:mr-7">
-									<w-icon class="mt-0" md color="yellow">mdi mdi-star</w-icon>
-									<span class="md:text-white md:text-xl md:font-bold">{{ movie.avg_rating }}</span>
-								</div>
-							<!-- <div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-5"> -->
-								
-								<div class="md:flex md:justify-items-end">
-									<bookmark-button></bookmark-button>
-								</div>
-							<!-- </div> -->
+							<span class="md:text-white md:text-xl md:ml-4">{{ movie.runtime }} hours</span>
+						</div>
+						<div class="flex justify-end space-x-3">
+							<w-icon class="-mt-1" lg color="yellow">mdi mdi-star</w-icon>
+							<span class="text-white text-xl font-bold">{{ movie.avg_rating }}</span>
+						</div>
+						<div class="flex justify-end ">
+							<bookmark-button></bookmark-button>
 						</div>
 					</div>
 				</div>
@@ -107,10 +105,10 @@ export default {
 		async fecthData() {
 			const response = await movieService.getMovieById(this.$route.params.id);
 			this.movie = response.data;
-			this.stringDate = dateFormat(this.movie.releasedate,"mmmm dS, yyyy");
+			this.stringDate = dateFormat(this.movie.releasedate, "mmmm dS, yyyy");
 		},
 		getImage(imgName) {
-			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;
+			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
 		},
 	},
 	created() {

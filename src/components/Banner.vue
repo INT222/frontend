@@ -55,11 +55,11 @@ export default {
 		async fecthData() {
 			const banner = await movieService.getAllMovies();
 			this.movies = banner.data;
+			this.slides.push(this.movies[16]);
 			for (let step = 0; step < 5; step++) {
 				let randNum = Math.floor(Math.random() * this.movies.length);
 				this.slides.push(this.movies[randNum]);
 			}
-				this.slides.push(this.movies[16]);
 				console.log(this.slides)
 		},
 		getImage(imgName) {

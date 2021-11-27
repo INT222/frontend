@@ -46,7 +46,7 @@ export default {
 			}
 		},
 		getImage(imgName) {
-			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;
+			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
 		},
 		goRoute(movieId) {
 			this.$router.push(`/movie/${movieId}`);

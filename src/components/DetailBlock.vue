@@ -25,14 +25,14 @@
 								<span class="md:text-white md:text-xl md:ml-4">{{ movie.runtime }} hours</span>
 							</div>
 							<div class="md:inline-flex md:space-x-3 md:mx-72 md:mr-7">
-									<w-icon class="mt-0" md color="yellow">mdi mdi-star</w-icon>
-									<span class="md:text-white md:text-xl md:font-bold">{{ movie.avg_rating }}</span>
-								</div>
+								<w-icon class="mt-0" md color="yellow">mdi mdi-star</w-icon>
+								<span class="md:text-white md:text-xl md:font-bold">{{ movie.avg_rating }}</span>
+							</div>
 							<!-- <div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-5"> -->
-								
-								<div class="md:flex md:justify-items-end">
-									<bookmark-button></bookmark-button>
-								</div>
+
+							<div class="md:flex md:justify-items-end">
+								<bookmark-button></bookmark-button>
+							</div>
 							<!-- </div> -->
 						</div>
 					</div>
@@ -107,10 +107,10 @@ export default {
 		async fecthData() {
 			const response = await movieService.getMovieById(this.$route.params.id);
 			this.movie = response.data;
-			this.stringDate = dateFormat(this.movie.releasedate,"mmmm dS, yyyy");
+			this.stringDate = dateFormat(this.movie.releasedate, "mmmm dS, yyyy");
 		},
 		getImage(imgName) {
-			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;
+			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
 		},
 	},
 	created() {

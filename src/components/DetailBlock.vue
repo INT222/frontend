@@ -16,7 +16,7 @@
 					class="hidden md:bg-lightGray md:rounded-md md:mb-6 md:grid md:grid-cols-8 md:border-transparent md:h-16"
 				>
 					<div id="block" class="hidden md:inline-block md:rounded-md md:mb-6 md:py-4">
-						<div class="md:inline-flex md:col-span-5 md:space-x-4 md:px-5">
+						<div class="md:inline-flex md:col-span-7 md:space-x-4 md:px-5">
 							<div class="md:px-5">
 								<span class="md:text-white md:text-xl md:mr-4">{{ stringDate }}</span>
 								<div class="md:inline-flex" v-for="m in movie.movieGenre" :key="m.genre_id">
@@ -24,15 +24,16 @@
 								</div>
 								<span class="md:text-white md:text-xl md:ml-4">{{ movie.runtime }} hours</span>
 							</div>
-							<div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-3">
-								<div class="md:inline-flex md:space-x-3 md:mx-72 md:mr-7">
-									<w-icon class="mt-0" xl color="yellow">mdi mdi-star</w-icon>
+							<div class="md:inline-flex md:space-x-3 md:mx-72 md:mr-7">
+									<w-icon class="mt-0" md color="yellow">mdi mdi-star</w-icon>
 									<span class="md:text-white md:text-xl md:font-bold">{{ movie.avg_rating }}</span>
 								</div>
-								<div class="md:flex md:justify-items-end md:mt-2">
+							<!-- <div class="md:inline-flex md:justify-end md:space-x-3 md:col-span-5"> -->
+								
+								<div class="md:flex md:justify-items-end">
 									<bookmark-button></bookmark-button>
 								</div>
-							</div>
+							<!-- </div> -->
 						</div>
 					</div>
 				</div>
@@ -50,7 +51,7 @@
 			<div class="space-y-2 md:inline-flex">
 				<span
 					id="movie-detail"
-					class="md:hidden absolute left-4 text-sm font-semibold text-white"
+					class="md:hidden block absolute left-4 text-sm font-semibold text-white"
 				>| {{ stringDate }}</span>
 				<span v-for="m in movie.movieGenre" :key="m.genre_id">{{ m.genre }}</span>‧
 				<span>{{ this.movie.runtime }} hours</span>

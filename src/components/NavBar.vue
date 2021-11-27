@@ -44,7 +44,7 @@
 						class="-ml-10 md:top-0 tb:top-0"
 						:class="{ 'float-right left-2': searchButton === true }"
 					>
-						<w-icon xl color="white">mdi mdi-magnify</w-icon>
+						<w-icon lg color="white">mdi mdi-magnify</w-icon>
 					</w-button>
 				</div>
 			</div>

@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<div class="md:mb-4">
-				<span class="hidden md:block md:font-medium md:text-6xl text-white">{{ movie.moviename }}</span>
+				<span class="hidden tb:block tb:font-medium tb:text-5xl md:block md:font-medium md:text-6xl text-white">{{ movie.moviename }}</span>
 			</div>
 			<div class="hidden tb:block">
 				<div class="h-16 rounded-lg shadow-md bg-lightGray transition-shadow duration-300 ease-in-out">

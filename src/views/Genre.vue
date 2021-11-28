@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1 class="text-white text-3xl mx-10">{{ genrename }}</h1>
-        <div>
+        <h1 class="text-white text-3xl mx-10 md:mx-14">{{ genrename }}</h1>
+        <div class="md:mx-10 mx-0">
             <find-list-block />
         </div>
     </div>

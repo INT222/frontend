@@ -41,7 +41,7 @@
 				<div class="ml-3 text-sm uppercase">Genre</div>
 			</template>
 			<template #item-content>
-				<div class="text-white text-xs uppercase font-medium">
+				<div class="text-white text-sm uppercase font-medium">
 					<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
 						<w-button
 							class="block hover:text-deepBlue pr-4 py-2 mx-9"

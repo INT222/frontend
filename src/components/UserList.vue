@@ -20,9 +20,10 @@
 				<user></user>
 				<w-button
                     @click="clickToLogOut"
+					color="red"
                     bg-color="transparent"
-                    class="block hover:text-deepBlue pr-4 py-2 uppercase font-medium md:ml-8 md:my-2"
-                >Log out</w-button>	
+                    class="block  pr-4 py-2 uppercase font-medium md:ml-8 md:my-2"
+                >Sign out</w-button>	
 			</div>
 		</div>
 	</div>

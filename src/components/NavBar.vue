@@ -22,7 +22,7 @@
 			</div>
 			<div class="flex">
 				<div :class="{
-					'bg-blackBlue h-6 z-10 w-72 md:-mt-1 ': searchButton === true,
+					'bg-blackBlue h-6 z-10 w-72 ': searchButton === true,
 				}">
 					<div v-if="searchButton">
 						<w-input

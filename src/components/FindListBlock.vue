@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-for="m in movieMatchGenre" :key="m.movie_id" class="inline-flex p-4 ml-6 md:grid-cols-6 md:grid-flow-row">
+		<div v-for="m in movieMatchGenre" :key="m.movie_id" class="inline-flex p-4 md:mx-7 md:ml-0 ml-6 md:grid-cols-6 md:grid-flow-row">
 			<button @click="goRoute(m.movie_id)">
 			<img :src="getImage(m.poster)" class="h-48 tb:h-52 md:h-60 rounded-md md:rounded-lg overflow-hidden" />
 			</button>

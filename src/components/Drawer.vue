@@ -52,8 +52,8 @@
 					>sign out</w-button>
 				</div>
 				<w-divider class="w-36" color="grey" />
-				<div class="mt-6 ">
-					<manage-list ></manage-list>
+				<div class="-ml-3">
+					<genre-list-block></genre-list-block>
 				</div>
 				<div class="-ml-2">
 					<router-link to="/watchlist">
@@ -63,8 +63,8 @@
 						</w-button>
 					</router-link>
 				</div>
-				<div class="-ml-1">
-					<genre-list-block></genre-list-block>
+				<div class="mt-6 -ml-4">
+					<manage-list ></manage-list>
 				</div>
 			</div>
 		</w-drawer>

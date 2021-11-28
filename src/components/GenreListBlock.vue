@@ -35,10 +35,10 @@
 				</div>
 			</div>
 		</div>
-		<w-accordion :items="1" expand-icon-right class="md:hidden blok">
+		<w-accordion :items="1" expand-icon-right class="md:hidden block">
 			<template #item-title>
 				<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
-				<div class="ml-5 text-sm uppercase">Genre</div>
+				<div class="ml-3 text-sm uppercase">Genre</div>
 			</template>
 			<template #item-content>
 				<div class="text-white text-xs uppercase font-medium">

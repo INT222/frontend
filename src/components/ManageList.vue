@@ -37,7 +37,7 @@
 		<w-accordion :items="1" expand-icon-right class="md:hidden blok">
 			<template #item-title>
 				<w-icon color="grey" :size="25">mdi mdi-clipboard-edit</w-icon>
-				<div class="ml-5 text-sm uppercase">Manage</div>
+				<div class="ml-3 text-sm uppercase">Manage</div>
 			</template>
 			<template #item-content>
 				<router-link

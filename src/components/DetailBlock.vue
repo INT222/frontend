@@ -1,5 +1,5 @@
 <template>
-	<div class="md:w-11/12 md:mx-12">
+	<div class="md:w-full md:mx-12">
 		<div class="space-y-10 md:px-3">
 			<div class="abosolute">
 				<div class="tb:hidden md:hidden block absolute ml-4 mt-4">

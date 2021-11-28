@@ -1,6 +1,6 @@
 <template>
 	<div class="space-y-10 tb:space-y-12 md:space-y-16">
-		<div class="md:grid md:grid-flow-row md:w-9/12">
+		<div class="md:grid md:grid-flow-row">
 			<detail-block></detail-block>
 		</div>
 		<div class="mb-6 mx-5 tb:mx-8 md:mx-0">

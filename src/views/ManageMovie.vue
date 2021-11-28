@@ -29,13 +29,13 @@
 									<td class="bg-gray-600 p-3 text-center">
 										<p class="text-center">100</p>
 									</td>
-									<td class="bg-gray-600 p-3 text-center">200</td>
-									<td class="bg-gray-600 p-3">
-										<p id="mname" class="overflow-hidden truncate w-36 tb:w-44 e">Shang-Chi and the Legend of the Ten Rings</p>
+									<td class="bg-gray-600 px-3 py-2 text-center">200</td>
+									<td class="bg-gray-600 px-3 py-2">
+										<p id="mname" class="overflow-hidden truncate w-36 tb:w-44 ">Shang-Chi and the Legend of the Ten Rings</p>
 									</td>
-									<td class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:p-3 md:text-center">2.14</td>
-									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3">
-										<p id="genre" class="overflow-hidden truncate w-36 tb:p-3">Action, Aventure, Thriller</p>
+									<td class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:px-3 md:py-2 md:text-center">2.14</td>
+									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:px-3 md:py-2">
+										<p id="genre" class="overflow-hidden truncate w-36 tb:px-3 tb:py-2">Action, Aventure, Thriller</p>
 									</td>
 									<td class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:text-center">
 										<p>Oct 3, 2021</p>

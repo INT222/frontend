@@ -6,6 +6,7 @@
 		<div class="mb-6 mx-5 tb:mx-8 md:mx-0">
 			<p class="text-base mt-1 text-white font-medium md:text-lg uppercase md:mx-14">rates and comments</p>
 		</div>
+		
 		<comment></comment>
 	</div>
 </template>

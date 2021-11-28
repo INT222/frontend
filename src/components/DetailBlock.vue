@@ -33,7 +33,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="md:mb-6">
+			<div class="md:mb-6 md:h-auto">
 				<div class="flex overflow-hidden md:space-x-12 tb:space-x-20">
 					<img
 						id="poster"

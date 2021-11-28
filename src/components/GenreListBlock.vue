@@ -1,38 +1,61 @@
 <template>
-	<div class="-ml-1 mt-1 md:mt-0">
-		<w-button
-			bg-color="transparent"
-			class="px-5 py-2 uppercase"
-			@click="showDropDown = !showDropDown"
-			color="white"
-			:height="40"
-		>
-			<div class="inline-flex space-x-3 -ml-4 md:px-1 md:my-0">
-				<div class="md:hidden">
-					<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
+	<div>
+		<div class="hidden md:block -ml-1 mt-1 md:mt-0">
+			<w-button
+				bg-color="transparent"
+				class="px-5 py-2 uppercase"
+				@click="showDropDown = !showDropDown"
+				color="white"
+				:height="40"
+			>
+				<div class="inline-flex space-x-3 -ml-4 md:px-1 md:my-0">
+					<div class="md:hidden">
+						<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
+					</div>
+					<p class="text-white my-auto md:my-2 text-sm uppercase">genre</p>
+					<div class="pl-2 pr-5 md:pr-1 md:pl-0 my-auto">
+						<w-icon md color="white" v-if="showDropDown == false">mdi mdi-chevron-down</w-icon>
+						<w-icon md color="white" v-if="showDropDown">mdi mdi-chevron-up</w-icon>
+					</div>
 				</div>
-				<p class="text-white my-auto md:my-2 text-sm uppercase">genre</p>
-				<div class="pl-2 pr-5 md:pr-1 md:pl-0 my-auto">
-					<w-icon md color="white" v-if="showDropDown == false">mdi mdi-chevron-down</w-icon>
-					<w-icon md color="white" v-if="showDropDown">mdi mdi-chevron-up</w-icon>
-				</div>
-			</div>
-		</w-button>
-		<div class="absolute mt-2 ml-14 md:w-24 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
-			<div class="text-white text-xs uppercase font-medium">
-				<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
-					<w-button
-						class="block hover:text-deepBlue pr-4 py-2"
-						bg-color="transparent"
-						@click="goRoute(g.genre_id), showDropDown = false"
-					>
-						{{
-							g.genre
-						}}
-					</w-button>
+			</w-button>
+			<div class="absolute mt-2 ml-14 md:w-24 md:ml-0 z-10 md:bg-blackBlue" v-if="showDropDown">
+				<div class="text-white text-xs uppercase font-medium">
+					<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
+						<w-button
+							class="block hover:text-deepBlue pr-4 py-2"
+							bg-color="transparent"
+							@click="goRoute(g.genre_id), showDropDown = false"
+						>
+							{{
+								g.genre
+							}}
+						</w-button>
+					</div>
 				</div>
 			</div>
 		</div>
+		<w-accordion :items="1" expand-icon-right class="md:hidden blok">
+			<template #item-title>
+				<w-icon color="grey" :size="25">mdi mdi-filmstrip</w-icon>
+				<div class="ml-5 text-sm uppercase">Genre</div>
+			</template>
+			<template #item-content>
+				<div class="text-white text-xs uppercase font-medium">
+					<div v-for="g in genre" :key="g.genre_id" class="md:px-3">
+						<w-button
+							class="block hover:text-deepBlue pr-4 py-2 mx-9"
+							bg-color="transparent"
+							@click="goRoute(g.genre_id), showDropDown = false"
+						>
+							{{
+								g.genre
+							}}
+						</w-button>
+					</div>
+				</div>
+			</template>
+		</w-accordion>
 	</div>
 </template>
 

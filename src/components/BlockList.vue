@@ -1,11 +1,11 @@
 <template>
 	<!-- <div class="md:inline-flex tb:grid tb:grid-cols-3"> -->
 	<div
-		class="flex overflow-x-scroll pb-10 hide-scroll-bar md:pb-0 tb:pb-0 md:flex-none md:overflow-x-hidden"
+		class="flex overflow-x-scroll pb-10 hide-scroll-bar md:pb-0 tb:pb-0 md:flex-none"
 	>
 		<div class="flex flex-nowrap md:flex-none tb:flex-none">
 			<div class="inline-flex space-x-4 md:flex-none md:space-x-9">
-				<div v-for="m in lists" :key="m.movie_id" class="inline-flex md:flex-col">
+				<div v-for="m in movies" :key="m.movie_id" class="inline-flex md:flex-col">
 					<button @click="goRoute(m.movie_id)" class="col-span-2 md:mx-auto">
 						<img
 							:src="getImage(m.poster)"
@@ -15,11 +15,11 @@
 					<div class="col-span-3 mt-3 mx-6 md:mx-0 space-y-2 md:col-span-1 md:mb-10 tb:mt-7">
 						<div class="md:mx-auto">
 							<p
-								class="text-white font-medium text-base mb-4 tracking-wide tb:mb-2 md:text-center md:mb-2"
+								class="text-white font-medium truncate w-44 md:truncate md:w-48 text-base mb-4 tracking-wide tb:mb-2 md:text-center md:mb-2"
 							>{{ m.moviename }}</p>
 						</div>
 
-						<div class="tb:w-44 text-gray-400 truncate tb:truncate md:text-center md:truncate md:w-48">
+						<div class="tb:w-44 text-gray-400 truncate w-44 tb:truncate md:text-center md:truncate md:w-48">
 							<div
 								v-for="g in m.movieGenre"
 								:key="g.genre_id"
@@ -66,8 +66,8 @@ export default {
 	},
 	methods: {
 		async fetchData() {
-			const movies = await movieService.getUpcommingMovie();
-			this.lists = movies.data;
+			const response = await movieService.getUpcommingMovie();
+			this.movies = response.data; 
 			this.stringDate = dateFormat(this.lists.releasedate, "mmm dS, yyyy");
 
 		},

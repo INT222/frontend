@@ -1,8 +1,6 @@
 <template>
 	<div id="nav" class="bg-blackBlue w-screen">
-		<div
-			class="bg-white border h-auto rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto"
-		>
+		<div class="bg-white border h-auto rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:mt-10 md:h-auto">
 			<div class="mt-4 mx-3">
 				<back-button iconcolor="#fa3317"></back-button>
 			</div>
@@ -42,7 +40,8 @@
 					class="text-white text-sm uppercase"
 					type="submit"
 					@click="submitForm"
-				>Sign in</w-button>
+					>Sign in</w-button
+				>
 			</div>
 		</div>
 	</div>
@@ -113,7 +112,14 @@ export default {
 		if (this.loggedIn) {
 			this.$router.push("/");
 		}
-		this.fetchData()
+		this.fetchData();
 	},
+	mounted() {},
 };
 </script>
+<style>
+.w-notification-manager {
+	width: 100%;
+	max-width: 700px;
+}
+</style>

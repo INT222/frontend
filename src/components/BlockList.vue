@@ -1,22 +1,45 @@
 <template>
 	<!-- <div class="md:inline-flex tb:grid tb:grid-cols-3"> -->
-	<div
-		class="flex overflow-x-scroll pb-10 hide-scroll-bar md:pb-0 tb:pb-0 md:flex-none"
-	>
+	<div class="flex overflow-x-scroll pb-10 hide-scroll-bar md:pb-0 tb:pb-0 md:flex-none">
 		<div class="flex flex-nowrap md:flex-none tb:flex-none">
 			<div class="inline-flex space-x-4 md:flex-none md:space-x-9">
 				<div v-for="m in movies" :key="m.movie_id" class="inline-flex md:flex-col">
 					<button @click="goRoute(m.movie_id)" class="col-span-2 md:mx-auto">
 						<img
 							:src="getImage(m.poster)"
-							class="max-w-xs overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out h-48 rounded-md tb:h-52 tb:rounded-md md:h-60 md:rounded-lg"
+							class="
+								max-w-xs
+								overflow-hidden
+								shadow-md
+								hover:shadow-xl
+								transition-shadow
+								duration-300
+								ease-in-out
+								h-48
+								rounded-md
+								tb:h-52 tb:rounded-md
+								md:h-60 md:rounded-lg
+							"
 						/>
 					</button>
 					<div class="col-span-3 mt-3 mx-6 md:mx-0 space-y-2 md:col-span-1 md:mb-10 tb:mt-7">
 						<div class="md:mx-auto">
 							<p
-								class="text-white font-medium truncate w-44 md:truncate md:w-48 text-base mb-4 tracking-wide tb:mb-2 md:text-center md:mb-2"
-							>{{ m.moviename }}</p>
+								class="
+									text-white
+									font-medium
+									truncate
+									w-44
+									md:truncate md:w-48
+									text-base
+									mb-4
+									tracking-wide
+									tb:mb-2
+									md:text-center md:mb-2
+								"
+							>
+								{{ m.moviename }}
+							</p>
 						</div>
 
 						<div class="tb:w-44 text-gray-400 truncate w-44 tb:truncate md:text-center md:truncate md:w-48">
@@ -31,13 +54,15 @@
 						<div class="tb:flex md:flex md:space-x-2 md:ml-3 tb:space-x-4">
 							<p
 								class="text-gray-400 text-sm tracking-wider mb-2 tb:mt-4 tb:text-center tb:mb-2 md:text-center md:mb-2"
-							>{{ stringDate }}</p>
-							<p
-								class="text-gray-400 text-sm tracking-wider mb-5 tb:mt-4 tb:text-center md:text-center"
-							>{{ m.runtime }} hours</p>
+							>
+								{{ stringDate }}
+							</p>
+							<p class="text-gray-400 text-sm tracking-wider mb-5 tb:mt-4 tb:text-center md:text-center">
+								{{ m.runtime }} hours
+							</p>
 						</div>
 						<div class="md:ml-2">
-							<fav-button />
+							<fav-button :id="m.movie_id" />
 						</div>
 					</div>
 					<!-- <hr class="w-80 mx-3 border border-gray-500 mb-3 mt-3 tb:hidden md:hidden" /> -->
@@ -61,15 +86,14 @@ export default {
 		return {
 			movies: [],
 			lists: [],
-			stringDate: ""
-		}
+			stringDate: "",
+		};
 	},
 	methods: {
 		async fetchData() {
 			const response = await movieService.getUpcommingMovie();
-			this.movies = response.data; 
+			this.movies = response.data;
 			this.stringDate = dateFormat(this.lists.releasedate, "mmm dS, yyyy");
-
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
@@ -80,7 +104,7 @@ export default {
 	},
 	created() {
 		this.fetchData();
-	}
+	},
 };
 </script>
 <style scoped>

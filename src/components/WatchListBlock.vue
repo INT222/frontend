@@ -44,6 +44,11 @@
 
 <script>
 export default {
-	props: ["title", "releaseDate", "genre", "runtime"],
+	// props: ["title", "releaseDate", "genre", "runtime"],
+	data() {
+		return {
+			// dup_user: this.$store.state.auth.user.user,
+		};
+	},
 };
 </script>

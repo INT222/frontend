@@ -1,7 +1,15 @@
 <template>
 	<div>
 		<div
-			class="bg-white border h-auto py-4 pb-10 rounded-t-lg md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10"
+			class="
+				bg-white
+				border
+				h-auto
+				py-4
+				pb-10
+				rounded-t-lg
+				md:w-2/5 md:mx-auto md:rounded-lg md:h-auto md:mt-10 md:py-4 md:pb-10
+			"
 		>
 			<div class="mt-4 mx-3">
 				<back-button iconcolor="#fa3317"></back-button>
@@ -75,7 +83,8 @@
 					type="submit"
 					:disabled="valid === false"
 					@click="submitForm"
-				>{{ buttontext }}</w-button>
+					>{{ buttontext }}</w-button
+				>
 			</div>
 		</div>
 	</div>
@@ -91,8 +100,8 @@ export default {
 	props: {
 		buttontext: {
 			type: String,
-			default: "Sign up"
-		}
+			default: "Sign up",
+		},
 	},
 	components: {
 		"back-button": BackButton,
@@ -171,7 +180,17 @@ export default {
 	},
 	created() {
 		this.fetchData();
-	}
+	},
+	computed: {
+		loggedIn() {
+			return this.$store.state.auth.status.loggedIn;
+		},
+	},
+	mounted() {
+		if (this.loggedIn) {
+			this.$router.push("/");
+		}
+	},
 };
 </script>
 

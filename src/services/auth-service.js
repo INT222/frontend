@@ -3,9 +3,13 @@ http.defaults.headers["Content-type"] = "application/json";
 class AuthService {
 	login(user) {
 		return http.post("/auth/login", user).then((response) => {
-			// http.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
-			localStorage.setItem("user", JSON.stringify(response.data));
-		});
+			if (response.data.jwt) {
+				localStorage.setItem("user", JSON.stringify(response.data));
+				// localStorage.setItem("accessToken", JSON.stringify(response.data.jwt));
+			}
+			return response.data;
+		}); // http.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+		// localStorage.setItem("user", JSON.stringify(response.data));
 	}
 
 	// axios.post('login', this.user)

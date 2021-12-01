@@ -40,9 +40,8 @@ export default {
 	},
 	data() {
 		return {
-			// props: ["username"],
+			props: ["username"],
 			showDropDown: false,
-			// dup_user: this.$store.state.auth.user.user,
 		};
 	},
 	methods: {
@@ -63,22 +62,6 @@ export default {
 	unmounted() {
 		document.removeEventListener("click", this.documentClick);
 	},
-	computed: {
-		loggedIn() {
-			return this.$store.state.auth.status.loggedIn;
-		},
-		currentUser() {
-			return this.$store.state.auth.user;
-		},
-	},
-	// mounted() {
-	// 	if (this.loggedIn()) {
-	// 		// console.log(this.loggedIn);
-	// 		// console.log(this.$store.state.auth.user);
-	// 		this.dup_user = this.$store.state.auth.user.user;
-	// 		console.log(this.dup_user.username);
-	// 	}
-	// },
 };
 </script>
 

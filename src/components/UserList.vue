@@ -62,6 +62,12 @@ export default {
 	unmounted() {
 		document.removeEventListener("click", this.documentClick);
 	},
+	computed: {
+		currentUser() {
+			// return this.state.auth.user
+			return this.$store.state.auth.user.user;
+		},
+	},
 };
 </script>
 

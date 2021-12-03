@@ -17,7 +17,7 @@
 	</div>
 </template>
 <script>
-import userService from "../services/user-service";
+import userService from "../services/UserService.js";
 export default {
 	props: { id: Number },
 	data() {

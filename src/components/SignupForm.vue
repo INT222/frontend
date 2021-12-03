@@ -94,7 +94,7 @@
 import BackButton from "@/components/BackButton.vue";
 // import userDataService from "@/services/UserDataService.js";
 import authService from "../services/auth-service";
-import userService from "../services/user-service";
+import userService from "../services/UserService";
 
 export default {
 	props: {

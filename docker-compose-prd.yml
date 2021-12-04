@@ -1,0 +1,9 @@
+networks:
+  default:
+    external:
+      name: int222-network
+services:
+  frontend:
+    container_name: frontend_prd
+    build: .
+    image: ghcr.io/int222/frontend:prd

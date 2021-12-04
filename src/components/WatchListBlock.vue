@@ -1,42 +1,44 @@
 <template>
-	<div class="w-full grid grid-cols-5 my-5 tb:grid-cols-1 md:grid-cols-1">
-		<div class="col-span-3 mt-3 mx-4 tb:text-center md:text-center">
-			<p class="text-white font-medium text-base mt-2 mb-3 tracking-wide tb:mb-2 md:mb-2">{{ movie.moviename }}</p>
-			<div class="hidden tb:space-x-2 tb:inline-flex tb:space-x-2 md:inline-flex">
-				<p class="text-gray-400 text-xs tracking-wider mb-3 tb:mb-2 md:mb-2">{{ releaseDate }}</p>
-				<div class="-mt-1">
+	<div class="tb:grid tb:grid-cols-5 tb:justify-items-center tb:my-2 md:grid md:grid-cols-6 md:justify-items-center md:my-2">
+		<div class="flex my-5 space-x-5 tb:w-40 tb:flex-col tb:space-x-0 md:space-x-0 md:w-40 md:flex-col md:space-x-0">
+			<img src="../assets/Lucy.jpg" class="h-44 tb:h-52 md:h-60 col-span-2 rounded-lg" />
+			<div class="space-y-4 mx-4 tb:mx-0  md:mx-0 ">
+				<p
+					class="text-white font-medium text-base mt-2 tracking-wide tb:text-center md:text-center"
+				>{{ movie.moviename }}</p>
+				<div
+					class="flex space-x-4 tb:flex tb:justify-center tb:space-x-2  md:flex md:justify-center md:space-x-3"
+				>
+					<p class="text-gray-400 text-xs tracking-wider">{{ releaseDate }}</p>
+
+					<p class="text-gray-400 text-xs tracking-wider">{{ movie.runtime }} hours</p>
+					<!-- <div class="-mt-1">
 					<w-icon lg color="amber-light1">mdi mdi-star</w-icon>
 					<span class="text-white text-md font-medium">{{ movie.avg_rating }}</span>
+					</div>-->
 				</div>
-			</div>
 
-			<p class="text-gray-400 text-xs tracking-wider mb-3 tb:overflow-hidden md:overflow-hidden">
-				<span v-for="g in movie.movieGenre" :key="g.genre_id"> {{ g.genre }} ‧ </span>{{ movie.runtime }}
-			</p>
-			<div class="inline-flex space-x-2 tb:hidden md:hidden">
-				<w-icon lg color="amber-light1">mdi mdi-star</w-icon>
-				<span class="text-white text-md font-medium my-auto">{{ movie.avg_rating }}</span>
-			</div>
-			<div class="mx-auto">
-				<w-button bg-color="transparent" height="40">
-					<div
-						class="
-							inline-flex
-							space-x-3
-							border
-							px-6
-							py-1
-							border-gray-300
-							mt-5
-							rounded-md
-							text-center text-sm text-gray-300
-							space-x-1
-						"
-					>
-						<w-icon lg>mdi mdi-minus</w-icon>
-						<p class="my-auto">Remove</p>
-					</div>
-				</w-button>
+				<p
+					class="text-gray-400 text-xs tracking-wider w-44 overflow-hidden truncate tb:w-36 tb:mx-auto md:w-36 md:text-center md:mx-auto"
+				>
+					<span v-for="g in movie.movieGenre" :key="g.genre_id">{{ g.genre }} ‧</span>
+				</p>
+
+				<!-- <div class="inline-flex space-x-1 tb:hidden md:hidden">
+					<w-icon md color="amber-light1">mdi mdi-star</w-icon>
+					<span class="text-white text-md font-medium my-auto">{{ movie.avg_rating }}</span>
+				</div>-->
+
+				<div>
+					<w-button bg-color="transparent" height="40">
+						<div
+							class="inline-flex space-x-3 border px-6 py-1 border-gray-300 mt-5 rounded-md text-center text-sm text-gray-300 space-x-1"
+						>
+							<w-icon lg>mdi mdi-minus</w-icon>
+							<p class="my-auto">Remove</p>
+						</div>
+					</w-button>
+				</div>
 			</div>
 		</div>
 	</div>

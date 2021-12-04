@@ -54,6 +54,10 @@ input[type="text"] {
 ::placeholder {
 	font-size: 16px;
 }
+.w-notification-manager {
+	width: 100%;
+	max-width: 500px;
+}
 </style>
 
 <script>
@@ -117,9 +121,3 @@ export default {
 	mounted() {},
 };
 </script>
-<style>
-.w-notification-manager {
-	width: 100%;
-	max-width: 700px;
-}
-</style>

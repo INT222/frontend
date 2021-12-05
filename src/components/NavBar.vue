@@ -17,17 +17,15 @@
 						</router-link>
 					</div>
 					<genre-list-block />
-					<div>
+					<div v-if="this.showAdminBoard == true">
 						<manage-list></manage-list>
 					</div>
 				</div>
 			</div>
 			<div class="flex">
-				<div
-					:class="{
-						'bg-blackBlue h-6 z-10 w-72 ': searchButton === true,
-					}"
-				>
+				<div :class="{
+					'bg-blackBlue h-6 z-10 w-72 ': searchButton === true,
+				}">
 					<div v-if="searchButton">
 						<w-input
 							v-model="search"
@@ -60,8 +58,7 @@
 						outline
 						color="white"
 						bg-color="transparent"
-						>sign in</w-button
-					>
+					>sign in</w-button>
 				</router-link>
 				<div>
 					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
@@ -73,8 +70,7 @@
 						outline
 						color="black"
 						bg-color="white"
-						>sign up</w-button
-					>
+					>sign up</w-button>
 				</router-link>
 			</div>
 			<!-- <div v-if="this.loggedin === true" class="hidden md:block"> -->
@@ -108,6 +104,8 @@ export default {
 				type: Array,
 			},
 			checkAuth: false,
+			checkuser: null
+
 		};
 	},
 	methods: {
@@ -129,7 +127,26 @@ export default {
 		loggedIn() {
 			return this.$store.state.auth.status.loggedIn;
 		},
+		currentUser() {
+			if (this.loggedIn) {
+				return this.$store.state.auth.user.user;
+			}
+			return null
+		},
+		showAdminBoard() {
+			if (this.loggedIn) {
+				for (let i = 0; i < this.currentUser.roles.length; i++) {
+					if (this.currentUser.roles[i].id == 1) {
+						return true
+					}
+				}
+				return false
+			}
+			return false
+		},
 	},
+
+
 	// created() {
 	// 	    if (this.loggedIn) {
 	// //   this.$router.push('/profile');

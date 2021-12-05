@@ -1,6 +1,4 @@
-// import axios from "axios";
 import http from "../http-common";
-// import axios from "axios";
 import authHeader from "./auth-header";
 http.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 http.defaults.headers["Content-type"] = "application/json";
@@ -11,7 +9,7 @@ class UserService {
 	}
 
 	getUserProfile() {
-		return http.get("/api/user", { headers: authHeader() });
+		return http.get("/api/user");
 	}
 
 	addToWatchlist(movieId) {
@@ -29,12 +27,9 @@ class UserService {
 	// getAdminBoard() {
 	// 	return axios.get(API_URL + "admin", { headers: authHeader() });
 	// }
-	// postComment(data) {
-	// 	return http.post("/api/comment/add", data, { headers: authHeader() });
-	// }
-	// getUsernameList() {
-	// 	return http.get("/view/userlist");
-	// }
+	postComment(id, data) {
+		return http.post(`/api/comment/add/${id}`, data);
+	}
 }
 
 export default new UserService();

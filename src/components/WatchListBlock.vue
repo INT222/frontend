@@ -77,9 +77,12 @@ export default {
 	},
 	methods: {
 		async getuserFav() {
-			const resfav = await userService.getWatchlist();
-			this.favlist = resfav.data;
+			// return userService.getWatchlist();
+			const respone = await userService.getWatchlist();
+			this.favlist = respone.data;
 			console.log(this.favlist);
+			// this.favlist = resfav.data;
+			// console.log(this.favlist);
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
@@ -89,12 +92,16 @@ export default {
 		},
 	},
 	computed: {
-		// releaseDate() {
-		// 	return dateFormat(this.movie.releasedate, "mmmm dS, yyyy");
-		// },
+		loggedIn() {
+			return this.$store.state.auth.status.loggedIn;
+		},
 	},
 	created() {
 		this.getuserFav();
+		// console.log(this.favlist);
 	},
+	// created() {
+	// 	this.getuserFav();
+	// },
 };
 </script>

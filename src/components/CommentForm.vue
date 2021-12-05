@@ -11,7 +11,7 @@
 					rows="6"
 					class="mt-1 w-full bg-deepBrownGray rounded-md p-4 text-white mb-1 md:focus:ring-2 md:focus:ring-gray-400"
 					placeholder="Write your comment here..."
-					v-model="comment.text"
+					v-model="comment.commenttext"
 				></w-textarea>
 				<span class="text-white">{{ comment }}</span>
 				<div class="flex justify-end">
@@ -55,7 +55,7 @@ export default {
 			},
 			comment: {
 				rating: 0.0,
-				text: "",
+				commenttext: "",
 			},
 		};
 	},

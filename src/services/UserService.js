@@ -5,11 +5,9 @@ import authHeader from "./auth-header";
 http.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 http.defaults.headers["Content-type"] = "application/json";
 http.defaults.headers.Authorization = authHeader();
-// const API_URL = process.env.VUE_APP_BACKEND_URL;
-
 class UserService {
 	getWatchlist() {
-		return http.get("/api/user/favlist", { headers: authHeader() });
+		return http.get("/api/user/favlist");
 	}
 
 	getUserProfile() {
@@ -17,10 +15,12 @@ class UserService {
 	}
 
 	addToWatchlist(movieId) {
-		return http.post(`/movie/${movieId}/fav`, { headers: authHeader() });
+		// console.log(authHeader(), movieId);
+		return http.post(`/movie/${movieId}/fav`);
 	}
 	removeToWatchlist(movieId) {
-		return http.delete(`/movie/fav/${movieId}`, { headers: authHeader() });
+		// return http.delete(`/movie/fav/${movieId}`, { headers: authHeader() });
+		return http.delete(`/movie/fav/${movieId}`);
 	}
 	// getModeratorBoard() {
 	// 	return axios.get(API_URL + "mod", { headers: authHeader() });

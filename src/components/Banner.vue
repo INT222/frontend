@@ -30,7 +30,6 @@
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 import movieService from "../services/MovieService";
-import userService from "../services/UserService";
 export default {
 	// name: "Banner",
 	components: { VueperSlides, VueperSlide },
@@ -51,22 +50,18 @@ export default {
 		slides: [],
 		parallax: 1,
 		movies: [],
-		userprofile: null,
 	}),
 	methods: {
 		async fecthData() {
 			console.log(`Test `);
 			const banner = await movieService.getAllMovies();
-			const res_data = await userService.getUserProfile();
 			this.movies = banner.data;
-			this.userprofile = res_data.data;
 			this.slides.push(this.movies[16]);
 			for (let step = 0; step < 5; step++) {
 				let randNum = Math.floor(Math.random() * this.movies.length);
 				this.slides.push(this.movies[randNum]);
 			}
 			console.log(this.slides);
-			console.log(this.userprofile);
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;

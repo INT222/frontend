@@ -62,8 +62,7 @@
 							</p>
 						</div>
 						<div class="md:ml-2">
-							<!-- <fav-button :id="m.movie_id" /> -->
-							<fav-button />
+							<fav-button :id="m.movie_id" />
 						</div>
 					</div>
 					<!-- <hr class="w-80 mx-3 border border-gray-500 mb-3 mt-3 tb:hidden md:hidden" /> -->

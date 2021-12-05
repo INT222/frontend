@@ -47,6 +47,7 @@ export default {
 				persistentNoAnimation: false,
 				width: 300,
 			},
+			// role_current : this.$store.state.auth.user.user.
 			dup_user: this.$store.state.auth.user.user,
 		};
 	},

@@ -11,9 +11,11 @@
 			</div>
 			<div class="hidden md:block md:flex-grow">
 				<div class="text-sm text-white inline-flex space-x-5">
-					<router-link to="/watchlist">
-						<w-button bg-color="transparent" :height="40" class="uppercase block px-3 py-2">watch list</w-button>
-					</router-link>
+					<div v-if="this.loggedIn == true">
+						<router-link to="/watchlist">
+							<w-button bg-color="transparent" :height="40" class="uppercase block px-3 py-2">watch list</w-button>
+						</router-link>
+					</div>
 					<genre-list-block />
 					<div>
 						<manage-list></manage-list>
@@ -105,6 +107,7 @@ export default {
 			list: {
 				type: Array,
 			},
+			checkAuth: false,
 		};
 	},
 	methods: {
@@ -113,6 +116,7 @@ export default {
 				this.showDropDown = false;
 			}
 		},
+
 		// hideDrawer() {},
 	},
 	created() {
@@ -126,6 +130,12 @@ export default {
 			return this.$store.state.auth.status.loggedIn;
 		},
 	},
+	// created() {
+	// 	    if (this.loggedIn) {
+	// //   this.$router.push('/profile');
+
+	// }
+	// },
 	// mounted() {
 	// 	// if (this.loggedIn) {
 	// 	// 	this.$router.push("/profile");

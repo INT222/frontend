@@ -27,6 +27,9 @@ class AuthService {
 	register(user) {
 		return http.post("/auth/signup", user);
 	}
+	getUsernameList() {
+		return http.get("/view/userlist");
+	}
 }
 
 export default new AuthService();

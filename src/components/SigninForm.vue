@@ -63,7 +63,7 @@ input[type="text"] {
 <script>
 import BackButton from "@/components/BackButton.vue";
 import authService from "../services/auth-service";
-import userService from "../services/UserService";
+// import userService from "../services/UserService";
 
 export default {
 	components: {
@@ -92,10 +92,10 @@ export default {
 		};
 	},
 	methods: {
-		async fetchData() {
-			const response = await userService.getUsernameList();
-			this.userlists = response.data;
-		},
+		// async fetchData() {
+		// 	const response = await userService.getUsernameList();
+		// 	this.userlists = response.data;
+		// },
 		submitForm() {
 			// var data = { username: this.user.username, password: this.user.password };
 			authService.login(this.user).catch((error) => {
@@ -116,8 +116,7 @@ export default {
 		if (this.loggedIn) {
 			this.$router.push("/");
 		}
-		this.fetchData();
+		// this.fetchData();
 	},
-	mounted() {},
 };
 </script>

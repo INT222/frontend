@@ -39,7 +39,7 @@
 					<span v-for="g in f.movieGenre" :key="g.genre_id">{{ g.genre }} ‧</span>
 				</p>
 				<div>
-					<w-button bg-color="transparent" height="40">
+					<w-button bg-color="transparent" height="40" @click="removeFromWatchlist(f.movie_id)">
 						<div
 							class="
 								inline-flex
@@ -52,6 +52,7 @@
 								rounded-md
 								text-center text-sm text-gray-300
 								space-x-1
+								bg-red-600
 							"
 						>
 							<w-icon lg>mdi mdi-minus</w-icon>
@@ -86,6 +87,16 @@ export default {
 		},
 		releaseDate(date) {
 			return dateFormat(date, "mmm dS, yyyy");
+		},
+		removeFromWatchlist(id) {
+			userService
+				.removeToWatchlist(id)
+				.then((res) => {
+				this.$waveui.notify({ message: res.data, color: "success"});
+				})
+				.catch((error) => {
+				this.$waveui.notify({ message: error, color: "error"});
+				});
 		},
 	},
 	computed: {

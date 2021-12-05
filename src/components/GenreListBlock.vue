@@ -81,7 +81,7 @@ export default {
 			},
 			{
 				genre_id: 5,
-				genre: "Fantacy",
+				genre: "Fantasy",
 			},
 			{
 				genre_id: 6,

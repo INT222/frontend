@@ -16,24 +16,21 @@
 									<!-- <th class="bg-white hidden p-3 tb:table-cell md:table-cell">release date</th> -->
 								</tr>
 							</thead>
-							<tbody>
+							<tbody v-for="(l, index) in lists" :key="index.user_id">
 								<tr class="text-white">
 									<td class="bg-gray-600 p-3 text-center">
-										<p class="text-center">1</p>
+										<p class="text-center">{{ index }}</p>
 									</td>
-									<td class="bg-gray-600 p-3 text-center">100</td>
+									<td class="bg-gray-600 p-3 text-center">{{ l.user_id }}</td>
 									<td class="bg-gray-600 p-3">
-										<p id="mname" class="text-center overflow-hidden truncate w-24">test</p>
+										<p id="mname" class="text-center overflow-hidden truncate w-24">{{ l.username }}</p>
 									</td>
-									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3 md:text-center">firstname</td>
+									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3 md:text-center">{{ l.firstname }}</td>
 									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3">
-										<p id="genre" class="text-center overflow-hidden truncate w-24">lastname</p>
+										<p id="genre" class="text-center overflow-hidden truncate w-24">{{ l.lastname }}</p>
 									</td>
-									<!-- <td class="bg-gray-600 hidden tb:table-cell md:table-cell md:text-center">
-											<p>Oct 3, 2021</p>
-										</td> -->
 									<td>
-										<w-button height="44" width="44" bg-color="red-dark1" class="ml-7">
+										<w-button @click="removeUser(l.user_id)" height="44" width="44" bg-color="red-dark1" class="ml-7">
 											<w-icon color="white" lg>mdi mdi-trash-can-outline</w-icon>
 										</w-button>
 									</td>
@@ -48,7 +45,36 @@
 </template>
 
 <script>
-export default {};
+import userService from "../services/UserService";
+export default {
+	data() {
+		return {
+			lists: []
+		}
+	},
+	methods: {
+		async fetchData() {
+			const response = await userService.getUserList();
+			this.lists = response.data;
+			// console.log(response.data)
+			// console.log(this.lists)
+		},
+		removeUser(id) {
+			userService
+				.deleteUser(id)
+				.then((res) => {
+				this.$waveui.notify({ message: res.data, color: "success"});
+				})
+				.catch((error) => {
+				this.$waveui.notify({ message: error.data, color: "error"});
+				});
+		}
+	},
+	created() {
+		this.fetchData();
+	},
+
+};
 </script>
 
 <style scoped>

@@ -24,25 +24,29 @@
 									</th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody v-for="(m, index) in movies" :key="m.movie_id">
 								<tr class="text-white">
 									<td class="bg-gray-600 p-3 text-center">
-										<p class="text-center">100</p>
+										<p class="text-center">{{ index }}</p>
 									</td>
-									<td class="bg-gray-600 px-3 py-2 text-center">200</td>
+									<td class="bg-gray-600 px-3 py-2 text-center">{{ m.movie_id }}</td>
 									<td class="bg-gray-600 px-3 py-2">
-										<p id="mname" class="overflow-hidden truncate w-36 tb:w-44 ">Shang-Chi and the Legend of the Ten Rings</p>
+										<p id="mname" class="overflow-hidden truncate w-36 tb:w-44">{{ m.moviename }}</p>
 									</td>
-									<td class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:px-3 md:py-2 md:text-center">2.14</td>
-									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:px-3 md:py-2">
-										<p id="genre" class="overflow-hidden truncate w-36 tb:px-3 tb:py-2">Action, Aventure, Thriller</p>
-									</td>
+									<td
+										class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:px-3 md:py-2 md:text-center"
+									>{{ m.runtime }}</td>
+									<div class="bg-gray-600 hidden tb:table-cell md:table-cell overflow-hidden truncate w-36 tb:px-3 tb:py-2">
+										<td v-for="g in m.movieGenre" :key="g.genre_id">
+											<p id="genre">{{ g.genre }}/</p>
+										</td>
+									</div>
 									<td class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:text-center">
-										<p>Oct 3, 2021</p>
+										<p>{{ releaseDate(m.releasedate) }}</p>
 									</td>
 									<td>
 										<w-button
-											@click="$waveui.notify('Delete successfully', 'success')"
+											@click="removeMovie(m.movie_id)"
 											height="44"
 											width="44"
 											bg-color="red-dark1"
@@ -62,7 +66,39 @@
 </template>
 
 <script>
-export default {};
+import movieService from "../services/MovieService";
+import dateFormat from "dateformat";
+import userService from "../services/UserService";
+export default {
+	data() {
+		return {
+			movies: []
+		}
+	},
+	methods: {
+		async fetchData() {
+			const response = await movieService.getAllMovies();
+			this.movies = response.data;
+		},
+		releaseDate(date) {
+			return dateFormat(date, "mmm dS, yyyy");
+		},
+		removeMovie(id) {
+			userService
+				.deleteMovie(id)
+				.then((res) => {
+				this.$waveui.notify({ message: res.data, color: "success"});
+				})
+				.catch((error) => {
+				this.$waveui.notify({ message: error.data, color: "error"});
+				});
+		},
+	},
+	created() {
+		this.fetchData();
+	},
+
+};
 </script>
 
 <style>
@@ -86,12 +122,12 @@ export default {};
 		text-overflow: ellipsis;
 	} */
 
-	#genre {
+	/* #genre {
 		width: 125px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-	}
+	} */
 	tr td:nth-child(1),
 	tr th:nth-child(1) {
 		border-radius: 0.625rem 0 0 0.625rem;

@@ -7,11 +7,11 @@
 			</div>
 		</w-button>
 	</div>
-	<div class="border border-gray-300 rounded-md w-40 md:w-44 bg-red-500" v-if="toggle == false">
-		<w-button height="34" bg-color="transparent" @click="(toggle = true), removeFromWatchlist(id)">
-			<div class="inline-flex space-x-3 tb:px-1 tb:space-x-2 md:px-2 md:space-x-1">
-				<w-icon :size="20" color="white">mdi mdi-minus</w-icon>
-				<p class="my-auto text-xs text-center uppercase text-white">remove to watchlist</p>
+	<div class="border border-gray-300 rounded-md w-40 md:w-44 bg-deepBlue" v-if="toggle == false">
+		<w-button height="34" bg-color="transparent" :disabled="toggle == false">
+			<div class="inline-flex space-x-3 tb:px-1 tb:space-x-2 md:space-x-1">
+				<w-icon :size="20" color="white">mdi mdi-check</w-icon>
+				<p class="my-auto text-xs text-center uppercase text-white">Added to watchlist</p>
 			</div>
 		</w-button>
 	</div>
@@ -37,16 +37,6 @@ export default {
 					console.error(error);
 				});
 			console.log(id);
-		},
-		removeFromWatchlist(id) {
-			userService
-				.removeToWatchlist(id)
-				.then((res) => {
-					console.log(res.data);
-				})
-				.catch((error) => {
-					console.error(error);
-				});
 		},
 	},
 };

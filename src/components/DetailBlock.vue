@@ -6,7 +6,7 @@
 					<back-button iconcolor="white"></back-button>
 				</div>
 				<div class="tb:hidden md:hidden block absolute ml-80 mt-4">
-					<bookmark-button></bookmark-button>
+					<bookmark-button :id="this.$route.params.id"></bookmark-button>
 				</div>
 			</div>
 			<div class="md:mb-4">
@@ -20,8 +20,8 @@
 							<div class="inline-flex" v-for="m in movie.movieGenre" :key="m.genre_id">
 								<p class="text-white text-xl">{{ m.genre }}/</p>
 							</div>
-
-							<span class="text-white mtext-xl ml-4">{{ movie.runtime }} hours</span>
+							<span class="text-white text-xl ml-4">{{ movie.studioname }}</span>
+							<span class="text-white text-xl ml-4">{{ movie.runtime }} hours</span>
 						</div>
 						<div class="flex justify-end space-x-3">
 							<w-icon class="" lg color="yellow">mdi mdi-star</w-icon>
@@ -110,7 +110,7 @@ export default {
 			this.stringDate = dateFormat(this.movie.releasedate, "mmmm dS, yyyy");
 		},
 		getImage(imgName) {
-			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
+			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;
 		},
 	},
 	created() {

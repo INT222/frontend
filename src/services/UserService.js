@@ -26,15 +26,21 @@ class UserService {
 	// 	return axios.get(API_URL + "mod", { headers: authHeader() });
 	// }
 
-	// getAdminBoard() {
-	// 	return axios.get(API_URL + "admin", { headers: authHeader() });
-	// }
+	getUserList() {
+		return http.get("/api/admin/view/user");
+	}
 	// postComment(data) {
 	// 	return http.post("/api/comment/add", data, { headers: authHeader() });
 	// }
 	// getUsernameList() {
 	// 	return http.get("/view/userlist");
 	// }
+	deleteMovie(movieId) {
+		return http.delete(`/admin/movie/delete/${movieId}`)
+	}
+	deleteUser(id) {
+		return http.delete(`/api/user/${id}`)
+	}
 }
 
 export default new UserService();

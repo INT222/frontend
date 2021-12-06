@@ -35,8 +35,12 @@
 									</td>
 									<td
 										class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:px-3 md:py-2 md:text-center"
-									>{{ m.runtime }}</td>
-									<div class="bg-gray-600 hidden tb:table-cell md:table-cell overflow-hidden truncate w-36 tb:px-3 tb:py-2">
+									>
+										{{ m.runtime }}
+									</td>
+									<div
+										class="bg-gray-600 hidden tb:table-cell md:table-cell overflow-hidden truncate w-36 tb:px-3 tb:py-2"
+									>
 										<td v-for="g in m.movieGenre" :key="g.genre_id">
 											<p id="genre">{{ g.genre }}/</p>
 										</td>
@@ -45,13 +49,7 @@
 										<p>{{ releaseDate(m.releasedate) }}</p>
 									</td>
 									<td>
-										<w-button
-											@click="removeMovie(m.movie_id)"
-											height="44"
-											width="44"
-											bg-color="red-dark1"
-											class="ml-7"
-										>
+										<w-button @click="removeMovie(m.movie_id)" height="44" width="44" bg-color="red-dark1" class="ml-7">
 											<w-icon color="white" lg>mdi mdi-trash-can-outline</w-icon>
 										</w-button>
 									</td>
@@ -72,8 +70,8 @@ import userService from "../services/UserService";
 export default {
 	data() {
 		return {
-			movies: []
-		}
+			movies: [],
+		};
 	},
 	methods: {
 		async fetchData() {
@@ -87,17 +85,26 @@ export default {
 			userService
 				.deleteMovie(id)
 				.then((res) => {
-				this.$waveui.notify({ message: res.data, color: "success"});
+					this.$waveui.notify({ message: res.data, color: "success" });
 				})
 				.catch((error) => {
-				this.$waveui.notify({ message: error.data, color: "error"});
+					this.$waveui.notify({ message: error.data, color: "error" });
 				});
 		},
 	},
 	created() {
-		this.fetchData();
+		// this.fetchData();
 	},
-
+	computed: {
+		loggedIn() {
+			return this.$store.state.auth.status.loggedIn;
+		},
+	},
+	async mounted() {
+		if (this.loggedIn) {
+			this.fetchData();
+		}
+	},
 };
 </script>
 

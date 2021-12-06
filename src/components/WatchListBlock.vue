@@ -95,10 +95,10 @@ export default {
 			userService
 				.removeToWatchlist(id)
 				.then((res) => {
-				this.$waveui.notify({ message: res.data, color: "success"});
+					this.$waveui.notify({ message: res.data, color: "success" });
 				})
 				.catch((error) => {
-				this.$waveui.notify({ message: error, color: "error"});
+					this.$waveui.notify({ message: error, color: "error" });
 				});
 		},
 	},
@@ -108,11 +108,13 @@ export default {
 		},
 	},
 	created() {
-		this.getuserFav();
+		// this.getuserFav();
 		// console.log(this.favlist);
 	},
-	// created() {
-	// 	this.getuserFav();
-	// },
+	async mounted() {
+		if (this.loggedIn) {
+			this.getuserFav();
+		}
+	},
 };
 </script>

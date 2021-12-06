@@ -75,7 +75,7 @@
 
 <script>
 import FavButton from "./FavButton.vue";
-import movieService from "../services/MovieService";
+import movieService from "../services/movie-service";
 import dateFormat from "dateformat";
 
 export default {

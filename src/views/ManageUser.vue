@@ -25,7 +25,9 @@
 									<td class="bg-gray-600 p-3">
 										<p id="mname" class="text-center overflow-hidden truncate w-24">{{ l.username }}</p>
 									</td>
-									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3 md:text-center">{{ l.firstname }}</td>
+									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3 md:text-center">
+										{{ l.firstname }}
+									</td>
 									<td class="bg-gray-600 hidden tb:table-cell md:table-cell md:p-3">
 										<p id="genre" class="text-center overflow-hidden truncate w-24">{{ l.lastname }}</p>
 									</td>
@@ -45,12 +47,12 @@
 </template>
 
 <script>
-import userService from "../services/UserService";
+import userService from "../services/user-service";
 export default {
 	data() {
 		return {
-			lists: []
-		}
+			lists: [],
+		};
 	},
 	methods: {
 		async fetchData() {
@@ -63,17 +65,16 @@ export default {
 			userService
 				.deleteUser(id)
 				.then((res) => {
-				this.$waveui.notify({ message: res.data, color: "success"});
+					this.$waveui.notify({ message: res.data, color: "success" });
 				})
 				.catch((error) => {
-				this.$waveui.notify({ message: error.data, color: "error"});
+					this.$waveui.notify({ message: error.data, color: "error" });
 				});
-		}
+		},
 	},
 	created() {
 		this.fetchData();
 	},
-
 };
 </script>
 

@@ -29,7 +29,7 @@
 <script>
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-import movieService from "../services/MovieService";
+import movieService from "../services/movie-service";
 export default {
 	// name: "Banner",
 	components: { VueperSlides, VueperSlide },

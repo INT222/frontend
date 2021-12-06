@@ -1,6 +1,11 @@
 <template>
 	<div
-		class="space-y-5 md:flex tb:grid tb:grid-cols-3 tb:space-y-0 tb:space-x-4 md:gird md:grid-cols-3 md:grid-rows-2 md:space-y-0 md:space-x-9"
+		class="
+			space-y-5
+			md:flex
+			tb:grid tb:grid-cols-3 tb:space-y-0 tb:space-x-4
+			md:gird md:grid-cols-3 md:grid-rows-2 md:space-y-0 md:space-x-9
+		"
 	>
 		<!--Box 1-->
 		<div v-for="s in slides" :key="s.movie_id" class="rounded-md overflow-hidden shadow-lg">
@@ -11,8 +16,18 @@
 					<p id="plot" class="text-white text-base text-left md:w-96">{{ s.plot }}</p>
 					<div>
 						<span
-							class="pt-2 text-sm font-medium flex justify-end text-deepBlue tb:pt-1 tb:text-base md:focus:text-blue-500"
-						>Read More</span>
+							class="
+								pt-2
+								text-sm
+								font-medium
+								flex
+								justify-end
+								text-deepBlue
+								tb:pt-1 tb:text-base
+								md:focus:text-blue-500
+							"
+							>Read More</span
+						>
 					</div>
 				</div>
 			</button>
@@ -21,14 +36,14 @@
 </template>
 
 <script>
-import movieService from "../services/MovieService";
+import movieService from "../services/movie-service";
 export default {
 	props: ["title", "plot"],
 	data() {
 		return {
 			slides: [],
-			movies: []
-		}
+			movies: [],
+		};
 	},
 	methods: {
 		async fecthData() {

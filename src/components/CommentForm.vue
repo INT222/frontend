@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import userService from "../services/UserService";
+import userService from "../services/user-service";
 
 export default {
 	data() {

@@ -7,11 +7,7 @@
 			</w-button>
 		</div>
 		<div v-if="seen == false">
-			<w-button
-				bg-color="transparent"
-				class="info-light1"
-				@click="(seen = true), removeFromWatchlist(id)"
-			>
+			<w-button bg-color="transparent" class="info-light1" @click="(seen = true), removeFromWatchlist(id)">
 				<w-icon xl>mdi mdi-bookmark</w-icon>
 			</w-button>
 		</div>
@@ -19,7 +15,7 @@
 </template>
 
 <script>
-import userService from "../services/UserService";
+import userService from "../services/user-service";
 export default {
 	props: { id: Number },
 	data() {

@@ -64,9 +64,9 @@
 </template>
 
 <script>
-import movieService from "../services/MovieService";
+import movieService from "../services/movie-service";
 import dateFormat from "dateformat";
-import userService from "../services/UserService";
+import userService from "../services/user-service";
 export default {
 	data() {
 		return {

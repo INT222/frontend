@@ -127,15 +127,11 @@
 						<w-button type="reset" bg-color="black" height="35" class="text-sm md:text-md">
 							<p class="uppercase px-2 text-white">cancel</p>
 						</w-button>
-						<w-button
-							@click="newMovie"
-							:disabled="valid === false"
-							bg-color="info-light1"
-							height="35"
-							class="text-sm md:text-md"
-						>
+						<!-- :disabled="valid === false" -->
+						<w-button @click="newMovie" bg-color="info-light1" height="35" class="text-sm md:text-md">
 							<p class="uppercase px-5 text-white">save</p>
 						</w-button>
+						<button @click="newMovie" cla>button</button>
 					</div>
 				</w-form>
 			</div>
@@ -202,8 +198,9 @@ export default {
 	},
 	methods: {
 		newMovie() {
+			console.log("testtt");
 			const bodyFormData = new FormData();
-			bodyFormData.append("movie", this.movie);
+			bodyFormData.append("movie", JSON.stringify(this.movie));
 			bodyFormData.append("file", this.fileUpload);
 			movieDataService.createMovie(bodyFormData).catch((error) => {
 				this.errorText = JSON.stringify(error.response.data.message);

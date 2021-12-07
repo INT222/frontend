@@ -146,7 +146,7 @@
 	</div>
 </template>
 <script>
-// import movieDataService from "../services/movie-data-service";
+import movieDataService from "../services/movie-data-service";
 export default {
 	props: {
 		moviename: String,
@@ -216,25 +216,19 @@ export default {
 	},
 	methods: {
 		saveMovie() {
-			this.$emit("save-movie");
-			// const bodyFormData = new FormData();
-			// bodyFormData.append("imgFile", this.fileUpload);
-			// bodyFormData.append("movie", JSON.stringify(this.movie));
-			// movieDataService.createMovie(bodyFormData).catch((error) => {
-			// 	this.errorText = JSON.stringify(error.response.data.message);
-			// 	this.$waveui.notify({ message: this.errorText, color: "error", timeout: 0 });
-			// 	console.log(this.errorText);
-			// });
+			const bodyFormData = new FormData();
+			bodyFormData.append("imgFile", this.fileUpload);
+			bodyFormData.append("movie", JSON.stringify(this.movie));
+			movieDataService.createMovie(bodyFormData).catch((error) => {
+				this.errorText = JSON.stringify(error.response.data.message);
+				this.$waveui.notify({ message: this.errorText, color: "error", timeout: 0 });
+				console.log(this.errorText);
+			});
 		},
 		imageHandler(event) {
 			const input = event.target.files[0];
 			this.fileUpload = input;
 		},
-		// computed: {
-		// 	nameFile() {
-		// 		return this.file;
-		// 	},
-		// },
 	},
 };
 </script>

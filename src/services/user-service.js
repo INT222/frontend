@@ -26,16 +26,18 @@ class UserService {
 	}
 
 	deleteMovie(movieId) {
-		return http.delete(`/admin/movie/delete/${movieId}`)
+		return http.delete(`/admin/movie/delete/${movieId}`);
 	}
 	deleteUser(id) {
-		return http.delete(`/api/user/${id}`)
+		return http.delete(`/api/user/${id}`);
 	}
 
 	postComment(id, data) {
 		return http.post(`/api/comment/add/${id}`, data);
 	}
+	editProfile(user) {
+		return http.put("/auth/user/edit", user);
+	}
 }
-
 
 export default new UserService();

@@ -26,7 +26,6 @@ class AuthService {
 	}
 
 	register(user) {
-		http.defaults.headers["Content-type"] = "application/json";
 		return http.post("/auth/signup", user);
 	}
 	getUsernameList() {

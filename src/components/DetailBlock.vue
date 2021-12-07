@@ -30,7 +30,7 @@
 							<span class="text-white text-xl font-bold">{{ movie.avg_rating }}</span>
 						</div>
 						<div class="flex justify-end">
-							<bookmark-button></bookmark-button>
+							<bookmark-button :id="movie.movie_id"> </bookmark-button>
 						</div>
 					</div>
 				</div>
@@ -114,7 +114,7 @@ export default {
 			this.stringDate = dateFormat(this.movie.releasedate, "mmmm dS, yyyy");
 		},
 		getImage(imgName) {
-			return `${process.env.VUE_APP_BACKEND_URL}view/img/${imgName}`;
+			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
 		},
 	},
 	created() {

@@ -15,7 +15,7 @@
 									<th class="bg-white hidden p-3 tb:table-cell md:table-cell">genres</th>
 									<th class="bg-white hidden p-3 tb:table-cell md:table-cell">release date</th>
 									<th>
-										<router-link to="/movieform">
+										<router-link to="/addmovie">
 											<w-button height="44" bg-color="info-light1" class="ml-3">
 												<w-icon color="black" md>mdi mdi-plus</w-icon>
 												<p class="px-1 uppercase text-black">add</p>

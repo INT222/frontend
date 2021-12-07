@@ -1,5 +1,6 @@
 import http from "../http-common";
 http.defaults.headers["Content-type"] = "application/json";
+http.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 class AuthService {
 	login(user) {
 		return http.post("/auth/login", user).then((response) => {
@@ -25,6 +26,7 @@ class AuthService {
 	}
 
 	register(user) {
+		http.defaults.headers["Content-type"] = "application/json";
 		return http.post("/auth/signup", user);
 	}
 	getUsernameList() {

@@ -7,7 +7,7 @@ import WatchList from "../views/WatchList.vue";
 import Genre from "../views/Genre.vue";
 import ManageMovie from "../views/ManageMovie.vue";
 import ManageUser from "../views/ManageUser.vue";
-import MovieForm from "../views/MovieForm.vue";
+import Addmovie from "../views/AddMovie.vue";
 import EditProfile from "../views/EditProfile.vue";
 import User from "../components/User.vue";
 
@@ -61,9 +61,9 @@ const routes = [
 		component: ManageUser,
 	},
 	{
-		path: "/movieform",
-		name: "MovieForm",
-		component: MovieForm,
+		path: "/addmovie",
+		name: "Addmovie",
+		component: Addmovie,
 	},
 	{
 		path: "/editprofile",

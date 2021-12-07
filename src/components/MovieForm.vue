@@ -16,6 +16,7 @@
 							class="font-normal"
 							color="black"
 							v-model="movie.moviename"
+							:modelValue="moviename"
 						></w-input>
 					</div>
 					<div name="genre" class="space-y-4">
@@ -29,6 +30,7 @@
 							color="black"
 							v-model="movie.movieGenre"
 							return-object
+							:modelValue="movieGenre"
 						>
 							<template #item="{ item, selected }">
 								<w-icon v-if="selected" class="primary">wi-check</w-icon>
@@ -48,6 +50,7 @@
 								class="font-normal"
 								color="black"
 								v-model="movie.runtime"
+								:modelValue="runtime"
 							></w-input>
 						</div>
 						<div name="studio" class="space-y-4">
@@ -59,11 +62,12 @@
 								color="black"
 								v-model="movie.studio"
 								return-object
+								:modelValue="studio"
 							>
 								<template #item="{ item, selected }">
 									<w-icon v-if="selected" class="primary">wi-check</w-icon>
-									<span v-else class="px2"></span>
-									<span>{{ item.studio_name }}</span>
+									<span v-else></span>
+									<span>{{ item.studioname }}</span>
 								</template>
 							</w-select>
 						</div>
@@ -76,6 +80,7 @@
 							class="font-normal"
 							color="black"
 							v-model="movie.releasedate"
+							:modelValue="releasedate"
 						></w-input>
 					</div>
 					<div name="status" class="space-y-4">
@@ -87,10 +92,11 @@
 							color="black"
 							v-model="movie.status"
 							return-object
+							:modelValue="status"
 						>
 							<template #item="{ item, selected }">
 								<w-icon v-if="selected" class="primary">wi-check</w-icon>
-								<span v-else class="px2"></span>
+								<span v-else></span>
 								<span>{{ item.statusname }}</span>
 							</template>
 						</w-select>
@@ -100,7 +106,7 @@
 							<label class="block tracking-wide text-gray-600 text-md font-semibold">Poster</label>
 							<p class="text-gray-400 text-xs">Click on a line below to upload file</p>
 						</div>
-						<w-input type="file" v-model="fileUpload"></w-input>
+						<w-input type="file" @change="imageHandler" :modelValue="poster"></w-input>
 					</div>
 					<div name="link" class="space-y-4">
 						<label class="block tracking-wide text-gray-600 text-md font-semibold">Video link</label>
@@ -111,6 +117,7 @@
 							class="font-normal"
 							color="black"
 							v-model="movie.trailer"
+							:modelValue="trailer"
 						></w-input>
 					</div>
 					<div name="plot" class>
@@ -121,6 +128,7 @@
 							class="font-normal"
 							color="black"
 							v-model="movie.plot"
+							:modelValue="plot"
 						></w-textarea>
 					</div>
 					<div class="pt-5 flex justify-center space-x-32 md:justify-end md:space-x-12">
@@ -128,10 +136,9 @@
 							<p class="uppercase px-2 text-white">cancel</p>
 						</w-button>
 						<!-- :disabled="valid === false" -->
-						<w-button @click="newMovie" bg-color="info-light1" height="35" class="text-sm md:text-md">
+						<w-button @click="saveMovie" bg-color="info-light1" height="35" class="text-sm md:text-md">
 							<p class="uppercase px-5 text-white">save</p>
 						</w-button>
-						<button @click="newMovie" cla>button</button>
 					</div>
 				</w-form>
 			</div>
@@ -139,8 +146,19 @@
 	</div>
 </template>
 <script>
-import movieDataService from "../services/movie-data-service";
+// import movieDataService from "../services/movie-data-service";
 export default {
+	props: {
+		moviename: String,
+		movieGenre: Array,
+		runtime: Number,
+		studio: Object,
+		releasedate: String,
+		moviestatus: Object,
+		poster: String,
+		trailer: String,
+		plot: String,
+	},
 	data() {
 		return {
 			genres: [
@@ -156,22 +174,22 @@ export default {
 				{ genre_id: 10, genre: "Thriller" },
 			],
 			studios: [
-				{ studio_id: 30, studio_name: "20th Century Fox" },
-				{ studio_id: 31, studio_name: "A24" },
-				{ studio_id: 45, studio_name: "Amazon Studios" },
-				{ studio_id: 43, studio_name: "Aniplex" },
-				{ studio_id: 32, studio_name: "Lionsgate" },
-				{ studio_id: 33, studio_name: "Marvel Studios" },
-				{ studio_id: 34, studio_name: "New Line Cinema" },
-				{ studio_id: 35, studio_name: "Next Entertainment World" },
-				{ studio_id: 36, studio_name: "Paramount Pictures" },
-				{ studio_id: 37, studio_name: "Skydance Media" },
-				{ studio_id: 42, studio_name: "Sony Pictures Releasing" },
-				{ studio_id: 44, studio_name: "Summit Entertainment" },
-				{ studio_id: 38, studio_name: "The Weinstein Company" },
-				{ studio_id: 39, studio_name: "Universal Pictures" },
-				{ studio_id: 40, studio_name: "Walt Disney Pictures" },
-				{ studio_id: 41, studio_name: "Warner Bros.Pictures" },
+				{ studio_id: 30, studioname: "20th Century Fox" },
+				{ studio_id: 31, studioname: "A24" },
+				{ studio_id: 45, studioname: "Amazon Studios" },
+				{ studio_id: 43, studioname: "Aniplex" },
+				{ studio_id: 32, studioname: "Lionsgate" },
+				{ studio_id: 33, studioname: "Marvel Studios" },
+				{ studio_id: 34, studioname: "New Line Cinema" },
+				{ studio_id: 35, studioname: "Next Entertainment World" },
+				{ studio_id: 36, studioname: "Paramount Pictures" },
+				{ studio_id: 37, studioname: "Skydance Media" },
+				{ studio_id: 42, studioname: "Sony Pictures Releasing" },
+				{ studio_id: 44, studioname: "Summit Entertainment" },
+				{ studio_id: 38, studioname: "The Weinstein Company" },
+				{ studio_id: 39, studioname: "Universal Pictures" },
+				{ studio_id: 40, studioname: "Walt Disney Pictures" },
+				{ studio_id: 41, studioname: "Warner Bros.Pictures" },
 			],
 			status: [
 				{ status_id: 20, statusname: "General" },
@@ -197,16 +215,20 @@ export default {
 		};
 	},
 	methods: {
-		newMovie() {
-			console.log("testtt");
-			const bodyFormData = new FormData();
-			bodyFormData.append("movie", JSON.stringify(this.movie));
-			bodyFormData.append("file", this.fileUpload);
-			movieDataService.createMovie(bodyFormData).catch((error) => {
-				this.errorText = JSON.stringify(error.response.data.message);
-				this.$waveui.notify({ message: this.errorText, color: "error", timeout: 0 });
-				console.log(this.errorText);
-			});
+		saveMovie() {
+			this.$emit("save-movie");
+			// const bodyFormData = new FormData();
+			// bodyFormData.append("imgFile", this.fileUpload);
+			// bodyFormData.append("movie", JSON.stringify(this.movie));
+			// movieDataService.createMovie(bodyFormData).catch((error) => {
+			// 	this.errorText = JSON.stringify(error.response.data.message);
+			// 	this.$waveui.notify({ message: this.errorText, color: "error", timeout: 0 });
+			// 	console.log(this.errorText);
+			// });
+		},
+		imageHandler(event) {
+			const input = event.target.files[0];
+			this.fileUpload = input;
 		},
 		// computed: {
 		// 	nameFile() {

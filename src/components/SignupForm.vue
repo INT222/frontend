@@ -26,6 +26,7 @@
 							v-model="user.firstname"
 							type="text"
 							placeholder="XXXXXXX"
+							:model-value="firstname"
 						/>
 					</div>
 					<div class="mt-4">
@@ -36,6 +37,7 @@
 							v-model="user.lastname"
 							type="text"
 							placeholder="XXXXXXX"
+							:model-value="lastname"
 						/>
 					</div>
 					<div class="mt-4">
@@ -46,6 +48,7 @@
 							v-model="user.username"
 							type="text"
 							placeholder="XXXXXXX"
+							:model-value="username"
 						/>
 					</div>
 					<div class="mt-4">
@@ -56,6 +59,7 @@
 							v-model="user.password"
 							type="password"
 							placeholder="*******"
+							:model-value="password"
 						/>
 					</div>
 					<!-- <div class="mt-4">
@@ -100,6 +104,10 @@ export default {
 			type: String,
 			default: "Sign up",
 		},
+		firstname: String,
+		lastname: String,
+		username: String,
+		password: String,
 	},
 	components: {
 		"back-button": BackButton,
@@ -120,9 +128,6 @@ export default {
 				required: (value) => !!value || "This field is required",
 				minLength: (value) => value.length >= 8 || "Your password must be minimum 8 characters",
 				confirmPassword: (value) => {
-					// console.log("Password:" + this.user.password);
-					// console.log("Confirm Password:" + value);
-					// console.log("Condition: " + value !== this.user.password);
 					if (value !== this.user.password) {
 						return "Your password is not match";
 					}
@@ -143,52 +148,31 @@ export default {
 			this.userlists = response.data;
 		},
 		submitForm() {
-			if (!this.checkIfValid()) {
-				var data = {
-					username: this.user.username,
-					password: this.user.password,
-					firstname: this.user.firstname,
-					lastname: this.user.lastname,
-				};
-				authService
-					.register(data)
-					.then((response) => {
-						console.log(response.data);
-						this.submitted = true;
-					})
-					.catch((error) => {
-						console.error(error.response.data);
-					});
-				this.$waveui.notify(this.errorText, "success", 0);
-				this.$router.push("/signin");
-			}
-		},
-		newUser() {
-			this.submitted = false;
-			this.user = {};
-		},
-		checkIfValid() {
-			for (const key in this.user) {
-				if (this.user[key] == "") {
-					return true;
-				}
-				return false;
-			}
+			var data = {
+				username: this.user.username,
+				password: this.user.password,
+				firstname: this.user.firstname,
+				lastname: this.user.lastname,
+			};
+			this.$emit("save-data", data);
+
+			// this.$waveui.notify(this.errorText, "success", 0);
+			// this.$router.push("/signin");
 		},
 	},
 	created() {
 		this.fetchData();
 	},
-	computed: {
-		loggedIn() {
-			return this.$store.state.auth.status.loggedIn;
-		},
-	},
-	mounted() {
-		if (this.loggedIn) {
-			this.$router.push("/");
-		}
-	},
+	// computed: {
+	// 	loggedIn() {
+	// 		return this.$store.state.auth.status.loggedIn;
+	// 	},
+	// },
+	// mounted() {
+	// 	if (this.loggedIn) {
+	// 		this.$router.push("/");
+	// 	}
+	// },
 };
 </script>
 

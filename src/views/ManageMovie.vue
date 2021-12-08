@@ -24,32 +24,42 @@
 									</th>
 								</tr>
 							</thead>
+
 							<tbody v-for="(m, index) in movies" :key="m.movie_id">
 								<tr class="text-white">
-									<td class="bg-gray-600 p-3 text-center">
+									<td @click="goRoute(m.movie_id)" class="bg-gray-600 p-3 text-center">
 										<p class="text-center">{{ index }}</p>
 									</td>
-									<td class="bg-gray-600 px-3 py-2 text-center">{{ m.movie_id }}</td>
-									<td class="bg-gray-600 px-3 py-2">
+									<td @click="goRoute(m.movie_id)" class="bg-gray-600 px-3 py-2 text-center">{{ m.movie_id }}</td>
+									<td @click="goRoute(m.movie_id)" class="bg-gray-600 px-3 py-2">
 										<p id="mname" class="overflow-hidden truncate w-36 tb:w-44">{{ m.moviename }}</p>
 									</td>
 									<td
+										@click="goRoute(m.movie_id)"
 										class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:px-3 md:py-2 md:text-center"
-									>
-										{{ m.runtime }}
-									</td>
+									>{{ m.runtime }}</td>
 									<div
+										@click="goRoute(m.movie_id)"
 										class="bg-gray-600 hidden tb:table-cell md:table-cell overflow-hidden truncate w-36 tb:px-3 tb:py-2"
 									>
 										<td v-for="g in m.movieGenre" :key="g.genre_id">
 											<p id="genre">{{ g.genre }}/</p>
 										</td>
 									</div>
-									<td class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:text-center">
+									<td
+										@click="goRoute(m.movie_id)"
+										class="bg-gray-600 hidden tb:table-cell tb:text-center md:table-cell md:text-center"
+									>
 										<p>{{ releaseDate(m.releasedate) }}</p>
 									</td>
 									<td>
-										<w-button @click="removeMovie(m.movie_id)" height="44" width="44" bg-color="red-dark1" class="ml-7">
+										<w-button
+											@click="removeMovie(m.movie_id)"
+											height="44"
+											width="44"
+											bg-color="red-dark1"
+											class="ml-7"
+										>
 											<w-icon color="white" lg>mdi mdi-trash-can-outline</w-icon>
 										</w-button>
 									</td>
@@ -88,8 +98,16 @@ export default {
 					this.$waveui.notify({ message: res.data, color: "success" });
 				})
 				.catch((error) => {
+					console.log(error.data);
 					this.$waveui.notify({ message: error.data, color: "error" });
 				});
+			setTimeout(function () {
+				location.reload();
+			}, 4000);
+			// location.reload();
+		},
+		goRoute(movieId) {
+			this.$router.push(`/movie/${movieId}`);
 		},
 	},
 	created() {

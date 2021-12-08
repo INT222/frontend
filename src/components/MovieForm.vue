@@ -2,7 +2,9 @@
 	<div>
 		<h1 class="mt-2 text-xl font-bold text-center text-white uppercase tracking-wide md:hidden">add movie</h1>
 		<div class="mt-5 mx-2 md:mt-10 md:mx-16 md:grid md:grid-cols-5">
-			<div class="hidden md:block md:col-span-2"></div>
+			<div class="hidden md:block md:col-span-2">
+				<img src="../assets/movieForm.png" class="h-5/6 rounded-l-3xl">
+			</div>
 			<div class="bg-white rounded-xl md:h-5/6 md:rounded-none md:mt-0 md:rounded-r-3xl md:col-span-3 md:overflow-auto">
 				<h1 class="hidden md:block md:text-xl md:px-12 md:font-bold md:mt-12 md:uppercase">add movie</h1>
 				<w-form id="movieform" name="movieform" v-model="valid" class="py-7 px-7 space-y-8 md:px-12 md:py-12">
@@ -99,7 +101,7 @@
 							<label class="block tracking-wide text-gray-600 text-md font-semibold">Poster</label>
 							<p class="text-gray-400 text-xs">Click on a line below to upload file</p>
 						</div>
-						<w-input type="file" @change="imageHandler" :modelValue="poster"></w-input>
+						<w-input type="file" color="black" @change="imageHandler" :modelValue="poster"></w-input>
 					</div>
 					<div name="link" class="space-y-4">
 						<label class="block tracking-wide text-gray-600 text-md font-semibold">Video link</label>

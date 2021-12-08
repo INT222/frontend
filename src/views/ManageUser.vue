@@ -70,6 +70,7 @@ export default {
 				.catch((error) => {
 					this.$waveui.notify({ message: error.data, color: "error" });
 				});
+				location.reload();
 		},
 	},
 	created() {

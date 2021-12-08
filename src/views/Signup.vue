@@ -27,7 +27,7 @@ export default {
 				.then((response) => {
 					if (response.status == 200) {
 						this.$waveui.notify("sign up profile successfully", "success");
-						this.$router.push("/");
+						this.$router.push("/signin");
 					}
 				})
 				.catch((error) => {

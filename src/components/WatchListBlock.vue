@@ -10,9 +10,10 @@
 			v-for="f in favlist"
 			:key="f.movie_id"
 		>
-			<button @click="goRoute(f.movie_id)">
+			<!-- <button @click="goRoute(f.movie_id)" >
 				<img :src="getImage(f.poster)" class="h-44 tb:h-52 md:h-60 col-span-2 rounded-lg" />
-			</button>
+			</button> -->
+			<img :src="getImage(f.poster)" @click="goRoute(f.movie_id)" class="h-44 tb:h-52 md:h-60 col-span-2 rounded-lg" />
 			<div class="space-y-4 mx-4 tb:mx-0 md:mx-0">
 				<p class="text-white font-medium text-base mt-2 tracking-wide tb:text-center md:text-center">
 					{{ f.moviename }}
@@ -21,10 +22,6 @@
 					<p class="text-gray-400 text-xs tracking-wider">{{ releaseDate(f.releasedate) }}</p>
 
 					<p class="text-gray-400 text-xs tracking-wider">{{ f.runtime }} hours</p>
-					<!-- <div class="-mt-1">
-					<w-icon lg color="amber-light1">mdi mdi-star</w-icon>
-					<span class="text-white text-md font-medium">{{ movie.avg_rating }}</span>
-					</div>-->
 				</div>
 
 				<p
@@ -75,17 +72,13 @@ export default {
 		return {
 			stringDate: "",
 			favlist: [],
-			// dup_user: this.$store.state.auth.user.user,
 		};
 	},
 	methods: {
 		async getuserFav() {
-			// return userService.getWatchlist();
 			const respone = await userService.getWatchlist();
 			this.favlist = respone.data;
 			console.log(this.favlist);
-			// this.favlist = resfav.data;
-			// console.log(this.favlist);
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
@@ -104,6 +97,7 @@ export default {
 				});
 		},
 		goRoute(movieId) {
+			console.log("test go route");
 			this.$router.push(`/movie/${movieId}`);
 		},
 	},

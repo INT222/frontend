@@ -5,7 +5,6 @@
 			<div class="hidden md:block md:col-span-2"></div>
 			<div class="bg-white rounded-xl md:h-5/6 md:rounded-none md:mt-0 md:rounded-r-3xl md:col-span-3 md:overflow-auto">
 				<h1 class="hidden md:block md:text-xl md:px-12 md:font-bold md:mt-12 md:uppercase">add movie</h1>
-				<span>movie: {{ movie }} file:{{ fileUpload }}</span>
 				<w-form id="movieform" name="movieform" v-model="valid" class="py-7 px-7 space-y-8 md:px-12 md:py-12">
 					<div name="moviename" class="space-y-4">
 						<label class="block tracking-wide text-gray-600 text-md font-semibold">Movie name</label>
@@ -16,7 +15,6 @@
 							class="font-normal"
 							color="black"
 							v-model="movie.moviename"
-							:modelValue="moviename"
 						></w-input>
 					</div>
 					<div name="genre" class="space-y-4">
@@ -30,7 +28,6 @@
 							color="black"
 							v-model="movie.movieGenre"
 							return-object
-							:modelValue="movieGenre"
 						>
 							<template #item="{ item, selected }">
 								<w-icon v-if="selected" class="primary">wi-check</w-icon>
@@ -50,7 +47,6 @@
 								class="font-normal"
 								color="black"
 								v-model="movie.runtime"
-								:modelValue="runtime"
 							></w-input>
 						</div>
 						<div name="studio" class="space-y-4">
@@ -62,9 +58,8 @@
 								color="black"
 								v-model="movie.studio"
 								return-object
-								:modelValue="studio"
 							>
-								<template #item="{ item, selected }">
+								<template #item="{ item, selected }" :no-unselect="true">
 									<w-icon v-if="selected" class="primary">wi-check</w-icon>
 									<span v-else></span>
 									<span>{{ item.studioname }}</span>
@@ -80,7 +75,6 @@
 							class="font-normal"
 							color="black"
 							v-model="movie.releasedate"
-							:modelValue="releasedate"
 						></w-input>
 					</div>
 					<div name="status" class="space-y-4">
@@ -92,7 +86,6 @@
 							color="black"
 							v-model="movie.status"
 							return-object
-							:modelValue="status"
 						>
 							<template #item="{ item, selected }">
 								<w-icon v-if="selected" class="primary">wi-check</w-icon>
@@ -117,7 +110,6 @@
 							class="font-normal"
 							color="black"
 							v-model="movie.trailer"
-							:modelValue="trailer"
 						></w-input>
 					</div>
 					<div name="plot" class>
@@ -128,14 +120,12 @@
 							class="font-normal"
 							color="black"
 							v-model="movie.plot"
-							:modelValue="plot"
 						></w-textarea>
 					</div>
 					<div class="pt-5 flex justify-center space-x-32 md:justify-end md:space-x-12">
 						<w-button type="reset" bg-color="black" height="35" class="text-sm md:text-md">
 							<p class="uppercase px-2 text-white">cancel</p>
 						</w-button>
-						<!-- :disabled="valid === false" -->
 						<w-button @click="saveMovie" bg-color="info-light1" height="35" class="text-sm md:text-md">
 							<p class="uppercase px-5 text-white">save</p>
 						</w-button>

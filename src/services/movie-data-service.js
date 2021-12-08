@@ -1,7 +1,5 @@
 import http from "../http-common";
 import authHeader from "./auth-header";
-// http.defaults.headers["Content-type"] = "multipart/form-data";
-// http.defaults.headers["Content-type"] = "application/json";
 http.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 http.defaults.headers.Authorization = authHeader();
 class MovieDataService {

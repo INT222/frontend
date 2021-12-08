@@ -163,16 +163,6 @@ export default {
 	created() {
 		this.fetchData();
 	},
-	// computed: {
-	// 	loggedIn() {
-	// 		return this.$store.state.auth.status.loggedIn;
-	// 	},
-	// },
-	// mounted() {
-	// 	if (this.loggedIn) {
-	// 		this.$router.push("/");
-	// 	}
-	// },
 };
 </script>
 

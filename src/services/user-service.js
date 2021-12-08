@@ -13,11 +13,9 @@ class UserService {
 	}
 
 	addToWatchlist(movieId) {
-		// console.log(authHeader(), movieId);
 		return http.post(`/movie/${movieId}/fav`);
 	}
 	removeToWatchlist(movieId) {
-		// return http.delete(`/movie/fav/${movieId}`, { headers: authHeader() });
 		return http.delete(`/movie/fav/${movieId}`);
 	}
 

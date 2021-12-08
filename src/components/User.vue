@@ -38,7 +38,6 @@
 
 <script>
 export default {
-	// props: ["username", "firstname", "lastname"],
 	data() {
 		return {
 			dialog: {
@@ -47,26 +46,9 @@ export default {
 				persistentNoAnimation: false,
 				width: 300,
 			},
-			// role_current : this.$store.state.auth.user.user.
 			dup_user: this.$store.state.auth.user.user,
 		};
 	},
-	computed: {
-		// currentUser() {
-		// 	return this.$store.state.auth.user;
-		// },
-	},
-	mounted() {
-		// if (!this.currentUser) {
-		// 	this.$router.push("/signin");
-		// }
-		// if (this.loggedIn) {
-		// 	console.log(this.loggedIn);
-		// 	console.log(this.$store.state.auth.user);
-		// 	this.user = this.$store.state.auth.user;
-		// 	console.log(`User dialog:${this.user.user.username}`);
-		// }
-		// this.user = this.$store.state.auth.user;
-	},
+	computed: {},
 };
 </script>

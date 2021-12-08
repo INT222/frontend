@@ -23,9 +23,11 @@
 				</div>
 			</div>
 			<div class="flex">
-				<div :class="{
-					'bg-blackBlue h-6 z-10 w-72 ': searchButton === true,
-				}">
+				<div
+					:class="{
+						'bg-blackBlue h-6 z-10 w-72 ': searchButton === true,
+					}"
+				>
 					<div v-if="searchButton">
 						<w-input
 							v-model="search"
@@ -39,16 +41,6 @@
 						></w-input>
 					</div>
 				</div>
-				<div class="z-10">
-					<w-button
-						@click="searchButton = true"
-						bg-color="transparent"
-						class="-ml-10 md:top-0 tb:top-0"
-						:class="{ 'float-right left-2': searchButton === true }"
-					>
-						<w-icon md color="white">mdi mdi-magnify</w-icon>
-					</w-button>
-				</div>
 			</div>
 			<div v-if="this.loggedIn === false" class="hidden md:inline-flex md:space-x-5">
 				<router-link to="/signin">
@@ -58,7 +50,8 @@
 						outline
 						color="white"
 						bg-color="transparent"
-					>sign in</w-button>
+						>sign in</w-button
+					>
 				</router-link>
 				<div>
 					<span class="text-white uppercase text-xs tracking-wider mt-2">or</span>
@@ -70,7 +63,8 @@
 						outline
 						color="black"
 						bg-color="white"
-					>sign up</w-button>
+						>sign up</w-button
+					>
 				</router-link>
 			</div>
 			<!-- <div v-if="this.loggedin === true" class="hidden md:block"> -->
@@ -104,8 +98,7 @@ export default {
 				type: Array,
 			},
 			checkAuth: false,
-			checkuser: null
-
+			checkuser: null,
 		};
 	},
 	methods: {
@@ -131,21 +124,20 @@ export default {
 			if (this.loggedIn) {
 				return this.$store.state.auth.user.user;
 			}
-			return null
+			return null;
 		},
 		showAdminBoard() {
 			if (this.loggedIn) {
 				for (let i = 0; i < this.currentUser.roles.length; i++) {
 					if (this.currentUser.roles[i].id == 1) {
-						return true
+						return true;
 					}
 				}
-				return false
+				return false;
 			}
-			return false
+			return false;
 		},
 	},
-
 
 	// created() {
 	// 	    if (this.loggedIn) {

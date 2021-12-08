@@ -13,10 +13,9 @@
 					placeholder="Write your comment here..."
 					v-model="comment.commenttext"
 				></w-textarea>
-				<span class="text-white">{{ comment }}</span>
 				<div class="flex justify-end">
 					<w-button
-						:disabled="valid === false"
+						:disabled="(valid === false, this.loggedIn == false)"
 						height="32"
 						width="100"
 						bg-color="white"
@@ -55,16 +54,29 @@ export default {
 			},
 			comment: {
 				rating: 0.0,
-				commenttext: "",
+				commenttext: " ",
 			},
 		};
 	},
 	methods: {
 		saveData() {
-			userService.postComment(this.$route.params.id, this.comment).catch((error) => {
-				this.errorText = JSON.stringify(error.response.data.message);
-				this.$waveui.notify({ message: this.errorText, color: "error", timeout: 0 });
-			});
+			userService
+				.postComment(this.$route.params.id, this.comment)
+				.then((response) => {
+					if (response.status == 200) {
+						this.$waveui.notify(" post comment successfully", "success");
+						location.reload();
+					}
+				})
+				.catch((error) => {
+					this.errorText = JSON.stringify(error.response.data.message);
+					this.$waveui.notify({ message: this.errorText, color: "error" });
+				});
+		},
+	},
+	computed: {
+		loggedIn() {
+			return this.$store.state.auth.status.loggedIn;
 		},
 	},
 };

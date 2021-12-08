@@ -38,6 +38,7 @@ export default {
 					console.error(error);
 				});
 			authService.logout();
+			location.reload();
 			this.$router.push("/");
 		},
 	},

@@ -77,11 +77,14 @@ export default {
 					if (response.status == 200) {
 						this.$waveui.notify("add movie successfully", "success");
 					}
+					if(response.status == 401) {
+						this.$waveui.notify("Strict access for admin only", "error");
+					}
 				})
-				.catch((error) => {
-					this.errorText = JSON.stringify(error.response.data.message);
-					this.$waveui.notify(this.errorText, "error");
-				});
+				// .catch((error) => {
+				// 	this.errorText = JSON.stringify(error.response.data.message);
+				// 	this.$waveui.notify(this.errorText, "error");
+				// });
 		},
 		imageHandler(event) {
 			const input = event.target.files[0];

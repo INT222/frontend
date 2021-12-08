@@ -6,11 +6,13 @@
 					<back-button iconcolor="white"></back-button>
 				</div>
 				<div class="tb:hidden md:hidden block absolute ml-80 mt-4">
-					<bookmark-button></bookmark-button>
+					<bookmark-button :id="this.$route.params.id"></bookmark-button>
 				</div>
 			</div>
 			<div class="md:mb-4">
-				<span class="hidden tb:block tb:font-medium tb:text-5xl md:block md:font-medium md:text-6xl text-white">{{ movie.moviename }}</span>
+				<span class="hidden tb:block tb:font-medium tb:text-5xl md:block md:font-medium md:text-6xl text-white">{{
+					movie.moviename
+				}}</span>
 			</div>
 			<div class="hidden tb:block">
 				<div class="h-16 rounded-lg shadow-md bg-lightGray transition-shadow duration-300 ease-in-out">
@@ -20,15 +22,15 @@
 							<div class="inline-flex" v-for="m in movie.movieGenre" :key="m.genre_id">
 								<p class="text-white text-xl">{{ m.genre }}/</p>
 							</div>
-
-							<span class="text-white mtext-xl ml-4">{{ movie.runtime }} hours</span>
+							<span class="text-white text-xl ml-4">{{ movie.studioname }}</span>
+							<span class="text-white text-xl ml-4">{{ movie.runtime }} hours</span>
 						</div>
 						<div class="flex justify-end space-x-3">
 							<w-icon class="" lg color="yellow">mdi mdi-star</w-icon>
 							<span class="text-white text-xl font-bold">{{ movie.avg_rating }}</span>
 						</div>
 						<div class="flex justify-end">
-							<bookmark-button></bookmark-button>
+							<bookmark-button :id="movie.movie_id"> </bookmark-button>
 						</div>
 					</div>
 				</div>
@@ -79,7 +81,9 @@
 			<p
 				v-if="toggle === false"
 				class="text-white text-sm mx-5 tb:mx-8 tb:text-justify md:px-0 md:text-xl md:mx-0 md:text-justify"
-			>{{ movie.plot }}</p>
+			>
+				{{ movie.plot }}
+			</p>
 		</div>
 	</div>
 </template>
@@ -87,7 +91,7 @@
 <script>
 import BookMarkButton from "./BookMarkButton.vue";
 import BackButton from "./BackButton.vue";
-import movieService from "../services/MovieService";
+import movieService from "../services/movie-service";
 import dateFormat from "dateformat";
 
 export default {

@@ -29,7 +29,7 @@
 <script>
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-import movieService from "../services/MovieService";
+import movieService from "../services/movie-service";
 export default {
 	// name: "Banner",
 	components: { VueperSlides, VueperSlide },
@@ -60,7 +60,7 @@ export default {
 				let randNum = Math.floor(Math.random() * this.movies.length);
 				this.slides.push(this.movies[randNum]);
 			}
-				console.log(this.slides)
+			// console.log(this.slides);
 		},
 		getImage(imgName) {
 			return `${process.env.VUE_APP_BACKEND_URL}/view/img/${imgName}`;
@@ -69,7 +69,7 @@ export default {
 			this.$router.push(`/movie/${movieId}`);
 		},
 	},
-	created() {
+	async created() {
 		this.fecthData();
 	},
 };

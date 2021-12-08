@@ -55,7 +55,7 @@
 				<div class="-ml-3">
 					<genre-list-block></genre-list-block>
 				</div>
-				<div class="-ml-2">
+				<div v-if="this.loggedIn == true" class="-ml-2">
 					<router-link to="/watchlist">
 						<w-button :height="40" bg-color="transparent">
 							<w-icon class="-ml-1 -mt-1" :size="25" color="grey">mdi mdi-bookmark</w-icon>
@@ -63,7 +63,7 @@
 						</w-button>
 					</router-link>
 				</div>
-				<div class="mt-6 -ml-4">
+				<div v-if="this.showAdminBoard" class="mt-6 -ml-4">
 					<manage-list ></manage-list>
 				</div>
 			</div>
@@ -98,5 +98,27 @@ export default {
 		// 	this.$emit("show-profile", "profile is click");
 		// },
 	},
+	computed: {
+		loggedIn() {
+			return this.$store.state.auth.status.loggedIn;
+		},
+		currentUser() {
+			if (this.loggedIn) {
+				return this.$store.state.auth.user.user;
+			}
+			return null
+		},
+		showAdminBoard() {
+			if (this.loggedIn) {
+				for (let i = 0; i < this.currentUser.roles.length; i++) {
+					if (this.currentUser.roles[i].id == 1) {
+						return true
+					}
+				}
+				return false
+			}
+			return false
+		},
+	}
 };
 </script>

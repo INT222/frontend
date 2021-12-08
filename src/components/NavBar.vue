@@ -11,11 +11,13 @@
 			</div>
 			<div class="hidden md:block md:flex-grow">
 				<div class="text-sm text-white inline-flex space-x-5">
-					<router-link to="/watchlist">
-						<w-button bg-color="transparent" :height="40" class="uppercase block px-3 py-2">watch list</w-button>
-					</router-link>
+					<div v-if="this.loggedIn == true">
+						<router-link to="/watchlist">
+							<w-button bg-color="transparent" :height="40" class="uppercase block px-3 py-2">watch list</w-button>
+						</router-link>
+					</div>
 					<genre-list-block />
-					<div>
+					<div v-if="this.showAdminBoard == true">
 						<manage-list></manage-list>
 					</div>
 				</div>
@@ -38,16 +40,6 @@
 							@click:inner-icon-left="searchButton = false"
 						></w-input>
 					</div>
-				</div>
-				<div class="z-10">
-					<w-button
-						@click="searchButton = true"
-						bg-color="transparent"
-						class="-ml-10 md:top-0 tb:top-0"
-						:class="{ 'float-right left-2': searchButton === true }"
-					>
-						<w-icon md color="white">mdi mdi-magnify</w-icon>
-					</w-button>
 				</div>
 			</div>
 			<div v-if="this.loggedIn === false" class="hidden md:inline-flex md:space-x-5">
@@ -105,6 +97,8 @@ export default {
 			list: {
 				type: Array,
 			},
+			checkAuth: false,
+			checkuser: null,
 		};
 	},
 	methods: {
@@ -113,6 +107,7 @@ export default {
 				this.showDropDown = false;
 			}
 		},
+
 		// hideDrawer() {},
 	},
 	created() {
@@ -125,7 +120,31 @@ export default {
 		loggedIn() {
 			return this.$store.state.auth.status.loggedIn;
 		},
+		currentUser() {
+			if (this.loggedIn) {
+				return this.$store.state.auth.user.user;
+			}
+			return null;
+		},
+		showAdminBoard() {
+			if (this.loggedIn) {
+				for (let i = 0; i < this.currentUser.roles.length; i++) {
+					if (this.currentUser.roles[i].id == 1) {
+						return true;
+					}
+				}
+				return false;
+			}
+			return false;
+		},
 	},
+
+	// created() {
+	// 	    if (this.loggedIn) {
+	// //   this.$router.push('/profile');
+
+	// }
+	// },
 	// mounted() {
 	// 	// if (this.loggedIn) {
 	// 	// 	this.$router.push("/profile");

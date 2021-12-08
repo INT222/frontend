@@ -3,7 +3,7 @@
 		<banner />
 		<p
 			class="text-white uppercase text-xl tb:text-2xl md:text-3xl font-medium md:mx-6 tb:mx-4 mx-2"
-		>popular in this month</p>
+		>Suggest for you</p>
 		<div class="md:mx-24 tb:ml-7 w-full mb-3">
 			<slide-list-block></slide-list-block>
 		</div>

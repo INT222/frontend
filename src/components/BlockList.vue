@@ -46,7 +46,7 @@
 							<div
 								v-for="g in m.movieGenre"
 								:key="g.genre_id"
-								class="inline-flex text-sm tracking-widertb:text-center md:space-x-1 tb:mt-4"
+								class="inline-flex text-sm tracking-wider tb:text-center md:space-x-1 tb:mt-4"
 							>
 								<p>{{ g.genre }}/</p>
 							</div>
@@ -75,7 +75,7 @@
 
 <script>
 import FavButton from "./FavButton.vue";
-import movieService from "../services/MovieService";
+import movieService from "../services/movie-service";
 import dateFormat from "dateformat";
 
 export default {

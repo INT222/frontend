@@ -71,21 +71,22 @@ export default {
 			const bodyFormData = new FormData();
 			bodyFormData.append("imgFile", this.fileUpload);
 			bodyFormData.append("movie", JSON.stringify(this.movie));
-			movieDataService.createMovie(bodyFormData).catch((error) => {
-				this.errorText = JSON.stringify(error.response.data.message);
-				this.$waveui.notify({ message: this.errorText, color: "error", timeout: 0 });
-				console.log(this.errorText);
-			});
+			movieDataService
+				.createMovie(bodyFormData)
+				.then((response) => {
+					if (response.status == 200) {
+						this.$waveui.notify("add movie successfully", "success");
+					}
+				})
+				.catch((error) => {
+					this.errorText = JSON.stringify(error.response.data.message);
+					this.$waveui.notify(this.errorText, "error");
+				});
 		},
 		imageHandler(event) {
 			const input = event.target.files[0];
 			this.fileUpload = input;
 		},
-		// computed: {
-		// 	nameFile() {
-		// 		return this.file;
-		// 	},
-		// },
 	},
 };
 </script>
